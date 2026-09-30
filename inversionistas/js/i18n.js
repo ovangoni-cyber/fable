@@ -224,6 +224,9 @@ window.I18N = {
     'form.consent': 'Entiendo que este sitio no es una oferta de venta de valores y que cualquier inversión se hace solo a través de los documentos de la oferta.',
     'form.submit': 'Solicitar acceso',
 
+    'form.legal': 'Usamos sus datos para contactarle y verificar su acreditación, como se describe en nuestra <a href="privacy.html">política de privacidad</a>.',
+    'footer.privacy': 'Política de privacidad',
+    'footer.renders': 'Las imágenes son representaciones ilustrativas.',
     'footer.l1': 'Este sitio es solo informativo. No es una oferta de venta ni una solicitud de oferta de compra de ningún valor. Cualquier oferta se hace solo a inversionistas acreditados verificados mediante un memorando de colocación privada y documentos relacionados, bajo la Regla 506(c) de la Regulación D. Los valores no se han registrado bajo la Securities Act de 1933 ni bajo ninguna ley estatal de valores.',
     'footer.l2': 'Los objetivos, casos y resultados de la calculadora de este sitio son hipotéticos e ilustrativos. No reflejan inversiones ni resultados reales y no son garantías. Las inversiones inmobiliarias no tienen liquidez e implican riesgos, incluida la pérdida de todo el capital invertido. Consulte a sus propios asesores legales, fiscales y financieros.'
   },

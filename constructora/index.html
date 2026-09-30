@@ -9,8 +9,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="American Restoration Services · Miami">
   <meta property="og:description" content="Custom homes engineered for Miami's light, water and weather.">
-  <meta property="og:image" content="img/hero.svg">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -29,7 +34,7 @@
   }
   </script>
 </head>
-<body>
+<body class="has-action-bar">
   <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
 
   <header class="site-header" id="top">
@@ -47,6 +52,7 @@
         <a class="nav__cta" href="#contact" data-i18n="nav.cta">Start a project</a>
       </nav>
       <div class="header__tools">
+        <a class="header__phone" href="tel:+13055550142">(305) 555-0142</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
           <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
           <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -62,8 +68,7 @@
     <!-- ============================== HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media media">
-        <img class="media__art" src="img/hero.svg" alt="">
-        <img class="media__photo" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=80" alt="Modern waterfront residence with pool at dusk" data-i18n-attr="alt:hero.alt" fetchpriority="high">
+        <img class="media__img" src="img/hero.jpg" width="2000" height="1250" alt="Rendering of a modern waterfront residence with a pool at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high" decoding="async">
       </div>
       <div class="hero__shade" aria-hidden="true"></div>
       <div class="wrap hero__inner">
@@ -99,7 +104,7 @@
       <div class="wrap">
         <div class="section__head">
           <div>
-            <p class="sheet-tag">A-101</p>
+            <p class="eyebrow" data-i18n="homes.eyebrow">Portfolio</p>
             <h2 id="homes-title" class="h2" data-i18n="homes.title">Selected homes</h2>
           </div>
           <div class="filters" role="group" aria-label="Filter homes" data-i18n-attr="aria-label:homes.filter">
@@ -112,8 +117,7 @@
         <div class="projects">
           <article class="project project--feature" data-cat="waterfront">
             <div class="project__media media">
-              <img class="media__art" src="img/project-4.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80" alt="Casa Brisa, a two-story modern waterfront home" data-i18n-attr="alt:p1.alt">
+              <img class="media__img" src="img/project-1.jpg" width="1600" height="1200" alt="Rendering of Casa Brisa, a two-story modern home on the bay" data-i18n-attr="alt:p1.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Key Biscayne</span><span>2025</span></p>
@@ -127,8 +131,7 @@
 
           <article class="project" data-cat="waterfront">
             <div class="project__media media">
-              <img class="media__art" src="img/project-2.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Sunset Island residence lit at night" data-i18n-attr="alt:p2.alt">
+              <img class="media__img" src="img/project-2.jpg" width="1200" height="900" alt="Rendering of the Sunset Island residence lit at dusk" data-i18n-attr="alt:p2.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Sunset Islands, Miami Beach</span><span>2024</span></p>
@@ -139,8 +142,7 @@
 
           <article class="project" data-cat="estate">
             <div class="project__media media">
-              <img class="media__art" src="img/project-1.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="White estate home with pool" data-i18n-attr="alt:p3.alt">
+              <img class="media__img" src="img/project-3.jpg" width="1200" height="900" alt="Rendering of a Mediterranean-style estate home with a pool" data-i18n-attr="alt:p3.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Coral Gables</span><span>2024</span></p>
@@ -151,8 +153,7 @@
 
           <article class="project" data-cat="waterfront">
             <div class="project__media media">
-              <img class="media__art" src="img/project-5.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Casa Mangle, modern home in Coconut Grove" data-i18n-attr="alt:p4.alt">
+              <img class="media__img" src="img/project-4.jpg" width="1200" height="900" alt="Rendering of Casa Mangle, a modern waterfront home in Coconut Grove" data-i18n-attr="alt:p4.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Coconut Grove</span><span>2023</span></p>
@@ -163,8 +164,7 @@
 
           <article class="project" data-cat="estate">
             <div class="project__media media">
-              <img class="media__art" src="img/project-3.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80" alt="Pinecrest Pavilion estate home" data-i18n-attr="alt:p5.alt">
+              <img class="media__img" src="img/project-5.jpg" width="1200" height="900" alt="Rendering of the Pinecrest Pavilion at dusk" data-i18n-attr="alt:p5.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Pinecrest</span><span>2023</span></p>
@@ -175,8 +175,7 @@
 
           <article class="project" data-cat="estate">
             <div class="project__media media">
-              <img class="media__art" src="img/project-6.svg" alt="">
-              <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Living room with floor-to-ceiling glass" data-i18n-attr="alt:p6.alt">
+              <img class="media__img" src="img/project-6.jpg" width="1200" height="900" alt="Rendering of a modern home with floor-to-ceiling glass" data-i18n-attr="alt:p6.alt" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
               <p class="project__meta"><span>Coconut Grove</span><span>2022</span></p>
@@ -194,7 +193,7 @@
       <div class="wrap">
         <div class="section__head">
           <div>
-            <p class="sheet-tag">A-201</p>
+            <p class="eyebrow" data-i18n="process.eyebrow">How we work</p>
             <h2 id="process-title" class="h2" data-i18n="process.title">From lot to keys</h2>
           </div>
           <p class="section__intro" data-i18n="process.intro">A typical schedule for a 7,000 to 10,000 sf new home. Phases overlap so design, permits and construction never wait on each other.</p>
@@ -263,11 +262,11 @@
     <section class="section section--dark" id="engineering" aria-labelledby="eng-title">
       <div class="wrap eng">
         <div class="eng__intro">
-          <p class="sheet-tag sheet-tag--light">S-001</p>
+          <p class="eyebrow eyebrow--light" data-i18n="eng.eyebrow">Engineering</p>
           <h2 id="eng-title" class="h2" data-i18n="eng.title">Built for wind, water and salt air</h2>
           <p data-i18n="eng.lede">Every home we build is designed to the High-Velocity Hurricane Zone provisions of the Florida Building Code. These are the specification sections we never value-engineer.</p>
           <figure class="eng__drawing media">
-            <img class="media__art" src="img/elevation-dark.svg" alt="Line drawing of a house elevation with dimensions" data-i18n-attr="alt:eng.alt">
+            <img class="media__img" src="img/elevation-dark.svg" alt="Line drawing of a house elevation with dimensions" data-i18n-attr="alt:eng.alt">
           </figure>
         </div>
         <div class="spec">
@@ -305,7 +304,7 @@
       <div class="wrap">
         <div class="section__head">
           <div>
-            <p class="sheet-tag">A-301</p>
+            <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
             <h2 id="services-title" class="h2" data-i18n="services.title">What we build</h2>
           </div>
         </div>
@@ -340,11 +339,10 @@
     <section class="section section--paper" id="studio" aria-labelledby="studio-title">
       <div class="wrap studio">
         <div class="studio__media media">
-          <img class="media__art" src="img/elevation.svg" alt="">
-          <img class="media__photo" loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80" alt="Architectural drawings on a desk" data-i18n-attr="alt:studio.alt">
+          <img class="media__img" src="img/elevation.svg" alt="South elevation drawing with dimensions" data-i18n-attr="alt:studio.alt" loading="lazy" decoding="async">
         </div>
         <div class="studio__text">
-          <p class="sheet-tag">G-001</p>
+          <p class="eyebrow" data-i18n="studio.eyebrow">The company</p>
           <h2 id="studio-title" class="h2" data-i18n="studio.title">A small builder, on purpose</h2>
           <p data-i18n="studio.p1">Every home we build is designed for Miami’s salt air, heat and hurricane season from the first drawing. We work in that order: engineering first, then finishes.</p>
           <p data-i18n="studio.p2">We take on a limited number of projects each year, so a principal walks every site every week and answers your calls directly.</p>
@@ -361,7 +359,7 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact">
         <div class="contact__intro">
-          <p class="sheet-tag">C-001</p>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
           <h2 id="contact-title" class="h2" data-i18n="contact.title">Start with your lot</h2>
           <p data-i18n="contact.lede">Tell us about the property and what you want to build. A principal will call you within two business days to set up a site visit.</p>
           <dl class="contact__details">
@@ -428,6 +426,7 @@
             <textarea id="f-msg" name="message" rows="4" data-i18n-attr="placeholder:form.msgPh" placeholder="Lot size, waterfront, number of bedrooms, target move-in date…"></textarea>
           </div>
           <button class="btn btn--dark" type="submit" data-i18n="form.submit">Request a site consultation</button>
+          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to our <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -452,7 +451,16 @@
         <p>© <span data-year>2026</span> American Restoration Services</p>
       </div>
     </div>
+    <div class="wrap footer__legal">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+      <span data-i18n="footer.renders">Images are illustrative renderings, not photographs of completed homes.</span>
+    </div>
   </footer>
+
+  <nav class="action-bar" aria-label="Quick contact" data-i18n-attr="aria-label:bar.label">
+    <a href="tel:+13055550142" data-i18n="bar.call">Call</a>
+    <a class="action-bar__main" href="#contact" data-i18n="bar.cta">Start a project</a>
+  </nav>
 
   <script src="js/i18n.js"></script>
   <script src="js/core.js"></script>

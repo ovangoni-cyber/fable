@@ -1,4 +1,4 @@
-/* Shared site core: language switch (EN/ES), header, mobile menu, photos, forms.
+/* Shared site core: language switch (EN/ES), header, mobile menu, forms.
    The same file is used by all three sites. English lives in the HTML; Spanish
    comes from js/i18n.js (window.I18N.es for the page, window.I18N.strings for scripts). */
 (function () {
@@ -130,23 +130,6 @@
   document.querySelectorAll('[data-set-lang]').forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
   });
-
-  /* ---------------------------------------------------------------- photos
-     Every .media block has an illustration underneath and an optional photo on top.
-     The photo fades in once it loads; if it fails (offline, blocked) it is removed
-     and the illustration stays. */
-  function wirePhoto(img) {
-    if (img.dataset.wired) return;
-    img.dataset.wired = '1';
-    var done = function () { img.classList.add('is-loaded'); };
-    var fail = function () { img.remove(); };
-    if (img.complete) { if (img.naturalWidth) done(); else if (img.getAttribute('src')) fail(); return; }
-    img.addEventListener('load', done, { once: true });
-    img.addEventListener('error', fail, { once: true });
-  }
-  function wirePhotos(scope) { (scope || document).querySelectorAll('.media__photo').forEach(wirePhoto); }
-  window.Site.wirePhotos = wirePhotos;
-  wirePhotos();
 
   /* ---------------------------------------------------------------- forms
      Set data-endpoint on a form (Formspree, Basin, your own API…) to deliver

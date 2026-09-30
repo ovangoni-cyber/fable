@@ -30,9 +30,10 @@ Para forzar un idioma, agregue `?lang=es` o `?lang=en` a la URL. Si no, el sitio
   index.html      contenido en inglés (idioma por defecto)
   css/styles.css  diseño del sitio
   js/i18n.js      textos en español y textos usados por los scripts
-  js/core.js      idioma, menú, fotos y formularios (igual en los tres sitios)
+  js/core.js      idioma, menú y formularios (igual en los tres sitios)
   js/main.js      lo propio de cada sitio (filtros, propiedades, calculadora)
-  img/            ilustraciones SVG y favicon
+  privacy.html    política de privacidad (inglés y español)
+  img/            renders, dibujos SVG, imagen para redes y favicon
 ```
 
 ## Cómo editar textos
@@ -42,13 +43,21 @@ Para forzar un idioma, agregue `?lang=es` o `?lang=en` a la URL. Si no, el sitio
 - **Propiedades de Wendy Realtor**: en el arreglo `LISTINGS` de `realtor/js/main.js` (precio, habitaciones, baños, superficie, frente al agua, estado, descripción y características en ambos idiomas).
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
-## Fotos
+## Imágenes
 
-Cada imagen tiene dos capas: una ilustración SVG propia (en `img/`) y encima una foto. Si la foto no carga, queda la ilustración.
+Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las imágenes de las propiedades se indican en el campo `img` de `LISTINGS` (`realtor/js/main.js`).
 
-Las fotos actuales son **fotos de stock de Unsplash** puestas como referencia: no son proyectos ni propiedades reales de estos negocios. Antes de publicar, reemplácelas por fotografía propia: cambie el `src` de cada `<img class="media__photo">` (o el campo `photo` en `LISTINGS`) por la ruta de su imagen, por ejemplo `img/casa-brisa.jpg`.
+Tamaños recomendados: portada 2000 × 1250 px, tarjetas 1200 × 900 px, vecindarios 1000 × 1250 px, en JPG de calidad 80–85%.
+
+Los dibujos técnicos (alzados en `constructora/img/elevation*.svg` y el plano del lote en `inversionistas/img/siteplan.svg`) son SVG y se pueden conservar.
 
 Para la foto de Wendy, guarde el retrato como `realtor/img/wendy.jpg` y descomente la etiqueta `<img>` en la sección "About" de `realtor/index.html`. Hasta entonces se muestra un monograma "W".
+
+Cada sitio incluye `img/og.jpg` (imagen de 1200 × 630 px para cuando se comparte el enlace en redes o WhatsApp) y `img/apple-touch-icon.png`. Cuando tengan dominio, cambien `og:image` por la URL completa, por ejemplo `https://sudominio.com/img/og.jpg`.
+
+## Privacidad
+
+Cada sitio tiene su `privacy.html` (inglés y español), enlazada desde el pie de página y desde cada formulario. Es un borrador: **debe revisarlo un abogado** antes de publicar, en especial el de inversionistas.
 
 ## Formularios
 

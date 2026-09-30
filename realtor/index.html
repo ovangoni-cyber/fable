@@ -9,8 +9,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Wendy Realtor · Miami Luxury Real Estate">
   <meta property="og:description" content="Waterfront and estate homes in Miami, represented with discretion.">
-  <meta property="og:image" content="img/hero.svg">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@300..700&display=swap">
@@ -30,7 +35,7 @@
   }
   </script>
 </head>
-<body>
+<body class="has-action-bar">
   <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
 
   <header class="site-header" id="top">
@@ -48,6 +53,7 @@
         <a class="nav__cta" href="#contact" data-i18n="nav.cta">Private showing</a>
       </nav>
       <div class="header__tools">
+        <a class="header__phone" href="tel:+13055550199">(305) 555-0199</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
           <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
           <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -75,8 +81,7 @@
         </div>
         <figure class="hero__feature">
           <div class="media hero__media">
-            <img class="media__art" src="img/hero.svg" alt="">
-            <img class="media__photo" src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80" alt="Modern waterfront residence at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high">
+            <img class="media__img" src="img/hero.jpg" width="1500" height="1250" alt="Rendering of a modern waterfront residence at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high" decoding="async">
           </div>
           <figcaption class="feature-card">
             <p class="feature-card__status" data-i18n="hero.status">Just listed · Key Biscayne</p>
@@ -184,37 +189,37 @@
         </div>
         <div class="hoods">
           <article class="hood" data-area="miami-beach">
-            <div class="hood__media media"><img class="media__art" src="img/n-islands.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-islands.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3 data-i18n="hoods.mbT">Miami Beach &amp; the Islands</h3>
             <p data-i18n="hoods.mb">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
             <button class="link-btn hood__btn" type="button"></button>
           </article>
           <article class="hood" data-area="key-biscayne">
-            <div class="hood__media media"><img class="media__art" src="img/n-key-biscayne.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-key-biscayne.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Key Biscayne</h3>
             <p data-i18n="hoods.kb">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
             <button class="link-btn hood__btn" type="button"></button>
           </article>
           <article class="hood" data-area="coral-gables">
-            <div class="hood__media media"><img class="media__art" src="img/n-coral-gables.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-coral-gables.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Coral Gables</h3>
             <p data-i18n="hoods.cg">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
             <button class="link-btn hood__btn" type="button"></button>
           </article>
           <article class="hood" data-area="coconut-grove">
-            <div class="hood__media media"><img class="media__art" src="img/n-coconut-grove.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-coconut-grove.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Coconut Grove</h3>
             <p data-i18n="hoods.cgv">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
             <button class="link-btn hood__btn" type="button"></button>
           </article>
           <article class="hood" data-area="north-beaches">
-            <div class="hood__media media"><img class="media__art" src="img/n-miami-beach.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-miami-beach.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3 data-i18n="hoods.nbT">Golden Beach &amp; Sunny Isles</h3>
             <p data-i18n="hoods.nb">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
             <button class="link-btn hood__btn" type="button"></button>
           </article>
           <article class="hood" data-area="brickell">
-            <div class="hood__media media"><img class="media__art" src="img/n-brickell.svg" alt=""></div>
+            <div class="hood__media media"><img class="media__img" src="img/n-brickell.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Brickell</h3>
             <p data-i18n="hoods.br">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
             <button class="link-btn hood__btn" type="button"></button>
@@ -303,6 +308,7 @@
             </div>
           </div>
           <button class="btn btn--sand" type="submit" data-i18n="val.submit">Request a private valuation</button>
+          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. Your details are used only to reply to you.</p>
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -417,6 +423,7 @@
             <textarea id="c-msg" name="message" rows="4" data-i18n-attr="placeholder:form.msgPh" placeholder="Neighborhoods, must-haves, timing…"></textarea>
           </div>
           <button class="btn btn--sea" type="submit" data-i18n="form.submit">Send message</button>
+          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. Your details are used only to reply to you.</p>
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -442,7 +449,17 @@
         <p>© <span data-year>2026</span> Wendy Realtor</p>
       </div>
     </div>
+    <div class="wrap footer__legal">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+      <span data-i18n="footer.renders">Images are illustrative renderings.</span>
+    </div>
   </footer>
+
+  <nav class="action-bar" aria-label="Quick contact" data-i18n-attr="aria-label:bar.label">
+    <a href="tel:+13055550199" data-i18n="bar.call">Call</a>
+    <a href="https://wa.me/13055550199" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="action-bar__main" href="#contact" data-i18n="bar.cta">Private showing</a>
+  </nav>
 
   <dialog class="dialog" id="listing-dialog" aria-labelledby="dlg-title">
     <div class="dialog__inner" id="dialog-body"></div>

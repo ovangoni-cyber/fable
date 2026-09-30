@@ -76,8 +76,6 @@ button { font: inherit; color: inherit; }
 /* ---------------------------------------------------------------- media */
 .media { position: relative; overflow: hidden; background: var(--panel-2); }
 .media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.media__photo { opacity: 0; transition: opacity 0.9s ease; }
-.media__photo.is-loaded, .no-js .media__photo { opacity: 1; }
 
 /* ---------------------------------------------------------------- header */
 .site-header {
@@ -404,3 +402,22 @@ input[type="range"] { width: 100%; accent-color: var(--amber); height: 28px; cur
 .footer__nav a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; }
 .footer__nav a:hover { color: var(--bone); }
 .footer__legal { display: grid; gap: 12px; padding-top: 24px; font-size: 0.8125rem; color: var(--muted); max-width: 110ch; }
+
+/* ---------------------------------------------------------------- legal notes + privacy page */
+.form__legal { font-size: 0.8125rem; color: var(--muted); max-width: 62ch; }
+.form__legal a, .footer__legal a { color: var(--bone); }
+.case__media .media__img { transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+.case:hover .case__media .media__img { transform: scale(1.03); }
+.legal-page { padding-block: clamp(40px, 6vw, 80px) 96px; }
+.legal-page .wrap { max-width: 860px; }
+.legal-page h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--step-2); line-height: 1.08; margin-bottom: 12px; }
+.legal-page h2 { font-family: var(--f-display); font-size: 1.4rem; margin: 36px 0 10px; }
+.legal-page p, .legal-page li { color: var(--muted); max-width: 68ch; }
+.legal-page p + p { margin-top: 12px; }
+.legal-page ul { padding-left: 20px; display: grid; gap: 6px; }
+.legal-page .updated { font-family: var(--f-mono); font-size: 0.8125rem; color: var(--muted); }
+html[lang="es"] [data-lang="en"], html[lang="en"] [data-lang="es"] { display: none; }
+.legal-back { font-size: 0.9rem; text-decoration: none; color: var(--muted); }
+.legal-back:hover { color: var(--bone); }
+@media (max-width: 480px) { .legal-back { font-size: 0.8rem; } }
+.legal-back { white-space: nowrap; }

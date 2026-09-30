@@ -1,6 +1,5 @@
 /* Wendy Realtor: listings, filters, listing detail, neighborhood guide, service tabs.
-   Edit LISTINGS to change the homes on the page. `photo` is optional; `art` is the
-   illustration shown underneath (and whenever the photo can't load). */
+   Edit LISTINGS to change the homes on the page. `img` is the listing image in img/. */
 (function () {
   'use strict';
 
@@ -13,7 +12,7 @@
       title: { en: 'Harbor Drive Residence', es: 'Residencia Harbor Drive' },
       price: 18950000, beds: 7, baths: 8.5, sqft: 9850, lot: 0.52, water: 'bay', frontage: 120, year: 2025,
       status: 'new', listed: '2026-09-12',
-      art: 'img/listing-1.svg', photo: 'photo-1613490493576-7fde63acd811',
+      img: 'img/listing-1.jpg',
       desc: {
         en: 'New construction on the bay side of the island, finished this summer. Floor-to-ceiling impact glass on three sides, a 75 ft pool at the level of the water and a dock for a 60 ft yacht.',
         es: 'Construcción nueva en el lado de la bahía, terminada este verano. Vidrio de impacto de piso a techo en tres fachadas, una piscina de 75 pies a nivel del agua y un muelle para un yate de 60 pies.'
@@ -28,7 +27,7 @@
       title: { en: 'Sunset Island Modern', es: 'Moderna en Sunset Island' },
       price: 32500000, beds: 8, baths: 10.5, sqft: 12400, lot: 0.61, water: 'bay', frontage: 150, year: 2023,
       status: 'sale', listed: '2026-06-02',
-      art: 'img/listing-2.svg', photo: 'photo-1600585154340-be6161a56a0c',
+      img: 'img/listing-2.jpg',
       desc: {
         en: 'A gated island, sunset views across the bay to the downtown skyline and 150 ft of deep water with no fixed bridges to the ocean.',
         es: 'Una isla con acceso controlado, atardeceres sobre la bahía con vista al skyline y 150 pies de agua profunda sin puentes fijos hasta el océano.'
@@ -43,7 +42,7 @@
       title: { en: 'Oceanfront on Ocean Boulevard', es: 'Frente al océano en Ocean Boulevard' },
       price: 26000000, beds: 7, baths: 9.5, sqft: 11000, lot: 0.7, water: 'ocean', frontage: 100, year: 2021,
       status: 'sale', listed: '2026-04-18',
-      art: 'img/listing-8.svg', photo: 'photo-1605276374104-dee2a0ed3cd6',
+      img: 'img/listing-8.jpg',
       desc: {
         en: 'Direct beach access in a small town with its own police and no high-rises. Every main room faces the Atlantic.',
         es: 'Acceso directo a la playa en un pequeño municipio con policía propia y sin torres. Cada estancia principal mira al Atlántico.'
@@ -58,7 +57,7 @@
       title: { en: 'Old Cutler Bay Estate', es: 'Finca en Old Cutler Bay' },
       price: 14200000, beds: 6, baths: 7.5, sqft: 8900, lot: 1.1, water: 'canal', frontage: 180, year: 2019,
       status: 'contract', listed: '2026-05-07',
-      art: 'img/listing-3.svg', photo: 'photo-1512917774080-9991f1c4c750',
+      img: 'img/listing-3.jpg',
       desc: {
         en: 'More than an acre in a guard-gated community, on a wide canal with direct ocean access and room for a second dock.',
         es: 'Más de un acre en una comunidad con garita, sobre un canal ancho con salida directa al mar y espacio para un segundo muelle.'
@@ -73,7 +72,7 @@
       title: { en: 'Venetian Islands Modern', es: 'Moderna en las Venetian Islands' },
       price: 12850000, beds: 6, baths: 7, sqft: 7400, lot: 0.3, water: 'bay', frontage: 75, year: 2020,
       status: 'sold', listed: '2026-01-20',
-      art: 'img/listing-7.svg', photo: 'photo-1600596542815-ffad4c1539a9',
+      img: 'img/listing-7.jpg',
       desc: {
         en: 'Sold off-market in 23 days to a buyer from New York. Wide bay views toward the Miami Beach skyline.',
         es: 'Vendida fuera del mercado en 23 días a un comprador de Nueva York. Amplias vistas a la bahía hacia el skyline de Miami Beach.'
@@ -88,7 +87,7 @@
       title: { en: 'Oceanfront Penthouse', es: 'Penthouse frente al océano' },
       price: 11900000, beds: 5, baths: 6.5, sqft: 6000, lot: 0, water: 'ocean', frontage: 0, year: 2022,
       status: 'sale', listed: '2026-08-27',
-      art: 'img/listing-4.svg', photo: 'photo-1600607687939-ce8a6c25118c',
+      img: 'img/listing-4.jpg',
       desc: {
         en: 'A full-floor penthouse with a private elevator, 360° views and a rooftop pool, in a tower with beach service and a spa.',
         es: 'Penthouse de piso completo con ascensor privado, vistas de 360° y piscina en la azotea, en una torre con servicio de playa y spa.'
@@ -103,7 +102,7 @@
       title: { en: 'Pinecrest Garden Estate', es: 'Finca con jardines en Pinecrest' },
       price: 9400000, beds: 7, baths: 8, sqft: 10200, lot: 1.4, water: 'none', frontage: 0, year: 2018,
       status: 'private', listed: '2026-09-01',
-      art: 'img/listing-5.svg', photo: 'photo-1564013799919-ab600027ffc6',
+      img: 'img/listing-5.jpg',
       desc: {
         en: 'Offered privately. Details, photos and the address are shared with qualified buyers after a short call.',
         es: 'Oferta privada. Los detalles, fotos y la dirección se comparten con compradores calificados después de una breve llamada.'
@@ -118,7 +117,7 @@
       title: { en: 'Tigertail Villa', es: 'Villa Tigertail' },
       price: 8750000, beds: 5, baths: 6.5, sqft: 6300, lot: 0.35, water: 'none', frontage: 0, year: 2024,
       status: 'sale', listed: '2026-07-15',
-      art: 'img/listing-6.svg', photo: 'photo-1580587771525-78b9dba3b914',
+      img: 'img/listing-6.jpg',
       desc: {
         en: 'A new modern villa under the oak canopy, a short walk to the sailing clubs, Peacock Park and the village center.',
         es: 'Una villa moderna nueva bajo la sombra de los robles, a poca distancia de los clubes de vela, Peacock Park y el centro del barrio.'
@@ -129,8 +128,6 @@
       }
     }
   ];
-
-  var PHOTO = 'https://images.unsplash.com/{id}?auto=format&fit=crop&w=1200&q=80';
 
   var state = { area: 'all', price: 'all', beds: '0', water: 'all', sort: 'price-desc' };
   var grid = document.getElementById('listing-grid');
@@ -189,12 +186,11 @@
 
   function card(l) {
     var water = waterText(l);
-    var photo = l.photo ? '<img class="media__photo" loading="lazy" src="' + PHOTO.replace('{id}', l.photo) + '" alt="">' : '';
     return (
       '<article class="listing listing--' + l.status + '">' +
         '<button class="listing__open" type="button" data-open-listing="' + l.id + '" aria-label="' + esc(t('listing.open', { name: L(l.title) })) + '">' +
           '<div class="listing__media media">' +
-            '<img class="media__art" src="' + l.art + '" alt="">' + photo +
+            '<img class="media__img" src="' + l.img + '" width="1200" height="900" alt="" loading="lazy" decoding="async">' +
             '<span class="badge badge--' + l.status + '">' + esc(t('status.' + l.status)) + '</span>' +
           '</div>' +
           '<div class="listing__body">' +
@@ -212,7 +208,6 @@
   function render() {
     var list = sorted(LISTINGS.filter(matches));
     grid.innerHTML = list.map(card).join('');
-    Site.wirePhotos(grid);
     emptyEl.hidden = list.length > 0;
     var filtered = state.area !== 'all' || state.price !== 'all' || state.beds !== '0' || state.water !== 'all';
     resetBtn.hidden = !filtered;
@@ -279,10 +274,9 @@
       [t('dlg.year'), String(l.year)],
       [t('dlg.status'), t('status.' + l.status)]
     ].filter(Boolean);
-    var photo = l.photo ? '<img class="media__photo" src="' + PHOTO.replace('{id}', l.photo) + '" alt="">' : '';
 
     dialogBody.innerHTML =
-      '<div class="dialog__media media"><img class="media__art" src="' + l.art + '" alt="">' + photo +
+      '<div class="dialog__media media"><img class="media__img" src="' + l.img + '" width="1200" height="900" alt="' + esc(t('listing.imgAlt', { name: L(l.title) })) + '">' +
         '<span class="badge badge--' + l.status + '">' + esc(t('status.' + l.status)) + '</span></div>' +
       '<div class="dialog__content">' +
         '<button class="dialog__close" type="button" data-close aria-label="' + esc(t('dlg.close')) + '">×</button>' +
@@ -298,7 +292,6 @@
           '<button class="btn btn--line" type="button" data-close>' + esc(t('dlg.close')) + '</button>' +
         '</div>' +
       '</div>';
-    Site.wirePhotos(dialogBody);
     dialog.dataset.listing = id;
     if (!dialog.open) {
       if (typeof dialog.showModal === 'function') dialog.showModal();
