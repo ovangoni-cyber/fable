@@ -6,7 +6,7 @@ Tres sitios web estáticos e independientes, bilingües (inglés / español):
 | --- | --- | --- |
 | [`constructora/`](constructora/) | **American Restoration Services** | Construcción y restauración de casas de lujo: portafolio filtrable, calendario de obra a escala, especificaciones para huracanes (HVHZ), servicios y formulario de proyecto. |
 | [`realtor/`](realtor/) | **Wendy Realtor** | Propiedades con buscador, filtros y ficha detallada; guía de vecindarios; servicios para comprar, vender y comprar desde el exterior; valoración privada y contacto con WhatsApp. |
-| [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional) | Tesis de inversión, estrategias, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
+| [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
 `index.html` en la raíz es solo un índice que enlaza los tres sitios.
 
@@ -84,6 +84,7 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Retrato de Wendy.
 
 **Inversionistas** (`inversionistas/`)
-- Nombre de la empresa ("Arcova Capital" es provisional), correo, teléfono y dirección.
-- Estrategias, objetivos de retorno, hoja de términos y casos: todos son ilustrativos.
+- Nombre de la empresa: "Arcova Capital" es provisional. Para cambiarlo, busque y reemplace `Arcova Capital`, `Arcova` y `arcovacapital.com` en `inversionistas/` (HTML e `i18n.js`). Antes de elegir un nombre, confirme que esté libre en Sunbiz (registro de empresas de Florida) y en la USPTO (marcas).
+- Correo, teléfono y dirección.
+- Mercados, objetivos de retorno, calendario del proyecto, hoja de términos y casos: todos son ilustrativos.
 - Los textos legales (Regla 506(c), avisos de riesgo) son un punto de partida. **Un abogado de valores debe revisarlos antes de publicar**, igual que cualquier cifra de rendimiento.
