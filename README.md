@@ -4,7 +4,7 @@ Tres sitios web estáticos e independientes, bilingües (inglés / español):
 
 | Carpeta | Sitio | Contenido |
 | --- | --- | --- |
-| [`constructora/`](constructora/) | **American Restoration Services** | Construcción y restauración de casas de lujo: portafolio filtrable, calendario de obra a escala, especificaciones para huracanes (HVHZ), servicios y formulario de proyecto. |
+| [`constructora/`](constructora/) | **American Restoration Services** | Constructora de casas de lujo nuevas (sin restauraciones): portafolio filtrable, calendario de obra a escala, especificaciones para huracanes (HVHZ), servicios y formulario de proyecto. |
 | [`realtor/`](realtor/) | **Wendy Realtor** | Propiedades con buscador, filtros y ficha detallada; guía de vecindarios; servicios para comprar, vender y comprar desde el exterior; valoración privada y contacto con WhatsApp. |
 | [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
@@ -73,7 +73,6 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Número de licencia (`CGC0000000`).
 - Cifras: 38 casas, 17 frente al agua, "desde 2009", garantía de 10 años.
 - Los seis proyectos del portafolio (nombres, datos y fotos) y el testimonio.
-- Servicios: confirme que la empresa ofrece restauración por daños de tormenta y agua y mantenimiento; si no, borre esas tarjetas.
 
 **Wendy Realtor** (`realtor/`)
 - Teléfono y WhatsApp (305) 555-0199, correo `hello@wendyrealtor.com`, oficina.

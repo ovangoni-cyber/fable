@@ -2,8 +2,8 @@
    matches a data-i18n (or data-i18n-attr) key there. */
 window.I18N = {
   es: {
-    'meta.title': 'American Restoration Services · Construcción y restauración de lujo en Miami',
-    'meta.description': 'Construcción y restauración de lujo en Miami-Dade: casas a medida frente al agua y en grandes lotes, restauraciones integrales y reparación de daños por tormenta, de los permisos a la garantía.',
+    'meta.title': 'American Restoration Services · Casas de lujo a medida en Miami',
+    'meta.description': 'Constructora de casas de lujo a medida en Miami-Dade y Broward: casas nuevas frente al agua y en grandes lotes, desde el análisis del lote y los permisos hasta la obra y la garantía.',
 
     'nav.skip': 'Saltar al contenido',
     'nav.homes': 'Casas',
@@ -16,9 +16,9 @@ window.I18N = {
     'nav.lang': 'Idioma',
 
     'hero.alt': 'Residencia moderna frente al agua con piscina al atardecer',
-    'hero.eyebrow': 'Construcción y restauración de lujo · Miami-Dade y Broward',
+    'hero.eyebrow': 'Casas de lujo a medida · Miami-Dade y Broward',
     'hero.title': 'Casas a medida, construidas para Miami.',
-    'hero.lede': 'Casas nuevas frente al agua y en grandes lotes, y restauraciones completas de las que Miami ya tiene, de Coral Gables a Key Biscayne. Un solo equipo desde los permisos hasta el día en que recibe las llaves.',
+    'hero.lede': 'Casas nuevas frente al agua y en grandes lotes, de Coral Gables a Key Biscayne. Un solo equipo le acompaña desde el análisis del lote y los permisos hasta el día en que recibe las llaves.',
     'hero.cta': 'Solicitar una visita al terreno',
     'hero.cta2': 'Ver nuestras casas',
 
@@ -40,7 +40,6 @@ window.I18N = {
     'homes.all': 'Todas',
     'homes.waterfront': 'Frente al agua',
     'homes.estate': 'Residencias',
-    'homes.renovation': 'Renovación',
     'homes.empty': 'Todavía no hay casas en esta categoría.',
 
     'p1.alt': 'Casa Brisa, residencia moderna de dos plantas frente al agua',
@@ -59,8 +58,9 @@ window.I18N = {
     'p5.alt': 'Residencia Pinecrest Pavilion',
     'p5.beds': '6 hab. · 7 baños',
     'p5.lot': 'Lote de 1.1 acres',
-    'p6.alt': 'Sala renovada con ventanales de piso a techo',
-    'p6.scope': 'Renovación total + segunda planta',
+    'p6.alt': 'Sala con ventanales de piso a techo',
+    'p6.beds': '5 hab. · 5.5 baños',
+    'p6.time': '16 meses',
 
     'process.title': 'Del lote a las llaves',
     'process.intro': 'Un calendario típico para una casa nueva de 7,000 a 10,000 pies². Las fases se solapan para que el diseño, los permisos y la obra nunca se esperen entre sí.',
@@ -101,17 +101,11 @@ window.I18N = {
     'eng.s6d': 'Generador para toda la casa, dimensionado para la carga completa del aire acondicionado, con cableado listo para baterías.',
     'eng.note': 'El piso terminado se fija por encima de la cota de inundación base de FEMA, con un margen adicional. Los códigos corresponden a secciones de CSI MasterFormat.',
 
-    'services.title': 'Lo que construimos y restauramos',
+    'services.title': 'Lo que construimos',
     'services.s1': 'Diseño y construcción a medida',
     'services.s1d': 'Un solo contrato para diseño, ingeniería, permisos y obra. Tiene un presupuesto fijo antes de empezar a construir.',
     'services.s2': 'Construimos con su arquitecto',
     'services.s2d': '¿Ya trabaja con un arquitecto? Nos sumamos temprano para presupuestar y revisar la constructibilidad, y luego construimos los planos tal como se diseñaron.',
-    'services.s3': 'Restauración integral',
-    'services.s3d': 'Restauraciones, segundas plantas y renovaciones completas que llevan casas antiguas e históricas a los códigos vigentes de viento e inundación.',
-    'services.s5': 'Daños por tormenta y agua',
-    'services.s5d': 'Después de un huracán, una inundación o una filtración, documentamos los daños para su aseguradora, secamos y estabilizamos la estructura y reconstruimos según el código vigente.',
-    'services.s6': 'Mantenimiento y preparación para huracanes',
-    'services.s6d': 'Inspecciones de temporada, revisión de persianas antihuracán y del generador antes de cada temporada, y una sola llamada cuando algo necesita atención.',
     'services.s4': 'Frente al agua y obras marinas',
     'services.s4d': 'Muros de contención, muelles y elevadores de botes, construidos junto con la casa y con los permisos tramitados en conjunto.',
 
@@ -120,8 +114,8 @@ window.I18N = {
     'quote.by': 'Propietarios de Casa Brisa · Key Biscayne',
 
     'studio.alt': 'Planos arquitectónicos sobre un escritorio',
-    'studio.title': 'La restauración está en nuestro nombre',
-    'studio.p1': 'Sabemos cómo envejecen las casas de Miami con el salitre, el calor y la temporada de huracanes porque pasamos buena parte de nuestro tiempo restaurándolas. Construimos casas nuevas con ese conocimiento: primero la ingeniería, después los acabados.',
+    'studio.title': 'Una constructora pequeña, a propósito',
+    'studio.p1': 'Cada casa que construimos se diseña desde el primer plano para el salitre, el calor y la temporada de huracanes de Miami. Trabajamos en ese orden: primero la ingeniería, después los acabados.',
     'studio.p2': 'Aceptamos un número limitado de proyectos al año, así que un socio recorre cada obra todas las semanas y atiende sus llamadas personalmente.',
     'studio.c1': 'Contratista general certificado en Florida',
     'studio.c2': 'Seguro de todo riesgo de construcción en cada proyecto',
@@ -143,8 +137,7 @@ window.I18N = {
     'form.type': 'Proyecto',
     'form.type1': 'Casa nueva a medida',
     'form.type2': 'Construir con mi arquitecto',
-    'form.type3': 'Renovación o ampliación',
-    'form.type4': 'Muro, muelle u obra marina',
+    'form.type5': 'Aún no lo sé',
     'form.lot': 'Lote',
     'form.lot1': 'Ya tengo el lote',
     'form.lot2': 'Bajo contrato',
@@ -158,7 +151,7 @@ window.I18N = {
     'form.msgPh': 'Tamaño del lote, frente al agua, número de habitaciones, fecha deseada de mudanza…',
     'form.submit': 'Solicitar una visita al terreno',
 
-    'footer.tag': 'Construcción y restauración de lujo en Miami-Dade y Broward.',
+    'footer.tag': 'Casas de lujo a medida en Miami-Dade y Broward.',
     'footer.license': 'Contratista general certificado en Florida · Lic. CGC0000000'
   },
 
