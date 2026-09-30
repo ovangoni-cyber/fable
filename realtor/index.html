@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wendy Realtor · Miami Luxury Real Estate</title>
+  <meta name="description" content="Waterfront and estate homes in Miami Beach, Key Biscayne, Coral Gables and Coconut Grove. Private showings, off-market listings and guidance for international buyers.">
+  <meta name="theme-color" content="#10282b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wendy Realtor · Miami Luxury Real Estate">
+  <meta property="og:description" content="Waterfront and estate homes in Miami, represented with discretion.">
+  <meta property="og:image" content="img/hero.svg">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@300..700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Wendy Realtor",
+    "description": "Luxury real estate advisor in Miami.",
+    "telephone": "+1-305-555-0199",
+    "email": "hello@wendyrealtor.com",
+    "knowsLanguage": ["en", "es"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "postalCode": "33131", "addressCountry": "US" },
+    "areaServed": ["Miami Beach", "Key Biscayne", "Coral Gables", "Coconut Grove", "Pinecrest", "Golden Beach"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">
+        <span class="logo__name">Wendy Realtor</span>
+        <span class="logo__sub" data-i18n="logo.sub">Luxury Real Estate · Miami</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="#listings" data-i18n="nav.listings">Listings</a>
+        <a href="#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
+        <a href="#services" data-i18n="nav.services">Buy &amp; sell</a>
+        <a href="#valuation" data-i18n="nav.valuation">Home value</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a class="nav__cta" href="#contact" data-i18n="nav.cta">Private showing</a>
+      </nav>
+      <div class="header__tools">
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu" data-i18n-attr="aria-label:nav.menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Miami luxury real estate · English · Español</p>
+          <h1 id="hero-title" class="hero__name">Wendy <span>Realtor</span></h1>
+          <p class="hero__lede" data-i18n="hero.lede">Waterfront and estate homes in Miami, bought and sold with discretion.</p>
+          <p class="hero__sub" data-i18n="hero.sub">Representing buyers and sellers on the bay, the ocean and the islands, often before a home ever reaches the market.</p>
+          <div class="hero__actions">
+            <a class="btn btn--sea" href="#listings" data-i18n="hero.cta">View current listings</a>
+            <a class="btn btn--line" href="#valuation" data-i18n="hero.cta2">What is my home worth?</a>
+          </div>
+        </div>
+        <figure class="hero__feature">
+          <div class="media hero__media">
+            <img class="media__art" src="img/hero.svg" alt="">
+            <img class="media__photo" src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80" alt="Modern waterfront residence at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high">
+          </div>
+          <figcaption class="feature-card">
+            <p class="feature-card__status" data-i18n="hero.status">Just listed · Key Biscayne</p>
+            <p class="feature-card__title" data-i18n="hero.featureTitle">Harbor Drive Residence</p>
+            <p class="feature-card__price">$18,950,000</p>
+            <p class="feature-card__facts" data-i18n="hero.facts">7 bd · 8.5 ba · 9,850 sf · 120 ft on the bay</p>
+            <button class="link-btn" type="button" data-open-listing="harbor-drive" data-i18n="hero.view">View the residence</button>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <form class="search" id="hero-search" aria-label="Search homes" data-i18n-attr="aria-label:search.label">
+          <div class="search__field">
+            <label for="s-area" data-i18n="search.area">Neighborhood</label>
+            <select id="s-area" name="area" data-filter-control="area">
+              <option value="all" data-i18n="search.anyArea">All neighborhoods</option>
+              <option value="miami-beach">Miami Beach</option>
+              <option value="key-biscayne">Key Biscayne</option>
+              <option value="coral-gables">Coral Gables</option>
+              <option value="coconut-grove">Coconut Grove</option>
+              <option value="pinecrest">Pinecrest</option>
+              <option value="north-beaches" data-i18n="search.north">Golden Beach &amp; Sunny Isles</option>
+            </select>
+          </div>
+          <div class="search__field">
+            <label for="s-price" data-i18n="search.price">Price</label>
+            <select id="s-price" name="price" data-filter-control="price">
+              <option value="all" data-i18n="search.anyPrice">Any price</option>
+              <option value="0-10">$5M – $10M</option>
+              <option value="10-20">$10M – $20M</option>
+              <option value="20-999" data-i18n="search.price3">$20M and above</option>
+            </select>
+          </div>
+          <div class="search__field">
+            <label for="s-beds" data-i18n="search.beds">Bedrooms</label>
+            <select id="s-beds" name="beds" data-filter-control="beds">
+              <option value="0" data-i18n="search.anyBeds">Any</option>
+              <option value="5">5+</option>
+              <option value="6">6+</option>
+              <option value="7">7+</option>
+            </select>
+          </div>
+          <div class="search__field">
+            <label for="s-water" data-i18n="search.water">Waterfront</label>
+            <select id="s-water" name="water" data-filter-control="water">
+              <option value="all" data-i18n="search.anyWater">Any</option>
+              <option value="ocean" data-i18n="search.ocean">Ocean</option>
+              <option value="bay" data-i18n="search.bay">Bay</option>
+              <option value="canal" data-i18n="search.canal">Canal with ocean access</option>
+            </select>
+          </div>
+          <button class="btn btn--sea search__btn" type="submit" data-i18n="search.submit">Search homes</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================== FIGURES (PLACEHOLDER: replace with Wendy's verified numbers) -->
+    <section class="figures" aria-label="Track record" data-i18n-attr="aria-label:fig.label">
+      <div class="wrap figures__row">
+        <p><strong>$1.2B</strong><span data-i18n="fig.volume">in career sales</span></p>
+        <p><strong>214</strong><span data-i18n="fig.homes">homes sold</span></p>
+        <p><strong>38%</strong><span data-i18n="fig.private">of sales closed off-market</span></p>
+        <p><strong>2</strong><span data-i18n="fig.langs">languages, English and Spanish</span></p>
+      </div>
+    </section>
+
+    <!-- ============================== LISTINGS -->
+    <section class="section" id="listings" aria-labelledby="listings-title">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow" data-i18n="listings.eyebrow">Portfolio</p>
+            <h2 id="listings-title" class="h2" data-i18n="listings.title">Current &amp; recent listings</h2>
+          </div>
+          <div class="listing-tools">
+            <p class="listing-count" id="listing-count" aria-live="polite"></p>
+            <label class="sort">
+              <span data-i18n="listings.sort">Sort</span>
+              <select id="l-sort">
+                <option value="price-desc" data-i18n="listings.sort1">Price, high to low</option>
+                <option value="price-asc" data-i18n="listings.sort2">Price, low to high</option>
+                <option value="newest" data-i18n="listings.sort3">Newest</option>
+                <option value="size" data-i18n="listings.sort4">Largest interior</option>
+              </select>
+            </label>
+            <button class="link-btn" type="button" id="l-reset" hidden data-i18n="listings.reset">Clear filters</button>
+          </div>
+        </div>
+        <div class="listings" id="listing-grid"></div>
+        <p class="listings-empty" id="listing-empty" hidden data-i18n="listings.empty">No homes match these filters right now. Many of my listings are private; tell me what you are looking for and I will check what is coming.</p>
+        <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call (305) 555-0199.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============================== NEIGHBORHOODS -->
+    <section class="section section--mist" id="neighborhoods" aria-labelledby="hoods-title">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow" data-i18n="hoods.eyebrow">Where I work</p>
+            <h2 id="hoods-title" class="h2" data-i18n="hoods.title">A guide to Miami’s waterfront neighborhoods</h2>
+          </div>
+          <p class="section__intro" data-i18n="hoods.intro">Each area has its own rhythm, schools, flood profile and resale market. These are the ones I know street by street.</p>
+        </div>
+        <div class="hoods">
+          <article class="hood" data-area="miami-beach">
+            <div class="hood__media media"><img class="media__art" src="img/n-islands.svg" alt=""></div>
+            <h3 data-i18n="hoods.mbT">Miami Beach &amp; the Islands</h3>
+            <p data-i18n="hoods.mb">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+          <article class="hood" data-area="key-biscayne">
+            <div class="hood__media media"><img class="media__art" src="img/n-key-biscayne.svg" alt=""></div>
+            <h3>Key Biscayne</h3>
+            <p data-i18n="hoods.kb">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+          <article class="hood" data-area="coral-gables">
+            <div class="hood__media media"><img class="media__art" src="img/n-coral-gables.svg" alt=""></div>
+            <h3>Coral Gables</h3>
+            <p data-i18n="hoods.cg">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+          <article class="hood" data-area="coconut-grove">
+            <div class="hood__media media"><img class="media__art" src="img/n-coconut-grove.svg" alt=""></div>
+            <h3>Coconut Grove</h3>
+            <p data-i18n="hoods.cgv">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+          <article class="hood" data-area="north-beaches">
+            <div class="hood__media media"><img class="media__art" src="img/n-miami-beach.svg" alt=""></div>
+            <h3 data-i18n="hoods.nbT">Golden Beach &amp; Sunny Isles</h3>
+            <p data-i18n="hoods.nb">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+          <article class="hood" data-area="brickell">
+            <div class="hood__media media"><img class="media__art" src="img/n-brickell.svg" alt=""></div>
+            <h3>Brickell</h3>
+            <p data-i18n="hoods.br">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
+            <button class="link-btn hood__btn" type="button"></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SERVICES -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="wrap services">
+        <div class="services__intro">
+          <p class="eyebrow" data-i18n="services.eyebrow">How I work</p>
+          <h2 id="services-title" class="h2" data-i18n="services.title">One advisor from first showing to closing day</h2>
+          <div class="tabs" role="tablist" aria-label="Services" data-i18n-attr="aria-label:services.tabs">
+            <button role="tab" id="tab-buy" aria-controls="panel-buy" aria-selected="true" type="button" data-i18n="services.tBuy">Buying</button>
+            <button role="tab" id="tab-sell" aria-controls="panel-sell" aria-selected="false" tabindex="-1" type="button" data-i18n="services.tSell">Selling</button>
+            <button role="tab" id="tab-intl" aria-controls="panel-intl" aria-selected="false" tabindex="-1" type="button" data-i18n="services.tIntl">From abroad</button>
+          </div>
+        </div>
+        <div class="services__panels">
+          <div class="panel" role="tabpanel" id="panel-buy" aria-labelledby="tab-buy">
+            <div class="point"><h3 data-i18n="buy.1">Homes before they are listed</h3><p data-i18n="buy.1d">Many of Miami’s best homes trade quietly. You see private and pre-market listings first, with seller disclosures already in hand.</p></div>
+            <div class="point"><h3 data-i18n="buy.2">Due diligence for the water</h3><p data-i18n="buy.2d">Seawall condition, flood zone and elevation certificate, wind mitigation report, insurance quotes and permit history, all before you make an offer.</p></div>
+            <div class="point"><h3 data-i18n="buy.3">Negotiation on the numbers</h3><p data-i18n="buy.3d">Offers built from closed sales, price per square foot on the water and days on market, not from the asking price.</p></div>
+            <div class="point"><h3 data-i18n="buy.4">A closing you don’t have to manage</h3><p data-i18n="buy.4d">I coordinate the title company, lender, inspectors and your attorney through the final walkthrough.</p></div>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-sell" aria-labelledby="tab-sell" hidden>
+            <div class="point"><h3 data-i18n="sell.1">A price the market will pay</h3><p data-i18n="sell.1d">A written pricing study of closed sales, active competition and waterfront premiums, updated every two weeks while you are listed.</p></div>
+            <div class="point"><h3 data-i18n="sell.2">Presentation</h3><p data-i18n="sell.2d">Architectural photography, twilight and drone shoots, film and floor plans. Staging when it pays for itself.</p></div>
+            <div class="point"><h3 data-i18n="sell.3">Private or public, your call</h3><p data-i18n="sell.3d">Sell quietly to qualified buyers with proof of funds, or launch on the market with a full campaign.</p></div>
+            <div class="point"><h3 data-i18n="sell.4">Buyers from everywhere</h3><p data-i18n="sell.4d">Marketing in English and Spanish that reaches buyers across the U.S., Latin America and Europe, plus the agents and advisors who represent them.</p></div>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-intl" aria-labelledby="tab-intl" hidden>
+            <div class="point"><h3 data-i18n="intl.1">Buying through a company</h3><p data-i18n="intl.1d">Most international clients buy through an LLC or foreign entity. I work alongside your attorney and CPA from the first offer.</p></div>
+            <div class="point"><h3 data-i18n="intl.2">Financing without a U.S. credit history</h3><p data-i18n="intl.2d">Introductions to private banks and lenders with foreign-national mortgage programs.</p></div>
+            <div class="point"><h3 data-i18n="intl.3">Planning for FIRPTA</h3><p data-i18n="intl.3d">Foreign sellers usually face FIRPTA withholding at closing. We plan for it with your tax advisor before you buy, not when you sell.</p></div>
+            <div class="point"><h3 data-i18n="intl.4">Remote closings &amp; care</h3><p data-i18n="intl.4d">Signings by power of attorney or at a consulate, plus property managers who know each city’s rental rules.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== VALUATION -->
+    <section class="section section--ink" id="valuation" aria-labelledby="val-title">
+      <div class="wrap valuation">
+        <div class="valuation__text">
+          <p class="eyebrow eyebrow--sand" data-i18n="val.eyebrow">For owners</p>
+          <h2 id="val-title" class="h2" data-i18n="val.title">What would your home sell for today?</h2>
+          <p data-i18n="val.lede">I prepare every valuation myself from recent closed sales on your street and your stretch of water. No automated estimates. You receive it privately within 48 hours.</p>
+        </div>
+        <form class="form form--dark" id="valuation-form" novalidate data-endpoint="">
+          <div class="field">
+            <label for="v-address" data-i18n="val.address">Property address</label>
+            <input id="v-address" name="address" type="text" autocomplete="street-address" required>
+            <p class="field__error" data-i18n="val.errAddress">Add the address so I can pull the right comparables.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="v-type" data-i18n="val.type">Property type</label>
+              <select id="v-type" name="type">
+                <option value="house" data-i18n="val.type1">Single-family home</option>
+                <option value="condo" data-i18n="val.type2">Condo or penthouse</option>
+                <option value="land" data-i18n="val.type3">Lot or teardown</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="v-when" data-i18n="val.when">Thinking of selling</label>
+              <select id="v-when" name="timeline">
+                <option value="now" data-i18n="val.when1">In the next 3 months</option>
+                <option value="year" data-i18n="val.when2">Within a year</option>
+                <option value="curious" data-i18n="val.when3">Just curious</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="v-name" data-i18n="form.name">Name</label>
+              <input id="v-name" name="name" type="text" autocomplete="name" required>
+              <p class="field__error" data-i18n="form.errName">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="v-email" data-i18n="form.email">Email</label>
+              <input id="v-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
+            </div>
+          </div>
+          <button class="btn btn--sand" type="submit" data-i18n="val.submit">Request a private valuation</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap about">
+        <!-- Wendy's portrait: save it as img/wendy.jpg and uncomment the <img> below. -->
+        <div class="about__portrait media">
+          <span class="about__mono" aria-hidden="true">W</span>
+          <!-- <img class="media__photo" loading="lazy" src="img/wendy.jpg" alt="Portrait of Wendy" data-i18n-attr="alt:about.alt"> -->
+        </div>
+        <div class="about__text">
+          <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+          <h2 id="about-title" class="h2" data-i18n="about.title">A short client list, on purpose</h2>
+          <p data-i18n="about.p1">I work with a small number of buyers and sellers at a time, so every client has my full attention from the first showing to the final walkthrough. When you call, you reach me, not a team.</p>
+          <p data-i18n="about.p2">Waterfront homes need a different kind of homework: seawall condition, elevation certificates, insurance and flood history. I do that homework before you make an offer, not after.</p>
+          <dl class="about__facts">
+            <div><dt data-i18n="about.f1">Languages</dt><dd data-i18n="about.f1v">English and Spanish</dd></div>
+            <div><dt data-i18n="about.f2">Licensed</dt><dd data-i18n="about.f2v">Florida Real Estate Sales Associate</dd></div>
+            <div><dt data-i18n="about.f3">Focus</dt><dd data-i18n="about.f3v">Luxury and waterfront homes</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TESTIMONIALS (PLACEHOLDER: replace with real, attributable reviews) -->
+    <section class="section section--mist" aria-labelledby="words-title">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="words.eyebrow">Clients</p>
+        <h2 id="words-title" class="h2 words__title" data-i18n="words.title">In their words</h2>
+        <div class="words">
+          <figure class="word">
+            <blockquote data-i18n="words.1">Wendy found our house before it was listed and negotiated it below the price the owners had in mind. She also told us which house not to buy, and why.</blockquote>
+            <figcaption><span class="word__initials">R&amp;L</span><span data-i18n="words.1by">Buyers, Key Biscayne</span></figcaption>
+          </figure>
+          <figure class="word">
+            <blockquote data-i18n="words.2">We were living in Madrid during the whole sale. Every week we had a written update, and the closing was signed at the consulate without a single surprise.</blockquote>
+            <figcaption><span class="word__initials">C.A.</span><span data-i18n="words.2by">Sellers, Coral Gables</span></figcaption>
+          </figure>
+          <figure class="word">
+            <blockquote data-i18n="words.3">She priced our home with a spreadsheet of every bayfront sale in five years. It sold in 23 days, above asking.</blockquote>
+            <figcaption><span class="word__initials">M.P.</span><span data-i18n="words.3by">Sellers, Sunset Islands</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div class="contact__intro">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 id="contact-title" class="h2" data-i18n="contact.title">Let’s talk about what you’re looking for</h2>
+          <p data-i18n="contact.lede">Private showings are by appointment, seven days a week. I reply to every message personally, usually the same day.</p>
+          <ul class="channels">
+            <li><span data-i18n="contact.phone">Phone</span><a href="tel:+13055550199">(305) 555-0199</a></li>
+            <li><span>WhatsApp</span><a href="https://wa.me/13055550199" target="_blank" rel="noopener">+1 305 555 0199</a></li>
+            <li><span data-i18n="contact.email">Email</span><a href="mailto:hello@wendyrealtor.com">hello@wendyrealtor.com</a></li>
+            <li><span data-i18n="contact.office">Office</span><span>Brickell · Miami, FL 33131</span></li>
+          </ul>
+        </div>
+        <form class="form" id="contact-form" novalidate data-endpoint="">
+          <div class="field-row">
+            <div class="field">
+              <label for="c-name" data-i18n="form.name">Name</label>
+              <input id="c-name" name="name" type="text" autocomplete="name" required>
+              <p class="field__error" data-i18n="form.errName">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="c-email" data-i18n="form.email">Email</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="c-phone" data-i18n="form.phone">Phone or WhatsApp</label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="c-interest" data-i18n="form.interest">I’m interested in</label>
+              <select id="c-interest" name="interest">
+                <option value="buy" data-i18n="form.i1">Buying</option>
+                <option value="sell" data-i18n="form.i2">Selling</option>
+                <option value="both" data-i18n="form.i3">Buying and selling</option>
+                <option value="rent" data-i18n="form.i4">A seasonal rental</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="c-budget" data-i18n="form.budget">Budget</label>
+              <select id="c-budget" name="budget">
+                <option value="5-10">$5M – $10M</option>
+                <option value="10-20">$10M – $20M</option>
+                <option value="20+" data-i18n="form.b3">$20M and above</option>
+                <option value="na" data-i18n="form.b4">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="c-lang" data-i18n="form.lang">Preferred language</label>
+              <select id="c-lang" name="language">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="c-msg" data-i18n="form.msg">Message</label>
+            <textarea id="c-msg" name="message" rows="4" data-i18n-attr="placeholder:form.msgPh" placeholder="Neighborhoods, must-haves, timing…"></textarea>
+          </div>
+          <button class="btn btn--sea" type="submit" data-i18n="form.submit">Send message</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p class="footer__name">Wendy Realtor</p>
+        <p class="footer__small" data-i18n="footer.role">Luxury Real Estate Advisor · Licensed Florida Real Estate Sales Associate</p>
+        <p class="footer__small" data-i18n="footer.broker">Brokered by [Brokerage Name], Licensed Real Estate Broker</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#listings" data-i18n="nav.listings">Listings</a>
+        <a href="#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
+        <a href="#valuation" data-i18n="nav.valuation">Home value</a>
+        <a href="#contact" data-i18n="nav.cta">Private showing</a>
+      </nav>
+      <div class="footer__small">
+        <p data-i18n="footer.eho">Equal Housing Opportunity.</p>
+        <p data-i18n="footer.disclaimer">Listing information is deemed reliable but not guaranteed and should be independently verified. Sample listings are shown for illustration.</p>
+        <p>© <span data-year>2026</span> Wendy Realtor</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="dialog" id="listing-dialog" aria-labelledby="dlg-title">
+    <div class="dialog__inner" id="dialog-body"></div>
+  </dialog>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

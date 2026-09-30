@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sitios de lujo en Miami</title>
+  <meta name="description" content="Tres sitios web: American Restoration Services, Wendy Realtor y una plataforma para inversionistas de casas de lujo en Miami.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Newsreader:opsz,wght@6..72,300&display=swap">
+  <style>
+    /* Layout: a plain index of three sites; each card previews its own typeface and palette. */
+    :root {
+      --bg: #f3f4f2; --fg: #16191a; --muted: #5a6163; --line: rgba(22, 25, 26, 0.14); --card: #ffffff;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #101213; --fg: #eceeed; --muted: #9ca3a2; --line: rgba(236, 238, 237, 0.14); --card: #181b1c; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 "Archivo", "Helvetica Neue", Arial, sans-serif; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: clamp(40px, 7vw, 96px) clamp(16px, 4vw, 48px); }
+    h1 { font-stretch: 118%; font-weight: 350; font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: -0.015em; }
+    .lede { color: var(--muted); max-width: 60ch; margin: 0 0 48px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .card { display: grid; grid-template-rows: auto 1fr; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); transition: transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.45); }
+    .card:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .card div { padding: 20px 22px 24px; display: grid; gap: 6px; align-content: start; }
+    .kind { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .name { font-size: 1.6rem; line-height: 1.15; }
+    .n1 { font-stretch: 125%; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .n2 { font-family: "Bodoni Moda", Didot, Georgia, serif; font-style: italic; }
+    .n3 { font-family: "Newsreader", Georgia, serif; font-weight: 300; }
+    .desc { color: var(--muted); font-size: 0.95rem; }
+    .path { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Sitios de lujo en Miami</h1>
+    <p class="lede">Tres sitios independientes, bilingües (inglés y español). Cada carpeta se puede publicar por separado en su propio dominio.</p>
+    <div class="grid">
+      <a class="card" href="constructora/">
+        <img src="constructora/img/hero.svg" alt="">
+        <div>
+          <span class="kind">Constructora</span>
+          <span class="name n1">American Restoration Services</span>
+          <span class="desc">Construcción y restauración de casas de lujo: portafolio, calendario de obra, especificaciones para huracanes y formulario de proyecto.</span>
+          <span class="path">/constructora</span>
+        </div>
+      </a>
+      <a class="card" href="realtor/">
+        <img src="realtor/img/hero.svg" alt="">
+        <div>
+          <span class="kind">Realtor</span>
+          <span class="name n2">Wendy Realtor</span>
+          <span class="desc">Propiedades con filtros y ficha detallada, guía de vecindarios, servicios para compradores internacionales y valoración privada.</span>
+          <span class="path">/realtor</span>
+        </div>
+      </a>
+      <a class="card" href="inversionistas/">
+        <img src="inversionistas/img/siteplan.svg" alt="">
+        <div>
+          <span class="kind">Inversionistas</span>
+          <span class="name n3">Arcova Capital</span>
+          <span class="desc">Tesis de inversión, hoja de términos, calculadora de la cascada de distribuciones, riesgos y acceso para inversionistas acreditados.</span>
+          <span class="path">/inversionistas</span>
+        </div>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
