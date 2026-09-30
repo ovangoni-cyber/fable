@@ -17,7 +17,7 @@ window.I18N = {
 
     'hero.alt': 'Residencia moderna frente al agua con piscina al atardecer',
     'hero.eyebrow': 'Casas de lujo a medida · Miami-Dade y Broward',
-    'hero.title': 'Casas a medida, construidas para Miami.',
+    'hero.title': 'Casas a medida, construidas en Florida.',
     'hero.lede': 'Casas nuevas frente al agua y en grandes lotes, de Coral Gables a Key Biscayne. Un solo equipo le acompaña desde el análisis del lote y los permisos hasta el día en que recibe las llaves.',
     'hero.cta': 'Solicitar una visita al terreno',
     'hero.cta2': 'Ver nuestras casas',
