@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" class="no-js" data-page="prop">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Property · Wendy Realtor</title>
+  <meta name="description" content="Property details, photos and private showings with Wendy Realtor in Miami.">
+  <meta name="theme-color" content="#10282b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wendy Realtor · Miami Luxury Real Estate">
+  <meta property="og:description" content="Waterfront and estate homes in Miami, represented with discretion.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@300..700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body class="has-action-bar">
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html">
+        <span class="logo__name">Wendy Realtor</span>
+        <span class="logo__sub" data-i18n="logo.sub">Luxury Real Estate · Miami</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="properties.html" data-i18n="nav.listings">Properties</a>
+        <a href="index.html#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
+        <a href="index.html#services" data-i18n="nav.services">Buy &amp; sell</a>
+        <a href="index.html#valuation" data-i18n="nav.valuation">Home value</a>
+        <a href="index.html#about" data-i18n="nav.about">About</a>
+        <a class="nav__cta" href="#enquire" data-i18n="nav.cta">Private showing</a>
+      </nav>
+      <div class="header__tools">
+        <a class="header__phone" href="tel:+13055550199">(305) 555-0199</a>
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu" data-i18n-attr="aria-label:nav.menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb" data-i18n-attr="aria-label:crumbs.label">
+        <a href="index.html" data-i18n="crumbs.home">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="properties.html" data-i18n="crumbs.props">Properties</a>
+        <span aria-hidden="true" class="crumbs__more">/</span>
+        <a class="crumbs__more" id="p-crumb-area" href="properties.html"></a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page" id="p-crumb-ref"></span>
+      </nav>
+    </div>
+
+    <!-- Shown when the address points to a property that is not in js/listings.js -->
+    <section class="wrap prop-missing" id="p-missing" hidden>
+      <h1 class="phead__title" data-i18n="prop.missingTitle">This property is no longer available</h1>
+      <p data-i18n="prop.missing">It may have sold or been taken off the market. Browse the current properties, or tell me what you are looking for.</p>
+      <div class="results__emptyActions">
+        <a class="btn btn--sea" href="properties.html" data-i18n="prop.allProps">See all properties</a>
+        <a class="btn btn--line" href="index.html#contact" data-i18n="r.tell">Tell me what you’re looking for</a>
+      </div>
+    </section>
+
+    <article class="prop" id="p-content" aria-labelledby="p-title">
+      <div class="wrap">
+        <header class="prop__head">
+          <div class="prop__titles">
+            <p class="prop__eyebrow" id="p-eyebrow"></p>
+            <h1 class="prop__title" id="p-title"></h1>
+            <div class="prop__badges" id="p-badges"></div>
+          </div>
+          <div class="prop__pricebox">
+            <p class="prop__price" id="p-price"></p>
+            <p class="prop__persf" id="p-persf"></p>
+            <button class="tool-btn prop__share" type="button" id="p-share">
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 12v8h14v-8"/></svg>
+              <span data-i18n="prop.share">Share</span>
+            </button>
+            <p class="prop__shared" id="p-shared" role="status" aria-live="polite"></p>
+          </div>
+        </header>
+
+        <div class="gallery" id="p-gallery"></div>
+
+        <ul class="prop__facts" id="p-facts"></ul>
+
+        <div class="prop__body">
+          <div class="prop__main">
+            <section class="prop__sec" aria-labelledby="p-h-desc">
+              <h2 class="prop__h" id="p-h-desc" data-i18n="prop.desc">Description</h2>
+              <p class="prop__desc" id="p-desc"></p>
+            </section>
+            <section class="prop__sec" aria-labelledby="p-h-feat">
+              <h2 class="prop__h" id="p-h-feat" data-i18n="prop.features">Features</h2>
+              <ul class="prop__features" id="p-features"></ul>
+            </section>
+            <section class="prop__sec" aria-labelledby="p-h-det">
+              <h2 class="prop__h" id="p-h-det" data-i18n="prop.details">Details</h2>
+              <dl class="prop__table" id="p-table"></dl>
+            </section>
+            <section class="prop__sec" aria-labelledby="p-h-hood">
+              <h2 class="prop__h" id="p-h-hood" data-i18n="prop.hood">The neighborhood</h2>
+              <p class="prop__desc" id="p-hood"></p>
+              <a class="link-btn" id="p-hood-link" href="properties.html"></a>
+            </section>
+            <p class="prop__note" data-i18n="prop.note">Listing information is deemed reliable but not guaranteed and should be independently verified. Images are illustrative renderings.</p>
+          </div>
+
+          <aside class="prop__aside" id="enquire" aria-labelledby="enquire-title">
+            <div class="agent">
+              <div class="agent__top">
+                <span class="agent__mono" aria-hidden="true">W</span>
+                <div>
+                  <p class="agent__name">Wendy Realtor</p>
+                  <p class="agent__role" data-i18n="agent.role">Luxury Real Estate Advisor · English · Español</p>
+                </div>
+              </div>
+              <h2 class="agent__title" id="enquire-title" data-i18n="agent.title">Ask about this property</h2>
+              <div class="agent__links">
+                <a class="btn btn--line" href="tel:+13055550199">(305) 555-0199</a>
+                <a class="btn btn--line" id="p-wa" href="https://wa.me/13055550199" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+              <form class="form" id="enquire-form" novalidate data-endpoint="">
+                <input type="hidden" name="reference" id="e-ref">
+                <div class="field">
+                  <label for="e-name" data-i18n="form.name">Name</label>
+                  <input id="e-name" name="name" type="text" autocomplete="name" required>
+                  <p class="field__error" data-i18n="form.errName">Please enter your name.</p>
+                </div>
+                <div class="field">
+                  <label for="e-email" data-i18n="form.email">Email</label>
+                  <input id="e-email" name="email" type="email" autocomplete="email" required>
+                  <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
+                </div>
+                <div class="field">
+                  <label for="e-phone" data-i18n="form.phone">Phone or WhatsApp</label>
+                  <input id="e-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                  <label for="e-msg" data-i18n="form.msg">Message</label>
+                  <textarea id="e-msg" name="message" rows="4"></textarea>
+                </div>
+                <button class="btn btn--sea" type="submit" id="e-submit"></button>
+                <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. Your details are used only to reply to you.</p>
+                <p class="form__status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+    <noscript><div class="wrap"><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call (305) 555-0199.</p></div></noscript>
+
+    <section class="section section--mist" id="similar" aria-labelledby="similar-title" hidden>
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="similar-title" class="h2" data-i18n="prop.similar">Similar properties</h2>
+          <a class="link-btn" href="properties.html" data-i18n="prop.allProps">See all properties</a>
+        </div>
+        <div class="pgrid pgrid--row" id="similar-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p class="footer__name">Wendy Realtor</p>
+        <p class="footer__small" data-i18n="footer.role">Luxury Real Estate Advisor · Licensed Florida Real Estate Sales Associate</p>
+        <p class="footer__small" data-i18n="footer.broker">Brokered by [Brokerage Name], Licensed Real Estate Broker</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="properties.html" data-i18n="nav.listings">Properties</a>
+        <a href="index.html#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
+        <a href="index.html#valuation" data-i18n="nav.valuation">Home value</a>
+        <a href="index.html#contact" data-i18n="nav.cta">Private showing</a>
+      </nav>
+      <div class="footer__small">
+        <p data-i18n="footer.eho">Equal Housing Opportunity.</p>
+        <p data-i18n="footer.disclaimer">Listing information is deemed reliable but not guaranteed and should be independently verified. Sample listings are shown for illustration.</p>
+        <p>© <span data-year>2026</span> Wendy Realtor</p>
+      </div>
+    </div>
+    <div class="wrap footer__legal">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+      <span data-i18n="footer.renders">Images are illustrative renderings.</span>
+    </div>
+  </footer>
+
+  <nav class="action-bar" aria-label="Quick contact" data-i18n-attr="aria-label:bar.label">
+    <a href="tel:+13055550199" data-i18n="bar.call">Call</a>
+    <a id="p-wa-bar" href="https://wa.me/13055550199" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="action-bar__main" href="#enquire" data-i18n="bar.info">Ask about it</a>
+  </nav>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photos" data-i18n-attr="aria-label:lb.label">
+    <div class="lightbox__inner">
+      <img class="lightbox__img" id="lb-img" alt="">
+      <p class="lightbox__count" id="lb-count"></p>
+      <button class="lightbox__btn lightbox__btn--prev" type="button" data-lb="-1" aria-label="Previous photo" data-i18n-attr="aria-label:lb.prev">‹</button>
+      <button class="lightbox__btn lightbox__btn--next" type="button" data-lb="1" aria-label="Next photo" data-i18n-attr="aria-label:lb.next">›</button>
+      <button class="lightbox__close" type="button" data-lb-close aria-label="Close" data-i18n-attr="aria-label:dlg.closeAttr">×</button>
+    </div>
+  </dialog>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/property.js"></script>
+</body>
+</html>

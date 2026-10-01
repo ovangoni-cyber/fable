@@ -45,7 +45,7 @@
         <span class="logo__sub" data-i18n="logo.sub">Luxury Real Estate · Miami</span>
       </a>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="#listings" data-i18n="nav.listings">Listings</a>
+        <a href="properties.html" data-i18n="nav.listings">Properties</a>
         <a href="#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
         <a href="#services" data-i18n="nav.services">Buy &amp; sell</a>
         <a href="#valuation" data-i18n="nav.valuation">Home value</a>
@@ -75,7 +75,7 @@
           <p class="hero__lede" data-i18n="hero.lede">Waterfront and estate homes in Miami, bought and sold with discretion.</p>
           <p class="hero__sub" data-i18n="hero.sub">Representing buyers and sellers on the bay, the ocean and the islands, often before a home ever reaches the market.</p>
           <div class="hero__actions">
-            <a class="btn btn--sea" href="#listings" data-i18n="hero.cta">View current listings</a>
+            <a class="btn btn--sea" href="properties.html" data-i18n="hero.cta">View properties</a>
             <a class="btn btn--line" href="#valuation" data-i18n="hero.cta2">What is my home worth?</a>
           </div>
         </div>
@@ -84,57 +84,58 @@
             <img class="media__img" src="img/hero.jpg" width="1500" height="1250" alt="Rendering of a modern waterfront residence at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high" decoding="async">
           </div>
           <figcaption class="feature-card">
-            <p class="feature-card__status" data-i18n="hero.status">Just listed · Key Biscayne</p>
-            <p class="feature-card__title" data-i18n="hero.featureTitle">Harbor Drive Residence</p>
+            <p class="feature-card__status" data-i18n="hero.status">Just listed · Key Biscayne · Ref. WR-2611</p>
+            <p class="feature-card__title" data-i18n="hero.featureTitle">Bayfront new construction with private dock</p>
             <p class="feature-card__price">$18,950,000</p>
             <p class="feature-card__facts" data-i18n="hero.facts">7 bd · 8.5 ba · 9,850 sf · 120 ft on the bay</p>
-            <button class="link-btn" type="button" data-open-listing="harbor-drive" data-i18n="hero.view">View the residence</button>
+            <a class="link-btn" href="property.html?id=harbor-drive" data-i18n="hero.view">View the property</a>
           </figcaption>
         </figure>
       </div>
 
       <div class="wrap">
-        <form class="search" id="hero-search" aria-label="Search homes" data-i18n-attr="aria-label:search.label">
+        <form class="search" id="hero-search" action="properties.html" method="get" aria-label="Search properties" data-i18n-attr="aria-label:search.label">
+          <div class="search__field">
+            <label for="s-op" data-i18n="search.op">Looking to</label>
+            <select id="s-op" name="op">
+              <option value="sale" data-i18n="search.opSale">Buy</option>
+              <option value="rent" data-i18n="search.opRent">Rent</option>
+            </select>
+          </div>
           <div class="search__field">
             <label for="s-area" data-i18n="search.area">Neighborhood</label>
-            <select id="s-area" name="area" data-filter-control="area">
-              <option value="all" data-i18n="search.anyArea">All neighborhoods</option>
+            <select id="s-area" name="area">
+              <option value="" data-i18n="search.anyArea">All neighborhoods</option>
               <option value="miami-beach">Miami Beach</option>
               <option value="key-biscayne">Key Biscayne</option>
               <option value="coral-gables">Coral Gables</option>
               <option value="coconut-grove">Coconut Grove</option>
               <option value="pinecrest">Pinecrest</option>
               <option value="north-beaches" data-i18n="search.north">Golden Beach &amp; Sunny Isles</option>
+              <option value="brickell">Brickell</option>
             </select>
           </div>
           <div class="search__field">
-            <label for="s-price" data-i18n="search.price">Price</label>
-            <select id="s-price" name="price" data-filter-control="price">
-              <option value="all" data-i18n="search.anyPrice">Any price</option>
-              <option value="0-10">$5M – $10M</option>
-              <option value="10-20">$10M – $20M</option>
-              <option value="20-999" data-i18n="search.price3">$20M and above</option>
+            <label for="s-type" data-i18n="search.type">Property type</label>
+            <select id="s-type" name="type">
+              <option value="" data-i18n="search.anyType">All types</option>
+              <option value="house" data-i18n="f.house">Houses</option>
+              <option value="condo" data-i18n="f.condo">Condos</option>
+              <option value="penthouse" data-i18n="f.penthouse">Penthouses</option>
             </select>
           </div>
           <div class="search__field">
             <label for="s-beds" data-i18n="search.beds">Bedrooms</label>
-            <select id="s-beds" name="beds" data-filter-control="beds">
+            <select id="s-beds" name="beds">
               <option value="0" data-i18n="search.anyBeds">Any</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
               <option value="5">5+</option>
               <option value="6">6+</option>
               <option value="7">7+</option>
             </select>
           </div>
-          <div class="search__field">
-            <label for="s-water" data-i18n="search.water">Waterfront</label>
-            <select id="s-water" name="water" data-filter-control="water">
-              <option value="all" data-i18n="search.anyWater">Any</option>
-              <option value="ocean" data-i18n="search.ocean">Ocean</option>
-              <option value="bay" data-i18n="search.bay">Bay</option>
-              <option value="canal" data-i18n="search.canal">Canal with ocean access</option>
-            </select>
-          </div>
-          <button class="btn btn--sea search__btn" type="submit" data-i18n="search.submit">Search homes</button>
+          <button class="btn btn--sea search__btn" type="submit" data-i18n="search.submit">Search properties</button>
         </form>
       </div>
     </section>
@@ -149,30 +150,24 @@
       </div>
     </section>
 
-    <!-- ============================== LISTINGS -->
+    <!-- ============================== FEATURED PROPERTIES (from js/listings.js) -->
     <section class="section" id="listings" aria-labelledby="listings-title">
       <div class="wrap">
         <div class="section__head">
           <div>
             <p class="eyebrow" data-i18n="listings.eyebrow">Portfolio</p>
-            <h2 id="listings-title" class="h2" data-i18n="listings.title">Current &amp; recent listings</h2>
+            <h2 id="listings-title" class="h2" data-i18n="listings.title">Featured properties</h2>
           </div>
-          <div class="listing-tools">
-            <p class="listing-count" id="listing-count" aria-live="polite"></p>
-            <label class="sort">
-              <span data-i18n="listings.sort">Sort</span>
-              <select id="l-sort">
-                <option value="price-desc" data-i18n="listings.sort1">Price, high to low</option>
-                <option value="price-asc" data-i18n="listings.sort2">Price, low to high</option>
-                <option value="newest" data-i18n="listings.sort3">Newest</option>
-                <option value="size" data-i18n="listings.sort4">Largest interior</option>
-              </select>
-            </label>
-            <button class="link-btn" type="button" id="l-reset" hidden data-i18n="listings.reset">Clear filters</button>
-          </div>
+          <a class="btn btn--line" href="properties.html" id="all-props" data-i18n="listings.all">See all properties</a>
         </div>
-        <div class="listings" id="listing-grid"></div>
-        <p class="listings-empty" id="listing-empty" hidden data-i18n="listings.empty">No homes match these filters right now. Many of my listings are private; tell me what you are looking for and I will check what is coming.</p>
+        <div class="pgrid pgrid--four" id="featured-grid"></div>
+        <ul class="quicklinks" aria-label="Browse properties" data-i18n-attr="aria-label:quick.label">
+          <li><a href="properties.html"><span data-i18n="quick.sale">For sale</span><small data-quick="sale"></small></a></li>
+          <li><a href="properties.html?op=rent"><span data-i18n="quick.rent">For rent</span><small data-quick="rent"></small></a></li>
+          <li><a href="properties.html?new=1"><span data-i18n="quick.new">New construction</span><small data-quick="new"></small></a></li>
+          <li><a href="properties.html?water=any"><span data-i18n="quick.water">On the water</span><small data-quick="water"></small></a></li>
+          <li><a href="properties.html?excl=1"><span data-i18n="quick.excl">Exclusive listings</span><small data-quick="excl"></small></a></li>
+        </ul>
         <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call (305) 555-0199.</p></noscript>
       </div>
     </section>
@@ -192,37 +187,37 @@
             <div class="hood__media media"><img class="media__img" src="img/n-islands.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3 data-i18n="hoods.mbT">Miami Beach &amp; the Islands</h3>
             <p data-i18n="hoods.mb">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=miami-beach">See properties</a>
           </article>
           <article class="hood" data-area="key-biscayne">
             <div class="hood__media media"><img class="media__img" src="img/n-key-biscayne.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Key Biscayne</h3>
             <p data-i18n="hoods.kb">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=key-biscayne">See properties</a>
           </article>
           <article class="hood" data-area="coral-gables">
             <div class="hood__media media"><img class="media__img" src="img/n-coral-gables.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Coral Gables</h3>
             <p data-i18n="hoods.cg">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=coral-gables">See properties</a>
           </article>
           <article class="hood" data-area="coconut-grove">
             <div class="hood__media media"><img class="media__img" src="img/n-coconut-grove.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Coconut Grove</h3>
             <p data-i18n="hoods.cgv">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=coconut-grove">See properties</a>
           </article>
           <article class="hood" data-area="north-beaches">
             <div class="hood__media media"><img class="media__img" src="img/n-miami-beach.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3 data-i18n="hoods.nbT">Golden Beach &amp; Sunny Isles</h3>
             <p data-i18n="hoods.nb">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=north-beaches">See properties</a>
           </article>
           <article class="hood" data-area="brickell">
             <div class="hood__media media"><img class="media__img" src="img/n-brickell.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
             <h3>Brickell</h3>
             <p data-i18n="hoods.br">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
-            <button class="link-btn hood__btn" type="button"></button>
+            <a class="link-btn hood__btn" href="properties.html?area=brickell">See properties</a>
           </article>
         </div>
       </div>
@@ -396,7 +391,7 @@
                 <option value="buy" data-i18n="form.i1">Buying</option>
                 <option value="sell" data-i18n="form.i2">Selling</option>
                 <option value="both" data-i18n="form.i3">Buying and selling</option>
-                <option value="rent" data-i18n="form.i4">A seasonal rental</option>
+                <option value="rent" data-i18n="form.i4">Renting</option>
               </select>
             </div>
           </div>
@@ -438,7 +433,7 @@
         <p class="footer__small" data-i18n="footer.broker">Brokered by [Brokerage Name], Licensed Real Estate Broker</p>
       </div>
       <nav class="footer__nav" aria-label="Footer">
-        <a href="#listings" data-i18n="nav.listings">Listings</a>
+        <a href="properties.html" data-i18n="nav.listings">Properties</a>
         <a href="#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
         <a href="#valuation" data-i18n="nav.valuation">Home value</a>
         <a href="#contact" data-i18n="nav.cta">Private showing</a>
@@ -461,12 +456,10 @@
     <a class="action-bar__main" href="#contact" data-i18n="bar.cta">Private showing</a>
   </nav>
 
-  <dialog class="dialog" id="listing-dialog" aria-labelledby="dlg-title">
-    <div class="dialog__inner" id="dialog-body"></div>
-  </dialog>
-
   <script src="js/i18n.js"></script>
   <script src="js/core.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/catalog.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

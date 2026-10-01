@@ -40,6 +40,10 @@
     return rec;
   }
 
+  // Pages other than the home page set <html data-page="…"> and keep their own title in I18N.es['<page>.meta.title'].
+  var page = root.getAttribute('data-page');
+  function metaKey(k) { return page && Object.prototype.hasOwnProperty.call(dict, page + '.' + k) ? page + '.' + k : k; }
+
   var meta = {
     title: document.title,
     description: (document.querySelector('meta[name="description"]') || {}).content || ''
@@ -65,9 +69,9 @@
     lang = next;
     root.lang = next;
     apply(document);
-    document.title = next === 'es' && dict['meta.title'] ? dict['meta.title'] : meta.title;
+    document.title = next === 'es' && dict[metaKey('meta.title')] ? dict[metaKey('meta.title')] : meta.title;
     var md = document.querySelector('meta[name="description"]');
-    if (md) md.content = next === 'es' && dict['meta.description'] ? dict['meta.description'] : meta.description;
+    if (md) md.content = next === 'es' && dict[metaKey('meta.description')] ? dict[metaKey('meta.description')] : meta.description;
     document.querySelectorAll('[data-set-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === next));
     });

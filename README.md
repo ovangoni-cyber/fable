@@ -5,7 +5,7 @@ Tres sitios web estáticos e independientes, bilingües (inglés / español):
 | Carpeta | Sitio | Contenido |
 | --- | --- | --- |
 | [`constructora/`](constructora/) | **American Restoration Services** | Constructora de lujo con estructura inspirada en casasflorida.cl: tres líneas de casas llave en mano (Mediterránea, Moderna y Costera, con 3 modelos cada una), restauración y reformas con comparador antes/después, portafolio filtrable, calendario de obra, especificaciones para huracanes (HVHZ), "Quiénes somos" y formulario de proyecto. |
-| [`realtor/`](realtor/) | **Wendy Realtor** | Propiedades con buscador, filtros y ficha detallada; guía de vecindarios; servicios para comprar, vender y comprar desde el exterior; valoración privada y contacto con WhatsApp. |
+| [`realtor/`](realtor/) | **Wendy Realtor** | Portada con buscador y propiedades destacadas. Página de propiedades inspirada en unicainmobiliaria.com: venta y alquiler, filtros (referencia, tipo, vecindario, precio, habitaciones, baños, superficie, frente al agua, exclusivas, obra nueva), orden, vista en cuadrícula o lista y paginación. Ficha de cada propiedad con galería, datos, vecindario, formulario, WhatsApp y propiedades similares. También tiene guía de vecindarios, servicios, valoración privada y contacto. |
 | [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
 `index.html` en la raíz es solo un índice que enlaza los tres sitios.
@@ -36,17 +36,31 @@ Para forzar un idioma, agregue `?lang=es` o `?lang=en` a la URL. Si no, el sitio
   img/            renders, dibujos SVG, imagen para redes y favicon
 ```
 
+Wendy Realtor tiene además:
+
+```
+realtor/
+  properties.html   todas las propiedades, con filtros y páginas
+  property.html     ficha de una propiedad: property.html?id=harbor-drive
+  js/listings.js    las propiedades (el único archivo que hay que tocar para cambiarlas)
+  js/catalog.js     tarjetas y textos comunes a las tres páginas
+  js/properties.js  filtros, orden, vista y páginas
+  js/property.js    galería, datos, formulario y propiedades similares
+```
+
+La búsqueda queda en la dirección (por ejemplo `properties.html?op=rent&area=brickell`), así que se puede compartir un enlace a una búsqueda o a una propiedad.
+
 ## Cómo editar textos
 
 - **Inglés**: directamente en `index.html`.
 - **Español**: en `js/i18n.js`. Cada elemento traducible tiene un atributo `data-i18n="clave"` y la misma clave en `I18N.es`. Si falta una clave, se muestra el texto en inglés.
 - **Modelos de la constructora**: las tres líneas y sus modelos están en la sección `#models` de `constructora/index.html`; cada botón "Solicitar precio" rellena el formulario con el modelo elegido.
-- **Propiedades de Wendy Realtor**: en el arreglo `LISTINGS` de `realtor/js/main.js` (precio, habitaciones, baños, superficie, frente al agua, estado, descripción y características en ambos idiomas).
+- **Propiedades de Wendy Realtor**: en `realtor/js/listings.js`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. Al inicio del archivo se explica cada campo. La portada, la página de propiedades y las fichas se actualizan solas.
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
 ## Imágenes
 
-Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las imágenes de las propiedades se indican en el campo `img` de `LISTINGS` (`realtor/js/main.js`).
+Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las fotos de cada propiedad se indican en el campo `imgs` de `realtor/js/listings.js` (la primera es la principal; puede haber tantas como quiera). Ahora se llaman `listing-N.jpg`, `listing-N-2.jpg` y `listing-N-3.jpg`.
 
 Tamaños recomendados: portada 2000 × 1250 px, tarjetas 1200 × 900 px, vecindarios 1000 × 1250 px, en JPG de calidad 80–85%.
 
@@ -90,7 +104,8 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Nombre de la agencia en el pie ("Brokered by [Brokerage Name]"). En Florida la publicidad debe incluir el nombre de la agencia.
 - Tipo de licencia (asociada de ventas o broker), idiomas y especialidad.
 - Cifras: $1.2B en ventas, 214 casas, 38% fuera del mercado.
-- Las ocho propiedades son ejemplos; los tres testimonios también.
+- Las 18 propiedades son ejemplos (incluidas las referencias WR-xxxx); los tres testimonios también.
+- Alquileres: Miami Beach y Golden Beach restringen los alquileres de corta duración. Los ejemplos dicen "seis meses o más"; confirme las normas de cada municipio antes de publicar alquileres reales.
 - Retrato de Wendy.
 
 **Inversionistas** (`inversionistas/`)
