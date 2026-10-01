@@ -4,7 +4,7 @@ Tres sitios web estáticos e independientes, bilingües (inglés / español):
 
 | Carpeta | Sitio | Contenido |
 | --- | --- | --- |
-| [`constructora/`](constructora/) | **American Restoration Services** | Constructora de casas de lujo nuevas (sin restauraciones): portafolio filtrable, calendario de obra a escala, especificaciones para huracanes (HVHZ), servicios y formulario de proyecto. |
+| [`constructora/`](constructora/) | **American Restoration Services** | Constructora de lujo con estructura inspirada en casasflorida.cl: tres líneas de casas llave en mano (Mediterránea, Moderna y Costera, con 3 modelos cada una), restauración y reformas con comparador antes/después, portafolio filtrable, calendario de obra, especificaciones para huracanes (HVHZ), "Quiénes somos" y formulario de proyecto. |
 | [`realtor/`](realtor/) | **Wendy Realtor** | Propiedades con buscador, filtros y ficha detallada; guía de vecindarios; servicios para comprar, vender y comprar desde el exterior; valoración privada y contacto con WhatsApp. |
 | [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
@@ -40,6 +40,7 @@ Para forzar un idioma, agregue `?lang=es` o `?lang=en` a la URL. Si no, el sitio
 
 - **Inglés**: directamente en `index.html`.
 - **Español**: en `js/i18n.js`. Cada elemento traducible tiene un atributo `data-i18n="clave"` y la misma clave en `I18N.es`. Si falta una clave, se muestra el texto en inglés.
+- **Modelos de la constructora**: las tres líneas y sus modelos están en la sección `#models` de `constructora/index.html`; cada botón "Solicitar precio" rellena el formulario con el modelo elegido.
 - **Propiedades de Wendy Realtor**: en el arreglo `LISTINGS` de `realtor/js/main.js` (precio, habitaciones, baños, superficie, frente al agua, estado, descripción y características en ambos idiomas).
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
@@ -81,6 +82,7 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Teléfono (305) 555-0142, correo `info@americanrestorationservices.com`, dirección y horario.
 - Número de licencia (`CGC0000000`).
 - Cifras: 38 casas, 17 frente al agua, "desde 2009", garantía de 10 años.
+- Líneas y modelos (nombres, superficies, habitaciones, plazos de obra) y los servicios de restauración: ajústelos a la oferta real.
 - Los seis proyectos del portafolio (nombres, datos y fotos) y el testimonio.
 
 **Wendy Realtor** (`realtor/`)
