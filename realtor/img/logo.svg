@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 305.27 153.6" role="img" aria-label="Ingrid Cabeza">
   <title>Ingrid Cabeza</title>
-  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="145.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#efe4cc"/><stop offset=".48" stop-color="#cbb68e"/><stop offset="1" stop-color="#a68d63"/></linearGradient>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="145.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#c4a874"/><stop offset=".48" stop-color="#9c7f4a"/><stop offset="1" stop-color="#6e5631"/></linearGradient>
     <mask id="band" maskUnits="userSpaceOnUse" x="-4" y="-4" width="305.27" height="153.6">
       <rect x="-4" y="-4" width="305.27" height="153.6" fill="#fff"/>
       <rect x="-4" y="57.44" width="305.27" height="48.2" fill="#000"/>

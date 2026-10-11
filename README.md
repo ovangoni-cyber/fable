@@ -71,7 +71,7 @@ Tamaños recomendados: portada 2000 × 1250 px, tarjetas 1200 × 900 px, vecinda
 
 Los dibujos técnicos (alzados en `constructora/img/elevation*.svg` y el plano del lote en `inversionistas/img/siteplan.svg`) son SVG y se pueden conservar.
 
-Logo de Ingrid Cabeza: `realtor/img/logo.svg` (monograma IC con el nombre, el de la tarjeta), `logo-mark.svg` (solo IC, para la cabecera), `favicon.svg` y `key.svg` (la llave). Son vectores dorados sobre fondo transparente, listos para imprimir o usar en redes.
+Logo de Ingrid Cabeza: `realtor/img/logo.svg` (monograma IC con el nombre, el de la tarjeta), `logo-mark.svg` (solo IC, para la cabecera), `favicon.svg` y `key.svg` (la llave). Son vectores dorados sobre fondo transparente, listos para imprimir o usar en redes. La web usa la versión clara (marfil, negro y dorado); la versión negra con dorado está guardada en el historial de git (commit 14955a1).
 
 Para la foto de Ingrid, guarde el retrato como `realtor/img/ingrid.jpg` y descomente la línea `<image href="img/ingrid.jpg" …>` de la llave en la sección "Sobre mí" de `realtor/index.html`. Hasta entonces, el marco de la llave muestra el monograma IC.
 
