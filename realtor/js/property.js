@@ -1,4 +1,4 @@
-/* Wendy Realtor: one property page (property.html?id=…). Gallery with a photo viewer,
+/* Ingrid Cabeza: one property page (property.html?id=…). Gallery with a photo viewer,
    facts, details, the neighborhood, an enquiry form and similar properties. */
 window.Listings.ready(function () {
   'use strict';
@@ -17,7 +17,7 @@ window.Listings.ready(function () {
     document.querySelectorAll('.crumbs__more').forEach(function (el) { el.hidden = true; });
     var setMissing = function () {
       $('p-crumb-ref').textContent = t('prop.missingCrumb');
-      document.title = t('prop.missingTitle') + ' · Wendy Realtor';
+      document.title = t('prop.missingTitle') + ' · Ingrid Cabeza';
     };
     setMissing();
     Site.onLang(setMissing);
@@ -136,7 +136,7 @@ window.Listings.ready(function () {
     $('similar').hidden = sim.length === 0;
     $('similar-grid').innerHTML = sim.map(C.card).join('');
 
-    document.title = name + ' · ' + t('ref.short', { ref: l.ref }) + ' · Wendy Realtor';
+    document.title = name + ' · ' + t('ref.short', { ref: l.ref }) + ' · Ingrid Cabeza';
     var md = document.querySelector('meta[name="description"]');
     if (md) md.content = C.L(l.desc);
   }

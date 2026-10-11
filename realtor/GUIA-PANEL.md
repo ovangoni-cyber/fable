@@ -1,10 +1,10 @@
 # Guía del panel de propiedades
 
-Esta guía es para Wendy. Explica cómo añadir, cambiar y quitar propiedades de la web sin tocar código.
+Esta guía es para Ingrid. Explica cómo añadir, cambiar y quitar propiedades de la web sin tocar código.
 
 ## Entrar
 
-1. Abra **https://wendyrealtor.com/admin/** (cambie el dominio por el real).
+1. Abra **https://ingridcabeza.com/admin/** (cambie el dominio por el real).
 2. Pulse **Iniciar sesión con GitHub** y entre con su usuario y contraseña de GitHub.
 3. Pulse **Propiedades** y después **Lista de propiedades**.
 
@@ -15,7 +15,7 @@ Verá todas las propiedades, una por fila, con su referencia y su título.
 1. Pulse **Add propiedad**. Aparece una ficha vacía arriba de la lista.
 2. Rellene los campos. Los que dicen "(opcional)" se pueden dejar vacíos.
    - **Identificador para la dirección web**: un nombre corto, en minúsculas y con guiones, por ejemplo `casa-bay-harbor`. No lo cambie después de publicar.
-   - **Referencia**: por ejemplo `WR-2620`. No repita una referencia que ya exista.
+   - **Referencia**: por ejemplo `IC-2620`. No repita una referencia que ya exista.
    - **Operación**: Venta o Alquiler. En alquiler, el precio es por mes.
    - **Estado**: Recién listada, En venta, Bajo contrato, Vendida, Fuera del mercado o En alquiler.
    - **Precio**: solo números, sin puntos ni comas. Por ejemplo `18950000`.

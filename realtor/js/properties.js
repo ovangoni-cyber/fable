@@ -1,4 +1,4 @@
-/* Wendy Realtor: the properties page. Filters, sorting, grid or list view and pages.
+/* Ingrid Cabeza: the properties page. Filters, sorting, grid or list view and pages.
    The search lives in the address (properties.html?op=sale&area=brickell…) so a search can be shared. */
 window.Listings.ready(function () {
   'use strict';
@@ -244,7 +244,7 @@ window.Listings.ready(function () {
     e.preventDefault();
     // A complete reference goes straight to the property.
     var q = norm(form.elements.ref.value);
-    var hit = q && C.all.filter(function (l) { return norm(l.ref) === q || norm(l.ref) === 'WR' + q; });
+    var hit = q && C.all.filter(function (l) { return norm(l.ref) === q || norm(l.ref).replace(/^[A-Z]+/, '') === q; });
     if (hit && hit.length === 1) { window.location.href = C.url(hit[0]); return; }
     closePanel();
   });

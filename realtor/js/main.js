@@ -1,4 +1,4 @@
-/* Wendy Realtor home page: featured properties, neighborhood links and service tabs.
+/* Ingrid Cabeza home page: featured properties, neighborhood links and service tabs.
    The properties come from data/listings.json, edited in the admin panel (/admin/). */
 window.Listings.ready(function () {
   'use strict';

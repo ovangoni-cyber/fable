@@ -2,12 +2,12 @@
    properties.js, property.js). English is written in the HTML; each key here matches a data-i18n key there. */
 window.I18N = {
   es: {
-    'meta.title': 'Wendy Realtor · Bienes raíces de lujo en Miami',
+    'meta.title': 'Ingrid Cabeza · Bienes raíces de lujo en Miami',
     'meta.description': 'Casas frente al agua y residencias en Miami Beach, Key Biscayne, Coral Gables y Coconut Grove. Visitas privadas, propiedades fuera del mercado y asesoría para compradores internacionales.',
-    'props.meta.title': 'Propiedades en venta y alquiler en Miami · Wendy Realtor',
+    'props.meta.title': 'Propiedades en venta y alquiler en Miami · Ingrid Cabeza',
     'props.meta.description': 'Casas, penthouses y residencias de lujo en venta y en alquiler en Miami Beach, Key Biscayne, Coral Gables, Coconut Grove, Pinecrest, Golden Beach y Brickell.',
-    'prop.meta.title': 'Propiedad · Wendy Realtor',
-    'prop.meta.description': 'Detalles, fotos y visitas privadas con Wendy Realtor en Miami.',
+    'prop.meta.title': 'Propiedad · Ingrid Cabeza',
+    'prop.meta.description': 'Detalles, fotos y visitas privadas con Ingrid Cabeza en Miami.',
 
     'nav.skip': 'Saltar al contenido',
     'nav.listings': 'Propiedades',
@@ -125,7 +125,6 @@ window.I18N = {
 
     'about.eyebrow': 'Sobre mí',
     'about.title': 'Pocos clientes, a propósito',
-    'about.alt': 'Retrato de Wendy',
     'about.p1': 'Trabajo con pocos compradores y vendedores a la vez, para que cada cliente tenga toda mi atención desde la primera visita hasta el recorrido final. Cuando llama, habla conmigo, no con un equipo.',
     'about.p2': 'Las casas frente al agua exigen otra clase de revisión: estado del muro de contención, certificados de elevación, seguros e historial de inundaciones. Hago esa revisión antes de que usted haga una oferta, no después.',
     'about.f1': 'Idiomas',
@@ -137,7 +136,7 @@ window.I18N = {
 
     'words.eyebrow': 'Clientes',
     'words.title': 'En sus palabras',
-    'words.1': 'Wendy encontró nuestra casa antes de que se publicara y la negoció por debajo del precio que tenían en mente los dueños. También nos dijo qué casa no comprar, y por qué.',
+    'words.1': 'Ingrid encontró nuestra casa antes de que se publicara y la negoció por debajo del precio que tenían en mente los dueños. También nos dijo qué casa no comprar, y por qué.',
     'words.1by': 'Compradores, Key Biscayne',
     'words.2': 'Vivíamos en Madrid durante toda la venta. Cada semana recibimos un informe por escrito, y el cierre se firmó en el consulado sin una sola sorpresa.',
     'words.2by': 'Vendedores, Coral Gables',
@@ -194,7 +193,7 @@ window.I18N = {
     'f.close': 'Cerrar filtros',
     'f.open': 'Filtros',
     'f.ref': 'Referencia',
-    'f.refPh': 'WR-2611',
+    'f.refPh': 'IC-2611',
     'f.type': 'Tipo de propiedad',
     'f.house': 'Casas',
     'f.condo': 'Condominios',
@@ -313,7 +312,7 @@ window.I18N = {
       'prop.msgShowing': 'I’d like to schedule a private showing of ref. {ref}, {name} ({place}).',
       'prop.msgRent': 'I’m interested in leasing ref. {ref}, {name} ({place}). My dates are…',
       'prop.msgPrivate': 'Please send me the details of the private listing ref. {ref} in {place}.',
-      'prop.wa': 'Hello Wendy, I’m interested in ref. {ref}: {name}.',
+      'prop.wa': 'Hello Ingrid, I’m interested in ref. {ref}: {name}.',
       'lb.open': 'Open photo {n} of {total}',
       'form.ok': 'Thank you{name}. I’ll be in touch today or tomorrow morning.',
       'form.preview': 'Preview mode: this form is not connected to an inbox yet.',
@@ -376,7 +375,7 @@ window.I18N = {
       'prop.msgShowing': 'Me gustaría agendar una visita privada a la ref. {ref}, {name} ({place}).',
       'prop.msgRent': 'Me interesa alquilar la ref. {ref}, {name} ({place}). Mis fechas son…',
       'prop.msgPrivate': 'Envíeme por favor los detalles de la propiedad privada ref. {ref} en {place}.',
-      'prop.wa': 'Hola Wendy, me interesa la ref. {ref}: {name}.',
+      'prop.wa': 'Hola Ingrid, me interesa la ref. {ref}: {name}.',
       'lb.open': 'Abrir foto {n} de {total}',
       'form.ok': 'Gracias{name}. Le escribo hoy o mañana por la mañana.',
       'form.preview': 'Modo de vista previa: este formulario aún no está conectado a un correo.',

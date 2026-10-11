@@ -1,4 +1,4 @@
-/* Wendy Realtor: loads the properties from data/listings.json.
+/* Ingrid Cabeza: loads the properties from data/listings.json.
    That file is edited from the admin panel (/admin/); there is no need to touch it by hand.
    Page scripts run through Listings.ready(fn), once the properties have arrived. */
 (function () {

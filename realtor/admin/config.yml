@@ -1,4 +1,4 @@
-# Panel de administración de Wendy Realtor (Decap CMS).
+# Panel de administración de Ingrid Cabeza (Decap CMS).
 # Edita realtor/data/listings.json y sube las fotos a realtor/img/propiedades/.
 # Puesta en marcha: ver "Panel de administración" en el README.
 
@@ -15,8 +15,8 @@ backend:
 local_backend: true
 
 locale: es
-site_url: https://wendyrealtor.com      # PLACEHOLDER: el dominio real
-display_url: https://wendyrealtor.com
+site_url: https://ingridcabeza.com      # PLACEHOLDER: el dominio real
+display_url: https://ingridcabeza.com
 logo_url: ../img/favicon.svg
 
 media_folder: realtor/img/propiedades
@@ -46,7 +46,7 @@ collections:
               - { name: id, label: "Identificador para la dirección web", widget: string,
                   hint: "Solo minúsculas, números y guiones, sin espacios ni acentos. Ej.: casa-key-biscayne. La ficha queda en property.html?id=casa-key-biscayne. No lo cambie después de publicar: el enlace dejaría de funcionar.",
                   pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Use solo letras minúsculas, números y guiones (sin espacios ni acentos)"] }
-              - { name: ref, label: "Referencia", widget: string, hint: "Ej.: WR-2620. Debe ser distinta en cada propiedad.",
+              - { name: ref, label: "Referencia", widget: string, hint: "Ej.: IC-2620. Debe ser distinta en cada propiedad.",
                   pattern: ['^[A-Za-z0-9-]+$', "Use letras, números y guiones"] }
               - { name: featured, label: "Mostrar arriba en la portada", widget: boolean, default: false, required: false,
                   hint: "Marque una sola propiedad. Si no marca ninguna, se muestra la más reciente en venta." }

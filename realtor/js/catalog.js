@@ -1,4 +1,4 @@
-/* Wendy Realtor: shared helpers for the property cards and pages.
+/* Ingrid Cabeza: shared helpers for the property cards and pages.
    Reads window.LISTINGS (js/listings.js) and the strings in js/i18n.js. */
 (function () {
   'use strict';

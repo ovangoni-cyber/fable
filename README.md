@@ -5,7 +5,7 @@ Tres sitios web estáticos e independientes, bilingües (inglés / español):
 | Carpeta | Sitio | Contenido |
 | --- | --- | --- |
 | [`constructora/`](constructora/) | **American Restoration Services** | Constructora de lujo con estructura inspirada en casasflorida.cl: tres líneas de casas llave en mano (Mediterránea, Moderna y Costera, con 3 modelos cada una), restauración y reformas con comparador antes/después, portafolio filtrable, calendario de obra, especificaciones para huracanes (HVHZ), "Quiénes somos" y formulario de proyecto. |
-| [`realtor/`](realtor/) | **Wendy Realtor** | Portada con buscador y propiedades destacadas. Página de propiedades inspirada en unicainmobiliaria.com: venta y alquiler, filtros (referencia, tipo, vecindario, precio, habitaciones, baños, superficie, frente al agua, exclusivas, obra nueva), orden, vista en cuadrícula o lista y paginación. Ficha de cada propiedad con galería, datos, vecindario, formulario, WhatsApp y propiedades similares. También tiene guía de vecindarios, servicios, valoración privada y contacto. |
+| [`realtor/`](realtor/) | **Ingrid Cabeza** | Portada con buscador y propiedades destacadas. Página de propiedades inspirada en unicainmobiliaria.com: venta y alquiler, filtros (referencia, tipo, vecindario, precio, habitaciones, baños, superficie, frente al agua, exclusivas, obra nueva), orden, vista en cuadrícula o lista y paginación. Ficha de cada propiedad con galería, datos, vecindario, formulario, WhatsApp y propiedades similares. También tiene guía de vecindarios, servicios, valoración privada y contacto. |
 | [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
 `index.html` en la raíz es solo un índice que enlaza los tres sitios.
@@ -36,7 +36,7 @@ Para forzar un idioma, agregue `?lang=es` o `?lang=en` a la URL. Si no, el sitio
   img/            renders, dibujos SVG, imagen para redes y favicon
 ```
 
-Wendy Realtor tiene además:
+Ingrid Cabeza tiene además:
 
 ```
 realtor/
@@ -45,7 +45,7 @@ realtor/
   data/listings.json  las propiedades (se editan desde el panel /admin/)
   admin/            panel de administración (Decap CMS) y su configuración
   img/propiedades/  fotos de las propiedades (las que se suben desde el panel)
-  GUIA-PANEL.md     guía para Wendy: cómo añadir, cambiar y quitar propiedades
+  GUIA-PANEL.md     guía para Ingrid: cómo añadir, cambiar y quitar propiedades
   netlify.toml      ajustes de publicación en Netlify
   js/listings.js    carga data/listings.json
   js/catalog.js     tarjetas y textos comunes a las tres páginas
@@ -60,24 +60,26 @@ La búsqueda queda en la dirección (por ejemplo `properties.html?op=rent&area=b
 - **Inglés**: directamente en `index.html`.
 - **Español**: en `js/i18n.js`. Cada elemento traducible tiene un atributo `data-i18n="clave"` y la misma clave en `I18N.es`. Si falta una clave, se muestra el texto en inglés.
 - **Modelos de la constructora**: las tres líneas y sus modelos están en la sección `#models` de `constructora/index.html`; cada botón "Solicitar precio" rellena el formulario con el modelo elegido.
-- **Propiedades de Wendy Realtor**: desde el panel de administración (ver más abajo). Los datos quedan en `realtor/data/listings.json`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. La portada (incluida la propiedad destacada de arriba), la página de propiedades y las fichas se actualizan solas.
+- **Propiedades de Ingrid Cabeza**: desde el panel de administración (ver más abajo). Los datos quedan en `realtor/data/listings.json`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. La portada (incluida la propiedad destacada de arriba), la página de propiedades y las fichas se actualizan solas.
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
 ## Imágenes
 
-Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las fotos de las propiedades están en `realtor/img/propiedades/` y se cambian desde el panel (la primera de cada propiedad es la principal).
+Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Ingrid Cabeza, las fotos de las propiedades están en `realtor/img/propiedades/` y se cambian desde el panel (la primera de cada propiedad es la principal).
 
 Tamaños recomendados: portada 2000 × 1250 px, tarjetas 1200 × 900 px, vecindarios 1000 × 1250 px, en JPG de calidad 80–85%.
 
 Los dibujos técnicos (alzados en `constructora/img/elevation*.svg` y el plano del lote en `inversionistas/img/siteplan.svg`) son SVG y se pueden conservar.
 
-Para la foto de Wendy, guarde el retrato como `realtor/img/wendy.jpg` y descomente la etiqueta `<img>` en la sección "About" de `realtor/index.html`. Hasta entonces se muestra un monograma "W".
+Logo de Ingrid Cabeza: `realtor/img/logo.svg` (monograma IC con el nombre, el de la tarjeta), `logo-mark.svg` (solo IC, para la cabecera), `favicon.svg` y `key.svg` (la llave). Son vectores dorados sobre fondo transparente, listos para imprimir o usar en redes.
+
+Para la foto de Ingrid, guarde el retrato como `realtor/img/ingrid.jpg` y descomente la línea `<image href="img/ingrid.jpg" …>` de la llave en la sección "Sobre mí" de `realtor/index.html`. Hasta entonces, el marco de la llave muestra el monograma IC.
 
 Cada sitio incluye `img/og.jpg` (imagen de 1200 × 630 px para cuando se comparte el enlace en redes o WhatsApp) y `img/apple-touch-icon.png`. Cuando tengan dominio, cambien `og:image` por la URL completa, por ejemplo `https://sudominio.com/img/og.jpg`.
 
-## Panel de administración (Wendy Realtor)
+## Panel de administración (Ingrid Cabeza)
 
-Wendy puede añadir, cambiar y quitar propiedades desde `https://sudominio.com/admin/`, sin tocar código. El panel es [Decap CMS](https://decapcms.org): guarda cada cambio en este repositorio de GitHub y Netlify vuelve a publicar la web en uno o dos minutos. La guía para Wendy está en [`realtor/GUIA-PANEL.md`](realtor/GUIA-PANEL.md).
+Ingrid puede añadir, cambiar y quitar propiedades desde `https://sudominio.com/admin/`, sin tocar código. El panel es [Decap CMS](https://decapcms.org): guarda cada cambio en este repositorio de GitHub y Netlify vuelve a publicar la web en uno o dos minutos. La guía para Ingrid está en [`realtor/GUIA-PANEL.md`](realtor/GUIA-PANEL.md).
 
 Puesta en marcha (una sola vez):
 
@@ -85,7 +87,7 @@ Puesta en marcha (una sola vez):
 2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`, sin comando de compilación (el `netlify.toml` de la carpeta ya indica que se publica tal cual). Asigne el dominio.
 3. **GitHub OAuth**: en GitHub, *Settings → Developer settings → OAuth Apps → New OAuth App*. *Homepage URL*: la dirección del sitio. *Authorization callback URL*: `https://api.netlify.com/auth/done`. Copie el *Client ID* y genere un *Client secret*.
 4. **Netlify**: en el sitio, *Site configuration → Access & security → OAuth → Install provider → GitHub*, y pegue el *Client ID* y el *Client secret*.
-5. **Acceso de Wendy**: cree una cuenta de GitHub para Wendy (gratis) y añádala al repositorio con permiso de escritura (*Settings → Collaborators*).
+5. **Acceso de Ingrid**: cree una cuenta de GitHub para Ingrid (gratis) y añádala al repositorio con permiso de escritura (*Settings → Collaborators*).
 6. Cambie `site_url` y `display_url` en `realtor/admin/config.yml` por el dominio real.
 
 Para probar el panel en la computadora, sin GitHub: en la raíz del repositorio ejecute `npx decap-server`, y en otra terminal `cd realtor && npx http-server -p 8080`. Abra `http://localhost:8080/admin/`. Los cambios se guardan directamente en los archivos locales.
@@ -121,14 +123,14 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Líneas y modelos (nombres, superficies, habitaciones, plazos de obra) y los servicios de restauración: ajústelos a la oferta real.
 - Los seis proyectos del portafolio (nombres, datos y fotos) y el testimonio.
 
-**Wendy Realtor** (`realtor/`)
-- Teléfono y WhatsApp (305) 555-0199, correo `hello@wendyrealtor.com`, oficina.
+**Ingrid Cabeza** (`realtor/`)
+- Teléfono y WhatsApp (305) 555-0199, correo `hello@ingridcabeza.com`, oficina.
 - Nombre de la agencia en el pie ("Brokered by [Brokerage Name]"). En Florida la publicidad debe incluir el nombre de la agencia.
 - Tipo de licencia (asociada de ventas o broker), idiomas y especialidad.
 - Cifras: $1.2B en ventas, 214 casas, 38% fuera del mercado.
-- Las 18 propiedades son ejemplos (incluidas las referencias WR-xxxx); los tres testimonios también.
+- Las 18 propiedades son ejemplos (incluidas las referencias IC-xxxx); los tres testimonios también.
 - Alquileres: Miami Beach y Golden Beach restringen los alquileres de corta duración. Los ejemplos dicen "seis meses o más"; confirme las normas de cada municipio antes de publicar alquileres reales.
-- Retrato de Wendy.
+- Retrato de Ingrid.
 
 **Inversionistas** (`inversionistas/`)
 - Nombre de la empresa: "Arcova Capital" es provisional. Para cambiarlo, busque y reemplace `Arcova Capital`, `Arcova` y `arcovacapital.com` en `inversionistas/` (HTML e `i18n.js`). Antes de elegir un nombre, confirme que esté libre en Sunbiz (registro de empresas de Florida) y en la USPTO (marcas).
