@@ -2,12 +2,12 @@
    properties.js, property.js). English is written in the HTML; each key here matches a data-i18n key there. */
 window.I18N = {
   es: {
-    'meta.title': 'Ingrid Cabeza · Bienes raíces de lujo en Miami',
+    'meta.title': 'Ingrid Cabeza · Bienes raíces de lujo en Florida',
     'meta.description': 'Casas frente al agua y residencias en Miami Beach, Key Biscayne, Coral Gables y Coconut Grove. Visitas privadas, propiedades fuera del mercado y asesoría para compradores internacionales.',
-    'props.meta.title': 'Propiedades en venta y alquiler en Miami · Ingrid Cabeza',
+    'props.meta.title': 'Propiedades en venta y alquiler en Florida · Ingrid Cabeza',
     'props.meta.description': 'Casas, penthouses y residencias de lujo en venta y en alquiler en Miami Beach, Key Biscayne, Coral Gables, Coconut Grove, Pinecrest, Golden Beach y Brickell.',
     'prop.meta.title': 'Propiedad · Ingrid Cabeza',
-    'prop.meta.description': 'Detalles, fotos y visitas privadas con Ingrid Cabeza en Miami.',
+    'prop.meta.description': 'Detalles, fotos y visitas privadas con Ingrid Cabeza en Florida.',
 
     'nav.skip': 'Saltar al contenido',
     'nav.listings': 'Propiedades',
@@ -18,10 +18,10 @@ window.I18N = {
     'nav.cta': 'Visita privada',
     'nav.menu': 'Menú',
     'nav.lang': 'Idioma',
-    'logo.sub': 'Bienes raíces de lujo · Miami',
+    'logo.sub': 'Bienes raíces de lujo · Florida',
 
-    'hero.eyebrow': 'Bienes raíces de lujo en Miami · English · Español',
-    'hero.lede': 'Casas frente al agua y residencias de lujo en Miami, compradas y vendidas con discreción.',
+    'hero.eyebrow': 'Bienes raíces de lujo en Florida · English · Español',
+    'hero.lede': 'Casas frente al agua y residencias de lujo en Florida, compradas y vendidas con discreción.',
     'hero.sub': 'Represento a compradores y vendedores en la bahía, el océano y las islas, muchas veces antes de que la casa llegue al mercado.',
     'hero.cta': 'Ver propiedades',
     'hero.cta2': '¿Cuánto vale mi casa?',
@@ -66,7 +66,7 @@ window.I18N = {
     'listings.noscript': 'Active JavaScript para ver las propiedades, o llame al (305) 555-0199.',
 
     'hoods.eyebrow': 'Dónde trabajo',
-    'hoods.title': 'Guía de los vecindarios frente al agua de Miami',
+    'hoods.title': 'Guía de los vecindarios frente al agua del sur de Florida',
     'hoods.intro': 'Cada zona tiene su ritmo, sus colegios, su riesgo de inundación y su mercado de reventa. Estas son las que conozco calle por calle.',
     'hoods.mbT': 'Miami Beach y las islas',
     'hoods.nbT': 'Golden Beach y Sunny Isles',
@@ -84,7 +84,7 @@ window.I18N = {
     'services.tSell': 'Vender',
     'services.tIntl': 'Desde el exterior',
     'buy.1': 'Casas antes de que se publiquen',
-    'buy.1d': 'Muchas de las mejores casas de Miami se venden con discreción. Usted ve primero las propiedades privadas y las que aún no salen al mercado, con la información del vendedor ya en la mano.',
+    'buy.1d': 'Muchas de las mejores casas de Florida se venden con discreción. Usted ve primero las propiedades privadas y las que aún no salen al mercado, con la información del vendedor ya en la mano.',
     'buy.2': 'Revisión a fondo para casas frente al agua',
     'buy.2d': 'Estado del muro de contención, zona de inundación y certificado de elevación, informe de mitigación de viento, cotizaciones de seguro e historial de permisos, todo antes de hacer una oferta.',
     'buy.3': 'Negociación con números',
@@ -182,8 +182,8 @@ window.I18N = {
     'crumbs.home': 'Inicio',
     'crumbs.props': 'Propiedades',
 
-    'props.title': 'Propiedades en Miami',
-    'props.lede': 'Casas, penthouses y residencias en venta y en alquiler en los vecindarios frente al agua de Miami. Visito y reviso personalmente cada propiedad.',
+    'props.title': 'Propiedades en Florida',
+    'props.lede': 'Casas, penthouses y residencias en venta y en alquiler en los vecindarios frente al agua de Florida. Visito y reviso personalmente cada propiedad.',
     'props.opLabel': 'Operación',
     'props.opSale': 'En venta',
     'props.opRent': 'En alquiler',
@@ -233,7 +233,7 @@ window.I18N = {
     'areas.guide': 'Leer la guía de vecindarios',
     'off.eyebrow': 'Fuera del mercado',
     'off.title': 'No todas las casas están aquí',
-    'off.lede': 'Muchas de las mejores casas de Miami se venden con discreción, antes de llegar al mercado. Cuénteme qué busca y será de los primeros en saberlo.',
+    'off.lede': 'Muchas de las mejores casas de Florida se venden con discreción, antes de llegar al mercado. Cuénteme qué busca y será de los primeros en saberlo.',
 
     'prop.missingTitle': 'Esta propiedad ya no está disponible',
     'prop.missing': 'Puede que se haya vendido o retirado del mercado. Vea las propiedades actuales o cuénteme qué busca.',
