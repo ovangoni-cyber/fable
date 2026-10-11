@@ -1,5 +1,7 @@
-# Netlify: publish this folder as is (no build step). In Netlify, set "Base directory" to realtor.
+# Netlify: in the site settings, set "Base directory" to realtor.
+# The build joins the properties edited in the admin panel (data/propiedades/) into data/listings.json.
 [build]
+  command = "node scripts/build-listings.js"
   publish = "."
 
 # The properties change from the admin panel; always serve the latest file.

@@ -1,5 +1,6 @@
 # Panel de administración de Ingrid Cabeza (Decap CMS).
-# Edita realtor/data/listings.json y sube las fotos a realtor/img/propiedades/.
+# Cada propiedad es un archivo en realtor/data/propiedades/ y sus fotos van a realtor/img/propiedades/.
+# Al publicar, Netlify ejecuta scripts/build-listings.js, que junta las propiedades en data/listings.json.
 # Puesta en marcha: ver "Panel de administración" en el README.
 
 backend:
@@ -7,7 +8,9 @@ backend:
   repo: ovangoni-cyber/fable   # repositorio donde está la web
   branch: main                 # la rama que publica Netlify
   commit_messages:
-    update: "Actualizar propiedades"
+    create: "Nueva propiedad {{slug}}"
+    update: "Actualizar propiedad {{slug}}"
+    delete: "Quitar propiedad {{slug}}"
     uploadMedia: "Subir foto {{path}}"
     deleteMedia: "Borrar foto {{path}}"
 
@@ -17,7 +20,7 @@ local_backend: true
 locale: es
 site_url: https://ingridcabeza.com      # PLACEHOLDER: el dominio real
 display_url: https://ingridcabeza.com
-logo_url: ../img/favicon.svg
+logo_url: ../img/logo-mark.svg
 
 media_folder: realtor/img/propiedades
 public_folder: /img/propiedades
@@ -25,110 +28,95 @@ public_folder: /img/propiedades
 collections:
   - name: propiedades
     label: Propiedades
-    description: >-
-      Pulse "Lista de propiedades" para ver, añadir, cambiar o quitar propiedades. Al terminar, pulse "Publicar":
-      los cambios aparecen en la web en uno o dos minutos.
+    label_singular: Propiedad
+    description: Pulse una propiedad para cambiarla, o "+ Propiedad" para añadir otra. Al terminar, pulse "Publicar".
+    folder: realtor/data/propiedades
+    format: json
+    extension: json
+    create: true
+    delete: true
+    # El nombre del archivo es la dirección de la ficha: property.html?id=ic-2620
+    slug: "{{ref}}"
+    identifier_field: title
+    summary: "{{ref}} · {{title}}"
+    sortable_fields: [ref, title, price]
     editor:
       preview: false
-    files:
-      - name: listings
-        label: Lista de propiedades
-        file: realtor/data/listings.json
+    fields:
+      - { name: title, label: "Título", widget: string, hint: "Ej.: Casa frente a la bahía con muelle privado" }
+      - { name: ref, label: "Referencia", widget: string, hint: "Ej.: IC-2620. Una distinta para cada propiedad.", pattern: ['^[A-Za-z0-9-]+$', "Use letras, números y guiones"] }
+      - name: status
+        label: Estado
+        widget: select
+        default: sale
+        options:
+          - { label: "En venta", value: sale }
+          - { label: "Recién listada (en venta)", value: new }
+          - { label: "Bajo contrato", value: contract }
+          - { label: "Vendida", value: sold }
+          - { label: "Privada: sin precio y con fotos difuminadas", value: private }
+          - { label: "En alquiler", value: rent }
+      - name: type
+        label: Tipo
+        widget: select
+        default: house
+        options: [{ label: "Casa", value: house }, { label: "Condominio", value: condo }, { label: "Penthouse", value: penthouse }]
+      - name: area
+        label: Vecindario
+        widget: select
+        options:
+          - { label: "Miami Beach y las islas", value: miami-beach }
+          - { label: "Key Biscayne", value: key-biscayne }
+          - { label: "Coral Gables", value: coral-gables }
+          - { label: "Coconut Grove", value: coconut-grove }
+          - { label: "Pinecrest", value: pinecrest }
+          - { label: "Golden Beach y Sunny Isles", value: north-beaches }
+          - { label: "Brickell", value: brickell }
+      - { name: price, label: "Precio en dólares", widget: number, value_type: int, min: 0, hint: "Solo números. Ej.: 18950000. Si está en alquiler, el precio por mes." }
+      - { name: beds, label: "Habitaciones", widget: number, value_type: int, min: 0 }
+      - { name: baths, label: "Baños", widget: number, value_type: float, min: 0, step: 0.5, hint: "Medio baño = 0.5" }
+      - { name: sqft, label: "Superficie (pies²)", widget: number, value_type: int, min: 0 }
+      - name: imgs
+        label: Fotos
+        label_singular: foto
+        widget: list
+        min: 1
+        collapsed: false
+        hint: "La primera es la principal. Arrástrelas para cambiar el orden."
+        field: { name: img, label: Foto, widget: image, choose_url: false }
+      - { name: desc, label: "Descripción", widget: text }
+      - { name: features, label: "Características", widget: text, required: false, hint: "Una por línea. Ej.: Ascensor y cava" }
+      - { name: exclusive, label: "Exclusiva", widget: boolean, default: false, required: false }
+      - { name: featured, label: "Destacar arriba en la portada", widget: boolean, default: false, required: false, hint: "Marque una sola." }
+      - name: details
+        label: Más detalles
+        widget: object
+        collapsed: true
+        required: false
         fields:
-          - name: listings
-            label: Propiedades
-            label_singular: Propiedad
-            widget: list
-            add_to_top: true
-            collapsed: true
-            summary: "{{fields.ref}} · {{fields.title.es}}"
-            fields:
-              - { name: id, label: "Identificador para la dirección web", widget: string,
-                  hint: "Solo minúsculas, números y guiones, sin espacios ni acentos. Ej.: casa-key-biscayne. La ficha queda en property.html?id=casa-key-biscayne. No lo cambie después de publicar: el enlace dejaría de funcionar.",
-                  pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Use solo letras minúsculas, números y guiones (sin espacios ni acentos)"] }
-              - { name: ref, label: "Referencia", widget: string, hint: "Ej.: IC-2620. Debe ser distinta en cada propiedad.",
-                  pattern: ['^[A-Za-z0-9-]+$', "Use letras, números y guiones"] }
-              - { name: featured, label: "Mostrar arriba en la portada", widget: boolean, default: false, required: false,
-                  hint: "Marque una sola propiedad. Si no marca ninguna, se muestra la más reciente en venta." }
-              - name: op
-                label: Operación
-                widget: select
-                default: sale
-                options: [{ label: "Venta", value: sale }, { label: "Alquiler", value: rent }]
-              - name: type
-                label: Tipo de propiedad
-                widget: select
-                default: house
-                options: [{ label: "Casa", value: house }, { label: "Condominio", value: condo }, { label: "Penthouse", value: penthouse }]
-              - name: status
-                label: Estado
-                widget: select
-                default: sale
-                hint: "Para los alquileres elija \"En alquiler\". \"Fuera del mercado\" oculta el precio y difumina las fotos."
-                options:
-                  - { label: "Recién listada", value: new }
-                  - { label: "En venta", value: sale }
-                  - { label: "Bajo contrato", value: contract }
-                  - { label: "Vendida", value: sold }
-                  - { label: "Fuera del mercado (privada)", value: private }
-                  - { label: "En alquiler", value: rent }
-              - { name: exclusive, label: "Exclusiva", widget: boolean, default: false, required: false }
-              - name: area
-                label: Vecindario
-                widget: select
-                options:
-                  - { label: "Miami Beach y las islas", value: miami-beach }
-                  - { label: "Key Biscayne", value: key-biscayne }
-                  - { label: "Coral Gables", value: coral-gables }
-                  - { label: "Coconut Grove", value: coconut-grove }
-                  - { label: "Pinecrest", value: pinecrest }
-                  - { label: "Golden Beach y Sunny Isles", value: north-beaches }
-                  - { label: "Brickell", value: brickell }
-              - { name: place, label: "Ubicación que se muestra", widget: string, hint: "Ej.: Sunset Islands, Miami Beach" }
-              - name: title
-                label: Título
-                widget: object
-                fields:
-                  - { name: es, label: "Español", widget: string, hint: "Ej.: Obra nueva frente a la bahía con muelle privado" }
-                  - { name: en, label: "Inglés", widget: string, required: false, hint: "Si lo deja vacío, se muestra el título en español." }
-              - { name: price, label: "Precio (USD)", widget: number, value_type: int, min: 0,
-                  hint: "Solo números, sin puntos ni comas. Ej.: 18950000. En alquileres, el precio por mes." }
-              - { name: beds, label: "Habitaciones", widget: number, value_type: int, min: 0 }
-              - { name: baths, label: "Baños", widget: number, value_type: float, min: 0, step: 0.5, hint: "Medio baño = 0.5. Ej.: 8.5" }
-              - { name: sqft, label: "Superficie interior (pies²)", widget: number, value_type: int, min: 0 }
-              - { name: lot, label: "Lote (acres)", widget: number, value_type: float, min: 0, step: 0.01, default: 0, required: false,
-                  hint: "0 en condominios y penthouses." }
-              - name: water
-                label: Frente al agua
-                widget: select
-                default: none
-                options:
-                  - { label: "No", value: none }
-                  - { label: "Océano", value: ocean }
-                  - { label: "Bahía", value: bay }
-                  - { label: "Canal con salida al mar", value: canal }
-              - { name: frontage, label: "Frente al agua (pies)", widget: number, value_type: int, min: 0, default: 0, required: false,
-                  hint: "0 si no tiene frente propio (por ejemplo, un condominio con vista)." }
-              - { name: year, label: "Año de construcción", widget: number, value_type: int, min: 1900, max: 2100 }
-              - { name: listed, label: "Fecha de publicación", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, picker_utc: true, default: "{{now}}",
-                  hint: "Ordena la lista: las más recientes salen primero." }
-              - name: imgs
-                label: Fotos
-                label_singular: foto
-                widget: list
-                collapsed: false
-                min: 1
-                hint: "La primera es la foto principal. Arrastre para cambiar el orden. Mejor en JPG horizontal de unos 1600 px de ancho."
-                field: { name: img, label: Foto, widget: image, choose_url: false }
-              - name: desc
-                label: Descripción
-                widget: object
-                fields:
-                  - { name: es, label: "Español", widget: text }
-                  - { name: en, label: "Inglés", widget: text, required: false, hint: "Si lo deja vacío, se muestra la descripción en español." }
-              - name: features
-                label: Características
-                widget: object
-                fields:
-                  - { name: es, label: "Español", label_singular: "característica", widget: list, collapsed: false, required: false, field: { name: item, label: "Característica", widget: string }, hint: "Una por línea. Ej.: Ascensor y cava" }
-                  - { name: en, label: "Inglés", label_singular: "característica", widget: list, collapsed: false, required: false, field: { name: item, label: "Característica", widget: string } }
+          - { name: place, label: "Ubicación que se muestra", widget: string, required: false, hint: "Ej.: Sunset Islands, Miami Beach. Si lo deja vacío, se usa el vecindario." }
+          - name: water
+            label: Frente al agua
+            widget: select
+            default: none
+            required: false
+            options:
+              - { label: "No", value: none }
+              - { label: "Océano", value: ocean }
+              - { label: "Bahía", value: bay }
+              - { label: "Canal con salida al mar", value: canal }
+          - { name: frontage, label: "Pies de frente al agua", widget: number, value_type: int, min: 0, required: false }
+          - { name: lot, label: "Lote (acres)", widget: number, value_type: float, min: 0, step: 0.01, required: false }
+          - { name: year, label: "Año de construcción", widget: number, value_type: int, min: 1900, max: 2100, required: false }
+          - { name: listed, label: "Fecha de publicación", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false,
+              picker_utc: true, default: "{{now}}", required: false, hint: "Las más recientes salen primero." }
+      - name: en
+        label: Textos en inglés
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Si lo deja vacío, la web en inglés muestra el texto en español."
+        fields:
+          - { name: title, label: "Título en inglés", widget: string, required: false }
+          - { name: desc, label: "Descripción en inglés", widget: text, required: false }
+          - { name: features, label: "Características en inglés", widget: text, required: false, hint: "Una por línea." }

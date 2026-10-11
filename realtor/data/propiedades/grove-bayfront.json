@@ -1,0 +1,33 @@
+{
+  "title": "Residencia nueva frente a la bahía con 100 pies de agua",
+  "ref": "IC-2612",
+  "status": "new",
+  "type": "house",
+  "area": "coconut-grove",
+  "price": 15900000,
+  "beds": 6,
+  "baths": 7.5,
+  "sqft": 8600,
+  "imgs": [
+    "/img/propiedades/listing-14.jpg",
+    "/img/propiedades/listing-14-2.jpg",
+    "/img/propiedades/listing-14-3.jpg"
+  ],
+  "desc": "Terminada este año en una de las pocas calles frente a la bahía en el Grove, con muelle de aguas profundas y un jardín que llega hasta el muro.",
+  "features": "100 pies frente a la bahía\nMuelle de aguas profundas\nDomótica y preparación para paneles solares\nConstruida en 2026",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Coconut Grove",
+    "water": "bay",
+    "frontage": 100,
+    "lot": 0.55,
+    "year": 2026,
+    "listed": "2026-09-20"
+  },
+  "en": {
+    "title": "New bayfront residence with 100 ft on the water",
+    "desc": "Completed this year on one of the few bayfront streets in the Grove, with a deep-water dock and a lawn that runs down to the seawall.",
+    "features": "100 ft of bay frontage\nDeep-water dock\nSmart-home and solar ready\nBuilt 2026"
+  }
+}

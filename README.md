@@ -42,7 +42,9 @@ Ingrid Cabeza tiene además:
 realtor/
   properties.html   todas las propiedades, con filtros y páginas
   property.html     ficha de una propiedad: property.html?id=harbor-drive
-  data/listings.json  las propiedades (se editan desde el panel /admin/)
+  data/propiedades/   una ficha por propiedad (se editan desde el panel /admin/)
+  data/listings.json  todas las propiedades juntas; lo genera scripts/build-listings.js
+  scripts/          build-listings.js: junta data/propiedades/ en data/listings.json
   admin/            panel de administración (Decap CMS) y su configuración
   img/propiedades/  fotos de las propiedades (las que se suben desde el panel)
   GUIA-PANEL.md     guía para Ingrid: cómo añadir, cambiar y quitar propiedades
@@ -60,7 +62,7 @@ La búsqueda queda en la dirección (por ejemplo `properties.html?op=rent&area=b
 - **Inglés**: directamente en `index.html`.
 - **Español**: en `js/i18n.js`. Cada elemento traducible tiene un atributo `data-i18n="clave"` y la misma clave en `I18N.es`. Si falta una clave, se muestra el texto en inglés.
 - **Modelos de la constructora**: las tres líneas y sus modelos están en la sección `#models` de `constructora/index.html`; cada botón "Solicitar precio" rellena el formulario con el modelo elegido.
-- **Propiedades de Ingrid Cabeza**: desde el panel de administración (ver más abajo). Los datos quedan en `realtor/data/listings.json`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. La portada (incluida la propiedad destacada de arriba), la página de propiedades y las fichas se actualizan solas.
+- **Propiedades de Ingrid Cabeza**: desde el panel de administración (ver más abajo). Cada propiedad queda en su propio archivo en `realtor/data/propiedades/` (el nombre del archivo es la dirección de su ficha), y al publicar Netlify ejecuta `node scripts/build-listings.js`, que las junta en `realtor/data/listings.json`. Si edita los archivos a mano, ejecute ese comando antes de probar la web. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. La portada (incluida la propiedad destacada de arriba), la página de propiedades y las fichas se actualizan solas.
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
 ## Imágenes
@@ -84,7 +86,7 @@ Ingrid puede añadir, cambiar y quitar propiedades desde `https://sudominio.com/
 Puesta en marcha (una sola vez):
 
 1. **Rama**: el panel guarda en la rama `main` (`realtor/admin/config.yml`, campos `repo` y `branch`). Fusione esta rama en `main`, o cambie `branch` por la rama que publique la web.
-2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`, sin comando de compilación (el `netlify.toml` de la carpeta ya indica que se publica tal cual). Asigne el dominio.
+2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`. El `netlify.toml` de la carpeta ya indica el comando de compilación (`node scripts/build-listings.js`) y que se publica la carpeta tal cual. Asigne el dominio.
 3. **GitHub OAuth**: en GitHub, *Settings → Developer settings → OAuth Apps → New OAuth App*. *Homepage URL*: la dirección del sitio. *Authorization callback URL*: `https://api.netlify.com/auth/done`. Copie el *Client ID* y genere un *Client secret*.
 4. **Netlify**: en el sitio, *Site configuration → Access & security → OAuth → Install provider → GitHub*, y pegue el *Client ID* y el *Client secret*.
 5. **Acceso de Ingrid**: cree una cuenta de GitHub para Ingrid (gratis) y añádala al repositorio con permiso de escritura (*Settings → Collaborators*).

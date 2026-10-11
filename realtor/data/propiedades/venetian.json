@@ -1,0 +1,33 @@
+{
+  "title": "Moderna en las Venetian Islands con vista a la bahía",
+  "ref": "IC-2541",
+  "status": "sold",
+  "type": "house",
+  "area": "miami-beach",
+  "price": 12850000,
+  "beds": 6,
+  "baths": 7,
+  "sqft": 7400,
+  "imgs": [
+    "/img/propiedades/listing-7.jpg",
+    "/img/propiedades/listing-7-2.jpg",
+    "/img/propiedades/listing-7-3.jpg"
+  ],
+  "desc": "Vendida fuera del mercado en 23 días a un comprador de Nueva York. Amplias vistas a la bahía hacia el skyline de Miami Beach.",
+  "features": "Vendida fuera del mercado\n75 pies frente a la bahía\nA pasos de la Venetian Causeway\nConstruida en 2020",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Venetian Islands, Miami Beach",
+    "water": "bay",
+    "frontage": 75,
+    "lot": 0.3,
+    "year": 2020,
+    "listed": "2026-01-20"
+  },
+  "en": {
+    "title": "Venetian Islands modern with bay views",
+    "desc": "Sold off-market in 23 days to a buyer from New York. Wide bay views toward the Miami Beach skyline.",
+    "features": "Sold off-market\n75 ft of bay frontage\nWalk to the Venetian Causeway\nBuilt 2020"
+  }
+}

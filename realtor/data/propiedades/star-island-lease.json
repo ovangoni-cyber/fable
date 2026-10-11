@@ -1,0 +1,33 @@
+{
+  "title": "Mansión frente al agua en isla con garita, amueblada",
+  "ref": "IC-2609",
+  "status": "rent",
+  "type": "house",
+  "area": "miami-beach",
+  "price": 145000,
+  "beds": 8,
+  "baths": 9.5,
+  "sqft": 11800,
+  "imgs": [
+    "/img/propiedades/listing-11.jpg",
+    "/img/propiedades/listing-11-2.jpg",
+    "/img/propiedades/listing-11-3.jpg"
+  ],
+  "desc": "Amueblada y con personal a solicitud, con muelle para un yate de 90 pies. Disponible desde noviembre con contrato de seis meses o más.",
+  "features": "140 pies frente a la bahía con muelle\nContrato de seis meses o más\nIsla con garita de seguridad\nÁrea de servicio y garaje para 6 autos",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Star Island, Miami Beach",
+    "water": "bay",
+    "frontage": 140,
+    "lot": 0.8,
+    "year": 2022,
+    "listed": "2026-09-18"
+  },
+  "en": {
+    "title": "Waterfront estate on a guard-gated island, furnished",
+    "desc": "Furnished and staffed on request, with a dock for a 90 ft yacht. Available from November on a lease of six months or longer.",
+    "features": "140 ft of bay frontage and dock\nLease of six months or longer\nGuard-gated island\nStaff quarters and 6-car garage"
+  }
+}
