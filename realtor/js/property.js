@@ -121,6 +121,8 @@ window.Listings.ready(function () {
     videoDone = true;
     if (v.kind === 'file') {
       box.innerHTML = '<video controls preload="metadata" playsinline poster="' + l.imgs[0] + '" src="' + C.esc(v.src) + '"></video>';
+      // The cover photo fills the frame; once the video plays it is shown whole, whatever its shape.
+      box.querySelector('video').addEventListener('play', function () { this.classList.add('is-playing'); }, { once: true });
     } else if (v.kind === 'youtube' || v.kind === 'vimeo') {
       // The player loads only after a click, so the page stays fast and no third-party content loads until then.
       box.innerHTML = '<button class="pvideo__poster" type="button" data-play><img class="media__img" src="' + l.imgs[0] + '" alt="" loading="lazy"><span class="pvideo__btn">' + playLabel() + '</span></button>';
