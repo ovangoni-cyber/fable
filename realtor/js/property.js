@@ -1,6 +1,6 @@
 /* Wendy Realtor: one property page (property.html?id=…). Gallery with a photo viewer,
    facts, details, the neighborhood, an enquiry form and similar properties. */
-(function () {
+window.Listings.ready(function () {
   'use strict';
 
   var Site = window.Site;
@@ -194,4 +194,4 @@
     render();
     if (box.open) show(current);
   });
-})();
+});

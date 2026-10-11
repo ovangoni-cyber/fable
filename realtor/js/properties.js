@@ -1,6 +1,6 @@
 /* Wendy Realtor: the properties page. Filters, sorting, grid or list view and pages.
    The search lives in the address (properties.html?op=sale&area=brickell…) so a search can be shared. */
-(function () {
+window.Listings.ready(function () {
   'use strict';
 
   var Site = window.Site;
@@ -320,4 +320,4 @@
   render();
 
   Site.onLang(function () { priceOptions(); syncForm(); render(); });
-})();
+});

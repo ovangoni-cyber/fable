@@ -15,7 +15,6 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@300..700&display=swap">
@@ -81,14 +80,15 @@
         </div>
         <figure class="hero__feature">
           <div class="media hero__media">
-            <img class="media__img" src="img/hero.jpg" width="1500" height="1250" alt="Rendering of a modern waterfront residence at golden hour" data-i18n-attr="alt:hero.alt" fetchpriority="high" decoding="async">
+            <!-- The featured property ("Show at the top of the home page" in the admin panel) fills this card. -->
+            <img class="media__img" id="hero-img" src="img/propiedades/listing-1.jpg" width="1200" height="900" alt="" fetchpriority="high" decoding="async">
           </div>
-          <figcaption class="feature-card">
-            <p class="feature-card__status" data-i18n="hero.status">Just listed · Key Biscayne · Ref. WR-2611</p>
-            <p class="feature-card__title" data-i18n="hero.featureTitle">Bayfront new construction with private dock</p>
-            <p class="feature-card__price">$18,950,000</p>
-            <p class="feature-card__facts" data-i18n="hero.facts">7 bd · 8.5 ba · 9,850 sf · 120 ft on the bay</p>
-            <a class="link-btn" href="property.html?id=harbor-drive" data-i18n="hero.view">View the property</a>
+          <figcaption class="feature-card" id="hero-card">
+            <p class="feature-card__status" id="hero-status">Just listed · Key Biscayne · Ref. WR-2611</p>
+            <p class="feature-card__title" id="hero-name">Bayfront new construction with private dock</p>
+            <p class="feature-card__price" id="hero-price">$18,950,000</p>
+            <p class="feature-card__facts" id="hero-facts">7 bd · 8.5 ba · 9,850 sf · 120 ft on the bay</p>
+            <a class="link-btn" id="hero-link" href="property.html?id=harbor-drive" data-i18n="hero.view">View the property</a>
           </figcaption>
         </figure>
       </div>

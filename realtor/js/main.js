@@ -1,6 +1,6 @@
 /* Wendy Realtor home page: featured properties, neighborhood links and service tabs.
-   The properties themselves are in js/listings.js. */
-(function () {
+   The properties come from data/listings.json, edited in the admin panel (/admin/). */
+window.Listings.ready(function () {
   'use strict';
 
   var Site = window.Site;
@@ -28,6 +28,23 @@
       excl: C.all.filter(function (l) { return l.op === 'sale' && l.exclusive && available(l); }).length
     };
     document.querySelectorAll('[data-quick]').forEach(function (el) { el.textContent = String(counts[el.getAttribute('data-quick')]); });
+  }
+
+  /* ---------------------------------------------------------------- hero: the featured property */
+  function renderHero() {
+    var card = document.getElementById('hero-card');
+    var open = C.all.filter(available);
+    var l = open.filter(function (x) { return x.featured; })[0] || C.sort(open.filter(function (x) { return x.op === 'sale'; }), 'newest')[0] || open[0];
+    if (!l) { card.hidden = true; return; }
+    var water = C.waterText(l, true);
+    var img = document.getElementById('hero-img');
+    img.src = l.imgs[0];
+    img.alt = t('listing.imgAlt', { name: C.L(l.title) });
+    document.getElementById('hero-status').textContent = [C.statusText(l), l.place, t('ref.short', { ref: l.ref })].join(' · ');
+    document.getElementById('hero-name').textContent = C.L(l.title);
+    document.getElementById('hero-price').textContent = C.priceText(l);
+    document.getElementById('hero-facts').textContent = [l.beds + ' ' + t('u.bd'), Site.number(l.baths) + ' ' + t('u.ba'), Site.number(l.sqft) + ' ' + t('u.sf'), water].filter(Boolean).join(' · ');
+    document.getElementById('hero-link').href = C.url(l);
   }
 
   /* ---------------------------------------------------------------- neighborhoods */
@@ -89,7 +106,8 @@
   });
 
   /* ---------------------------------------------------------------- language */
-  Site.onLang(function () { renderFeatured(); renderHoods(); });
+  Site.onLang(function () { renderHero(); renderFeatured(); renderHoods(); });
+  renderHero();
   renderFeatured();
   renderHoods();
-})();
+});

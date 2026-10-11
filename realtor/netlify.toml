@@ -1,0 +1,14 @@
+# Netlify: publish this folder as is (no build step). In Netlify, set "Base directory" to realtor.
+[build]
+  publish = "."
+
+# The properties change from the admin panel; always serve the latest file.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

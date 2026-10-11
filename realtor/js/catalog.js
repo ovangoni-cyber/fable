@@ -5,7 +5,6 @@
 
   var Site = window.Site;
   var t = Site.t;
-  var LISTINGS = window.LISTINGS || [];
   var NEW_BUILD_YEAR = 2025;
 
   var ICONS = {
@@ -31,7 +30,7 @@
     });
   }
   function L(obj) { return obj[Site.lang] || obj.en; }
-  function byId(id) { return LISTINGS.filter(function (l) { return l.id === id; })[0]; }
+  function byId(id) { return window.LISTINGS.filter(function (l) { return l.id === id; })[0]; }
   function url(l) { return 'property.html?id=' + encodeURIComponent(l.id); }
 
   function compact(v) {
@@ -111,7 +110,7 @@
   }
 
   window.Catalog = {
-    all: LISTINGS,
+    get all() { return window.LISTINGS || []; },
     byId: byId,
     url: url,
     esc: esc,

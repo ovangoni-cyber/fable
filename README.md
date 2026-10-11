@@ -42,7 +42,12 @@ Wendy Realtor tiene además:
 realtor/
   properties.html   todas las propiedades, con filtros y páginas
   property.html     ficha de una propiedad: property.html?id=harbor-drive
-  js/listings.js    las propiedades (el único archivo que hay que tocar para cambiarlas)
+  data/listings.json  las propiedades (se editan desde el panel /admin/)
+  admin/            panel de administración (Decap CMS) y su configuración
+  img/propiedades/  fotos de las propiedades (las que se suben desde el panel)
+  GUIA-PANEL.md     guía para Wendy: cómo añadir, cambiar y quitar propiedades
+  netlify.toml      ajustes de publicación en Netlify
+  js/listings.js    carga data/listings.json
   js/catalog.js     tarjetas y textos comunes a las tres páginas
   js/properties.js  filtros, orden, vista y páginas
   js/property.js    galería, datos, formulario y propiedades similares
@@ -55,12 +60,12 @@ La búsqueda queda en la dirección (por ejemplo `properties.html?op=rent&area=b
 - **Inglés**: directamente en `index.html`.
 - **Español**: en `js/i18n.js`. Cada elemento traducible tiene un atributo `data-i18n="clave"` y la misma clave en `I18N.es`. Si falta una clave, se muestra el texto en inglés.
 - **Modelos de la constructora**: las tres líneas y sus modelos están en la sección `#models` de `constructora/index.html`; cada botón "Solicitar precio" rellena el formulario con el modelo elegido.
-- **Propiedades de Wendy Realtor**: en `realtor/js/listings.js`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. Al inicio del archivo se explica cada campo. La portada, la página de propiedades y las fichas se actualizan solas.
+- **Propiedades de Wendy Realtor**: desde el panel de administración (ver más abajo). Los datos quedan en `realtor/data/listings.json`. Cada propiedad tiene referencia, venta o alquiler (en alquiler el precio es mensual), tipo, vecindario, precio, habitaciones, baños, superficie, lote, frente al agua, año, estado (recién listada, en venta, bajo contrato, vendida, fuera del mercado o en alquiler), si es exclusiva, fotos, y descripción y características en ambos idiomas. La portada (incluida la propiedad destacada de arriba), la página de propiedades y las fichas se actualizan solas.
 - **Calculadora de inversionistas**: el retorno preferente (8%) y el reparto (70/30) están al inicio de `inversionistas/js/main.js`. Si cambian los términos, actualice también la hoja de términos en `index.html`.
 
 ## Imágenes
 
-Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las fotos de cada propiedad se indican en el campo `imgs` de `realtor/js/listings.js` (la primera es la principal; puede haber tantas como quiera). Ahora se llaman `listing-N.jpg`, `listing-N-2.jpg` y `listing-N-3.jpg`.
+Las imágenes de casas, propiedades y casos son **renders 3D ilustrativos** generados para este proyecto (no son fotos de proyectos reales ni fotos de stock). Cada web lo indica en el pie de página. Antes de publicar, reemplácelas por fotografía real con el mismo nombre de archivo en `img/`, o cambie el `src` de cada `<img class="media__img">`. En Wendy Realtor, las fotos de las propiedades están en `realtor/img/propiedades/` y se cambian desde el panel (la primera de cada propiedad es la principal).
 
 Tamaños recomendados: portada 2000 × 1250 px, tarjetas 1200 × 900 px, vecindarios 1000 × 1250 px, en JPG de calidad 80–85%.
 
@@ -69,6 +74,23 @@ Los dibujos técnicos (alzados en `constructora/img/elevation*.svg` y el plano d
 Para la foto de Wendy, guarde el retrato como `realtor/img/wendy.jpg` y descomente la etiqueta `<img>` en la sección "About" de `realtor/index.html`. Hasta entonces se muestra un monograma "W".
 
 Cada sitio incluye `img/og.jpg` (imagen de 1200 × 630 px para cuando se comparte el enlace en redes o WhatsApp) y `img/apple-touch-icon.png`. Cuando tengan dominio, cambien `og:image` por la URL completa, por ejemplo `https://sudominio.com/img/og.jpg`.
+
+## Panel de administración (Wendy Realtor)
+
+Wendy puede añadir, cambiar y quitar propiedades desde `https://sudominio.com/admin/`, sin tocar código. El panel es [Decap CMS](https://decapcms.org): guarda cada cambio en este repositorio de GitHub y Netlify vuelve a publicar la web en uno o dos minutos. La guía para Wendy está en [`realtor/GUIA-PANEL.md`](realtor/GUIA-PANEL.md).
+
+Puesta en marcha (una sola vez):
+
+1. **Rama**: el panel guarda en la rama `main` (`realtor/admin/config.yml`, campos `repo` y `branch`). Fusione esta rama en `main`, o cambie `branch` por la rama que publique la web.
+2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`, sin comando de compilación (el `netlify.toml` de la carpeta ya indica que se publica tal cual). Asigne el dominio.
+3. **GitHub OAuth**: en GitHub, *Settings → Developer settings → OAuth Apps → New OAuth App*. *Homepage URL*: la dirección del sitio. *Authorization callback URL*: `https://api.netlify.com/auth/done`. Copie el *Client ID* y genere un *Client secret*.
+4. **Netlify**: en el sitio, *Site configuration → Access & security → OAuth → Install provider → GitHub*, y pegue el *Client ID* y el *Client secret*.
+5. **Acceso de Wendy**: cree una cuenta de GitHub para Wendy (gratis) y añádala al repositorio con permiso de escritura (*Settings → Collaborators*).
+6. Cambie `site_url` y `display_url` en `realtor/admin/config.yml` por el dominio real.
+
+Para probar el panel en la computadora, sin GitHub: en la raíz del repositorio ejecute `npx decap-server`, y en otra terminal `cd realtor && npx http-server -p 8080`. Abra `http://localhost:8080/admin/`. Los cambios se guardan directamente en los archivos locales.
+
+La web lee `data/listings.json` al cargar, así que necesita servirse desde un servidor (Netlify, o `npx http-server` en local); abriendo `index.html` con doble clic las propiedades no cargan.
 
 ## Privacidad
 

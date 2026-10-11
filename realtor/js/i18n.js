@@ -25,10 +25,6 @@ window.I18N = {
     'hero.sub': 'Represento a compradores y vendedores en la bahía, el océano y las islas, muchas veces antes de que la casa llegue al mercado.',
     'hero.cta': 'Ver propiedades',
     'hero.cta2': '¿Cuánto vale mi casa?',
-    'hero.alt': 'Render de una residencia moderna frente al agua al atardecer',
-    'hero.status': 'Recién listada · Key Biscayne · Ref. WR-2611',
-    'hero.featureTitle': 'Obra nueva frente a la bahía con muelle privado',
-    'hero.facts': '7 hab. · 8.5 baños · 9,850 pies² · 120 pies frente a la bahía',
     'hero.view': 'Ver la propiedad',
 
     'search.label': 'Buscar propiedades',
