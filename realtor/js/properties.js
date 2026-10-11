@@ -11,7 +11,7 @@ window.Listings.ready(function () {
     sale: { min: [5e6, 7.5e6, 10e6, 15e6, 20e6], max: [7.5e6, 10e6, 15e6, 20e6, 30e6] },
     rent: { min: [20000, 30000, 50000, 75000, 100000], max: [30000, 50000, 75000, 100000, 150000] }
   };
-  var DEFAULTS = { op: 'sale', ref: '', types: [], area: '', min: '', max: '', beds: '0', baths: '0', size: '0', water: '', excl: false, nb: false, sold: false, sort: 'newest', page: 1 };
+  var DEFAULTS = { op: 'sale', ref: '', types: [], area: '', min: '', max: '', beds: '0', baths: '0', size: '0', water: '', excl: false, nb: false, vid: false, sold: false, sort: 'newest', page: 1 };
 
   var form = document.getElementById('filter-form');
   var grid = document.getElementById('r-grid');
@@ -44,6 +44,7 @@ window.Listings.ready(function () {
     if (['any', 'ocean', 'bay', 'canal'].indexOf(q.get('water')) > -1) s.water = q.get('water');
     s.excl = q.get('excl') === '1';
     s.nb = q.get('new') === '1';
+    s.vid = q.get('video') === '1';
     s.sold = q.get('sold') === '1';
     if (['newest', 'price-desc', 'price-asc', 'size'].indexOf(q.get('sort')) > -1) s.sort = q.get('sort');
     s.page = Math.max(1, parseInt(q.get('page'), 10) || 1);
@@ -59,6 +60,7 @@ window.Listings.ready(function () {
     ['beds', 'baths', 'size'].forEach(function (k) { if (state[k] !== '0') q.set(k, state[k]); });
     if (state.excl) q.set('excl', '1');
     if (state.nb) q.set('new', '1');
+    if (state.vid) q.set('video', '1');
     if (state.sold) q.set('sold', '1');
     if (state.sort !== 'newest') q.set('sort', state.sort);
     if (state.page > 1) q.set('page', String(state.page));
@@ -94,6 +96,7 @@ window.Listings.ready(function () {
     form.elements.water.value = state.water;
     form.elements.excl.checked = state.excl;
     form.elements['new'].checked = state.nb;
+    form.elements.video.checked = state.vid;
     form.elements.sold.checked = state.sold;
     sortEl.value = state.sort;
     document.querySelectorAll('[data-op]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-op') === state.op)); });
@@ -112,6 +115,7 @@ window.Listings.ready(function () {
     state.water = form.elements.water.value;
     state.excl = form.elements.excl.checked;
     state.nb = form.elements['new'].checked;
+    state.vid = form.elements.video.checked;
     state.sold = form.elements.sold.checked;
   }
 
@@ -132,6 +136,7 @@ window.Listings.ready(function () {
     if (state.water && state.water !== 'any' && l.water !== state.water) return false;
     if (state.excl && !l.exclusive) return false;
     if (state.nb && !C.isNewBuild(l)) return false;
+    if (state.vid && !l.video) return false;
     if (!state.sold && l.status === 'sold') return false;
     return true;
   }
@@ -150,6 +155,7 @@ window.Listings.ready(function () {
     if (state.water) out.push(['water', state.water === 'any' ? t('chip.waterAny') : t('water.' + state.water)]);
     if (state.excl) out.push(['excl', t('chip.excl')]);
     if (state.nb) out.push(['nb', t('chip.new')]);
+    if (state.vid) out.push(['vid', t('chip.video')]);
     if (state.sold && state.op === 'sale') out.push(['sold', t('chip.sold')]);
     return out;
   }
@@ -158,7 +164,7 @@ window.Listings.ready(function () {
     var parts = key.split(':');
     if (parts[0] === 'type') state.types = state.types.filter(function (v) { return v !== parts[1]; });
     else if (parts[0] === 'beds' || parts[0] === 'baths' || parts[0] === 'size') state[parts[0]] = '0';
-    else if (parts[0] === 'excl' || parts[0] === 'nb' || parts[0] === 'sold') state[parts[0]] = false;
+    else if (parts[0] === 'excl' || parts[0] === 'nb' || parts[0] === 'vid' || parts[0] === 'sold') state[parts[0]] = false;
     else state[parts[0]] = '';
     state.page = 1;
     syncForm();
@@ -219,7 +225,7 @@ window.Listings.ready(function () {
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var k = el.getAttribute('data-count').split(':');
       el.textContent = String(inOp.filter(function (l) {
-        return k[0] === 'type' ? l.type === k[1] : k[0] === 'excl' ? l.exclusive : C.isNewBuild(l);
+        return k[0] === 'type' ? l.type === k[1] : k[0] === 'excl' ? l.exclusive : k[0] === 'video' ? !!l.video : C.isNewBuild(l);
       }).length);
     });
     document.querySelectorAll('[data-area-link]').forEach(function (a) {

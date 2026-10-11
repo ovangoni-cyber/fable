@@ -34,9 +34,22 @@
       listed: String(l.listed || '').slice(0, 10),
       // The panel saves photos as /img/propiedades/…; drop the leading slash so the site also works from a subfolder.
       imgs: (l.imgs || []).filter(Boolean).length ? l.imgs.filter(Boolean).map(function (src) { return String(src).replace(/^\//, ''); }) : ['img/sin-foto.svg'],
+      video: video(l.video),
       desc: text(l.desc),
       features: list(l.features)
     };
+  }
+
+  // A video is a YouTube or Vimeo link, or a file uploaded from the panel.
+  function video(v) {
+    v = String(v || '').trim();
+    if (!v) return null;
+    var m = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/.exec(v);
+    if (m) return { kind: 'youtube', id: m[1], url: 'https://www.youtube.com/watch?v=' + m[1] };
+    m = /vimeo\.com\/(?:video\/)?(\d+)/.exec(v);
+    if (m) return { kind: 'vimeo', id: m[1], url: 'https://vimeo.com/' + m[1] };
+    if (/^https?:\/\//.test(v) && !/\.(mp4|webm|mov|m4v)(\?|$)/i.test(v)) return { kind: 'link', url: v };
+    return { kind: 'file', src: v.replace(/^\//, '') };
   }
 
   function done(raw) {

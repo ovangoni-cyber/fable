@@ -75,7 +75,9 @@ Los dibujos técnicos (alzados en `constructora/img/elevation*.svg` y el plano d
 
 Logo de Ingrid Cabeza: `realtor/img/logo.svg` (monograma IC con el nombre, el de la tarjeta), `logo-mark.svg` (solo IC, para la cabecera), `favicon.svg` y `key.svg` (la llave). Son vectores dorados sobre fondo transparente, listos para imprimir o usar en redes. La web usa la versión clara (marfil, negro y dorado); la versión negra con dorado está guardada en el historial de git (commit 14955a1).
 
-Para la foto de Ingrid, guarde el retrato como `realtor/img/ingrid.jpg` y descomente la línea `<image href="img/ingrid.jpg" …>` de la llave en la sección "Sobre mí" de `realtor/index.html`. Hasta entonces, el marco de la llave muestra el monograma IC.
+La foto de Ingrid en la llave de "Sobre mí" es `realtor/img/ingrid.jpg`, recortada de la tarjeta. Para cambiarla, sustituya ese archivo por un retrato cuadrado (al menos 560 × 560 px) con la cara centrada.
+
+Vídeos de las propiedades: cada propiedad admite un enlace de YouTube o Vimeo (`video_url`) o un archivo subido (`video_file`, MP4 de menos de 50 MB; GitHub no acepta archivos de más de 100 MB). Si hay enlace, se usa el enlace. Los vídeos de `harbor-drive` y `sunset-island` son muestras.
 
 Cada sitio incluye `img/og.jpg` (imagen de 1200 × 630 px para cuando se comparte el enlace en redes o WhatsApp) y `img/apple-touch-icon.png`. Cuando tengan dominio, cambien `og:image` por la URL completa, por ejemplo `https://sudominio.com/img/og.jpg`.
 

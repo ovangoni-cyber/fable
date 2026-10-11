@@ -56,6 +56,7 @@ for (const file of files) {
     year: num(d.year),
     listed: String(d.listed || today).slice(0, 10),
     imgs: (p.imgs || []).filter(Boolean),
+    video: String(p.video_url || p.video_file || '').trim(),
     desc: { en: en.desc || p.desc || '', es: p.desc || en.desc || '' },
     features: { en: lines(en.features).length ? lines(en.features) : features, es: features }
   });

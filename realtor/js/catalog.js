@@ -14,6 +14,7 @@
     lot: '<path d="M12 21v-5M7.5 16h9L12 3 7.5 16z"/>',
     water: '<path d="M2 14c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M12 3l-3 5h6z"/>',
     year: '<path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/>',
+    play: '<path d="M8 5.5v13l11-6.5z"/>',
     photo: '<path d="M3 8h4l1.6-2.5h6.8L17 8h4v11H3z"/><circle cx="12" cy="13.2" r="3.4"/>',
     grid: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
     list: '<path d="M4 5h6v5H4zM4 14h6v5H4zM13 6.5h7M13 9h5M13 15.5h7M13 18h5"/>',
@@ -77,7 +78,7 @@
           '<div class="pcard__media media">' +
             '<img class="media__img" src="' + l.imgs[0] + '" width="1200" height="900" alt="' + esc(t('listing.imgAlt', { name: L(l.title) })) + '" loading="lazy" decoding="async">' +
             '<div class="pcard__badges">' + badges(l) + '</div>' +
-            (l.status !== 'private' && l.imgs.length > 1 ? '<span class="pcard__photos">' + icon('photo') + l.imgs.length + '</span>' : '') +
+            (l.status !== 'private' && (l.imgs.length > 1 || l.video) ? '<span class="pcard__photos">' + (l.video ? '<span class="pcard__video">' + icon('play') + esc(t('badge.video')) + '</span>' : '') + (l.imgs.length > 1 ? icon('photo') + l.imgs.length : '') + '</span>' : '') +
           '</div>' +
           '<div class="pcard__body">' +
             '<p class="pcard__meta"><span>' + esc(l.place) + '</span><span class="pcard__ref">' + esc(t('ref.short', { ref: l.ref })) + '</span></p>' +

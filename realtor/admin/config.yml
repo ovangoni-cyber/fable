@@ -84,6 +84,10 @@ collections:
         collapsed: false
         hint: "La primera es la principal. Arrástrelas para cambiar el orden."
         field: { name: img, label: Foto, widget: image, choose_url: false }
+      - { name: video_url, label: "Vídeo: enlace de YouTube o Vimeo", widget: string, required: false,
+          hint: "Pegue el enlace del vídeo. Ej.: https://www.youtube.com/watch?v=… Es la mejor opción para vídeos largos." }
+      - { name: video_file, label: "Vídeo: subir un archivo", widget: file, required: false, choose_url: false,
+          hint: "Si no tiene enlace, suba un vídeo corto en MP4 de menos de 50 MB. Si rellena los dos, se usa el enlace." }
       - { name: desc, label: "Descripción", widget: text }
       - { name: features, label: "Características", widget: text, required: false, hint: "Una por línea. Ej.: Ascensor y cava" }
       - { name: exclusive, label: "Exclusiva", widget: boolean, default: false, required: false }

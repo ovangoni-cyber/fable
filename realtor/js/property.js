@@ -103,6 +103,41 @@ window.Listings.ready(function () {
       .map(function (s) { return s.o; });
   }
 
+  /* ---------------------------------------------------------------- video */
+  var videoDone = false;
+  function playLabel() { return C.icon('play') + '<b>' + C.esc(t('prop.play')) + '</b>'; }
+  function renderVideo() {
+    var v = l.status !== 'private' && l.video;
+    $('p-video-sec').hidden = !v;
+    if (!v) return;
+    var box = $('p-video');
+    if (videoDone) {
+      var btn = box.querySelector('.pvideo__btn');
+      if (btn) btn.innerHTML = playLabel();
+      var link = box.querySelector('[data-video-link]');
+      if (link) link.textContent = t('prop.watchVideo');
+      return;
+    }
+    videoDone = true;
+    if (v.kind === 'file') {
+      box.innerHTML = '<video controls preload="metadata" playsinline poster="' + l.imgs[0] + '" src="' + C.esc(v.src) + '"></video>';
+    } else if (v.kind === 'youtube' || v.kind === 'vimeo') {
+      // The player loads only after a click, so the page stays fast and no third-party content loads until then.
+      box.innerHTML = '<button class="pvideo__poster" type="button" data-play><img class="media__img" src="' + l.imgs[0] + '" alt="" loading="lazy"><span class="pvideo__btn">' + playLabel() + '</span></button>';
+    } else {
+      box.classList.add('pvideo--link');
+      box.innerHTML = '<a class="btn btn--line" data-video-link href="' + C.esc(v.url) + '" target="_blank" rel="noopener">' + C.esc(t('prop.watchVideo')) + '</a>';
+    }
+  }
+  $('p-video').addEventListener('click', function (e) {
+    if (!e.target.closest('[data-play]')) return;
+    var v = l.video;
+    var src = v.kind === 'youtube'
+      ? 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0&modestbranding=1'
+      : 'https://player.vimeo.com/video/' + v.id + '?autoplay=1';
+    this.innerHTML = '<iframe src="' + src + '" title="' + C.esc(C.L(l.title)) + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  });
+
   function render() {
     var name = C.L(l.title);
     var areaHref = 'properties.html?' + (l.op === 'rent' ? 'op=rent&' : '') + 'area=' + l.area;
@@ -113,12 +148,15 @@ window.Listings.ready(function () {
 
     $('p-eyebrow').textContent = C.typeName(l.type) + ' · ' + l.place;
     $('p-title').textContent = name;
-    $('p-badges').innerHTML = C.badges(l) + '<span class="prop__ref">' + C.esc(t('ref.short', { ref: l.ref })) + '</span>';
+    $('p-badges').innerHTML = C.badges(l) +
+      (l.video && l.status !== 'private' ? '<a class="badge badge--video" href="#p-video-sec">' + C.icon('play') + C.esc(t('badge.video')) + '</a>' : '') +
+      '<span class="prop__ref">' + C.esc(t('ref.short', { ref: l.ref })) + '</span>';
     $('p-price').textContent = C.priceText(l);
     $('p-price').classList.toggle('is-sold', l.status === 'sold');
     $('p-persf').textContent = C.perSf(l);
 
     $('p-gallery').innerHTML = galleryHTML();
+    renderVideo();
     $('p-gallery').className = 'gallery gallery--' + Math.min(l.status === 'private' ? 1 : l.imgs.length, 3);
     $('p-facts').innerHTML = factsHTML();
     $('p-desc').textContent = C.L(l.desc);

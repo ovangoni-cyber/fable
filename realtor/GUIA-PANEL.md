@@ -17,6 +17,10 @@ Verá la lista de propiedades, una por fila, con su referencia y su título.
    - **Estado**: En venta, Recién listada, Bajo contrato, Vendida, Privada o En alquiler. En alquiler, el precio es por mes.
    - **Tipo**, **Vecindario**, **Precio en dólares** (solo números, por ejemplo `18950000`), **Habitaciones**, **Baños** y **Superficie**.
    - **Fotos**: pulse **Add foto**, después **Elige una imagen** y **Subir**, elija la foto en su computadora y pulse **Confirmar selección**. Repita para cada foto. La primera es la principal; arrástrelas para cambiar el orden.
+   - **Vídeo** (opcional), de una de estas dos formas:
+     - **Enlace de YouTube o Vimeo** (recomendado): suba el vídeo a YouTube o Vimeo, copie el enlace y péguelo. Sirve para vídeos de cualquier duración y se ve bien en el móvil.
+     - **Subir un archivo**: para un vídeo corto en MP4, de menos de 50 MB. Pulse **Elige un archivo** y después **Subir**.
+     Si rellena los dos, se usa el enlace. Las propiedades con vídeo llevan la marca "Vídeo" en las tarjetas y en el filtro **Con vídeo**.
    - **Descripción** y **Características** (una por línea).
 3. Si quiere, abra **Más detalles** (frente al agua, lote, año, fecha) o **Textos en inglés**. Si deja el inglés vacío, la web en inglés muestra el texto en español.
 4. Pulse **Publicar** y después **Publicar ahora**.
@@ -44,6 +48,13 @@ Active **Destacar arriba en la portada** en la propiedad que quiera mostrar y de
 - Fotos horizontales, en JPG, de unos 1600 píxeles de ancho.
 - La primera foto es la que sale en las tarjetas y en la portada.
 - En las propiedades **Privadas**, las fotos se ven difuminadas y el precio no aparece.
+
+## Consejos para los vídeos
+
+- Mejor horizontales y de uno a tres minutos.
+- En YouTube puede subir el vídeo como **Oculto**: no aparece en las búsquedas, pero se ve en la web.
+- Para quitar el vídeo, borre el enlace o el archivo y publique.
+- En las propiedades **Privadas** el vídeo no se muestra.
 
 ## Si algo no sale bien
 
