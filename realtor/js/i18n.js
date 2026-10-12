@@ -20,7 +20,7 @@ window.I18N = {
     'nav.lang': 'Idioma',
     'logo.sub': 'Bienes raíces de lujo · Florida',
 
-    'hero.eyebrow': 'Bienes raíces de lujo en Florida · English · Español',
+    'hero.eyebrow': 'Bienes raíces de lujo en Florida',
     'hero.lede': 'Casas frente al agua y residencias de lujo en Florida, compradas y vendidas con discreción.',
     'hero.sub': 'Represento a compradores y vendedores en la bahía, el océano y las islas, muchas veces antes de que la casa llegue al mercado.',
     'hero.cta': 'Ver propiedades',
