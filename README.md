@@ -128,7 +128,7 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Los seis proyectos del portafolio (nombres, datos y fotos) y el testimonio.
 
 **Ingrid Cabeza** (`realtor/`)
-- Teléfono y WhatsApp (305) 555-0199, correo `hello@ingridcabeza.com`, oficina.
+- Oficina y dominio. Teléfono, WhatsApp, correo y licencia ya son los reales: (786) 626-4910, `ingrid.realtor91@gmail.com`, licencia SL3644016.
 - Nombre de la agencia en el pie ("Brokered by [Brokerage Name]"). En Florida la publicidad debe incluir el nombre de la agencia.
 - Tipo de licencia (asociada de ventas o broker), idiomas y especialidad.
 - Cifras: $1.2B en ventas, 214 casas, 38% fuera del mercado.

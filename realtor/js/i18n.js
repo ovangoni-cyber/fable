@@ -63,7 +63,7 @@ window.I18N = {
     'listings.sort2': 'Precio, de menor a mayor',
     'listings.sort3': 'Más recientes',
     'listings.sort4': 'Mayor superficie',
-    'listings.noscript': 'Active JavaScript para ver las propiedades, o llame al (305) 555-0199.',
+    'listings.noscript': 'Active JavaScript para ver las propiedades, o llame al (786) 626-4910.',
 
     'hoods.eyebrow': 'Dónde trabajo',
     'hoods.title': 'Guía de los vecindarios frente al agua del sur de Florida',
@@ -130,7 +130,7 @@ window.I18N = {
     'about.f1': 'Idiomas',
     'about.f1v': 'Inglés y español',
     'about.f2': 'Licencia',
-    'about.f2v': 'Asociada de ventas de bienes raíces en Florida',
+    'about.f2v': 'Asociada de ventas de bienes raíces en Florida · SL3644016',
     'about.f3': 'Especialidad',
     'about.f3v': 'Casas de lujo y frente al agua',
 
@@ -175,7 +175,7 @@ window.I18N = {
     'bar.call': 'Llamar',
     'bar.cta': 'Visita privada',
     'bar.info': 'Consultar',
-    'footer.role': 'Asesora de bienes raíces de lujo · Asociada de ventas con licencia en Florida',
+    'footer.role': 'Asesora de bienes raíces de lujo · Asociada de ventas con licencia en Florida · Lic. SL3644016',
     'footer.broker': 'Corretaje: [Nombre de la agencia], corredor de bienes raíces con licencia',
     'footer.eho': 'Igualdad de oportunidades en la vivienda.',
     'crumbs.label': 'Ruta de navegación',

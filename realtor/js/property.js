@@ -6,7 +6,7 @@ window.Listings.ready(function () {
   var Site = window.Site;
   var C = window.Catalog;
   var t = Site.t;
-  var WA = 'https://wa.me/13055550199';
+  var WA = 'https://wa.me/17866264910';
   function $(id) { return document.getElementById(id); }
 
   var l = C.byId(new URLSearchParams(window.location.search).get('id'));
