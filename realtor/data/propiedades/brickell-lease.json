@@ -1,0 +1,33 @@
+{
+  "title": "Residencia amueblada en torre de marca, alquiler anual",
+  "ref": "IC-2616",
+  "status": "rent",
+  "type": "condo",
+  "area": "brickell",
+  "price": 32000,
+  "beds": 3,
+  "baths": 3.5,
+  "sqft": 3100,
+  "imgs": [
+    "/img/propiedades/listing-10.jpg",
+    "/img/propiedades/listing-10-2.jpg",
+    "/img/propiedades/listing-10-3.jpg"
+  ],
+  "desc": "Amueblada por completo por una interiorista, en un piso alto con vista a la bahía y al skyline. Disponible desde noviembre con contrato de doce meses.",
+  "features": "Amueblada y equipada\nContrato de doce meses\nConserjería, valet y spa\nDos plazas de estacionamiento",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Brickell",
+    "water": "bay",
+    "frontage": 0,
+    "lot": 0,
+    "year": 2023,
+    "listed": "2026-09-28"
+  },
+  "en": {
+    "title": "Furnished residence in a branded tower, annual lease",
+    "desc": "Fully furnished by an interior designer, on a high floor with bay and skyline views. Available from November on a twelve-month lease.",
+    "features": "Furnished and equipped\nTwelve-month lease\nConcierge, valet and spa\nTwo parking spaces"
+  }
+}

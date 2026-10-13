@@ -1,0 +1,20 @@
+{
+  "telefono": "(786) 626-4910",
+  "whatsapp": "",
+  "email": "ingrid.realtor91@gmail.com",
+  "oficina": {
+    "calle": "",
+    "ciudad": "Cape Coral",
+    "estado": "FL",
+    "cp": "33904"
+  },
+  "licencia": "SL3644016",
+  "agencia": "",
+  "formularios": "",
+  "titulo": "Hablemos de lo que está buscando",
+  "texto": "Las visitas privadas son con cita, los siete días de la semana. Respondo cada mensaje personalmente, casi siempre el mismo día.",
+  "en": {
+    "titulo": "Let’s talk about what you’re looking for",
+    "texto": "Private showings are by appointment, seven days a week. I reply to every message personally, usually the same day."
+  }
+}

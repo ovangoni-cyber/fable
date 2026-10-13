@@ -1,0 +1,33 @@
+{
+  "title": "Casa de playa frente al océano, alquiler amueblado",
+  "ref": "IC-2607",
+  "status": "rent",
+  "type": "house",
+  "area": "north-beaches",
+  "price": 68000,
+  "beds": 6,
+  "baths": 7,
+  "sqft": 7800,
+  "imgs": [
+    "/img/propiedades/listing-15.jpg",
+    "/img/propiedades/listing-15-2.jpg",
+    "/img/propiedades/listing-15-3.jpg"
+  ],
+  "desc": "A pasos de la arena, amueblada y lista, con servicio de playa del municipio. Disponible desde diciembre con contrato de seis meses o más.",
+  "features": "Acceso directo a la playa\nAmueblada y equipada\nContrato de seis meses o más\nPiscina y cocina exterior",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Golden Beach",
+    "water": "ocean",
+    "frontage": 100,
+    "lot": 0.5,
+    "year": 2019,
+    "listed": "2026-09-08"
+  },
+  "en": {
+    "title": "Oceanfront beach house, furnished lease",
+    "desc": "Steps from the sand, furnished and ready, with beach service through the town. Available from December on a lease of six months or longer.",
+    "features": "Direct beach access\nFurnished and equipped\nLease of six months or longer\nPool and outdoor kitchen"
+  }
+}

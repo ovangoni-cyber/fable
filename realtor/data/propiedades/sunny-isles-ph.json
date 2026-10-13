@@ -1,0 +1,33 @@
+{
+  "title": "Penthouse de piso completo frente al océano con piscina en la azotea",
+  "ref": "IC-2605",
+  "status": "sale",
+  "type": "penthouse",
+  "area": "north-beaches",
+  "price": 11900000,
+  "beds": 5,
+  "baths": 6.5,
+  "sqft": 6000,
+  "imgs": [
+    "/img/propiedades/listing-4.jpg",
+    "/img/propiedades/listing-4-2.jpg",
+    "/img/propiedades/listing-4-3.jpg"
+  ],
+  "desc": "Penthouse de piso completo con ascensor privado, vistas de 360° y piscina en la azotea, en una torre con servicio de playa y spa.",
+  "features": "Piso completo, ascensor privado\nPiscina y cocina de verano en la azotea\nServicio de playa, spa y valet\nDos plazas de estacionamiento y una cabaña",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Sunny Isles Beach",
+    "water": "ocean",
+    "frontage": 0,
+    "lot": 0,
+    "year": 2022,
+    "listed": "2026-08-27"
+  },
+  "en": {
+    "title": "Full-floor oceanfront penthouse with rooftop pool",
+    "desc": "A full-floor penthouse with a private elevator, 360° views and a rooftop pool, in a tower with beach service and a spa.",
+    "features": "Full floor, private elevator\nRooftop pool and summer kitchen\nBeach service, spa and valet\nTwo assigned parking spaces and a cabana"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Finca mediterránea sobre aguas profundas en un enclave con garita",
+  "ref": "IC-2578",
+  "status": "sale",
+  "type": "house",
+  "area": "coral-gables",
+  "price": 22500000,
+  "beds": 7,
+  "baths": 9,
+  "sqft": 11200,
+  "imgs": [
+    "/img/propiedades/listing-18.jpg",
+    "/img/propiedades/listing-18-2.jpg",
+    "/img/propiedades/listing-18-3.jpg"
+  ],
+  "desc": "250 pies sobre un canal de aguas profundas sin puentes hasta la bahía de Biscayne, dentro de uno de los enclaves con garita más privados de Miami.",
+  "features": "250 pies sobre aguas profundas, sin puentes\nCon garita y patrulla policial\nCasa de huéspedes y área de servicio\nConstruida en 2016",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Gables Estates, Coral Gables",
+    "water": "canal",
+    "frontage": 250,
+    "lot": 1.3,
+    "year": 2016,
+    "listed": "2026-03-11"
+  },
+  "en": {
+    "title": "Mediterranean estate on deep water in a guard-gated enclave",
+    "desc": "250 ft on a deep-water canal with no bridges to Biscayne Bay, inside one of the most private guard-gated enclaves in Miami.",
+    "features": "250 ft on deep water, no bridges\nGuard-gated with police patrol\nGuest house and staff quarters\nBuilt 2016"
+  }
+}

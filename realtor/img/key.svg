@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 560" role="img" aria-hidden="true">
+  <!-- The key from the business card: quatrefoil bow, long shaft and a squared bit. -->
+  <defs>
+    <linearGradient id="kg" x1="0" y1="0" x2="120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c4a874"/><stop offset=".5" stop-color="#9c7f4a"/><stop offset="1" stop-color="#6e5631"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#kg)">
+    <path stroke-width="5" d="M87 33 A27 27 0 0 1 87 87 A27 27 0 0 1 33 87 A27 27 0 0 1 33 33 A27 27 0 0 1 87 33 Z"/>
+    <path stroke-width="1.2" d="M82.5 37.5 A22.5 22.5 0 0 1 82.5 82.5 A22.5 22.5 0 0 1 37.5 82.5 A22.5 22.5 0 0 1 37.5 37.5 A22.5 22.5 0 0 1 82.5 37.5 Z"/>
+  </g>
+  <g fill="url(#kg)">
+    <path d="M53 114 C 58 122 58 134 57 146 H 63 C 62 134 62 122 67 114 Z"/>
+    <rect x="49" y="146" width="22" height="8" rx="2"/>
+    <rect x="56.5" y="154" width="7" height="360" rx="2"/>
+    <rect x="50" y="400" width="20" height="9" rx="2"/>
+    <path d="M63 446 H 99 V 462 H 77 V 490 H 99 V 506 H 63 Z"/>
+    <rect x="56" y="510" width="8" height="8" rx="4"/>
+  </g>
+</svg>

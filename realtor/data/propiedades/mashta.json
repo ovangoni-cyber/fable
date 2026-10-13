@@ -1,0 +1,33 @@
+{
+  "title": "Casa de estilo isleño a pocos pasos de la playa",
+  "ref": "IC-2596",
+  "status": "sale",
+  "type": "house",
+  "area": "key-biscayne",
+  "price": 8450000,
+  "beds": 5,
+  "baths": 6,
+  "sqft": 5900,
+  "imgs": [
+    "/img/propiedades/listing-13.jpg",
+    "/img/propiedades/listing-13-2.jpg",
+    "/img/propiedades/listing-13-3.jpg"
+  ],
+  "desc": "Porches amplios, contraventanas y una casa de huéspedes junto a la piscina, en una calle tranquila a tres cuadras de la playa y del parque del pueblo.",
+  "features": "Casa de huéspedes junto a la piscina\nA tres cuadras de la playa\nColegios y parques de la isla\nConstruida en 2020",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Key Biscayne",
+    "water": "none",
+    "frontage": 0,
+    "lot": 0.4,
+    "year": 2020,
+    "listed": "2026-07-02"
+  },
+  "en": {
+    "title": "Island-style home a short walk from the beach",
+    "desc": "Wide porches, louvered shutters and a guest cottage by the pool, on a quiet street three blocks from the beach and the village green.",
+    "features": "Guest cottage by the pool\nThree blocks to the beach\nIsland schools and parks\nBuilt 2020"
+  }
+}

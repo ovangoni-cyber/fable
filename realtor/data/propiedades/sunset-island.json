@@ -1,0 +1,34 @@
+{
+  "title": "Moderna en isla privada con 150 pies de aguas profundas",
+  "ref": "IC-2598",
+  "status": "sale",
+  "type": "house",
+  "area": "miami-beach",
+  "price": 32500000,
+  "beds": 8,
+  "baths": 10.5,
+  "sqft": 12400,
+  "imgs": [
+    "/img/propiedades/listing-2.jpg",
+    "/img/propiedades/listing-2-2.jpg",
+    "/img/propiedades/listing-2-3.jpg"
+  ],
+  "desc": "Una isla con acceso controlado, atardeceres sobre la bahía con vista al skyline y 150 pies de agua profunda sin puentes fijos hasta el océano.",
+  "features": "Sin puentes fijos hasta mar abierto\nTerraza en la azotea con vista a la bahía y al skyline\nÁrea de servicio y garaje para 4 autos\nConstruida en 2023",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Sunset Islands, Miami Beach",
+    "water": "bay",
+    "frontage": 150,
+    "lot": 0.61,
+    "year": 2023,
+    "listed": "2026-06-02"
+  },
+  "en": {
+    "title": "Gated-island modern with 150 ft of deep water",
+    "desc": "A gated island, sunset views across the bay to the downtown skyline and 150 ft of deep water with no fixed bridges to the ocean.",
+    "features": "No fixed bridges to open water\nRooftop terrace with bay and skyline views\nStaff quarters and 4-car garage\nBuilt 2023"
+  },
+  "video_file": "/img/propiedades/sunset-island-video.webm"
+}

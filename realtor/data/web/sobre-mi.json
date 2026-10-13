@@ -1,0 +1,23 @@
+{
+  "foto": "/img/ingrid.jpg",
+  "eyebrow": "Sobre mí",
+  "titulo": "Pocos clientes, a propósito",
+  "parrafos": [
+    {
+      "texto": "Trabajo con pocos compradores y vendedores a la vez, para que cada cliente tenga toda mi atención desde la primera visita hasta el recorrido final. Cuando llama, habla conmigo, no con un equipo.",
+      "texto_en": "I work with a small number of buyers and sellers at a time, so every client has my full attention from the first showing to the final walkthrough. When you call, you reach me, not a team."
+    },
+    {
+      "texto": "Las casas frente al agua exigen otra clase de revisión: estado del muro de contención, certificados de elevación, seguros e historial de inundaciones. Hago esa revisión antes de que usted haga una oferta, no después.",
+      "texto_en": "Waterfront homes need a different kind of homework: seawall condition, elevation certificates, insurance and flood history. I do that homework before you make an offer, not after."
+    }
+  ],
+  "idiomas": "Inglés y español",
+  "especialidad": "Casas de lujo y frente al agua",
+  "en": {
+    "eyebrow": "About",
+    "titulo": "A short client list, on purpose",
+    "idiomas": "English and Spanish",
+    "especialidad": "Luxury and waterfront homes"
+  }
+}

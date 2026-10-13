@@ -1,0 +1,33 @@
+{
+  "title": "Finca sobre canal en más de un acre",
+  "ref": "IC-2574",
+  "status": "contract",
+  "type": "house",
+  "area": "coral-gables",
+  "price": 14200000,
+  "beds": 6,
+  "baths": 7.5,
+  "sqft": 8900,
+  "imgs": [
+    "/img/propiedades/listing-3.jpg",
+    "/img/propiedades/listing-3-2.jpg",
+    "/img/propiedades/listing-3-3.jpg"
+  ],
+  "desc": "Más de un acre en una comunidad con garita, sobre un canal ancho con salida directa al mar y espacio para un segundo muelle.",
+  "features": "Comunidad con garita de seguridad\n180 pies sobre canal ancho con salida al mar\nCasa de huéspedes sobre el garaje\nColegios públicos y privados de primer nivel cerca",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Coral Gables",
+    "water": "canal",
+    "frontage": 180,
+    "lot": 1.1,
+    "year": 2019,
+    "listed": "2026-05-07"
+  },
+  "en": {
+    "title": "Canal-front estate on more than an acre",
+    "desc": "More than an acre in a guard-gated community, on a wide canal with direct ocean access and room for a second dock.",
+    "features": "Guard-gated community\n180 ft on a wide canal, ocean access\nGuest house over the garage\nTop-rated public and private schools nearby"
+  }
+}

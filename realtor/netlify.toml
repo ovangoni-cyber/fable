@@ -1,0 +1,22 @@
+# Netlify: in the site settings, set "Base directory" to realtor.
+# The build applies the texts and contact details edited in the admin panel (data/web/) to the pages,
+# and joins the properties (data/propiedades/) into data/listings.json.
+[build]
+  command = "node scripts/build-site.js && node scripts/build-listings.js"
+  publish = "."
+
+# The properties change from the admin panel; always serve the latest file.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# The site API (netlify/functions/api): see API.md. It answers at /api.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

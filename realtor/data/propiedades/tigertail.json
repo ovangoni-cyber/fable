@@ -1,0 +1,33 @@
+{
+  "title": "Villa nueva bajo los robles, a pasos de la bahía",
+  "ref": "IC-2593",
+  "status": "sale",
+  "type": "house",
+  "area": "coconut-grove",
+  "price": 8750000,
+  "beds": 5,
+  "baths": 6.5,
+  "sqft": 6300,
+  "imgs": [
+    "/img/propiedades/listing-6.jpg",
+    "/img/propiedades/listing-6-2.jpg",
+    "/img/propiedades/listing-6-3.jpg"
+  ],
+  "desc": "Una villa moderna nueva bajo la sombra de los robles, a poca distancia de los clubes de vela, Peacock Park y el centro del barrio.",
+  "features": "Construida en 2024\nPiscina climatizada y sala exterior\nA pie de la bahía y del centro\nVidrio de impacto en toda la casa",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Coconut Grove",
+    "water": "none",
+    "frontage": 0,
+    "lot": 0.35,
+    "year": 2024,
+    "listed": "2026-07-15"
+  },
+  "en": {
+    "title": "New villa under the oaks, a walk from the bay",
+    "desc": "A new modern villa under the oak canopy, a short walk to the sailing clubs, Peacock Park and the village center.",
+    "features": "Built 2024\nHeated pool and outdoor living room\nWalk to the bay and the village\nImpact glass throughout"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Casa moderna nueva en un lote de un acre",
+  "ref": "IC-2615",
+  "status": "new",
+  "type": "house",
+  "area": "pinecrest",
+  "price": 7250000,
+  "beds": 6,
+  "baths": 7,
+  "sqft": 7600,
+  "imgs": [
+    "/img/propiedades/listing-16.jpg",
+    "/img/propiedades/listing-16-2.jpg",
+    "/img/propiedades/listing-16-3.jpg"
+  ],
+  "desc": "Construcción nueva con un salón de doble altura, una piscina de 60 pies y un acre de jardines, cerca de los mejores colegios de Miami-Dade.",
+  "features": "Un acre\nPiscina de 60 pies y cabaña\nCerca de colegios de primer nivel\nConstruida en 2026",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Pinecrest",
+    "water": "none",
+    "frontage": 0,
+    "lot": 1,
+    "year": 2026,
+    "listed": "2026-09-26"
+  },
+  "en": {
+    "title": "New modern home on a one-acre lot",
+    "desc": "A new build with a two-story great room, a 60 ft pool and a full acre of lawn and gardens, close to the best schools in Miami-Dade.",
+    "features": "One acre\n60 ft pool and cabana\nNear top-rated schools\nBuilt 2026"
+  }
+}

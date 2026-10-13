@@ -1,4 +1,4 @@
-/* Shared site core: language switch (EN/ES), header, mobile menu, photos, forms.
+/* Shared site core: language switch (EN/ES), header, mobile menu, forms.
    The same file is used by all three sites. English lives in the HTML; Spanish
    comes from js/i18n.js (window.I18N.es for the page, window.I18N.strings for scripts). */
 (function () {
@@ -40,6 +40,10 @@
     return rec;
   }
 
+  // Pages other than the home page set <html data-page="…"> and keep their own title in I18N.es['<page>.meta.title'].
+  var page = root.getAttribute('data-page');
+  function metaKey(k) { return page && Object.prototype.hasOwnProperty.call(dict, page + '.' + k) ? page + '.' + k : k; }
+
   var meta = {
     title: document.title,
     description: (document.querySelector('meta[name="description"]') || {}).content || ''
@@ -65,9 +69,9 @@
     lang = next;
     root.lang = next;
     apply(document);
-    document.title = next === 'es' && dict['meta.title'] ? dict['meta.title'] : meta.title;
+    document.title = next === 'es' && dict[metaKey('meta.title')] ? dict[metaKey('meta.title')] : meta.title;
     var md = document.querySelector('meta[name="description"]');
-    if (md) md.content = next === 'es' && dict['meta.description'] ? dict['meta.description'] : meta.description;
+    if (md) md.content = next === 'es' && dict[metaKey('meta.description')] ? dict[metaKey('meta.description')] : meta.description;
     document.querySelectorAll('[data-set-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === next));
     });
@@ -130,23 +134,6 @@
   document.querySelectorAll('[data-set-lang]').forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
   });
-
-  /* ---------------------------------------------------------------- photos
-     Every .media block has an illustration underneath and an optional photo on top.
-     The photo fades in once it loads; if it fails (offline, blocked) it is removed
-     and the illustration stays. */
-  function wirePhoto(img) {
-    if (img.dataset.wired) return;
-    img.dataset.wired = '1';
-    var done = function () { img.classList.add('is-loaded'); };
-    var fail = function () { img.remove(); };
-    if (img.complete) { if (img.naturalWidth) done(); else if (img.getAttribute('src')) fail(); return; }
-    img.addEventListener('load', done, { once: true });
-    img.addEventListener('error', fail, { once: true });
-  }
-  function wirePhotos(scope) { (scope || document).querySelectorAll('.media__photo').forEach(wirePhoto); }
-  window.Site.wirePhotos = wirePhotos;
-  wirePhotos();
 
   /* ---------------------------------------------------------------- forms
      Set data-endpoint on a form (Formspree, Basin, your own API…) to deliver

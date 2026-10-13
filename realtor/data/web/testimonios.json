@@ -1,0 +1,32 @@
+{
+  "mostrar": true,
+  "eyebrow": "Clientes",
+  "titulo": "En sus palabras",
+  "en": {
+    "eyebrow": "Clients",
+    "titulo": "In their words"
+  },
+  "lista": [
+    {
+      "texto": "Ingrid encontró nuestra casa antes de que se publicara y la negoció por debajo del precio que tenían en mente los dueños. También nos dijo qué casa no comprar, y por qué.",
+      "texto_en": "Ingrid found our house before it was listed and negotiated it below the price the owners had in mind. She also told us which house not to buy, and why.",
+      "iniciales": "R&L",
+      "quien": "Compradores, Key Biscayne",
+      "quien_en": "Buyers, Key Biscayne"
+    },
+    {
+      "texto": "Vivíamos en Madrid durante toda la venta. Cada semana recibimos un informe por escrito, y el cierre se firmó en el consulado sin una sola sorpresa.",
+      "texto_en": "We were living in Madrid during the whole sale. Every week we had a written update, and the closing was signed at the consulate without a single surprise.",
+      "iniciales": "C.A.",
+      "quien": "Vendedores, Coral Gables",
+      "quien_en": "Sellers, Coral Gables"
+    },
+    {
+      "texto": "Fijó el precio de nuestra casa con una hoja de cálculo de cada venta frente a la bahía en cinco años. Se vendió en 23 días, por encima del precio de lista.",
+      "texto_en": "She priced our home with a spreadsheet of every bayfront sale in five years. It sold in 23 days, above asking.",
+      "iniciales": "M.P.",
+      "quien": "Vendedores, Sunset Islands",
+      "quien_en": "Sellers, Sunset Islands"
+    }
+  ]
+}
