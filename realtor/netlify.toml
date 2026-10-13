@@ -15,3 +15,8 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# The site API (netlify/functions/api): see API.md. It answers at /api.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
