@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ingrid Cabeza · Florida Luxury Real Estate</title>
-  <meta name="description" content="Waterfront and estate homes in Florida Beach, Key Biscayne, Coral Gables and Coconut Grove. Private showings, off-market listings and guidance for international buyers.">
+  <meta name="description" content="Waterfront and estate homes in Florida. Private showings, off-market listings and guidance for international buyers.">
   <meta name="theme-color" content="#f6f1e8">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ingrid Cabeza · Florida Luxury Real Estate">
-  <meta property="og:description" content="Waterfront and estate homes in Florida, represented with discretion.">
+  <meta property="og:description" content="Waterfront and estate homes in Florida. Private showings, off-market listings and guidance for international buyers.">
   <meta property="og:image" content="img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <!-- web:jsonld -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,11 +29,29 @@
     "description": "Luxury real estate advisor in Florida.",
     "telephone": "+1-786-626-4910",
     "email": "ingrid.realtor91@gmail.com",
-    "knowsLanguage": ["en", "es"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Cape Coral", "addressRegion": "FL", "postalCode": "33904", "addressCountry": "US" },
-    "areaServed": ["Miami Beach", "Key Biscayne", "Coral Gables", "Coconut Grove", "Pinecrest", "Golden Beach"]
+    "knowsLanguage": [
+      "en",
+      "es"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cape Coral",
+      "addressRegion": "FL",
+      "postalCode": "33904",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Miami Beach & the Islands",
+      "Key Biscayne",
+      "Coral Gables",
+      "Coconut Grove",
+      "Pinecrest",
+      "Golden Beach & Sunny Isles",
+      "Brickell"
+    ]
   }
   </script>
+  <!-- /web:jsonld -->
 </head>
 <body class="has-action-bar">
   <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
@@ -52,7 +71,7 @@
         <a class="nav__cta" href="#contact" data-i18n="nav.cta">Private showing</a>
       </nav>
       <div class="header__tools">
-        <a class="header__phone" href="tel:+17866264910">(786) 626-4910</a>
+        <a class="header__phone" href="tel:+17866264910" data-web="phone">(786) 626-4910</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
           <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
           <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -106,13 +125,15 @@
             <label for="s-area" data-i18n="search.area">Neighborhood</label>
             <select id="s-area" name="area">
               <option value="" data-i18n="search.anyArea">All neighborhoods</option>
-              <option value="miami-beach">Miami Beach</option>
-              <option value="key-biscayne">Key Biscayne</option>
-              <option value="coral-gables">Coral Gables</option>
-              <option value="coconut-grove">Coconut Grove</option>
-              <option value="pinecrest">Pinecrest</option>
-              <option value="north-beaches" data-i18n="search.north">Golden Beach &amp; Sunny Isles</option>
-              <option value="brickell">Brickell</option>
+              <!-- web:area-options -->
+              <option value="miami-beach" data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</option>
+              <option value="key-biscayne" data-i18n="zone.key-biscayne">Key Biscayne</option>
+              <option value="coral-gables" data-i18n="zone.coral-gables">Coral Gables</option>
+              <option value="coconut-grove" data-i18n="zone.coconut-grove">Coconut Grove</option>
+              <option value="pinecrest" data-i18n="zone.pinecrest">Pinecrest</option>
+              <option value="north-beaches" data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</option>
+              <option value="brickell" data-i18n="zone.brickell">Brickell</option>
+              <!-- /web:area-options -->
             </select>
           </div>
           <div class="search__field">
@@ -140,15 +161,17 @@
       </div>
     </section>
 
-    <!-- ============================== FIGURES (PLACEHOLDER: replace with Ingrid's verified numbers) -->
+    <!-- ============================== FIGURES (edited in the admin panel: Web → Portada) -->
+    <!-- web:figures -->
     <section class="figures" aria-label="Track record" data-i18n-attr="aria-label:fig.label">
       <div class="wrap figures__row">
-        <p><strong>$1.2B</strong><span data-i18n="fig.volume">in career sales</span></p>
-        <p><strong>214</strong><span data-i18n="fig.homes">homes sold</span></p>
-        <p><strong>38%</strong><span data-i18n="fig.private">of sales closed off-market</span></p>
-        <p><strong>2</strong><span data-i18n="fig.langs">languages, English and Spanish</span></p>
+        <p><strong>$1.2B</strong><span data-i18n="fig.1">in career sales</span></p>
+        <p><strong>214</strong><span data-i18n="fig.2">homes sold</span></p>
+        <p><strong>38%</strong><span data-i18n="fig.3">of sales closed off-market</span></p>
+        <p><strong>2</strong><span data-i18n="fig.4">languages, English and Spanish</span></p>
       </div>
     </section>
+    <!-- /web:figures -->
 
     <!-- ============================== FEATURED PROPERTIES (from js/listings.js) -->
     <section class="section" id="listings" aria-labelledby="listings-title">
@@ -168,7 +191,7 @@
           <li><a href="properties.html?water=any"><span data-i18n="quick.water">On the water</span><small data-quick="water"></small></a></li>
           <li><a href="properties.html?excl=1"><span data-i18n="quick.excl">Exclusive listings</span><small data-quick="excl"></small></a></li>
         </ul>
-        <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call (786) 626-4910.</p></noscript>
+        <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call <span data-web="phone">(786) 626-4910</span>.</p></noscript>
       </div>
     </section>
 
@@ -183,42 +206,44 @@
           <p class="section__intro" data-i18n="hoods.intro">Each area has its own rhythm, schools, flood profile and resale market. These are the ones I know street by street.</p>
         </div>
         <div class="hoods">
+          <!-- web:hoods -->
           <article class="hood" data-area="miami-beach">
             <div class="hood__media media"><img class="media__img" src="img/n-islands.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="hoods.mbT">Miami Beach &amp; the Islands</h3>
-            <p data-i18n="hoods.mb">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
+            <h3 data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</h3>
+            <p data-i18n="zone.miami-beach.d">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
             <a class="link-btn hood__btn" href="properties.html?area=miami-beach">See properties</a>
           </article>
           <article class="hood" data-area="key-biscayne">
             <div class="hood__media media"><img class="media__img" src="img/n-key-biscayne.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3>Key Biscayne</h3>
-            <p data-i18n="hoods.kb">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
+            <h3 data-i18n="zone.key-biscayne">Key Biscayne</h3>
+            <p data-i18n="zone.key-biscayne.d">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
             <a class="link-btn hood__btn" href="properties.html?area=key-biscayne">See properties</a>
           </article>
           <article class="hood" data-area="coral-gables">
             <div class="hood__media media"><img class="media__img" src="img/n-coral-gables.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3>Coral Gables</h3>
-            <p data-i18n="hoods.cg">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
+            <h3 data-i18n="zone.coral-gables">Coral Gables</h3>
+            <p data-i18n="zone.coral-gables.d">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
             <a class="link-btn hood__btn" href="properties.html?area=coral-gables">See properties</a>
           </article>
           <article class="hood" data-area="coconut-grove">
             <div class="hood__media media"><img class="media__img" src="img/n-coconut-grove.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3>Coconut Grove</h3>
-            <p data-i18n="hoods.cgv">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
+            <h3 data-i18n="zone.coconut-grove">Coconut Grove</h3>
+            <p data-i18n="zone.coconut-grove.d">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
             <a class="link-btn hood__btn" href="properties.html?area=coconut-grove">See properties</a>
           </article>
           <article class="hood" data-area="north-beaches">
             <div class="hood__media media"><img class="media__img" src="img/n-miami-beach.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="hoods.nbT">Golden Beach &amp; Sunny Isles</h3>
-            <p data-i18n="hoods.nb">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
+            <h3 data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</h3>
+            <p data-i18n="zone.north-beaches.d">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
             <a class="link-btn hood__btn" href="properties.html?area=north-beaches">See properties</a>
           </article>
           <article class="hood" data-area="brickell">
             <div class="hood__media media"><img class="media__img" src="img/n-brickell.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3>Brickell</h3>
-            <p data-i18n="hoods.br">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
+            <h3 data-i18n="zone.brickell">Brickell</h3>
+            <p data-i18n="zone.brickell.d">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
             <a class="link-btn hood__btn" href="properties.html?area=brickell">See properties</a>
           </article>
+          <!-- /web:hoods -->
         </div>
       </div>
     </section>
@@ -237,22 +262,28 @@
         </div>
         <div class="services__panels">
           <div class="panel" role="tabpanel" id="panel-buy" aria-labelledby="tab-buy">
+            <!-- web:buy -->
             <div class="point"><h3 data-i18n="buy.1">Homes before they are listed</h3><p data-i18n="buy.1d">Many of Florida’s best homes trade quietly. You see private and pre-market listings first, with seller disclosures already in hand.</p></div>
             <div class="point"><h3 data-i18n="buy.2">Due diligence for the water</h3><p data-i18n="buy.2d">Seawall condition, flood zone and elevation certificate, wind mitigation report, insurance quotes and permit history, all before you make an offer.</p></div>
             <div class="point"><h3 data-i18n="buy.3">Negotiation on the numbers</h3><p data-i18n="buy.3d">Offers built from closed sales, price per square foot on the water and days on market, not from the asking price.</p></div>
             <div class="point"><h3 data-i18n="buy.4">A closing you don’t have to manage</h3><p data-i18n="buy.4d">I coordinate the title company, lender, inspectors and your attorney through the final walkthrough.</p></div>
+            <!-- /web:buy -->
           </div>
           <div class="panel" role="tabpanel" id="panel-sell" aria-labelledby="tab-sell" hidden>
+            <!-- web:sell -->
             <div class="point"><h3 data-i18n="sell.1">A price the market will pay</h3><p data-i18n="sell.1d">A written pricing study of closed sales, active competition and waterfront premiums, updated every two weeks while you are listed.</p></div>
             <div class="point"><h3 data-i18n="sell.2">Presentation</h3><p data-i18n="sell.2d">Architectural photography, twilight and drone shoots, film and floor plans. Staging when it pays for itself.</p></div>
             <div class="point"><h3 data-i18n="sell.3">Private or public, your call</h3><p data-i18n="sell.3d">Sell quietly to qualified buyers with proof of funds, or launch on the market with a full campaign.</p></div>
             <div class="point"><h3 data-i18n="sell.4">Buyers from everywhere</h3><p data-i18n="sell.4d">Marketing in English and Spanish that reaches buyers across the U.S., Latin America and Europe, plus the agents and advisors who represent them.</p></div>
+            <!-- /web:sell -->
           </div>
           <div class="panel" role="tabpanel" id="panel-intl" aria-labelledby="tab-intl" hidden>
+            <!-- web:intl -->
             <div class="point"><h3 data-i18n="intl.1">Buying through a company</h3><p data-i18n="intl.1d">Most international clients buy through an LLC or foreign entity. I work alongside your attorney and CPA from the first offer.</p></div>
             <div class="point"><h3 data-i18n="intl.2">Financing without a U.S. credit history</h3><p data-i18n="intl.2d">Introductions to private banks and lenders with foreign-national mortgage programs.</p></div>
             <div class="point"><h3 data-i18n="intl.3">Planning for FIRPTA</h3><p data-i18n="intl.3d">Foreign sellers usually face FIRPTA withholding at closing. We plan for it with your tax advisor before you buy, not when you sell.</p></div>
             <div class="point"><h3 data-i18n="intl.4">Remote closings &amp; care</h3><p data-i18n="intl.4d">Signings by power of attorney or at a consulate, plus property managers who know each city’s rental rules.</p></div>
+            <!-- /web:intl -->
           </div>
         </div>
       </div>
@@ -339,8 +370,10 @@
         <div class="about__text">
           <p class="eyebrow" data-i18n="about.eyebrow">About</p>
           <h2 id="about-title" class="h2" data-i18n="about.title">A short client list, on purpose</h2>
+          <!-- web:about-text -->
           <p data-i18n="about.p1">I work with a small number of buyers and sellers at a time, so every client has my full attention from the first showing to the final walkthrough. When you call, you reach me, not a team.</p>
           <p data-i18n="about.p2">Waterfront homes need a different kind of homework: seawall condition, elevation certificates, insurance and flood history. I do that homework before you make an offer, not after.</p>
+          <!-- /web:about-text -->
           <dl class="about__facts">
             <div><dt data-i18n="about.f1">Languages</dt><dd data-i18n="about.f1v">English and Spanish</dd></div>
             <div><dt data-i18n="about.f2">Licensed</dt><dd data-i18n="about.f2v">Florida Real Estate Sales Associate · SL3644016</dd></div>
@@ -350,7 +383,8 @@
       </div>
     </section>
 
-    <!-- ============================== TESTIMONIALS (PLACEHOLDER: replace with real, attributable reviews) -->
+    <!-- ============================== TESTIMONIALS (edited in the admin panel: Web → Testimonios) -->
+    <!-- web:words -->
     <section class="section section--mist" aria-labelledby="words-title">
       <div class="wrap">
         <p class="eyebrow" data-i18n="words.eyebrow">Clients</p>
@@ -371,6 +405,7 @@
         </div>
       </div>
     </section>
+    <!-- /web:words -->
 
     <!-- ============================== CONTACT -->
     <section class="section" id="contact" aria-labelledby="contact-title">
@@ -380,10 +415,12 @@
           <h2 id="contact-title" class="h2" data-i18n="contact.title">Let’s talk about what you’re looking for</h2>
           <p data-i18n="contact.lede">Private showings are by appointment, seven days a week. I reply to every message personally, usually the same day.</p>
           <ul class="channels">
-            <li><span data-i18n="contact.phone">Phone</span><a href="tel:+17866264910">(786) 626-4910</a></li>
+            <!-- web:channels -->
+            <li><span data-i18n="contact.phone">Phone</span><a href="tel:+17866264910" data-web="phone">(786) 626-4910</a></li>
             <li><span>WhatsApp</span><a href="https://wa.me/17866264910" target="_blank" rel="noopener">+1 786 626 4910</a></li>
-            <li><span data-i18n="contact.email">Email</span><a href="mailto:ingrid.realtor91@gmail.com">ingrid.realtor91@gmail.com</a></li>
-            <li><span data-i18n="contact.office">Office</span><span>Cape Coral, FL 33904</span></li>
+            <li><span data-i18n="contact.email">Email</span><a href="mailto:ingrid.realtor91@gmail.com" data-web="email">ingrid.realtor91@gmail.com</a></li>
+            <li><span data-i18n="contact.office">Office</span><span data-web="office">Cape Coral, FL 33904</span></li>
+            <!-- /web:channels -->
           </ul>
         </div>
         <form class="form" id="contact-form" novalidate data-endpoint="">

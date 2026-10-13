@@ -1,6 +1,8 @@
 # Panel de administración de Ingrid Cabeza (Decap CMS).
 # Cada propiedad es un archivo en realtor/data/propiedades/ y sus fotos van a realtor/img/propiedades/.
-# Al publicar, Netlify ejecuta scripts/build-listings.js, que junta las propiedades en data/listings.json.
+# Los textos, fotos y datos de contacto de la web están en realtor/data/web/.
+# Al publicar, Netlify ejecuta scripts/build-site.js (aplica los textos a las páginas) y
+# scripts/build-listings.js (junta las propiedades en data/listings.json).
 # Puesta en marcha: ver "Panel de administración" en el README.
 
 backend:
@@ -63,15 +65,14 @@ collections:
         options: [{ label: "Casa", value: house }, { label: "Condominio", value: condo }, { label: "Penthouse", value: penthouse }]
       - name: area
         label: Vecindario
-        widget: select
-        options:
-          - { label: "Miami Beach y las islas", value: miami-beach }
-          - { label: "Key Biscayne", value: key-biscayne }
-          - { label: "Coral Gables", value: coral-gables }
-          - { label: "Coconut Grove", value: coconut-grove }
-          - { label: "Pinecrest", value: pinecrest }
-          - { label: "Golden Beach y Sunny Isles", value: north-beaches }
-          - { label: "Brickell", value: brickell }
+        widget: relation
+        collection: web
+        file: vecindarios
+        value_field: "zonas.*.id"
+        search_fields: ["zonas.*.nombre"]
+        display_fields: ["zonas.*.nombre"]
+        options_length: 50
+        hint: "Los vecindarios se cambian en Web → Vecindarios."
       - { name: price, label: "Precio en dólares", widget: number, value_type: int, min: 0, hint: "Solo números. Ej.: 18950000. Si está en alquiler, el precio por mes." }
       - { name: beds, label: "Habitaciones", widget: number, value_type: int, min: 0 }
       - { name: baths, label: "Baños", widget: number, value_type: float, min: 0, step: 0.5, hint: "Medio baño = 0.5" }
@@ -124,3 +125,259 @@ collections:
           - { name: title, label: "Título en inglés", widget: string, required: false }
           - { name: desc, label: "Descripción en inglés", widget: text, required: false }
           - { name: features, label: "Características en inglés", widget: text, required: false, hint: "Una por línea." }
+
+  # ------------------------------------------------------------ textos, fotos y datos de la web
+  - name: web
+    label: Textos y datos de la web
+    label_singular: Sección
+    description: Los textos, fotos y datos de contacto de la web. Pulse una sección, cambie lo que necesite y pulse "Publicar". Si deja vacío un texto en inglés, la web en inglés usa el español.
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: contacto
+        label: Datos de contacto
+        file: realtor/data/web/contacto.json
+        fields:
+          - { name: telefono, label: "Teléfono", widget: string, hint: "Ej.: 786 626 4910. Sale en la cabecera, en Contacto y en el botón Llamar." }
+          - { name: whatsapp, label: "WhatsApp", widget: string, required: false, hint: "Déjelo vacío si es el mismo número que el teléfono." }
+          - { name: email, label: "Correo", widget: string }
+          - name: oficina
+            label: Oficina
+            widget: object
+            fields:
+              - { name: calle, label: "Dirección (calle y número)", widget: string, required: false, hint: "Opcional. Ej.: 1234 Cape Coral Pkwy E, Suite 5" }
+              - { name: ciudad, label: "Ciudad", widget: string }
+              - { name: estado, label: "Estado", widget: string, default: "FL" }
+              - { name: cp, label: "Código postal", widget: string, required: false }
+          - { name: licencia, label: "Número de licencia", widget: string, hint: "Ej.: SL3644016. Sale en Sobre mí y en el pie de página." }
+          - { name: agencia, label: "Nombre de la agencia (broker)", widget: string, required: false, hint: "En Florida la publicidad debe llevar el nombre de la agencia. Sale en el pie de página." }
+          - { name: titulo, label: "Título de la sección Contacto", widget: string }
+          - { name: texto, label: "Texto de la sección Contacto", widget: text }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+              - { name: texto, label: "Texto en inglés", widget: text, required: false }
+          - { name: formularios, label: "Dirección de envío de los formularios (avanzado)", widget: string, required: false, hint: "La dirección que le da su servicio de formularios (por ejemplo Formspree) para recibir los mensajes de la web en su correo. Vacío: los formularios no envían." }
+
+      - name: portada
+        label: Portada
+        file: realtor/data/web/portada.json
+        fields:
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string, hint: "Ej.: Bienes raíces de lujo en Florida" }
+          - { name: frase, label: "Frase principal", widget: text }
+          - { name: subtitulo, label: "Texto debajo", widget: text }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: frase, label: "Frase principal en inglés", widget: text, required: false }
+              - { name: subtitulo, label: "Texto debajo en inglés", widget: text, required: false }
+          - name: cifras
+            label: Cifras (la franja con números)
+            widget: object
+            collapsed: true
+            fields:
+              - { name: mostrar, label: "Mostrar las cifras", widget: boolean, default: true, required: false }
+              - name: lista
+                label: Cifras
+                label_singular: cifra
+                widget: list
+                max: 4
+                required: false
+                summary: "{{fields.numero}} {{fields.texto}}"
+                fields:
+                  - { name: numero, label: "Número", widget: string, hint: "Ej.: 214, $1.2B o 38%" }
+                  - { name: texto, label: "Texto", widget: string, hint: "Ej.: casas vendidas" }
+                  - { name: texto_en, label: "Texto en inglés", widget: string, required: false }
+          - name: google
+            label: Google y enlaces compartidos
+            widget: object
+            collapsed: true
+            hint: "El título y la descripción que salen en Google y al compartir la web por WhatsApp."
+            fields:
+              - { name: titulo, label: "Título", widget: string }
+              - { name: descripcion, label: "Descripción", widget: text }
+              - { name: titulo_en, label: "Título en inglés", widget: string, required: false }
+              - { name: descripcion_en, label: "Descripción en inglés", widget: text, required: false }
+
+      - name: vecindarios
+        label: Vecindarios
+        file: realtor/data/web/vecindarios.json
+        fields:
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string }
+          - { name: titulo, label: "Título de la sección", widget: string }
+          - { name: intro, label: "Texto de la sección", widget: text }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+              - { name: intro, label: "Texto en inglés", widget: text, required: false }
+          - name: zonas
+            label: Vecindarios
+            label_singular: vecindario
+            widget: list
+            min: 1
+            summary: "{{fields.nombre}}"
+            hint: "Salen en la portada, en el buscador y en el formulario de cada propiedad. Arrástrelos para cambiar el orden."
+            fields:
+              - { name: nombre, label: "Nombre", widget: string }
+              - { name: id, label: "Identificador", widget: string, pattern: ['^[a-z0-9-]+$', "Solo minúsculas, números y guiones"], hint: "Ej.: cape-coral. Si ya hay propiedades en este vecindario, no lo cambie." }
+              - { name: texto, label: "Descripción", widget: text }
+              - { name: foto, label: "Foto", widget: image, required: false, choose_url: false, hint: "Vertical, de unos 1000 × 1250 píxeles." }
+              - { name: portada, label: "Mostrar en la portada", widget: boolean, default: true, required: false, hint: "Si lo desactiva, sigue en el buscador pero no sale en la portada." }
+              - { name: nombre_en, label: "Nombre en inglés", widget: string, required: false }
+              - { name: texto_en, label: "Descripción en inglés", widget: text, required: false }
+
+      - name: servicios
+        label: Cómo trabajo (Comprar y vender)
+        file: realtor/data/web/servicios.json
+        fields:
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string }
+          - { name: titulo, label: "Título de la sección", widget: string }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+          - name: comprar
+            label: "Pestaña Comprar"
+            label_singular: punto
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: "Título", widget: string }
+              - { name: texto, label: "Texto", widget: text }
+              - { name: titulo_en, label: "Título en inglés", widget: string, required: false }
+              - { name: texto_en, label: "Texto en inglés", widget: text, required: false }
+          - name: vender
+            label: "Pestaña Vender"
+            label_singular: punto
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: "Título", widget: string }
+              - { name: texto, label: "Texto", widget: text }
+              - { name: titulo_en, label: "Título en inglés", widget: string, required: false }
+              - { name: texto_en, label: "Texto en inglés", widget: text, required: false }
+          - name: exterior
+            label: "Pestaña Desde el exterior"
+            label_singular: punto
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: "Título", widget: string }
+              - { name: texto, label: "Texto", widget: text }
+              - { name: titulo_en, label: "Título en inglés", widget: string, required: false }
+              - { name: texto_en, label: "Texto en inglés", widget: text, required: false }
+
+      - name: valoracion
+        label: Valor de su casa
+        file: realtor/data/web/valoracion.json
+        fields:
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string }
+          - { name: titulo, label: "Título", widget: string }
+          - { name: texto, label: "Texto", widget: text }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+              - { name: texto, label: "Texto en inglés", widget: text, required: false }
+
+      - name: sobre-mi
+        label: Sobre mí
+        file: realtor/data/web/sobre-mi.json
+        fields:
+          - { name: foto, label: "Foto en la llave", widget: image, choose_url: false, hint: "Cuadrada, con la cara en el centro, de al menos 560 × 560 píxeles." }
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string }
+          - { name: titulo, label: "Título", widget: string }
+          - name: parrafos
+            label: Párrafos
+            label_singular: párrafo
+            widget: list
+            min: 1
+            summary: "{{fields.texto}}"
+            fields:
+              - { name: texto, label: "Texto", widget: text }
+              - { name: texto_en, label: "Texto en inglés", widget: text, required: false }
+          - { name: idiomas, label: "Idiomas", widget: string }
+          - { name: especialidad, label: "Especialidad", widget: string }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+              - { name: idiomas, label: "Idiomas en inglés", widget: string, required: false }
+              - { name: especialidad, label: "Especialidad en inglés", widget: string, required: false }
+
+      - name: testimonios
+        label: Testimonios
+        file: realtor/data/web/testimonios.json
+        fields:
+          - { name: mostrar, label: "Mostrar los testimonios", widget: boolean, default: true, required: false }
+          - { name: eyebrow, label: "Línea pequeña de arriba", widget: string }
+          - { name: titulo, label: "Título", widget: string }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: eyebrow, label: "Línea pequeña en inglés", widget: string, required: false }
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+          - name: lista
+            label: Testimonios
+            label_singular: testimonio
+            widget: list
+            summary: "{{fields.iniciales}} · {{fields.quien}}"
+            fields:
+              - { name: texto, label: "Lo que dice el cliente", widget: text }
+              - { name: iniciales, label: "Iniciales", widget: string, hint: "Ej.: M.P." }
+              - { name: quien, label: "Quién es", widget: string, hint: "Ej.: Vendedores, Cape Coral" }
+              - { name: texto_en, label: "Lo que dice, en inglés", widget: text, required: false }
+              - { name: quien_en, label: "Quién es, en inglés", widget: string, required: false }
+
+      - name: pagina-propiedades
+        label: Página de propiedades
+        file: realtor/data/web/pagina-propiedades.json
+        fields:
+          - { name: titulo, label: "Título", widget: string }
+          - { name: texto, label: "Texto debajo del título", widget: text }
+          - name: en
+            label: Textos en inglés
+            widget: object
+            collapsed: true
+            required: false
+            fields:
+              - { name: titulo, label: "Título en inglés", widget: string, required: false }
+              - { name: texto, label: "Texto en inglés", widget: text, required: false }
+          - name: google
+            label: Google y enlaces compartidos
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: "Título", widget: string }
+              - { name: descripcion, label: "Descripción", widget: text }
+              - { name: titulo_en, label: "Título en inglés", widget: string, required: false }
+              - { name: descripcion_en, label: "Descripción en inglés", widget: text, required: false }

@@ -1,0 +1,86 @@
+{
+  "eyebrow": "Cómo trabajo",
+  "titulo": "Una sola asesora, de la primera visita al día del cierre",
+  "en": {
+    "eyebrow": "How I work",
+    "titulo": "One advisor from first showing to closing day"
+  },
+  "comprar": [
+    {
+      "titulo": "Casas antes de que se publiquen",
+      "texto": "Muchas de las mejores casas de Florida se venden con discreción. Usted ve primero las propiedades privadas y las que aún no salen al mercado, con la información del vendedor ya en la mano.",
+      "titulo_en": "Homes before they are listed",
+      "texto_en": "Many of Florida’s best homes trade quietly. You see private and pre-market listings first, with seller disclosures already in hand."
+    },
+    {
+      "titulo": "Revisión a fondo para casas frente al agua",
+      "texto": "Estado del muro de contención, zona de inundación y certificado de elevación, informe de mitigación de viento, cotizaciones de seguro e historial de permisos, todo antes de hacer una oferta.",
+      "titulo_en": "Due diligence for the water",
+      "texto_en": "Seawall condition, flood zone and elevation certificate, wind mitigation report, insurance quotes and permit history, all before you make an offer."
+    },
+    {
+      "titulo": "Negociación con números",
+      "texto": "Ofertas basadas en ventas cerradas, precio por pie cuadrado frente al agua y días en el mercado, no en el precio de lista.",
+      "titulo_en": "Negotiation on the numbers",
+      "texto_en": "Offers built from closed sales, price per square foot on the water and days on market, not from the asking price."
+    },
+    {
+      "titulo": "Un cierre que usted no tiene que gestionar",
+      "texto": "Coordino la compañía de títulos, el banco, los inspectores y su abogado hasta el recorrido final.",
+      "titulo_en": "A closing you don’t have to manage",
+      "texto_en": "I coordinate the title company, lender, inspectors and your attorney through the final walkthrough."
+    }
+  ],
+  "vender": [
+    {
+      "titulo": "Un precio que el mercado pagará",
+      "texto": "Un estudio de precio por escrito con ventas cerradas, competencia activa y primas por frente al agua, actualizado cada dos semanas mientras su casa está a la venta.",
+      "titulo_en": "A price the market will pay",
+      "texto_en": "A written pricing study of closed sales, active competition and waterfront premiums, updated every two weeks while you are listed."
+    },
+    {
+      "titulo": "Presentación",
+      "texto": "Fotografía arquitectónica, sesiones al atardecer y con dron, video y planos. Decoración para la venta cuando se paga sola.",
+      "titulo_en": "Presentation",
+      "texto_en": "Architectural photography, twilight and drone shoots, film and floor plans. Staging when it pays for itself."
+    },
+    {
+      "titulo": "Privada o pública, usted decide",
+      "texto": "Venda con discreción a compradores calificados con prueba de fondos, o salga al mercado con una campaña completa.",
+      "titulo_en": "Private or public, your call",
+      "texto_en": "Sell quietly to qualified buyers with proof of funds, or launch on the market with a full campaign."
+    },
+    {
+      "titulo": "Compradores de todas partes",
+      "texto": "Mercadeo en inglés y español que llega a compradores en EE. UU., Latinoamérica y Europa, y a los agentes y asesores que los representan.",
+      "titulo_en": "Buyers from everywhere",
+      "texto_en": "Marketing in English and Spanish that reaches buyers across the U.S., Latin America and Europe, plus the agents and advisors who represent them."
+    }
+  ],
+  "exterior": [
+    {
+      "titulo": "Comprar a través de una sociedad",
+      "texto": "La mayoría de mis clientes internacionales compra a través de una LLC o una sociedad extranjera. Trabajo junto a su abogado y su contador desde la primera oferta.",
+      "titulo_en": "Buying through a company",
+      "texto_en": "Most international clients buy through an LLC or foreign entity. I work alongside your attorney and CPA from the first offer."
+    },
+    {
+      "titulo": "Financiamiento sin historial crediticio en EE. UU.",
+      "texto": "Contactos con bancos privados y prestamistas con programas hipotecarios para extranjeros.",
+      "titulo_en": "Financing without a U.S. credit history",
+      "texto_en": "Introductions to private banks and lenders with foreign-national mortgage programs."
+    },
+    {
+      "titulo": "Planificar FIRPTA",
+      "texto": "Los vendedores extranjeros suelen tener retención FIRPTA en el cierre. Lo planificamos con su asesor fiscal antes de comprar, no al vender.",
+      "titulo_en": "Planning for FIRPTA",
+      "texto_en": "Foreign sellers usually face FIRPTA withholding at closing. We plan for it with your tax advisor before you buy, not when you sell."
+    },
+    {
+      "titulo": "Cierres a distancia y cuidado de la propiedad",
+      "texto": "Firmas con poder notarial o en el consulado, y administradores que conocen las normas de alquiler de cada ciudad.",
+      "titulo_en": "Remote closings & care",
+      "texto_en": "Signings by power of attorney or at a consulate, plus property managers who know each city’s rental rules."
+    }
+  ]
+}

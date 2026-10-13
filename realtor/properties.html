@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Properties for sale and rent in Florida · Ingrid Cabeza</title>
-  <meta name="description" content="Luxury homes, penthouses and residences for sale and for rent in Miami Beach, Key Biscayne, Coral Gables, Coconut Grove, Pinecrest, Golden Beach and Brickell.">
+  <meta name="description" content="Luxury homes, penthouses and residences for sale and for rent in Florida’s waterfront neighborhoods.">
   <meta name="theme-color" content="#f6f1e8">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Properties · Ingrid Cabeza">
-  <meta property="og:description" content="Luxury homes for sale and for rent in Florida.">
+  <meta property="og:title" content="Properties for sale and rent in Florida · Ingrid Cabeza">
+  <meta property="og:description" content="Luxury homes, penthouses and residences for sale and for rent in Florida’s waterfront neighborhoods.">
   <meta property="og:image" content="img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -39,7 +39,7 @@
         <a class="nav__cta" href="index.html#contact" data-i18n="nav.cta">Private showing</a>
       </nav>
       <div class="header__tools">
-        <a class="header__phone" href="tel:+17866264910">(786) 626-4910</a>
+        <a class="header__phone" href="tel:+17866264910" data-web="phone">(786) 626-4910</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
           <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
           <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -98,13 +98,15 @@
               <label class="fgroup__label" for="f-area" data-i18n="f.area">Neighborhood</label>
               <select class="finput" id="f-area" name="area">
                 <option value="" data-i18n="f.anyArea">All neighborhoods</option>
-                <option value="miami-beach">Miami Beach</option>
-                <option value="key-biscayne">Key Biscayne</option>
-                <option value="coral-gables">Coral Gables</option>
-                <option value="coconut-grove">Coconut Grove</option>
-                <option value="pinecrest">Pinecrest</option>
-                <option value="north-beaches" data-i18n="search.north">Golden Beach &amp; Sunny Isles</option>
-                <option value="brickell">Brickell</option>
+                <!-- web:area-options -->
+                <option value="miami-beach" data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</option>
+                <option value="key-biscayne" data-i18n="zone.key-biscayne">Key Biscayne</option>
+                <option value="coral-gables" data-i18n="zone.coral-gables">Coral Gables</option>
+                <option value="coconut-grove" data-i18n="zone.coconut-grove">Coconut Grove</option>
+                <option value="pinecrest" data-i18n="zone.pinecrest">Pinecrest</option>
+                <option value="north-beaches" data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</option>
+                <option value="brickell" data-i18n="zone.brickell">Brickell</option>
+                <!-- /web:area-options -->
               </select>
             </div>
 
@@ -214,7 +216,7 @@
             </div>
           </div>
           <nav class="pager" id="r-pager" aria-label="Pages" data-i18n-attr="aria-label:pager.label"></nav>
-          <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call (786) 626-4910.</p></noscript>
+          <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call <span data-web="phone">(786) 626-4910</span>.</p></noscript>
         </div>
       </div>
       <div class="filters-scrim" data-close-filters hidden></div>
@@ -231,13 +233,15 @@
           <a class="link-btn" href="index.html#neighborhoods" data-i18n="areas.guide">Read the neighborhood guide</a>
         </div>
         <ul class="arealinks" id="area-links">
-          <li><a href="properties.html?area=miami-beach" data-area-link="miami-beach"><span data-i18n="hoods.mbT">Miami Beach &amp; the Islands</span><small></small></a></li>
-          <li><a href="properties.html?area=key-biscayne" data-area-link="key-biscayne"><span>Key Biscayne</span><small></small></a></li>
-          <li><a href="properties.html?area=coral-gables" data-area-link="coral-gables"><span>Coral Gables</span><small></small></a></li>
-          <li><a href="properties.html?area=coconut-grove" data-area-link="coconut-grove"><span>Coconut Grove</span><small></small></a></li>
-          <li><a href="properties.html?area=pinecrest" data-area-link="pinecrest"><span>Pinecrest</span><small></small></a></li>
-          <li><a href="properties.html?area=north-beaches" data-area-link="north-beaches"><span data-i18n="hoods.nbT">Golden Beach &amp; Sunny Isles</span><small></small></a></li>
-          <li><a href="properties.html?area=brickell" data-area-link="brickell"><span>Brickell</span><small></small></a></li>
+          <!-- web:area-links -->
+          <li><a href="properties.html?area=miami-beach" data-area-link="miami-beach"><span data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</span><small></small></a></li>
+          <li><a href="properties.html?area=key-biscayne" data-area-link="key-biscayne"><span data-i18n="zone.key-biscayne">Key Biscayne</span><small></small></a></li>
+          <li><a href="properties.html?area=coral-gables" data-area-link="coral-gables"><span data-i18n="zone.coral-gables">Coral Gables</span><small></small></a></li>
+          <li><a href="properties.html?area=coconut-grove" data-area-link="coconut-grove"><span data-i18n="zone.coconut-grove">Coconut Grove</span><small></small></a></li>
+          <li><a href="properties.html?area=pinecrest" data-area-link="pinecrest"><span data-i18n="zone.pinecrest">Pinecrest</span><small></small></a></li>
+          <li><a href="properties.html?area=north-beaches" data-area-link="north-beaches"><span data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</span><small></small></a></li>
+          <li><a href="properties.html?area=brickell" data-area-link="brickell"><span data-i18n="zone.brickell">Brickell</span><small></small></a></li>
+          <!-- /web:area-links -->
         </ul>
       </div>
     </section>

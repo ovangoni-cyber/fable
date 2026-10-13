@@ -85,10 +85,17 @@ Cada sitio incluye `img/og.jpg` (imagen de 1200 × 630 px para cuando se compart
 
 Ingrid puede añadir, cambiar y quitar propiedades desde `https://sudominio.com/admin/`, sin tocar código. El panel es [Decap CMS](https://decapcms.org): guarda cada cambio en este repositorio de GitHub y Netlify vuelve a publicar la web en uno o dos minutos. La guía para Ingrid está en [`realtor/GUIA-PANEL.md`](realtor/GUIA-PANEL.md).
 
+El panel tiene dos secciones:
+
+- **Propiedades**: un archivo por propiedad en `realtor/data/propiedades/`. Al publicar, `scripts/build-listings.js` los junta en `data/listings.json`.
+- **Textos y datos de la web**: contacto, portada y cifras, vecindarios, servicios, valoración, Sobre mí, testimonios y la página de propiedades, en `realtor/data/web/*.json`. Al publicar, `scripts/build-site.js` escribe esos datos en las páginas: reescribe solo lo que está entre marcas `<!-- web:nombre -->`, los elementos con `data-web="…"` y las claves `data-i18n` que gestiona, además de los enlaces de teléfono, WhatsApp, correo y formularios, y las cadenas en español de `js/i18n.js` (bloques `// web:es` y `// web:areas`). Para cambiar esos textos, edite los JSON, no las páginas; si no, el siguiente despliegue los sobrescribe. Ejecutar el script dos veces no cambia nada.
+
+Netlify ejecuta los dos scripts en cada despliegue (`netlify.toml`). Para ver un cambio en local: `node scripts/build-site.js && node scripts/build-listings.js` dentro de `realtor/`.
+
 Puesta en marcha (una sola vez):
 
 1. **Rama**: el panel guarda en la rama `main` (`realtor/admin/config.yml`, campos `repo` y `branch`). Fusione esta rama en `main`, o cambie `branch` por la rama que publique la web.
-2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`. El `netlify.toml` de la carpeta ya indica el comando de compilación (`node scripts/build-listings.js`) y que se publica la carpeta tal cual. Asigne el dominio.
+2. **Netlify**: cree un sitio desde el repositorio de GitHub, con **Base directory** `realtor`. El `netlify.toml` de la carpeta ya indica el comando de compilación (`node scripts/build-site.js && node scripts/build-listings.js`) y que se publica la carpeta tal cual. Asigne el dominio.
 3. **GitHub OAuth**: en GitHub, *Settings → Developer settings → OAuth Apps → New OAuth App*. *Homepage URL*: la dirección del sitio. *Authorization callback URL*: `https://api.netlify.com/auth/done`. Copie el *Client ID* y genere un *Client secret*.
 4. **Netlify**: en el sitio, *Site configuration → Access & security → OAuth → Install provider → GitHub*, y pegue el *Client ID* y el *Client secret*.
 5. **Acceso de Ingrid**: cree una cuenta de GitHub para Ingrid (gratis) y añádala al repositorio con permiso de escritura (*Settings → Collaborators*).

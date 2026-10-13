@@ -1,7 +1,8 @@
 # Netlify: in the site settings, set "Base directory" to realtor.
-# The build joins the properties edited in the admin panel (data/propiedades/) into data/listings.json.
+# The build applies the texts and contact details edited in the admin panel (data/web/) to the pages,
+# and joins the properties (data/propiedades/) into data/listings.json.
 [build]
-  command = "node scripts/build-listings.js"
+  command = "node scripts/build-site.js && node scripts/build-listings.js"
   publish = "."
 
 # The properties change from the admin panel; always serve the latest file.

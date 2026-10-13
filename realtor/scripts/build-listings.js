@@ -8,10 +8,13 @@ const root = path.join(__dirname, '..');
 const dir = path.join(root, 'data', 'propiedades');
 const out = path.join(root, 'data', 'listings.json');
 
-const AREAS = {
-  'miami-beach': 'Miami Beach', 'key-biscayne': 'Key Biscayne', 'coral-gables': 'Coral Gables',
-  'coconut-grove': 'Coconut Grove', 'pinecrest': 'Pinecrest', 'north-beaches': 'Golden Beach', 'brickell': 'Brickell'
-};
+// Neighborhood names come from the panel (Web → Vecindarios); used when a property has no "Ubicación que se muestra".
+let AREAS = {};
+try {
+  for (const z of JSON.parse(fs.readFileSync(path.join(root, 'data', 'web', 'vecindarios.json'), 'utf8')).zonas || []) {
+    if (z && z.id) AREAS[z.id] = z.nombre_en || z.nombre || z.id;
+  }
+} catch (e) { console.warn('data/web/vecindarios.json: ' + e.message); }
 // Characteristics are typed one per line in the panel.
 const lines = (v) => (Array.isArray(v) ? v : String(v || '').split('\n')).map((x) => String(x).trim()).filter(Boolean);
 const num = (v) => (isFinite(Number(v)) && v !== '' && v != null ? Number(v) : 0);

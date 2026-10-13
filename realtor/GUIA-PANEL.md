@@ -1,13 +1,16 @@
-# Guía del panel de propiedades
+# Guía del panel de la web
 
-Esta guía es para Ingrid. Explica cómo añadir, cambiar y quitar propiedades de la web sin tocar código.
+Esta guía es para Ingrid. Explica cómo añadir, cambiar y quitar propiedades, y cómo cambiar los textos, las fotos y los datos de contacto de la web, sin tocar código.
 
 ## Entrar
 
 1. Abra **https://ingridcabeza.com/admin/** (cambie el dominio por el real).
 2. Pulse **Iniciar sesión con GitHub** y entre con su usuario y contraseña de GitHub.
 
-Verá la lista de propiedades, una por fila, con su referencia y su título.
+A la izquierda verá dos secciones:
+
+- **Propiedades**: la lista de propiedades, una por fila, con su referencia y su título.
+- **Textos y datos de la web**: el teléfono, la oficina, los textos de cada parte de la web, los vecindarios, los testimonios y su foto.
 
 ## Añadir una propiedad
 
@@ -55,6 +58,22 @@ Active **Destacar arriba en la portada** en la propiedad que quiera mostrar y de
 - En YouTube puede subir el vídeo como **Oculto**: no aparece en las búsquedas, pero se ve en la web.
 - Para quitar el vídeo, borre el enlace o el archivo y publique.
 - En las propiedades **Privadas** el vídeo no se muestra.
+
+## Cambiar los textos y datos de la web
+
+1. Pulse **Textos y datos de la web** y después la parte que quiera cambiar:
+   - **Datos de contacto**: teléfono, WhatsApp, correo, oficina (calle, ciudad y código postal), número de licencia y nombre de la agencia. Se cambian en toda la web a la vez: cabecera, Contacto, botones de llamar y de WhatsApp, pie de página y política de privacidad.
+   - **Portada**: la frase principal, el texto de debajo, las cifras (puede ocultarlas) y el título y la descripción que salen en Google y al compartir la web.
+   - **Vecindarios**: el texto de la sección y la lista de vecindarios, cada uno con nombre, descripción y foto. Puede añadir, quitar y ordenar vecindarios. Los mismos vecindarios salen en el buscador y en el formulario de cada propiedad.
+   - **Cómo trabajo**: los puntos de las pestañas Comprar, Vender y Desde el exterior.
+   - **Valor de su casa**: el título y el texto de la sección de valoración.
+   - **Sobre mí**: su foto en la llave, el título, los párrafos, los idiomas y la especialidad.
+   - **Testimonios**: añada, quite u ordene testimonios, u oculte la sección.
+   - **Página de propiedades**: el título y el texto de arriba de la página de propiedades.
+2. Cambie lo que necesite. Los textos en inglés están en **Textos en inglés** o en los campos que terminan en "en inglés". Si los deja vacíos, la web en inglés muestra el español.
+3. Pulse **Publicar** y después **Publicar ahora**. La web se actualiza en uno o dos minutos.
+
+Un consejo para los vecindarios: el **Identificador** (por ejemplo `cape-coral`) une el vecindario con sus propiedades. Póngalo al crear un vecindario y no lo cambie después. Antes de quitar un vecindario, cambie de vecindario las propiedades que tenga.
 
 ## Si algo no sale bien
 

@@ -1,0 +1,41 @@
+{
+  "eyebrow": "Bienes raíces de lujo en Florida",
+  "frase": "Casas frente al agua y residencias de lujo en Florida, compradas y vendidas con discreción.",
+  "subtitulo": "Represento a compradores y vendedores en la bahía, el océano y las islas, muchas veces antes de que la casa llegue al mercado.",
+  "en": {
+    "eyebrow": "Florida luxury real estate",
+    "frase": "Waterfront and estate homes in Florida, bought and sold with discretion.",
+    "subtitulo": "Representing buyers and sellers on the bay, the ocean and the islands, often before a home ever reaches the market."
+  },
+  "cifras": {
+    "mostrar": true,
+    "lista": [
+      {
+        "numero": "$1.2B",
+        "texto": "en ventas a lo largo de mi carrera",
+        "texto_en": "in career sales"
+      },
+      {
+        "numero": "214",
+        "texto": "casas vendidas",
+        "texto_en": "homes sold"
+      },
+      {
+        "numero": "38%",
+        "texto": "de las ventas cerradas fuera del mercado",
+        "texto_en": "of sales closed off-market"
+      },
+      {
+        "numero": "2",
+        "texto": "idiomas, inglés y español",
+        "texto_en": "languages, English and Spanish"
+      }
+    ]
+  },
+  "google": {
+    "titulo": "Ingrid Cabeza · Bienes raíces de lujo en Florida",
+    "descripcion": "Casas frente al agua y residencias de lujo en Florida. Visitas privadas, propiedades fuera del mercado y asesoría para compradores internacionales.",
+    "titulo_en": "Ingrid Cabeza · Florida Luxury Real Estate",
+    "descripcion_en": "Waterfront and estate homes in Florida. Private showings, off-market listings and guidance for international buyers."
+  }
+}
