@@ -1071,7 +1071,8 @@ const config = {
               "label": "Foto en la llave",
               "widget": "image",
               "choose_url": false,
-              "hint": "Una casa o la oficina. Cuadrada, de al menos 560 × 560 píxeles."
+              "required": false,
+              "hint": "Opcional. Si la deja vacía, la llave sale solo con el marco dorado. Si pone una, cuadrada y de al menos 560 × 560 píxeles."
             },
             {
               "name": "eyebrow",

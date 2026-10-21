@@ -178,6 +178,11 @@ if (sobreMi) {
   set('about.f1v', sobreMi.idiomas, en.idiomas);
   set('about.f3v', sobreMi.especialidad, en.especialidad);
   portrait = img(sobreMi.foto);
+  // The key's frame: a photo when the panel has one, otherwise only the gold outline.
+  blocks['key-photo'] = (pad) => (portrait ? ind([
+    '<rect x="0" y="0" width="300" height="290" fill="#ebe3d3" clip-path="url(#key-frame)"/>',
+    '<image href="' + attr(portrait) + '" x="18" y="8" width="264" height="264" preserveAspectRatio="xMidYMid slice" clip-path="url(#key-frame)"/>'
+  ], pad) : '');
   const fd = sobreMi.fundadora || {};
   founder = { name: str(fd.nombre), photo: img(fd.foto) };
   const role = pair(fd.cargo, fd.cargo_en);
@@ -347,8 +352,6 @@ function applyHtml(file, metaSet) {
   if (endpoint != null) s = s.replace(/data-endpoint="[^"]*"/g, 'data-endpoint="' + attr(endpoint) + '"');
   // The founder's photo.
   if (founder && founder.photo) s = s.replace(/(<img\b[^>]*\sdata-web-img="founder"[^>]*\ssrc=")[^"]*(")/g, '$1' + attr(founder.photo) + '$2');
-  // Photo in the key of the About section.
-  if (portrait) s = s.replace(/(<image href=")[^"]*("[^>]*clip-path="url\(#key-frame\)")/, '$1' + attr(portrait) + '$2');
   // Title and description for search engines and shared links.
   if (metaSet) {
     s = s.replace(/<title>[^<]*<\/title>/, '<title>' + html(metaSet.es.en) + '</title>')

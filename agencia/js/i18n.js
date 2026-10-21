@@ -2,12 +2,12 @@
    properties.js, property.js). English is written in the HTML; each key here matches a data-i18n key there. */
 window.I18N = {
   es: {
-    'meta.title': "Clave Realty · Casas en venta y alquiler en Florida",
+    'meta.title': "Ingrid Realtor · Casas en venta y alquiler en Florida",
     'meta.description': "Busca casas, condominios y propiedades frente al agua en venta y en alquiler en Florida. Mapa, calculadora de hipoteca y guías para comprar, alquilar o vender.",
-    'props.meta.title': "Casas en venta y alquiler en Florida · Clave Realty",
+    'props.meta.title': "Casas en venta y alquiler en Florida · Ingrid Realtor",
     'props.meta.description': "Casas, condominios y penthouses en venta y en alquiler en Florida, con filtros, mapa y calculadora de hipoteca.",
-    'prop.meta.title': "Propiedad · Clave Realty",
-    'prop.meta.description': "Detalles, fotos, mapa y calculadora de hipoteca. Visítala con Clave Realty en Florida.",
+    'prop.meta.title': "Propiedad · Ingrid Realtor",
+    'prop.meta.description': "Detalles, fotos, mapa y calculadora de hipoteca. Visítala con Ingrid Realtor en Florida.",
 
     'nav.skip': 'Saltar al contenido',
     'nav.about': "Sobre nosotros",
@@ -386,7 +386,7 @@ window.I18N = {
     'guides.eyebrow': "Guías",
     'guides.title': "Comprar, alquilar o vender en Florida, paso a paso",
     'guides.intro': "Te explicamos cómo funciona cada proceso, qué documentos necesitas y qué gastos tener en cuenta. Si te queda alguna duda, escríbenos.",
-    'guides.meta.title': "Guías para comprar, alquilar o vender casa en Florida · Clave Realty",
+    'guides.meta.title': "Guías para comprar, alquilar o vender casa en Florida · Ingrid Realtor",
     'guides.meta.description': "Pasos, documentos y gastos para comprar, alquilar o vender una casa en Florida, preguntas frecuentes y glosario.",
     // /web:es
   },
