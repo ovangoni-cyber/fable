@@ -370,7 +370,7 @@ const config = {
                   "name": "nombre",
                   "label": "Nombre",
                   "widget": "string",
-                  "hint": "Sale en el logo, en los títulos de las páginas y en el pie. Ej.: Clave Realty"
+                  "hint": "Sale en el logo, en los títulos de las páginas y en el pie. Ej.: Ingrid Realtor"
                 },
                 {
                   "name": "lema",
