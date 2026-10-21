@@ -1,0 +1,34 @@
+{
+  "title": "Residencia frente al océano en torre con servicios, alquiler anual",
+  "ref": "IC-2610",
+  "status": "rent",
+  "type": "condo",
+  "area": "north-beaches",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1205,25.9405]}",
+  "price": 24000,
+  "beds": 3,
+  "baths": 4,
+  "sqft": 3400,
+  "imgs": [
+    "/img/propiedades/listing-17.jpg",
+    "/img/propiedades/listing-17-2.jpg",
+    "/img/propiedades/listing-17-3.jpg"
+  ],
+  "desc": "Una residencia en esquina con vistas al océano en tres lados, en una torre con servicio de playa, spa y club infantil. Sin amueblar, contrato de doce meses.",
+  "features": "Unidad en esquina, océano en tres lados\nContrato de doce meses\nServicio de playa y spa\nDos plazas de estacionamiento",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Sunny Isles Beach",
+    "water": "ocean",
+    "frontage": 0,
+    "lot": 0,
+    "year": 2021,
+    "listed": "2026-09-14"
+  },
+  "en": {
+    "title": "Oceanfront residence in a full-service tower, annual lease",
+    "desc": "A corner residence with wraparound ocean views, in a tower with beach service, a spa and a children’s club. Unfurnished, twelve-month lease.",
+    "features": "Corner unit, ocean on three sides\nTwelve-month lease\nBeach service and spa\nTwo parking spaces"
+  }
+}

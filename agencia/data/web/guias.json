@@ -1,0 +1,250 @@
+{
+  "eyebrow": "Guías",
+  "titulo": "Comprar, alquilar o vender en Florida, paso a paso",
+  "intro": "Te explicamos cómo funciona cada proceso, qué documentos necesitas y qué gastos tener en cuenta. Si te queda alguna duda, escríbenos.",
+  "en": {
+    "eyebrow": "Guides",
+    "titulo": "Buying, renting or selling in Florida, step by step",
+    "intro": "How each process works, what documents you need and which costs to plan for. If anything is unclear, write to us."
+  },
+  "google": {
+    "titulo": "Guías para comprar, alquilar o vender casa en Florida · {marca}",
+    "descripcion": "Pasos, documentos y gastos para comprar, alquilar o vender una casa en Florida, preguntas frecuentes y glosario.",
+    "titulo_en": "Guides to buying, renting and selling a home in Florida · {marca}",
+    "descripcion_en": "Steps, documents and costs to buy, rent or sell a home in Florida, frequent questions and a glossary."
+  },
+  "guias": [
+    {
+      "id": "comprar",
+      "titulo": "Comprar una casa",
+      "intro": "Con hipoteca, una compra suele tardar entre 30 y 45 días desde que aceptan tu oferta. Pagando en efectivo, puede cerrarse en dos o tres semanas.",
+      "titulo_en": "Buying a home",
+      "intro_en": "With a mortgage, a purchase usually takes 30 to 45 days from the accepted offer. Paying cash, it can close in two or three weeks.",
+      "boton": "Ver casas en venta",
+      "boton_en": "See homes for sale",
+      "enlace": "properties.html",
+      "pasos": [
+        {
+          "titulo": "Define tu presupuesto",
+          "texto": "Pide una preaprobación a un banco o prestamista: te dice cuánto te pueden prestar y hace más fuerte tu oferta. Además de la entrada, reserva entre un 2 % y un 5 % del precio para los gastos de cierre.",
+          "titulo_en": "Set your budget",
+          "texto_en": "Ask a lender for a pre-approval: it tells you how much you can borrow and makes your offer stronger. On top of the down payment, set aside 2% to 5% of the price for closing costs."
+        },
+        {
+          "titulo": "Busca y visita",
+          "texto": "Usa los filtros y el mapa, guarda las que te gusten y visítalas con nosotros. Antes de visitar, firmamos contigo un acuerdo por escrito que explica nuestros servicios.",
+          "titulo_en": "Search and visit",
+          "texto_en": "Use the filters and the map, save the ones you like and visit them with us. Before the showings we sign a short written agreement with you that explains our services."
+        },
+        {
+          "titulo": "Haz una oferta",
+          "texto": "Te ayudamos a fijar el precio con ventas recientes de la zona. Si la aceptan, dejas un depósito de garantía (escrow) que guarda la compañía de títulos o un abogado hasta el cierre.",
+          "titulo_en": "Make an offer",
+          "texto_en": "We help you set the price with recent sales nearby. Once it is accepted, you place an escrow deposit, held by the title company or an attorney until closing."
+        },
+        {
+          "titulo": "Inspecciones",
+          "texto": "Durante el periodo de inspección (suelen ser 10 a 15 días) se revisa la casa: inspección general, de 4 puntos y de mitigación de viento (para el seguro), termitas y, si hay agua, el muro de contención.",
+          "titulo_en": "Inspections",
+          "texto_en": "During the inspection period (usually 10 to 15 days) the home is checked: a general inspection, a 4-point and a wind mitigation report (for insurance), termites and, on the water, the seawall."
+        },
+        {
+          "titulo": "Hipoteca y seguro",
+          "texto": "El banco tasa la casa y aprueba el préstamo. Contratas el seguro de hogar y, si la casa está en zona de inundación, el seguro de inundación.",
+          "titulo_en": "Mortgage and insurance",
+          "texto_en": "The lender appraises the home and approves the loan. You buy home insurance and, if the home is in a flood zone, flood insurance."
+        },
+        {
+          "titulo": "Cierre y llaves",
+          "texto": "Haces un último recorrido por la casa, firmas en la compañía de títulos y recibes las llaves. Si es tu vivienda principal, pide la exención Homestead antes del 1 de marzo.",
+          "titulo_en": "Closing and keys",
+          "texto_en": "You do a final walkthrough, sign at the title company and get the keys. If it is your main home, apply for the Homestead exemption before March 1."
+        }
+      ]
+    },
+    {
+      "id": "alquilar",
+      "titulo": "Alquilar una casa",
+      "intro": "Para un alquiler anual, cuenta con unas dos a cuatro semanas entre la solicitud y la entrada, más si el edificio pide aprobación de la comunidad (HOA).",
+      "titulo_en": "Renting a home",
+      "intro_en": "For a yearly lease, plan on two to four weeks from application to move-in, longer if the building needs association (HOA) approval.",
+      "boton": "Ver casas en alquiler",
+      "boton_en": "See homes for rent",
+      "enlace": "properties.html?op=rent",
+      "pasos": [
+        {
+          "titulo": "Decide qué necesitas",
+          "texto": "Zona, presupuesto, número de habitaciones, si la quieres amueblada, si tienes mascotas y para cuánto tiempo: un año o una temporada.",
+          "titulo_en": "Decide what you need",
+          "texto_en": "Area, budget, bedrooms, furnished or not, pets, and for how long: a year or a season."
+        },
+        {
+          "titulo": "Prepara tus documentos",
+          "texto": "Identificación, comprobantes de ingresos y, en muchos casos, historial de crédito. Si vienes de fuera de EE. UU., pasaporte y extractos bancarios recientes.",
+          "titulo_en": "Get your documents ready",
+          "texto_en": "ID, proof of income and, in many cases, a credit report. If you come from outside the U.S., a passport and recent bank statements."
+        },
+        {
+          "titulo": "Visita y presenta la solicitud",
+          "texto": "Cuando encuentres la casa, presentas una solicitud. El propietario revisa tus datos y, en muchos condominios, también la comunidad.",
+          "titulo_en": "Visit and apply",
+          "texto_en": "Once you find the home, you send an application. The owner reviews it and, in many condos, so does the association."
+        },
+        {
+          "titulo": "Firma el contrato",
+          "texto": "Revisamos contigo el contrato: duración, qué incluye, mascotas y reparaciones. Lo habitual es pagar el primer mes y un depósito de seguridad.",
+          "titulo_en": "Sign the lease",
+          "texto_en": "We go through the lease with you: length, what is included, pets and repairs. You usually pay the first month and a security deposit."
+        },
+        {
+          "titulo": "Entra a vivir",
+          "texto": "Haz fotos del estado de la casa al entrar y guarda una copia del inventario. Te recomendamos un seguro de inquilino. La ley de Florida fija plazos para devolverte el depósito al salir.",
+          "titulo_en": "Move in",
+          "texto_en": "Take photos of the home on day one and keep a copy of the inventory. We recommend renter’s insurance. Florida law sets deadlines for returning your deposit when you move out."
+        }
+      ]
+    },
+    {
+      "id": "vender",
+      "titulo": "Vender tu casa",
+      "intro": "Una venta bien preparada suele tener ofertas en pocas semanas. El cierre llega entre 30 y 45 días después de aceptar una oferta con hipoteca.",
+      "titulo_en": "Selling your home",
+      "intro_en": "A well-prepared sale usually gets offers within a few weeks. Closing comes 30 to 45 days after accepting an offer with a mortgage.",
+      "boton": "Pedir una valoración gratis",
+      "boton_en": "Ask for a free valuation",
+      "enlace": "index.html#valuation",
+      "pasos": [
+        {
+          "titulo": "Valoración gratis",
+          "texto": "Te preparamos un estudio de precio con las ventas recientes de tu zona y la competencia actual. Sin compromiso.",
+          "titulo_en": "Free valuation",
+          "texto_en": "We prepare a pricing study with recent sales nearby and the current competition. No obligation."
+        },
+        {
+          "titulo": "Prepara la casa y los papeles",
+          "texto": "Pequeñas reparaciones, limpieza y, si compensa, decoración. Reunimos permisos, certificado de elevación, informe de mitigación de viento y seguros: los compradores los piden.",
+          "titulo_en": "Get the home and the papers ready",
+          "texto_en": "Small repairs, cleaning and, when it pays off, staging. We gather permits, the elevation certificate, wind mitigation report and insurance: buyers ask for them."
+        },
+        {
+          "titulo": "Fotos, vídeo y publicación",
+          "texto": "Fotografía profesional, vídeo y planos. Publicamos en el MLS y en los portales, o lo enseñamos con discreción a compradores verificados, como prefieras.",
+          "titulo_en": "Photos, video and listing",
+          "texto_en": "Professional photos, video and floor plans. We list it on the MLS and the portals, or show it quietly to verified buyers, as you prefer."
+        },
+        {
+          "titulo": "Visitas y ofertas",
+          "texto": "Organizamos las visitas y negociamos por ti. Antes de aceptar, comprobamos la preaprobación o la prueba de fondos del comprador.",
+          "titulo_en": "Showings and offers",
+          "texto_en": "We run the showings and negotiate for you. Before accepting, we check the buyer’s pre-approval or proof of funds."
+        },
+        {
+          "titulo": "Inspecciones y cierre",
+          "texto": "El comprador inspecciona la casa y el banco la tasa. Firmas en la compañía de títulos y recibes el dinero. Si eres extranjero, ten en cuenta la retención FIRPTA.",
+          "titulo_en": "Inspections and closing",
+          "texto_en": "The buyer inspects the home and the lender appraises it. You sign at the title company and receive the funds. If you are a foreign owner, plan for FIRPTA withholding."
+        }
+      ]
+    }
+  ],
+  "preguntas": [
+    {
+      "pregunta": "¿Puedo comprar si no vivo en EE. UU.?",
+      "respuesta": "Sí. Cualquier persona puede comprar en Florida. Puedes pagar en efectivo o con una hipoteca para extranjeros, que suele pedir una entrada mayor, alrededor del 25 % al 40 %.",
+      "pregunta_en": "Can I buy if I don’t live in the U.S.?",
+      "respuesta_en": "Yes. Anyone can buy in Florida. You can pay cash or use a mortgage for foreign nationals, which usually needs a larger down payment, around 25% to 40%."
+    },
+    {
+      "pregunta": "¿Cuánto necesito para la entrada?",
+      "respuesta": "Depende del préstamo: desde un 3 % a 5 % en algunos préstamos para residentes, un 10 % a 20 % en los convencionales y más para extranjeros. Suma entre un 2 % y un 5 % para los gastos de cierre.",
+      "pregunta_en": "How much do I need for the down payment?",
+      "respuesta_en": "It depends on the loan: from 3% to 5% on some loans for residents, 10% to 20% on conventional loans and more for foreign buyers. Add 2% to 5% for closing costs."
+    },
+    {
+      "pregunta": "¿Qué gastos tiene una casa además de la hipoteca?",
+      "respuesta": "Impuestos de la propiedad (aproximadamente entre un 1 % y un 2 % al año), seguro de hogar, seguro de inundación si la casa está en zona de riesgo, la cuota de la comunidad (HOA) si la hay y el mantenimiento. La calculadora de cada propiedad te da una estimación.",
+      "pregunta_en": "What does a home cost on top of the mortgage?",
+      "respuesta_en": "Property taxes (roughly 1% to 2% a year), home insurance, flood insurance if the home is in a flood zone, association (HOA) fees if any, and upkeep. The calculator on each property gives you an estimate."
+    },
+    {
+      "pregunta": "¿Qué es la exención Homestead?",
+      "respuesta": "Si la casa es tu vivienda principal en Florida, reduce el valor sobre el que pagas impuestos y limita cuánto puede subir cada año. Se pide en la oficina del tasador del condado antes del 1 de marzo.",
+      "pregunta_en": "What is the Homestead exemption?",
+      "respuesta_en": "If the home is your main residence in Florida, it lowers the value you pay taxes on and caps how much that value can rise each year. You apply at the county property appraiser’s office before March 1."
+    },
+    {
+      "pregunta": "¿Cuánto me cuesta que me ayuden a comprar?",
+      "respuesta": "Antes de enseñarte casas firmamos contigo un acuerdo por escrito que explica nuestros servicios y cómo se pagan. En muchas compras, la comisión la paga el vendedor. Te lo explicamos todo antes de empezar.",
+      "pregunta_en": "What does it cost for you to help me buy?",
+      "respuesta_en": "Before showing you homes we sign a written agreement with you that explains our services and how they are paid. In many purchases the seller pays the commission. We explain it all before we start."
+    },
+    {
+      "pregunta": "¿Necesito seguro de inundación?",
+      "respuesta": "Si la casa está en una zona de inundación y compras con hipoteca, el banco lo exige. Aunque no sea obligatorio, en Florida lo recomendamos casi siempre, sobre todo cerca del agua.",
+      "pregunta_en": "Do I need flood insurance?",
+      "respuesta_en": "If the home is in a flood zone and you buy with a mortgage, the lender requires it. Even when it is not required, in Florida we almost always recommend it, especially near the water."
+    }
+  ],
+  "glosario": [
+    {
+      "termino": "Preaprobación",
+      "definicion": "Carta de un banco que dice cuánto te puede prestar. Los vendedores la piden con la oferta.",
+      "termino_en": "Pre-approval",
+      "definicion_en": "A letter from a lender saying how much it can lend you. Sellers ask for it with the offer."
+    },
+    {
+      "termino": "Depósito de garantía (escrow)",
+      "definicion": "Dinero que dejas al firmar la oferta y que se descuenta del precio al cerrar.",
+      "termino_en": "Escrow deposit",
+      "definicion_en": "Money you put down when the offer is signed, credited to the price at closing."
+    },
+    {
+      "termino": "Compañía de títulos",
+      "definicion": "Empresa que comprueba que la casa no tiene cargas, guarda el dinero y organiza la firma del cierre.",
+      "termino_en": "Title company",
+      "definicion_en": "The company that checks the home has no liens, holds the funds and runs the closing."
+    },
+    {
+      "termino": "Cierre",
+      "definicion": "El día en que se firma la compraventa, se paga y se entregan las llaves.",
+      "termino_en": "Closing",
+      "definicion_en": "The day the sale is signed, paid for and the keys are handed over."
+    },
+    {
+      "termino": "HOA",
+      "definicion": "La asociación de propietarios de un edificio o urbanización. Cobra una cuota y tiene sus normas.",
+      "termino_en": "HOA",
+      "definicion_en": "The homeowners association of a building or community. It charges a fee and has its own rules."
+    },
+    {
+      "termino": "Zona de inundación",
+      "definicion": "La clasificación de riesgo de FEMA para cada parcela. Influye en el seguro.",
+      "termino_en": "Flood zone",
+      "definicion_en": "FEMA’s risk rating for each lot. It affects insurance."
+    },
+    {
+      "termino": "Certificado de elevación",
+      "definicion": "Documento que indica a qué altura está la casa sobre el nivel de inundación. Puede bajar el seguro.",
+      "termino_en": "Elevation certificate",
+      "definicion_en": "A document showing how high the home sits above flood level. It can lower insurance."
+    },
+    {
+      "termino": "Inspección de 4 puntos",
+      "definicion": "Revisión del tejado, la electricidad, la fontanería y el aire acondicionado que piden las aseguradoras en casas con años.",
+      "termino_en": "4-point inspection",
+      "definicion_en": "A check of the roof, electrical, plumbing and air conditioning that insurers ask for on older homes."
+    },
+    {
+      "termino": "Mitigación de viento",
+      "definicion": "Informe sobre ventanas, tejado y anclajes contra huracanes. Puede bajar mucho el seguro.",
+      "termino_en": "Wind mitigation",
+      "definicion_en": "A report on windows, roof and hurricane straps. It can lower insurance a lot."
+    },
+    {
+      "termino": "MLS",
+      "definicion": "La base de datos que comparten las inmobiliarias con las casas en venta y las ventas cerradas.",
+      "termino_en": "MLS",
+      "definicion_en": "The database agencies share with homes for sale and closed sales."
+    }
+  ]
+}

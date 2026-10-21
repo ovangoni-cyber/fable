@@ -1,0 +1,34 @@
+{
+  "title": "Residencia frente al océano con playa privada",
+  "ref": "IC-2587",
+  "status": "sale",
+  "type": "house",
+  "area": "north-beaches",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1208,25.9682]}",
+  "price": 26000000,
+  "beds": 7,
+  "baths": 9.5,
+  "sqft": 11000,
+  "imgs": [
+    "/img/propiedades/listing-8.jpg",
+    "/img/propiedades/listing-8-2.jpg",
+    "/img/propiedades/listing-8-3.jpg"
+  ],
+  "desc": "Acceso directo a la playa en un pequeño municipio con policía propia y sin torres. Cada estancia principal mira al Atlántico.",
+  "features": "100 pies de playa privada\nSuite principal con terraza al océano\nGimnasio, spa y cine\nConstruida en 2021",
+  "exclusive": false,
+  "featured": false,
+  "details": {
+    "place": "Golden Beach",
+    "water": "ocean",
+    "frontage": 100,
+    "lot": 0.7,
+    "year": 2021,
+    "listed": "2026-04-18"
+  },
+  "en": {
+    "title": "Oceanfront estate with private beach",
+    "desc": "Direct beach access in a small town with its own police and no high-rises. Every main room faces the Atlantic.",
+    "features": "100 ft of private beach frontage\nPrimary suite with ocean terrace\nGym, spa and cinema\nBuilt 2021"
+  }
+}

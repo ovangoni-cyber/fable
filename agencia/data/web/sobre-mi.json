@@ -1,0 +1,29 @@
+{
+  "foto": "/img/propiedades/listing-3.jpg",
+  "eyebrow": "Sobre nosotros",
+  "titulo": "Una inmobiliaria cercana, en tu idioma",
+  "parrafos": [
+    {
+      "texto": "Somos una inmobiliaria de Florida especializada en casas de calidad y propiedades frente al agua. Te ayudamos a comprar, alquilar o vender con información clara y sin prisas.",
+      "texto_en": "We are a Florida real estate agency focused on quality homes and waterfront properties. We help you buy, rent or sell with clear information and no pressure."
+    },
+    {
+      "texto": "Te atendemos en español y en inglés, los siete días de la semana. Revisamos cada casa antes de enseñártela y te explicamos cada paso, desde la primera visita hasta la entrega de llaves.",
+      "texto_en": "We work in English and Spanish, seven days a week. We check every home before we show it to you and explain every step, from the first visit to the day you get the keys."
+    }
+  ],
+  "idiomas": "Español e inglés",
+  "especialidad": "Casas para comprar y alquilar en Florida",
+  "fundadora": {
+    "nombre": "Ingrid Cabeza",
+    "cargo": "Fundadora y agente",
+    "cargo_en": "Founder and agent",
+    "foto": "/img/ingrid.jpg"
+  },
+  "en": {
+    "eyebrow": "About us",
+    "titulo": "A local agency that speaks your language",
+    "idiomas": "English and Spanish",
+    "especialidad": "Homes to buy and rent in Florida"
+  }
+}

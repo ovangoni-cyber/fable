@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Zonas",
+  "titulo": "Conoce los vecindarios",
+  "intro": "Cada zona tiene su ambiente, sus colegios y sus precios. Te contamos lo que hay que saber de cada una.",
+  "en": {
+    "eyebrow": "Neighborhoods",
+    "titulo": "Get to know the neighborhoods",
+    "intro": "Each area has its own feel, schools and prices. Here is what to know about each one."
+  },
+  "zonas": [
+    {
+      "id": "miami-beach",
+      "nombre": "Miami Beach y las islas",
+      "nombre_en": "Miami Beach & the Islands",
+      "texto": "Star, Sunset y las Venetian Islands: accesos con control, muelles de aguas profundas y algunas de las fincas más privadas de la ciudad.",
+      "texto_en": "Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.",
+      "foto": "/img/n-islands.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.15,25.79]}",
+      "portada": true
+    },
+    {
+      "id": "key-biscayne",
+      "nombre": "Key Biscayne",
+      "nombre_en": "Key Biscayne",
+      "texto": "Un pueblo en una isla, con colegios propios, dos parques y un ritmo más tranquilo, a diez minutos de Brickell.",
+      "texto_en": "An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.",
+      "foto": "/img/n-key-biscayne.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.163,25.693]}",
+      "portada": true
+    },
+    {
+      "id": "coral-gables",
+      "nombre": "Coral Gables",
+      "nombre_en": "Coral Gables",
+      "texto": "Calles de estilo mediterráneo, una revisión de diseño estricta y enclaves privados frente al agua a lo largo de Old Cutler Road.",
+      "texto_en": "Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.",
+      "foto": "/img/n-coral-gables.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.268,25.721]}",
+      "portada": true
+    },
+    {
+      "id": "coconut-grove",
+      "nombre": "Coconut Grove",
+      "nombre_en": "Coconut Grove",
+      "texto": "El barrio más antiguo de Miami: bajo la sombra de los banianos, con clubes de vela en la bahía y un centro para caminar.",
+      "texto_en": "Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.",
+      "foto": "/img/n-coconut-grove.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.24,25.728]}",
+      "portada": true
+    },
+    {
+      "id": "pinecrest",
+      "nombre": "Pinecrest",
+      "nombre_en": "Pinecrest",
+      "texto": "Lotes arbolados de un acre, colegios de primer nivel y un ritmo tranquilo y familiar, a quince minutos al sur de Coral Gables.",
+      "texto_en": "Leafy one-acre lots, top-rated schools and a quiet, family pace, fifteen minutes south of Coral Gables.",
+      "foto": "",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.308,25.667]}",
+      "portada": false
+    },
+    {
+      "id": "north-beaches",
+      "nombre": "Golden Beach y Sunny Isles",
+      "nombre_en": "Golden Beach & Sunny Isles",
+      "texto": "Casas frente al océano con playa privada en Golden Beach y torres con todos los servicios en Sunny Isles, justo al sur.",
+      "texto_en": "Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.",
+      "foto": "/img/n-miami-beach.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.121,25.955]}",
+      "portada": true
+    },
+    {
+      "id": "brickell",
+      "nombre": "Brickell",
+      "nombre_en": "Brickell",
+      "texto": "El distrito financiero: residencias de marca, vistas a la bahía y la oficina a pocos pasos, para quien busca un pied-à-terre.",
+      "texto_en": "The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.",
+      "foto": "/img/n-brickell.jpg",
+      "mapa": "{\"type\":\"Point\",\"coordinates\":[-80.192,25.762]}",
+      "portada": true
+    }
+  ]
+}

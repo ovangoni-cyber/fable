@@ -1,0 +1,34 @@
+{
+  "title": "Casa de estilo mediterráneo en una calle arbolada",
+  "ref": "IC-2584",
+  "status": "sale",
+  "type": "house",
+  "area": "coral-gables",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.277,25.74]}",
+  "price": 6950000,
+  "beds": 6,
+  "baths": 6.5,
+  "sqft": 7100,
+  "imgs": [
+    "/img/propiedades/listing-12.jpg",
+    "/img/propiedades/listing-12-2.jpg",
+    "/img/propiedades/listing-12-3.jpg"
+  ],
+  "desc": "Techos de teja, una logia sobre la piscina y una biblioteca con techos artesonados, a pocos minutos del Biltmore y del campo de golf Granada.",
+  "features": "Logia y cocina de verano\nBiblioteca y oficina\nA minutos del Biltmore\nConstruida en 2017",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Coral Gables",
+    "water": "none",
+    "frontage": 0,
+    "lot": 0.6,
+    "year": 2017,
+    "listed": "2026-05-29"
+  },
+  "en": {
+    "title": "Mediterranean Revival home on a tree-lined street",
+    "desc": "Barrel-tile roofs, a loggia over the pool and a library with coffered ceilings, a few minutes from the Biltmore and Granada golf course.",
+    "features": "Loggia and summer kitchen\nLibrary and home office\nMinutes from the Biltmore\nBuilt 2017"
+  }
+}

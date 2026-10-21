@@ -1,0 +1,14 @@
+{
+  "titulo": "Propiedades en Florida",
+  "texto": "Casas, condominios y penthouses en venta y en alquiler. Filtra por zona, precio o tamaño, o míralas en el mapa.",
+  "en": {
+    "titulo": "Properties in Florida",
+    "texto": "Homes, condos and penthouses for sale and for rent. Filter by area, price or size, or see them on the map."
+  },
+  "google": {
+    "titulo": "Casas en venta y alquiler en Florida · {marca}",
+    "descripcion": "Casas, condominios y penthouses en venta y en alquiler en Florida, con filtros, mapa y calculadora de hipoteca.",
+    "titulo_en": "Homes for sale and rent in Florida · {marca}",
+    "descripcion_en": "Homes, condos and penthouses for sale and for rent in Florida, with filters, a map and a mortgage calculator."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "marca": {
+    "nombre": "Clave Realty",
+    "lema": "Bienes raíces en Florida",
+    "lema_en": "Florida Real Estate"
+  },
+  "telefono": "(786) 626-4910",
+  "whatsapp": "",
+  "email": "ingrid.realtor91@gmail.com",
+  "oficina": {
+    "calle": "",
+    "ciudad": "Cape Coral",
+    "estado": "FL",
+    "cp": "33904"
+  },
+  "licencia": "SL3644016",
+  "agencia": "",
+  "formularios": "",
+  "titulo": "Hablemos",
+  "texto": "Cuéntanos qué buscas y te respondemos el mismo día. Hacemos visitas los siete días de la semana, con cita.",
+  "en": {
+    "titulo": "Let’s talk",
+    "texto": "Tell us what you are looking for and we will reply the same day. Showings seven days a week, by appointment."
+  }
+}

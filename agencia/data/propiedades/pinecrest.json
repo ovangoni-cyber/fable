@@ -1,0 +1,34 @@
+{
+  "title": "Finca privada con jardines, detalles a solicitud",
+  "ref": "IC-2602",
+  "status": "private",
+  "type": "house",
+  "area": "pinecrest",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.312,25.67]}",
+  "price": 9400000,
+  "beds": 7,
+  "baths": 8,
+  "sqft": 10200,
+  "imgs": [
+    "/img/propiedades/listing-5.jpg",
+    "/img/propiedades/listing-5-2.jpg",
+    "/img/propiedades/listing-5-3.jpg"
+  ],
+  "desc": "Oferta privada. Los detalles, fotos y la dirección se comparten con compradores calificados después de una breve llamada.",
+  "features": "1.4 acres de jardines maduros\nCancha de tenis\nCerca de colegios de primer nivel\nDetalles a solicitud",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Pinecrest",
+    "water": "none",
+    "frontage": 0,
+    "lot": 1.4,
+    "year": 2018,
+    "listed": "2026-09-01"
+  },
+  "en": {
+    "title": "Private garden estate, details on request",
+    "desc": "Offered privately. Details, photos and the address are shared with qualified buyers after a short call.",
+    "features": "1.4 acres of mature gardens\nTennis court\nNear top-rated schools\nDetails on request"
+  }
+}
