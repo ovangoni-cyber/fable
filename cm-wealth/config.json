@@ -1,0 +1,19 @@
+{
+  "periodo": {"nombre": "3T 2026", "inicio": "2026-07-01", "fin": "2026-09-30"},
+  "fecha_emision": "2026-10-05",
+  "tolerancia_eur": 25,
+  "tolerancia_pct": 0.25,
+  "emisor": {
+    "nombre": "CM Wealth Managers",
+    "nif": "NIF pendiente",
+    "direccion": "Dirección pendiente",
+    "email": "facturacion@pendiente"
+  },
+  "fuentes": {
+    "banco_atlantico_pdf": "datos/banco_atlantico_extracto_2026-09-30.pdf",
+    "banco_meridional_posiciones_csv": "datos/banco_meridional_posiciones_2026-09-30.csv",
+    "banco_meridional_movimientos_csv": "datos/banco_meridional_movimientos_3T2026.csv",
+    "excel_interno": "datos/cartera_interna.xlsx",
+    "contratos": "datos/contratos.json"
+  }
+}

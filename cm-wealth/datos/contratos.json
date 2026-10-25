@@ -1,0 +1,61 @@
+[
+  {
+    "cliente": "C001",
+    "nombre": "Laura Martín Ruiz",
+    "nif": "00000001R",
+    "direccion": "Calle Ficticia 12, 28001 Madrid",
+    "email": "laura.martin@example.com",
+    "contrato": "GD-2023-014",
+    "servicio": "Gestión discrecional de carteras",
+    "cuentas": ["ATL-10045821"],
+    "fecha_alta": "2023-03-01",
+    "comision_gestion": {
+      "tipo": "tramos",
+      "tramos": [
+        {"hasta": 500000, "pct": 1.00},
+        {"hasta": 1000000, "pct": 0.75},
+        {"hasta": null, "pct": 0.50}
+      ],
+      "minimo_periodo": 300
+    },
+    "comision_exito": null,
+    "iva_pct": 21,
+    "forma_pago": "Cargo en la cuenta ATL-10045821"
+  },
+  {
+    "cliente": "C002",
+    "nombre": "Inversiones Alameda SL",
+    "nif": "B00000002",
+    "direccion": "Avenida Inventada 45, 46002 Valencia",
+    "email": "administracion@alameda.example.com",
+    "contrato": "GD-2021-007",
+    "servicio": "Gestión discrecional de carteras",
+    "cuentas": ["ATL-10046003"],
+    "fecha_alta": "2021-11-15",
+    "comision_gestion": {"tipo": "fijo", "pct": 0.60},
+    "comision_exito": {"pct": 10, "marca_agua": true},
+    "iva_pct": 21,
+    "forma_pago": "Transferencia a 15 días"
+  },
+  {
+    "cliente": "C003",
+    "nombre": "Jorge Ortega Vidal",
+    "nif": "00000003A",
+    "direccion": "Plaza Imaginaria 3, 41001 Sevilla",
+    "email": "jorge.ortega@example.com",
+    "contrato": "GD-2026-031",
+    "servicio": "Gestión discrecional de carteras",
+    "cuentas": ["MER-77310459"],
+    "fecha_alta": "2026-08-15",
+    "comision_gestion": {
+      "tipo": "fijo",
+      "pct": 1.25,
+      "descuento_pct": 10,
+      "descuento_motivo": "Descuento de bienvenida primer año",
+      "minimo_periodo": 150
+    },
+    "comision_exito": null,
+    "iva_pct": 21,
+    "forma_pago": "Cargo en la cuenta MER-77310459"
+  }
+]

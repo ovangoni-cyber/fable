@@ -162,3 +162,10 @@ Todo lo siguiente es contenido de ejemplo. Está marcado con comentarios `PLACEH
 - Correo, teléfono y dirección.
 - Mercados, objetivos de retorno, calendario del proyecto, hoja de términos y casos: todos son ilustrativos.
 - Los textos legales (Regla 506(c), avisos de riesgo) son un punto de partida. **Un abogado de valores debe revisarlos antes de publicar**, igual que cualquier cifra de rendimiento.
+
+## Otros proyectos
+
+| Carpeta | Contenido |
+| --- | --- |
+| [`cm-wealth/`](cm-wealth/) | **CM Wealth Managers**: prototipo en Python (datos ficticios) que concilia los extractos del banco con el registro interno, calcula las comisiones de gestión y de éxito según cada contrato y prepara las facturas en borrador. |
+

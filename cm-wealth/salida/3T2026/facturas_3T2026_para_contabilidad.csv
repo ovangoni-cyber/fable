@@ -1,0 +1,4 @@
+﻿numero_borrador;fecha;cliente;nif;concepto;base_imponible;tipo_iva;cuota_iva;total;estado
+B-3T2026-001;05/10/2026;Laura Martín Ruiz;00000001R;Comisión de gestión 3T 2026;2292,66;21;481,46;2774,12;Revisar antes de facturar
+B-3T2026-002;05/10/2026;Inversiones Alameda SL;B00000002;"Comisión de gestión 3T 2026; Comisión de éxito 3T 2026 (10,00 % s/ 31.485,40 €)";5084,12;21;1067,67;6151,79;Revisar antes de facturar
+B-3T2026-003;05/10/2026;Jorge Ortega Vidal;00000003A;"Comisión de gestión 3T 2026; Descuento de bienvenida primer año (10,00 %)";179,33;21;37,66;216,99;Lista para aprobar
