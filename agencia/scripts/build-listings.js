@@ -92,4 +92,6 @@ for (const file of files) {
 }
 
 fs.writeFileSync(out, JSON.stringify({ listings }, null, 2) + '\n');
+// The same data as a script, for when the site is opened straight from a folder (see js/listings.js).
+fs.writeFileSync(path.join(root, 'data', 'listings.js'), '// Written by scripts/build-listings.js. Do not edit by hand.\nwindow.LISTINGS_DATA = ' + JSON.stringify({ listings }) + ';\n');
 console.log('data/listings.json: ' + listings.length + ' properties');
