@@ -13,6 +13,18 @@ datos/                         salida/3T2026/
   contratos.json        ─┘
 ```
 
+## Demo web
+
+`demo/index.html` es una versión interactiva para enseñar el prototipo: resumen del cierre, incidencias que se marcan como resueltas, condiciones de cada contrato editables con recálculo al momento, aprobación de facturas y descarga del PDF y del CSV. Funciona abriendo el archivo en el navegador (sin las descargas) y se publica como página con enlace.
+
+Se genera a partir de `demo/plantilla.html` con los datos que leen los lectores del prototipo:
+
+```bash
+python3 demo/construir.py
+```
+
+El cálculo de la página es el mismo que el de `cm/` y da las mismas cifras.
+
 ## Cómo se usa
 
 ```bash

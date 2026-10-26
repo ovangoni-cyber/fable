@@ -1,0 +1,684 @@
+<title>Cierre trimestral CM Wealth</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working back-office tool. Header + pipeline strip summarise the close; tabs hold each step; numbers in tabular figures. */
+:root {
+  --bg: #F2F4F6; --surface: #FFFFFF; --surface-2: #E8ECF0; --ink: #14243A; --muted: #546274; --line: #D3DAE2;
+  --accent: #1F4E8C; --accent-ink: #FFFFFF; --accent-soft: #E1EAF6; --gold: #86651F;
+  --ok: #1B6545; --ok-bg: #E0F1E8; --warn: #845400; --warn-bg: #FBEED2; --bad: #A2331C; --bad-bg: #F8E1DB;
+  --paper: #FFFFFF; --paper-ink: #14243A; --paper-muted: #546274; --paper-line: #DEE4EA;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1520; --surface: #142031; --surface-2: #1B293C; --ink: #E4EAF1; --muted: #9AA8B9; --line: #29394E;
+    --accent: #86AEE6; --accent-ink: #0D1520; --accent-soft: #1C2D46; --gold: #D6B470;
+    --ok: #82D3A9; --ok-bg: #143327; --warn: #F0C46A; --warn-bg: #362B12; --bad: #F2A08C; --bad-bg: #3C1D17;
+    --paper: #F3F5F8; --paper-ink: #14243A; --paper-muted: #4F5D6F; --paper-line: #D9DFE6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1520; --surface: #142031; --surface-2: #1B293C; --ink: #E4EAF1; --muted: #9AA8B9; --line: #29394E;
+  --accent: #86AEE6; --accent-ink: #0D1520; --accent-soft: #1C2D46; --gold: #D6B470;
+  --ok: #82D3A9; --ok-bg: #143327; --warn: #F0C46A; --warn-bg: #362B12; --bad: #F2A08C; --bad-bg: #3C1D17;
+  --paper: #F3F5F8; --paper-ink: #14243A; --paper-muted: #4F5D6F; --paper-line: #D9DFE6;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mono { font-family: var(--font-mono); font-size: 0.86em; }
+.muted { color: var(--muted); }
+button, select, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 18px; }
+.brand { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.brand .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.brand h1 { font: 600 26px/1.15 var(--font-display); }
+.brand .period { font-size: 14px; color: var(--muted); }
+.top-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--warn-bg); color: var(--warn); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: var(--radius); font-weight: 600; font-size: 14px; }
+.btn:hover:not(:disabled) { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover:not(:disabled) { filter: brightness(1.08); }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+
+/* Pipeline */
+.pipeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-block: 20px 8px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.step { padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; border-left: 1px solid var(--line); min-width: 0; }
+.step:first-child { border-left: none; }
+.step .k { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+.step .k b { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--surface-2); color: var(--ink); font-size: 11px; }
+.step.done .k b { background: var(--ok); color: var(--surface); }
+.step.attn .k b { background: var(--warn); color: var(--surface); }
+.step .v { font-size: 15px; font-weight: 600; }
+@media (max-width: 760px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } .step:nth-child(3) { border-left: none; } .step:nth-child(n+3) { border-top: 1px solid var(--line); } }
+
+/* Tabs */
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; border-bottom: 1px solid var(--line); margin-top: 16px; }
+nav.tabs button { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 14px; font-weight: 600; color: var(--muted); white-space: nowrap; display: inline-flex; gap: 8px; align-items: center; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.count { font-size: 12px; padding: 1px 7px; border-radius: 999px; background: var(--surface-2); color: var(--ink); font-variant-numeric: tabular-nums; }
+.count.bad { background: var(--bad-bg); color: var(--bad); }
+main { padding-block: 24px 64px; }
+section.panel { display: flex; flex-direction: column; gap: 20px; }
+.panel-head { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: end; }
+.panel-head h2 { font: 600 22px/1.2 var(--font-display); }
+.panel-head p { color: var(--muted); max-width: 70ch; margin-top: 4px; }
+
+/* Cards & tables */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.kpi { padding: 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.kpi .label { font-size: 13px; color: var(--muted); }
+.kpi .value { font: 600 26px/1.15 var(--font-display); font-variant-numeric: tabular-nums; }
+.kpi .sub { font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .kpi .value { font-size: 22px; } }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.r, th.r { text-align: right; }
+tfoot td { font-weight: 700; border-top: 1px solid var(--line); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chip.ok { background: var(--ok-bg); color: var(--ok); }
+.chip.warn { background: var(--warn-bg); color: var(--warn); }
+.chip.bad { background: var(--bad-bg); color: var(--bad); }
+.chip.info { background: var(--accent-soft); color: var(--accent); }
+.hint { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--accent-soft); border-radius: var(--radius); color: var(--ink); }
+.hint b { color: var(--accent); }
+.linkish { background: none; border: none; padding: 0; color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Incidencias */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.seg button { border: none; background: none; padding: 7px 12px; font-weight: 600; font-size: 13px; color: var(--muted); border-left: 1px solid var(--line); }
+.seg button:first-child { border-left: none; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+label.check { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; color: var(--muted); }
+.inc-list { display: flex; flex-direction: column; gap: 10px; }
+.inc { display: grid; grid-template-columns: 6px minmax(0, 1fr); overflow: hidden; }
+.inc .stripe { background: var(--bad); }
+.inc.media .stripe { background: var(--warn); }
+.inc.resuelta .stripe { background: var(--ok); }
+.inc .body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.inc .row1 { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; }
+.inc h3 { font-size: 16px; font-weight: 700; }
+.inc .meta { font-size: 13px; color: var(--muted); }
+.inc .figs { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 13px; }
+.inc .figs span b { font-weight: 600; color: var(--ink); }
+.inc .todo { font-size: 14px; }
+.inc.resuelta h3, .inc.resuelta .desc { color: var(--muted); }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+
+/* Comisiones */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; align-items: start; }
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+.form { padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+.form h3, .result h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+fieldset { border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+legend { font-weight: 700; margin-bottom: 8px; padding: 0; }
+.field { display: grid; grid-template-columns: minmax(0, 1fr) 130px; gap: 10px; align-items: center; }
+.field label { font-size: 14px; }
+.field input, .field select { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); text-align: right; font-variant-numeric: tabular-nums; }
+.field select { text-align: left; }
+.field input[aria-invalid="true"] { border-color: var(--bad); background: var(--bad-bg); }
+.tramos { display: flex; flex-direction: column; gap: 6px; }
+.tramo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.tramo label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
+.tramo input { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); text-align: right; font-variant-numeric: tabular-nums; }
+.tramo input[aria-invalid="true"] { border-color: var(--bad); background: var(--bad-bg); }
+hr.sep { border: none; border-top: 1px solid var(--line); margin: 0; }
+.result { padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+.total-line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+.total-line .big { font: 600 34px/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.lines td:first-child { width: 100%; }
+ol.steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-variant-numeric: tabular-nums; }
+ol.steps li::marker { color: var(--muted); }
+.changed { font-size: 13px; color: var(--warn); font-weight: 600; }
+
+/* Facturas */
+.inv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 16px; align-items: start; }
+@media (max-width: 420px) { .inv-grid { grid-template-columns: minmax(0, 1fr); } }
+.inv { display: flex; flex-direction: column; overflow: hidden; }
+.paper { background: var(--paper); color: var(--paper-ink); padding: 20px; display: flex; flex-direction: column; gap: 14px; border-bottom: 1px solid var(--line); position: relative; }
+.paper .ph { display: flex; justify-content: space-between; gap: 12px; }
+.paper .ph h3 { font: 600 20px/1.1 var(--font-display); letter-spacing: 0.08em; }
+.paper .small { font-size: 12px; color: var(--paper-muted); }
+.paper table { font-size: 13px; }
+.paper td { border-bottom-color: var(--paper-line); padding: 6px 0; }
+.paper td.r { padding-left: 12px; }
+.paper .tot td { font-weight: 700; border-top: 1.5px solid var(--paper-ink); border-bottom: none; }
+.paper .stamp { position: absolute; right: 18px; top: 58px; transform: rotate(-8deg); border: 2px solid currentColor; padding: 2px 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; color: #1B6545; }
+.inv .foot { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.inv .foot .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.inv .why { font-size: 13px; color: var(--muted); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: var(--radius); font-weight: 600; font-size: 14px; max-width: calc(100% - 32px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+details.src summary { cursor: pointer; font-weight: 600; }
+footer.note { font-size: 13px; color: var(--muted); padding-block: 0 40px; }
+@media (prefers-reduced-motion: no-preference) { .inc, .card, .btn { transition: border-color .15s, background-color .15s, opacity .15s; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="eyebrow">CM Wealth Managers</span>
+      <h1>Cierre trimestral · 3T 2026</h1>
+      <span class="period">Del 01/07/2026 al 30/09/2026 · Conciliación y facturación de comisiones</span>
+    </div>
+    <div class="top-actions">
+      <span class="tag" title="Clientes, bancos e importes inventados">Datos ficticios</span>
+      <button class="btn ghost small" id="reiniciar" type="button">Reiniciar demo</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="pipeline" id="pipeline" aria-label="Estado del cierre"></div>
+  <nav class="tabs" role="tablist" aria-label="Pasos del cierre">
+    <button role="tab" id="tab-resumen" aria-controls="resumen" aria-selected="true" type="button">Resumen</button>
+    <button role="tab" id="tab-conciliacion" aria-controls="conciliacion" aria-selected="false" type="button">Conciliación <span class="count" id="cnt-inc"></span></button>
+    <button role="tab" id="tab-comisiones" aria-controls="comisiones" aria-selected="false" type="button">Comisiones</button>
+    <button role="tab" id="tab-facturas" aria-controls="facturas" aria-selected="false" type="button">Facturas <span class="count" id="cnt-fac"></span></button>
+    <button role="tab" id="tab-datos" aria-controls="datos" aria-selected="false" type="button">Datos del banco</button>
+  </nav>
+</div>
+
+<main class="wrap">
+  <section class="panel" id="resumen" role="tabpanel" aria-labelledby="tab-resumen"></section>
+  <section class="panel" id="conciliacion" role="tabpanel" aria-labelledby="tab-conciliacion" hidden></section>
+  <section class="panel" id="comisiones" role="tabpanel" aria-labelledby="tab-comisiones" hidden></section>
+  <section class="panel" id="facturas" role="tabpanel" aria-labelledby="tab-facturas" hidden></section>
+  <section class="panel" id="datos" role="tabpanel" aria-labelledby="tab-datos" hidden></section>
+</main>
+<footer class="note wrap">Demostración con datos inventados. El cálculo es el mismo que el del prototipo en Python: mismas reglas de conciliación (tolerancia del mayor entre 25 € y 0,25 %, margen de 3 días en movimientos) y mismas fórmulas de comisiones.</footer>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="application/json" id="datos-json">__DATOS__</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script id="logica">
+// Cálculo puro (sin DOM): conciliación y comisiones. Espejo de cm/conciliacion.py y cm/comisiones.py.
+const PERIODO = { nombre: "3T 2026", inicio: "2026-07-01", fin: "2026-09-30" };
+const TOL_EUR = 25, TOL_PCT = 0.25, DIAS_MARGEN = 3;
+const FLUJOS_EXTERNOS = ["APORTACION", "RETIRADA"];
+
+function r2(x) { const s = x < 0 ? -1 : 1; return s * Math.round(Number((Math.abs(x) * 100).toFixed(6))) / 100; }
+function fmtNum(x, dec = 2) {
+  const neg = x < 0; let [i, f] = Math.abs(x).toFixed(dec).split(".");
+  i = i.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return (neg ? "-" : "") + i + (dec ? "," + f : "");
+}
+function fmtVar(x) { const n = Number(x); const dec = Number.isInteger(n) ? 0 : Math.min(4, (String(n).split(".")[1] || "").length); return fmtNum(n, dec); }
+const eur = x => fmtNum(r2(x)) + " €";
+const pctTxt = x => fmtNum(Number(x), 2) + " %";
+function dia(iso) { const [a, m, d] = iso.split("-").map(Number); return Date.UTC(a, m - 1, d) / 864e5; }
+function fechaEs(iso) { const [a, m, d] = iso.split("-"); return `${d}/${m}/${a}`; }
+
+function conciliar(D) {
+  const inc = [];
+  const key = p => p.cuenta + "|" + p.isin;
+  const B = new Map(D.posBanco.map(p => [key(p), p])), I = new Map(D.posInterno.map(p => [key(p), p]));
+  const supera = (b, i) => Math.abs(b - i) > Math.max(TOL_EUR, Math.abs(b) * TOL_PCT / 100);
+  for (const k of [...new Set([...B.keys(), ...I.keys()])].sort()) {
+    const b = B.get(k), i = I.get(k), p = b || i;
+    const base = { cliente: p.cliente, cuenta: p.cuenta, isin: p.isin };
+    const vb = b ? Number(b.valor) : 0, vi = i ? Number(i.valor) : 0;
+    if (b && !i) inc.push({ ...base, tipo: "Posición no registrada", sev: "alta", banco: vb, interno: 0,
+      desc: `${b.nombre}: el banco tiene ${fmtVar(b.titulos)} títulos (${eur(vb)}) que no figuran en el registro interno.`,
+      accion: "Buscar la operación de compra y darla de alta en el registro interno." });
+    else if (i && !b) inc.push({ ...base, tipo: "Posición inexistente en el banco", sev: "alta", banco: 0, interno: vi,
+      desc: `${i.nombre}: el registro interno tiene ${fmtVar(i.titulos)} títulos que el banco no reporta.`,
+      accion: "Comprobar si se vendió o traspasó y dar de baja la posición." });
+    else if (p.isin === "EFECTIVO") { if (supera(vb, vi)) inc.push({ ...base, tipo: "Saldo de efectivo distinto", sev: "alta", banco: vb, interno: vi,
+      desc: `Efectivo: banco ${eur(vb)}, interno ${eur(vi)}. Suele deberse a movimientos sin registrar.`,
+      accion: "Revisar los movimientos no registrados de esta cuenta." }); }
+    else if (Number(b.titulos) !== Number(i.titulos)) inc.push({ ...base, tipo: "Títulos distintos", sev: "alta", banco: vb, interno: vi,
+      desc: `${b.nombre}: banco ${fmtVar(b.titulos)} títulos, interno ${fmtVar(i.titulos)}.`,
+      accion: "Buscar la compra o venta parcial que falta en el registro interno." });
+    else if (supera(vb, vi)) {
+      const causas = [];
+      if (Number(b.precio) !== Number(i.precio)) causas.push(`precio banco ${fmtVar(b.precio)} vs interno ${fmtVar(i.precio)} (¿precio desactualizado?)`);
+      if (Number(b.cambio) !== Number(i.cambio)) causas.push(`tipo de cambio banco ${fmtVar(b.cambio)} vs interno ${fmtVar(i.cambio)}`);
+      inc.push({ ...base, tipo: "Diferencia de valoración", sev: "media", banco: vb, interno: vi,
+        desc: `${b.nombre}: ${causas.join("; ") || "valor distinto con mismo precio y títulos"}.`,
+        accion: "Actualizar el precio o el tipo de cambio en el registro interno." });
+    }
+  }
+  const sinPareja = (origen, destino) => {
+    const libres = new Map();
+    for (const m of destino) { const k = m.cuenta + "|" + m.tipo + "|" + r2(Number(m.importe)).toFixed(2); (libres.get(k) || libres.set(k, []).get(k)).push(m); }
+    const fuera = [];
+    for (const m of [...origen].sort((a, b) => dia(a.fecha) - dia(b.fecha))) {
+      const cand = libres.get(m.cuenta + "|" + m.tipo + "|" + r2(Number(m.importe)).toFixed(2)) || [];
+      const j = cand.findIndex(c => Math.abs(dia(c.fecha) - dia(m.fecha)) <= DIAS_MARGEN);
+      if (j >= 0) cand.splice(j, 1); else fuera.push(m);
+    }
+    return fuera;
+  };
+  for (const m of sinPareja(D.movBanco, D.movInterno)) inc.push({ cliente: m.cliente, cuenta: m.cuenta, isin: m.isin, fecha: m.fecha,
+    tipo: "Movimiento no registrado", sev: "alta", banco: Number(m.importe), interno: 0,
+    desc: `${fechaEs(m.fecha)} ${m.concepto} ${m.isin} por ${eur(Number(m.importe))} aparece en el banco pero no en el registro interno.`,
+    accion: "Registrar el movimiento en el Excel interno." });
+  for (const m of sinPareja(D.movInterno, D.movBanco)) inc.push({ cliente: m.cliente, cuenta: m.cuenta, isin: m.isin, fecha: m.fecha,
+    tipo: "Movimiento sin reflejo en el banco", sev: "alta", banco: 0, interno: Number(m.importe),
+    desc: `${fechaEs(m.fecha)} ${m.concepto} ${m.isin} por ${eur(Number(m.importe))} figura en el registro interno pero no en el banco.`,
+    accion: "Confirmar con el banco si la operación se ejecutó." });
+  for (const x of inc) x.id = [x.tipo, x.cuenta, x.isin, x.fecha || ""].join("|");
+  return inc;
+}
+
+function patrimonioValidado(D) {
+  const t = {}; for (const p of D.posBanco) t[p.cliente] = (t[p.cliente] || 0) + Number(p.valor);
+  for (const k in t) t[k] = r2(t[k]); return t;
+}
+function flujosNetos(D) {
+  const t = {}; for (const m of D.movBanco) if (FLUJOS_EXTERNOS.includes(m.tipo)) t[m.cliente] = (t[m.cliente] || 0) + Number(m.importe);
+  return t;
+}
+
+function comisionAnual(pat, regla) {
+  if (regla.tipo === "fijo") { const imp = pat * regla.pct / 100; return [imp, [`${eur(pat)} × ${pctTxt(regla.pct)} = ${eur(imp)} anual`]]; }
+  let imp = 0, desde = 0; const lin = [];
+  for (const t of regla.tramos) {
+    const hasta = t.hasta === null || t.hasta === "" ? null : Number(t.hasta);
+    const tope = hasta === null ? pat : Math.min(pat, hasta);
+    if (tope <= desde) break;
+    const parte = (tope - desde) * t.pct / 100;
+    lin.push(`Tramo ${hasta !== null ? `de ${eur(desde)} a ${eur(hasta)}` : `más de ${eur(desde)}`}: ${eur(tope - desde)} × ${pctTxt(t.pct)} = ${eur(parte)}`);
+    imp += parte;
+    if (hasta === null) break;
+    desde = hasta;
+  }
+  lin.push(`Total anual por tramos: ${eur(imp)}`);
+  return [imp, lin];
+}
+
+function calcular(c, pat, hist, flujos) {
+  const ini = dia(PERIODO.inicio), fin = dia(PERIODO.fin), diasPeriodo = fin - ini + 1;
+  const alta = Math.max(dia(c.fecha_alta), ini), baja = c.fecha_baja ? Math.min(dia(c.fecha_baja), fin) : fin;
+  const diasActivos = Math.max(0, baja - alta + 1), prorrata = diasActivos / diasPeriodo;
+  const regla = c.comision_gestion, lineas = [], d = [];
+  d.push(`Patrimonio validado por el banco a ${fechaEs(PERIODO.fin)}: ${eur(pat)}`);
+  const [anual, la] = comisionAnual(pat, regla); d.push(...la);
+  let gestion = anual / 4;
+  d.push(`Parte del periodo (${PERIODO.nombre}): ${eur(anual)} / 4 = ${eur(gestion)}`);
+  if (diasActivos < diasPeriodo) { gestion *= prorrata; d.push(`Prorrateo por alta o baja en el periodo: ${diasActivos} de ${diasPeriodo} días = ${eur(gestion)}`); }
+  gestion = r2(gestion);
+  lineas.push({ c: `Comisión de gestión ${PERIODO.nombre}`, imp: gestion });
+  if (regla.descuento_pct) {
+    const desc = -r2(gestion * regla.descuento_pct / 100), motivo = regla.descuento_motivo || "Descuento";
+    d.push(`${motivo}: ${pctTxt(regla.descuento_pct)} sobre ${eur(gestion)} = ${eur(desc)}`);
+    lineas.push({ c: `${motivo} (${pctTxt(regla.descuento_pct)})`, imp: desc });
+  }
+  if (regla.minimo_periodo) {
+    const minimo = r2(regla.minimo_periodo * prorrata), neto = r2(lineas.reduce((s, l) => s + l.imp, 0));
+    if (neto < minimo) { const aj = r2(minimo - neto); d.push(`Mínimo del periodo ${eur(minimo)} > ${eur(neto)}: se añade un ajuste de ${eur(aj)}`); lineas.push({ c: "Ajuste a comisión mínima", imp: aj }); }
+    else d.push(`Mínimo del periodo (${eur(minimo)}) cubierto`);
+  }
+  let nuevaMarca = null;
+  const ex = c.comision_exito;
+  if (ex) {
+    const inicio = Number(hist.inicio), marca = ex.marca_agua && hist.marca ? Number(hist.marca) : inicio;
+    const ref = Math.max(inicio, marca) + flujos, gan = Math.max(0, pat - ref);
+    d.push(`Comisión de éxito: patrimonio inicial ${eur(inicio)}, marca de agua ${eur(marca)}, aportaciones netas ${eur(flujos)}`);
+    d.push(`Referencia = máx(inicial, marca de agua) + aportaciones netas = ${eur(ref)}`);
+    if (gan > 0) { const imp = r2(gan * ex.pct / 100); d.push(`Ganancia sobre la referencia: ${eur(gan)} × ${pctTxt(ex.pct)} = ${eur(imp)}`); lineas.push({ c: `Comisión de éxito ${PERIODO.nombre} (${pctTxt(ex.pct)} s/ ${eur(gan)})`, imp }); }
+    else d.push("No se supera la referencia: sin comisión de éxito");
+    nuevaMarca = r2(Math.max(ref, pat));
+    d.push(`Nueva marca de agua para el próximo periodo: ${eur(nuevaMarca)}`);
+  }
+  const base = r2(lineas.reduce((s, l) => s + l.imp, 0)), iva = r2(base * c.iva_pct / 100), total = r2(base + iva);
+  d.push(`Base imponible ${eur(base)} + IVA ${pctTxt(c.iva_pct)} ${eur(iva)} = ${eur(total)}`);
+  return { cliente: c.cliente, nombre: c.nombre, patrimonio: pat, lineas, desglose: d, base, iva, total, nuevaMarca, diasActivos, diasPeriodo };
+}
+</script>
+
+<script>
+const D = JSON.parse(document.getElementById("datos-json").textContent);
+const CLAVE = "cm-cierre-3t2026-v1";
+const ORIGINALES = JSON.parse(JSON.stringify(D.contratos));
+const INCIDENCIAS = conciliar(D);
+const PATRIMONIO = patrimonioValidado(D);
+const FLUJOS = flujosNetos(D);
+const FECHA_EMISION = "2026-10-05";
+const EMISOR = { nombre: "CM Wealth Managers", nif: "NIF pendiente", direccion: "Dirección pendiente" };
+
+let estado = cargar();
+let vista = { tab: "resumen", filtroCliente: "todos", verResueltas: false, cliente: "C001" };
+let downloads = null;
+
+function inicial() { return { resueltas: [], aprobadas: {}, contratos: JSON.parse(JSON.stringify(ORIGINALES)) }; }
+function cargar() {
+  try { const s = JSON.parse(localStorage.getItem(CLAVE)); if (s && s.contratos && s.contratos.length === ORIGINALES.length) return s; } catch (e) {}
+  return inicial();
+}
+function guardar() { try { localStorage.setItem(CLAVE, JSON.stringify(estado)); } catch (e) {} }
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2600); }
+
+const contrato = id => estado.contratos.find(c => c.cliente === id);
+const original = id => ORIGINALES.find(c => c.cliente === id);
+const abiertas = id => INCIDENCIAS.filter(i => (!id || i.cliente === id) && !estado.resueltas.includes(i.id));
+const altasAbiertas = id => abiertas(id).filter(i => i.sev === "alta");
+const calculo = id => calcular(contrato(id), PATRIMONIO[id], D.historial[id], FLUJOS[id] || 0);
+const modificado = id => JSON.stringify(contrato(id)) !== JSON.stringify(original(id));
+function numeroFactura(id) { return "B-3T2026-" + String(estado.contratos.findIndex(c => c.cliente === id) + 1).padStart(3, "0"); }
+function estadoCliente(id) {
+  if (estado.aprobadas[id]) return { txt: "Aprobada", cls: "ok" };
+  if (altasAbiertas(id).length) return { txt: "Revisar antes de facturar", cls: "bad" };
+  return { txt: "Lista para aprobar", cls: "info" };
+}
+const chip = e => `<span class="chip ${e.cls}">${esc(e.txt)}</span>`;
+
+function render() {
+  const ids = estado.contratos.map(c => c.cliente);
+  const ab = abiertas(), aprob = ids.filter(id => estado.aprobadas[id]).length;
+  $("#cnt-inc").textContent = ab.length; $("#cnt-inc").className = "count" + (ab.some(i => i.sev === "alta") ? " bad" : "");
+  $("#cnt-fac").textContent = `${aprob}/${ids.length}`;
+  $("#pipeline").innerHTML = [
+    ["Fuentes", "done", `${D.posBanco.length + D.movBanco.length} registros del banco`],
+    ["Conciliación", ab.length ? "attn" : "done", ab.length ? `${ab.length} incidencias abiertas` : "Todo cuadrado"],
+    ["Comisiones", "done", `${ids.length} clientes calculados`],
+    ["Facturas", aprob === ids.length ? "done" : "attn", `${aprob} de ${ids.length} aprobadas`],
+  ].map(([k, cls, v], n) => `<div class="step ${cls}"><span class="k"><b>${cls === "done" ? "✓" : n + 1}</b>${k}</span><span class="v">${esc(v)}</span></div>`).join("");
+  for (const t of ["resumen", "conciliacion", "comisiones", "facturas", "datos"]) {
+    $("#tab-" + t).setAttribute("aria-selected", String(vista.tab === t));
+    $("#" + t).hidden = vista.tab !== t;
+  }
+  ({ resumen: renderResumen, conciliacion: renderConciliacion, comisiones: renderComisiones, facturas: renderFacturas, datos: renderDatos })[vista.tab]();
+}
+
+function ir(tab, extra = {}) { Object.assign(vista, extra, { tab }); render(); window.scrollTo({ top: 0 }); }
+
+function renderResumen() {
+  const ids = estado.contratos.map(c => c.cliente), calcs = ids.map(calculo);
+  const totPat = calcs.reduce((s, c) => s + c.patrimonio, 0), totBase = calcs.reduce((s, c) => s + c.base, 0);
+  const ab = abiertas(), altas = ab.filter(i => i.sev === "alta").length, aprob = ids.filter(id => estado.aprobadas[id]).length;
+  const siguiente = ids.find(id => altasAbiertas(id).length);
+  const pista = aprob === ids.length
+    ? `<div class="hint"><span><b>Cierre completo.</b> Las ${ids.length} facturas están aprobadas. Ya puedes descargar el CSV para contabilidad en <button class="linkish" data-ir="facturas">Facturas</button>.</span></div>`
+    : siguiente
+      ? `<div class="hint"><span><b>Prueba esto:</b> abre <button class="linkish" data-ir="conciliacion" data-cli="${siguiente}">las incidencias de ${siguiente}</button>, márcalas como resueltas y luego aprueba su factura. También puedes cambiar las condiciones de un cliente en <button class="linkish" data-ir="comisiones">Comisiones</button> y ver cómo se recalcula.</span></div>`
+      : `<div class="hint"><span><b>Siguiente paso:</b> no quedan incidencias graves. Revisa y aprueba las facturas en <button class="linkish" data-ir="facturas">Facturas</button>.</span></div>`;
+  $("#resumen").innerHTML = `
+    ${pista}
+    <div class="kpis">
+      <div class="card kpi"><span class="label">Patrimonio validado</span><span class="value">${eur(totPat)}</span><span class="sub">Según los extractos del banco</span></div>
+      <div class="card kpi"><span class="label">Honorarios del trimestre</span><span class="value">${eur(totBase)}</span><span class="sub">Base imponible, sin IVA</span></div>
+      <div class="card kpi"><span class="label">Incidencias abiertas</span><span class="value">${ab.length}</span><span class="sub">${altas} ${altas === 1 ? "alta" : "altas"} · ${ab.length - altas} ${ab.length - altas === 1 ? "media" : "medias"}</span></div>
+      <div class="card kpi"><span class="label">Facturas aprobadas</span><span class="value">${aprob} de ${ids.length}</span><span class="sub">Borradores para el programa de facturación</span></div>
+    </div>
+    <div class="card scroll">
+      <table>
+        <thead><tr><th>Cliente</th><th class="r">Patrimonio</th><th class="r">Base</th><th class="r">Total con IVA</th><th class="r">Incidencias</th><th>Estado</th><th></th></tr></thead>
+        <tbody>${calcs.map(c => { const n = abiertas(c.cliente).length; return `<tr>
+          <td><b>${esc(c.nombre)}</b><br><span class="muted mono">${c.cliente}</span></td>
+          <td class="r num">${eur(c.patrimonio)}</td><td class="r num">${eur(c.base)}</td><td class="r num">${eur(c.total)}</td>
+          <td class="r num">${n ? `<button class="linkish" data-ir="conciliacion" data-cli="${c.cliente}">${n}</button>` : "0"}</td>
+          <td>${chip(estadoCliente(c.cliente))}${modificado(c.cliente) ? '<br><span class="changed">Condiciones modificadas</span>' : ""}</td>
+          <td><button class="btn small" data-ir="comisiones" data-cli="${c.cliente}" type="button">Ver cálculo</button></td></tr>`; }).join("")}</tbody>
+        <tfoot><tr><td>Total</td><td class="r num">${eur(totPat)}</td><td class="r num">${eur(totBase)}</td><td class="r num">${eur(calcs.reduce((s, c) => s + c.total, 0))}</td><td></td><td></td><td></td></tr></tfoot>
+      </table>
+    </div>`;
+}
+
+function renderConciliacion() {
+  const ids = estado.contratos.map(c => c.cliente);
+  const lista = INCIDENCIAS.filter(i => (vista.filtroCliente === "todos" || i.cliente === vista.filtroCliente) && (vista.verResueltas || !estado.resueltas.includes(i.id)))
+    .sort((a, b) => (a.sev !== b.sev ? (a.sev === "alta" ? -1 : 1) : a.cliente.localeCompare(b.cliente)));
+  const comparadas = D.posBanco.length + D.movBanco.length;
+  $("#conciliacion").innerHTML = `
+    <div class="panel-head"><div><h2>Banco frente a registro interno</h2>
+      <p>Se han comparado ${comparadas} registros del banco con el Excel interno. El banco es la referencia: lo que se corrige es el registro interno. Las incidencias altas bloquean la factura del cliente.</p></div></div>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Filtrar por cliente">${["todos", ...ids].map(id => `<button type="button" data-filtro="${id}" aria-pressed="${vista.filtroCliente === id}">${id === "todos" ? "Todos" : id}</button>`).join("")}</div>
+      <label class="check"><input type="checkbox" id="ver-resueltas" ${vista.verResueltas ? "checked" : ""}> Mostrar resueltas</label>
+    </div>
+    <div class="inc-list">${lista.length ? lista.map(i => { const res = estado.resueltas.includes(i.id); const dif = i.banco - i.interno; return `
+      <article class="card inc ${i.sev}${res ? " resuelta" : ""}"><div class="stripe"></div><div class="body">
+        <div class="row1"><div><h3>${esc(i.tipo)}</h3><span class="meta">${i.cliente} · ${esc(contrato(i.cliente).nombre)} · <span class="mono">${esc(i.cuenta)}${i.isin ? " · " + esc(i.isin) : ""}</span></span></div>
+          ${res ? chip({ txt: "Resuelta", cls: "ok" }) : chip({ txt: i.sev === "alta" ? "Alta" : "Media", cls: i.sev === "alta" ? "bad" : "warn" })}</div>
+        <p class="desc">${esc(i.desc)}</p>
+        <div class="figs num"><span>Banco <b>${eur(i.banco)}</b></span><span>Interno <b>${eur(i.interno)}</b></span><span>Diferencia <b>${eur(dif)}</b></span></div>
+        <p class="todo"><b>Qué hacer:</b> ${esc(i.accion)}</p>
+        <div><button class="btn small${res ? "" : " primary"}" type="button" data-resolver="${esc(i.id)}">${res ? "Reabrir" : "Marcar como resuelta"}</button></div>
+      </div></article>`; }).join("") : `<div class="card empty">${abiertas(vista.filtroCliente === "todos" ? null : vista.filtroCliente).length ? "" : "No hay incidencias abiertas con este filtro. "}Activa «Mostrar resueltas» para ver las que ya se revisaron.</div>`}
+    </div>`;
+}
+
+function campo(id, label, valor, attrs = "") {
+  return `<div class="field"><label for="${id}">${label}</label><input id="${id}" inputmode="decimal" value="${esc(valor)}" ${attrs}></div>`;
+}
+const numEs = v => (v === null || v === undefined || v === "") ? "" : String(v).replace(".", ",");
+
+function renderComisiones() {
+  const id = vista.cliente, c = contrato(id), r = c.comision_gestion, ex = c.comision_exito;
+  $("#comisiones").innerHTML = `
+    <div class="panel-head"><div><h2>Comisiones por contrato</h2><p>Cambia cualquier condición y el cálculo se rehace al momento. Los cambios se guardan solo en este navegador.</p></div>
+      <div class="seg" role="group" aria-label="Cliente">${estado.contratos.map(x => `<button type="button" data-cli-sel="${x.cliente}" aria-pressed="${x.cliente === id}">${x.cliente}</button>`).join("")}</div></div>
+    <div class="split">
+      <div class="card form">
+        <div><h3>Condiciones del contrato</h3><p style="margin-top:6px"><b>${esc(c.nombre)}</b><br><span class="muted">Contrato ${esc(c.contrato)} · alta ${fechaEs(c.fecha_alta)}</span></p></div>
+        <fieldset><legend>Comisión de gestión</legend>
+          <div class="field"><label for="f-tipo">Tipo</label><select id="f-tipo"><option value="fijo" ${r.tipo === "fijo" ? "selected" : ""}>Porcentaje fijo</option><option value="tramos" ${r.tipo === "tramos" ? "selected" : ""}>Por tramos</option></select></div>
+          ${r.tipo === "fijo" ? campo("f-pct", "Porcentaje anual (%)", numEs(r.pct), 'data-k="pct"') : `<div class="tramos">${r.tramos.map((t, n) => `<div class="tramo">
+            <label>Hasta (€)${n === r.tramos.length - 1 ? " · vacío = sin límite" : ""}<input id="f-hasta-${n}" inputmode="decimal" value="${esc(numEs(t.hasta))}" data-tramo="${n}" data-campo="hasta"></label>
+            <label>Porcentaje (%)<input id="f-tpct-${n}" inputmode="decimal" value="${esc(numEs(t.pct))}" data-tramo="${n}" data-campo="pct"></label></div>`).join("")}</div>`}
+          ${campo("f-desc", "Descuento (%)", numEs(r.descuento_pct || 0), 'data-k="descuento_pct"')}
+          ${campo("f-min", "Mínimo por trimestre (€)", numEs(r.minimo_periodo || 0), 'data-k="minimo_periodo"')}
+        </fieldset>
+        <hr class="sep">
+        <fieldset><legend>Comisión de éxito</legend>
+          <label class="check"><input type="checkbox" id="f-exito" ${ex ? "checked" : ""}> Cobrar comisión de éxito</label>
+          ${ex ? `${campo("f-expct", "Porcentaje sobre la ganancia (%)", numEs(ex.pct), 'data-ex="pct"')}
+            <label class="check"><input type="checkbox" id="f-marca" ${ex.marca_agua ? "checked" : ""}> Con marca de agua</label>` : ""}
+        </fieldset>
+        <hr class="sep">
+        ${campo("f-iva", "IVA (%)", numEs(c.iva_pct), 'data-iva="1"')}
+        <div class="toolbar" id="tb-restaurar">${htmlRestaurar(id)}</div>
+      </div>
+      <div class="card result" id="resultado">${htmlResultado(id)}</div>
+    </div>`;
+}
+function htmlRestaurar(id) {
+  return `<button class="btn small" type="button" id="restaurar" ${modificado(id) ? "" : "disabled"}>Restaurar condiciones del contrato</button>${modificado(id) ? '<span class="changed">Condiciones modificadas</span>' : ""}`;
+}
+function htmlResultado(id) {
+  const c = contrato(id), k = calculo(id);
+  return `<div class="total-line"><div><h3>Factura del trimestre</h3><span class="big">${eur(k.total)}</span><p class="muted">IVA incluido · ${chip(estadoCliente(id))}</p></div></div>
+        <div class="scroll"><table class="lines"><tbody>
+          ${k.lineas.map(l => `<tr><td>${esc(l.c)}</td><td class="r num">${eur(l.imp)}</td></tr>`).join("")}
+          <tr><td class="muted">Base imponible</td><td class="r num">${eur(k.base)}</td></tr>
+          <tr><td class="muted">IVA ${pctTxt(c.iva_pct)}</td><td class="r num">${eur(k.iva)}</td></tr>
+        </tbody></table></div>
+        <div><h3>Cálculo paso a paso</h3></div>
+        <ol class="steps">${k.desglose.map(s => `<li>${esc(s)}</li>`).join("")}</ol>`;
+}
+
+function renderFacturas() {
+  const ids = estado.contratos.map(c => c.cliente), aprob = ids.filter(id => estado.aprobadas[id]);
+  $("#facturas").innerHTML = `
+    <div class="panel-head"><div><h2>Facturas en borrador</h2><p>Nada se emite sin aprobación. El número es provisional: el número oficial y el registro Veri*factu los pone el programa de facturación al importar el CSV.</p></div>
+      <div class="toolbar">${downloads ? `<button class="btn primary" type="button" id="bajar-csv" ${aprob.length ? "" : "disabled"}>Descargar CSV para contabilidad (${aprob.length})</button>` : '<span class="muted">La descarga de archivos no está disponible en esta vista.</span>'}</div></div>
+    <div class="inv-grid">${ids.map(id => {
+      const c = contrato(id), k = calculo(id), e = estadoCliente(id), altas = altasAbiertas(id).length;
+      return `<article class="card inv">
+        <div class="paper">
+          <div class="ph"><div><h3>FACTURA</h3><span class="small">Nº ${numeroFactura(id)} (provisional) · ${fechaEs(FECHA_EMISION)}</span></div><span class="small" style="text-align:right">${esc(EMISOR.nombre)}<br>${PERIODO.nombre}</span></div>
+          ${estado.aprobadas[id] ? '<span class="stamp">Aprobada</span>' : ""}
+          <div><b>${esc(c.nombre)}</b><br><span class="small">NIF ${esc(c.nif)} · ${esc(c.direccion)}</span></div>
+          <table><tbody>
+            ${k.lineas.map(l => `<tr><td>${esc(l.c)}</td><td class="r num">${eur(l.imp)}</td></tr>`).join("")}
+            <tr><td>Base imponible</td><td class="r num">${eur(k.base)}</td></tr>
+            <tr><td>IVA ${pctTxt(c.iva_pct)}</td><td class="r num">${eur(k.iva)}</td></tr>
+            <tr class="tot"><td>Total</td><td class="r num">${eur(k.total)}</td></tr>
+          </tbody></table>
+          <span class="small">Forma de pago: ${esc(c.forma_pago || "Cargo en cuenta")}</span>
+        </div>
+        <div class="foot">
+          <div>${chip(e)}</div>
+          ${!estado.aprobadas[id] && altas ? `<p class="why">Tiene ${altas} incidencia${altas > 1 ? "s" : ""} alta${altas > 1 ? "s" : ""} sin resolver. <button class="linkish" data-ir="conciliacion" data-cli="${id}">Revisarlas</button></p>` : ""}
+          <div class="actions">
+            ${estado.aprobadas[id] ? `<button class="btn small" type="button" data-desaprobar="${id}">Quitar aprobación</button>` : `<button class="btn small primary" type="button" data-aprobar="${id}" ${altas ? "disabled" : ""}>Aprobar factura</button>`}
+            <button class="btn small" type="button" data-ir="comisiones" data-cli="${id}">Ver cálculo</button>
+            ${downloads && window.jspdf ? `<button class="btn small" type="button" data-pdf="${id}">Descargar PDF</button>` : ""}
+          </div>
+        </div>
+      </article>`; }).join("")}
+    </div>`;
+}
+
+function renderDatos() {
+  const interno = new Map(D.posInterno.map(p => [p.cuenta + "|" + p.isin, p]));
+  const fuente = f => f.startsWith("Banco Atlántico") ? "PDF · Banco Atlántico" : f.startsWith("Banco Meridional") ? "CSV · Banco Meridional" : "Excel interno";
+  $("#datos").innerHTML = `
+    <div class="panel-head"><div><h2>Lo que se leyó de cada fuente</h2><p>Posiciones a ${fechaEs(PERIODO.fin)} y movimientos del trimestre, ya en el formato común. Un banco envía PDF y otro CSV; el registro interno es un Excel.</p></div></div>
+    <div class="card scroll"><table>
+      <thead><tr><th>Cliente</th><th>Cuenta</th><th>ISIN</th><th>Posición</th><th class="r">Títulos</th><th class="r">Precio</th><th class="r">Valor banco</th><th class="r">Valor interno</th><th>Fuente</th></tr></thead>
+      <tbody>${D.posBanco.map(p => { const i = interno.get(p.cuenta + "|" + p.isin); return `<tr>
+        <td class="mono">${p.cliente}</td><td class="mono">${esc(p.cuenta)}</td><td class="mono">${esc(p.isin)}</td><td>${esc(p.nombre)}</td>
+        <td class="r num">${p.isin === "EFECTIVO" ? "" : fmtVar(p.titulos)}</td><td class="r num">${p.isin === "EFECTIVO" ? "" : fmtVar(p.precio) + " " + p.divisa}</td>
+        <td class="r num">${eur(Number(p.valor))}</td><td class="r num">${i ? eur(Number(i.valor)) : '<span class="muted">No está</span>'}</td><td class="muted">${fuente(p.fuente)}</td></tr>`; }).join("")}</tbody>
+    </table></div>
+    <div class="card scroll"><table>
+      <thead><tr><th>Fecha</th><th>Cliente</th><th>Cuenta</th><th>Concepto</th><th>ISIN</th><th class="r">Importe</th><th>Fuente</th></tr></thead>
+      <tbody>${[...D.movBanco].sort((a, b) => a.fecha.localeCompare(b.fecha)).map(m => `<tr><td class="num">${fechaEs(m.fecha)}</td><td class="mono">${m.cliente}</td><td class="mono">${esc(m.cuenta)}</td><td>${esc(m.concepto)}</td><td class="mono">${esc(m.isin || "")}</td><td class="r num">${eur(Number(m.importe))}</td><td class="muted">${fuente(m.fuente)}</td></tr>`).join("")}</tbody>
+    </table></div>`;
+}
+
+// Edición de condiciones
+function leerNum(s) {
+  let t = String(s).trim().replace(/\s|€|%/g, "");
+  if (t === "") return "";
+  if (t.includes(",")) t = t.replace(/\./g, "").replace(",", ".");
+  else if (/^\d{1,3}(\.\d{3})+$/.test(t)) t = t.replace(/\./g, "");
+  const n = Number(t);
+  return Number.isFinite(n) && n >= 0 ? n : NaN;
+}
+function cambioContrato(el) {
+  const c = contrato(vista.cliente), r = c.comision_gestion;
+  const v = leerNum(el.value);
+  const invalido = Number.isNaN(v) || (v === "" && !(el.dataset.campo === "hasta" && Number(el.dataset.tramo) === r.tramos?.length - 1));
+  el.setAttribute("aria-invalid", String(invalido));
+  if (invalido) return false;
+  if (el.dataset.k) { if (v === "" || (v === 0 && el.dataset.k !== "pct")) delete r[el.dataset.k]; else r[el.dataset.k] = v; }
+  else if (el.dataset.tramo) r.tramos[Number(el.dataset.tramo)][el.dataset.campo] = v === "" ? null : v;
+  else if (el.dataset.ex) c.comision_exito.pct = v;
+  else if (el.dataset.iva) c.iva_pct = v;
+  return true;
+}
+function trasCambio(id) { if (estado.aprobadas[id]) { delete estado.aprobadas[id]; toast("Condiciones cambiadas: la factura vuelve a estar pendiente de aprobación"); } guardar(); }
+function refrescarResultado() {
+  $("#resultado").innerHTML = htmlResultado(vista.cliente);
+  $("#tb-restaurar").innerHTML = htmlRestaurar(vista.cliente);
+  const ids = estado.contratos.map(c => c.cliente);
+  $("#cnt-fac").textContent = `${ids.filter(id => estado.aprobadas[id]).length}/${ids.length}`;
+}
+
+document.addEventListener("click", async ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.getAttribute("role") === "tab") return ir(b.getAttribute("aria-controls"));
+  if (b.dataset.ir) return ir(b.dataset.ir, b.dataset.cli ? (b.dataset.ir === "conciliacion" ? { filtroCliente: b.dataset.cli } : { cliente: b.dataset.cli }) : {});
+  if (b.dataset.filtro) { vista.filtroCliente = b.dataset.filtro; return render(); }
+  if (b.dataset.cliSel) { vista.cliente = b.dataset.cliSel; return render(); }
+  if (b.dataset.resolver) {
+    const id = b.dataset.resolver, inc = INCIDENCIAS.find(i => i.id === id);
+    if (estado.resueltas.includes(id)) { estado.resueltas = estado.resueltas.filter(x => x !== id); if (inc.sev === "alta" && estado.aprobadas[inc.cliente]) { delete estado.aprobadas[inc.cliente]; toast(`Incidencia reabierta: la factura de ${inc.cliente} vuelve a revisión`); } else toast("Incidencia reabierta"); }
+    else { estado.resueltas.push(id); toast(altasAbiertas(inc.cliente).length ? "Marcada como resuelta" : `Sin incidencias altas: la factura de ${inc.cliente} ya se puede aprobar`); }
+    guardar(); return render();
+  }
+  if (b.dataset.aprobar) { estado.aprobadas[b.dataset.aprobar] = true; guardar(); toast(`Factura ${numeroFactura(b.dataset.aprobar)} aprobada`); return render(); }
+  if (b.dataset.desaprobar) { delete estado.aprobadas[b.dataset.desaprobar]; guardar(); toast("Aprobación retirada"); return render(); }
+  if (b.id === "restaurar") { const i = estado.contratos.findIndex(c => c.cliente === vista.cliente); estado.contratos[i] = JSON.parse(JSON.stringify(original(vista.cliente))); trasCambio(vista.cliente); toast("Condiciones del contrato restauradas"); return render(); }
+  if (b.id === "reiniciar") {
+    if (b.dataset.seguro) { estado = inicial(); guardar(); vista = { tab: "resumen", filtroCliente: "todos", verResueltas: false, cliente: "C001" }; toast("Demo reiniciada"); return render(); }
+    b.dataset.seguro = "1"; b.textContent = "¿Seguro? Pulsa otra vez"; setTimeout(() => { delete b.dataset.seguro; b.textContent = "Reiniciar demo"; }, 3500); return;
+  }
+  if (b.id === "bajar-csv") return descargar(`facturas_3T2026_para_contabilidad.csv`, csvContabilidad());
+  if (b.dataset.pdf) return descargar(`${numeroFactura(b.dataset.pdf)}_${b.dataset.pdf}.pdf`, pdfFactura(b.dataset.pdf));
+});
+document.addEventListener("change", ev => {
+  const el = ev.target;
+  if (el.id === "ver-resueltas") { vista.verResueltas = el.checked; return render(); }
+  const c = contrato(vista.cliente);
+  if (el.id === "f-tipo") {
+    const r = c.comision_gestion, o = original(vista.cliente).comision_gestion;
+    r.tipo = el.value;
+    if (r.tipo === "tramos" && !r.tramos) r.tramos = o.tramos ? JSON.parse(JSON.stringify(o.tramos)) : [{ hasta: 500000, pct: 1 }, { hasta: 1000000, pct: 0.75 }, { hasta: null, pct: 0.5 }];
+    if (r.tipo === "fijo" && r.pct === undefined) r.pct = o.pct ?? 1;
+    trasCambio(vista.cliente); return render();
+  }
+  if (el.id === "f-exito") { c.comision_exito = el.checked ? (original(vista.cliente).comision_exito ? JSON.parse(JSON.stringify(original(vista.cliente).comision_exito)) : { pct: 10, marca_agua: true }) : null; trasCambio(vista.cliente); return render(); }
+  if (el.id === "f-marca") { c.comision_exito.marca_agua = el.checked; trasCambio(vista.cliente); return render(); }
+});
+document.addEventListener("input", ev => {
+  const el = ev.target; if (!el.closest("#comisiones") || el.type === "checkbox" || el.tagName === "SELECT") return;
+  if (cambioContrato(el)) { trasCambio(vista.cliente); refrescarResultado(); }
+});
+
+// Archivos
+function csvContabilidad() {
+  const ids = estado.contratos.map(c => c.cliente).filter(id => estado.aprobadas[id]);
+  const n = x => x.toFixed(2).replace(".", ",");
+  const filas = [["numero_borrador", "fecha", "cliente", "nif", "concepto", "base_imponible", "tipo_iva", "cuota_iva", "total", "estado"]];
+  for (const id of ids) { const c = contrato(id), k = calculo(id); filas.push([numeroFactura(id), fechaEs(FECHA_EMISION), c.nombre, c.nif, k.lineas.map(l => l.c).join("; "), n(k.base), String(c.iva_pct).replace(".", ","), n(k.iva), n(k.total), "Aprobada"]); }
+  return "﻿" + filas.map(f => f.map(v => /[;"\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v).join(";")).join("\r\n") + "\r\n";
+}
+function pdfFactura(id) {
+  const { jsPDF } = window.jspdf, doc = new jsPDF({ unit: "mm", format: "a4" }), c = contrato(id), k = calculo(id);
+  const t = s => String(s).replace(/€/g, "EUR").replace(/[–—]/g, "-");
+  let y = 20;
+  doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.text(EMISOR.nombre, 18, y);
+  doc.setFontSize(20); doc.text("FACTURA", 192, y, { align: "right" });
+  doc.setFont("helvetica", "normal"); doc.setFontSize(9);
+  doc.text([EMISOR.nif, EMISOR.direccion], 18, y + 6);
+  doc.text([`N.º ${numeroFactura(id)} (provisional)`, `Fecha: ${fechaEs(FECHA_EMISION)}`, `Periodo: ${PERIODO.nombre} (${fechaEs(PERIODO.inicio)} - ${fechaEs(PERIODO.fin)})`], 192, y + 6, { align: "right" });
+  y = 50; doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.text("Cliente", 18, y);
+  doc.setFont("helvetica", "normal"); doc.text([c.nombre, `NIF: ${c.nif}`, c.direccion, `Contrato ${c.contrato} - ${c.servicio}`], 18, y + 6);
+  y = 82; doc.setFillColor(20, 36, 58); doc.rect(18, y - 5, 174, 8, "F"); doc.setTextColor(255); doc.setFont("helvetica", "bold");
+  doc.text("Concepto", 21, y); doc.text("Importe", 189, y, { align: "right" }); doc.setTextColor(20, 36, 58); doc.setFont("helvetica", "normal");
+  y += 9;
+  const fila = (a, b, bold) => { doc.setFont("helvetica", bold ? "bold" : "normal"); doc.text(doc.splitTextToSize(t(a), 130), 21, y); doc.text(t(b), 189, y, { align: "right" }); y += 8; };
+  k.lineas.forEach(l => fila(l.c, eur(l.imp)));
+  doc.setDrawColor(20, 36, 58); doc.line(18, y - 5, 192, y - 5);
+  fila("Base imponible", eur(k.base)); fila(`IVA ${pctTxt(c.iva_pct)}`, eur(k.iva)); fila("TOTAL", eur(k.total), true);
+  y += 2; doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.text(t(`Forma de pago: ${c.forma_pago || "Cargo en cuenta"}`), 18, y);
+  y += 10; doc.setFont("helvetica", "bold"); doc.text("Detalle del cálculo", 18, y); doc.setFont("helvetica", "normal"); doc.setTextColor(84, 98, 116); y += 6;
+  for (const s of k.desglose) { const ls = doc.splitTextToSize(t(s), 174); doc.text(ls, 18, y); y += ls.length * 4.5; }
+  doc.setTextColor(200, 60, 40); doc.setFontSize(8); doc.text("BORRADOR - DATOS FICTICIOS - Numeración provisional", 18, 285);
+  return doc.output("arraybuffer");
+}
+async function descargar(nombre, data) {
+  if (!downloads) return;
+  try { await downloads.save({ filename: nombre, data }); toast(`${nombre} guardado`); }
+  catch (e) { const code = e && e.code; if (code === "declined") return; toast(code === "rate_limited" ? "Ya hay una descarga pendiente de confirmar" : "No se ha podido descargar el archivo"); }
+}
+
+render();
+if (window.claude && window.claude.use) window.claude.use("downloads").then(d => { downloads = d; if (d) render(); }).catch(() => {});
+</script>
