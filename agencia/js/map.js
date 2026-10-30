@@ -11,6 +11,12 @@ window.SiteMap = (function () {
   // To use another map style or provider, change these two lines (keep the attribution it asks for).
   var TILES = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
   var ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+  // Opened straight from a folder (file://), the browser sends no Referer and OpenStreetMap answers
+  // every tile with "403 Access blocked" (CARTO asks for an API key). There, use Esri's street map.
+  if (location.protocol === 'file:') {
+    TILES = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+    ATTRIBUTION = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>';
+  }
   var FLORIDA = [25.9, -80.25];
 
   var loading = null;

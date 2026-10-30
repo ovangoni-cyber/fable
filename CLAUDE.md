@@ -30,7 +30,7 @@ Las dos tienen la misma arquitectura. Cada carpeta se publica como un sitio de N
 - **Nombre de la marca** (solo `agencia/`): `data/web/contacto.json → marca.nombre`. Cada página guarda el nombre actual en `<meta name="x-brand">` y `build-site.js` lo sustituye en todas partes. En los textos del panel, `{marca}` se cambia por el nombre.
 - **Panel** (`admin/`, Decap CMS 3.16.3 desde unpkg): su configuración está en `admin/config.mjs`, que es la única fuente. La usan el panel y la API. Guarda en GitHub (`ovangoni-cyber/fable`, rama `main`).
 - **API** (`netlify/functions/api/api.mjs`): en `/api`, con clave (`API_KEY`) y token de GitHub (`GITHUB_TOKEN`). Valida con los campos de `admin/config.mjs`. Documentación en `API.md`.
-- **Mapa** (`agencia/js/map.js`): Leaflet 1.9.4 desde cdnjs y mapas de OpenStreetMap. Cada propiedad tiene `ubicacion` (GeoJSON en texto); sin ella, el centro del vecindario. Las privadas nunca salen en el mapa.
+- **Mapa** (`agencia/js/map.js`): Leaflet 1.9.4 desde cdnjs y mapas de OpenStreetMap; abierta desde una carpeta (`file://`) usa los de Esri, porque OpenStreetMap responde "403 Access blocked" sin Referer y CARTO pide clave. Cada propiedad tiene `ubicacion` (GeoJSON en texto); sin ella, el centro del vecindario. Las privadas nunca salen en el mapa.
 - Netlify ejecuta `node scripts/build-site.js && node scripts/build-listings.js` (ver `netlify.toml`).
 - Guías para la clienta: `GUIA-PANEL.md` en cada carpeta. Más detalle en el `README.md` de la raíz.
 
