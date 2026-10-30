@@ -267,12 +267,16 @@ applyHtml('privacy.html', null);
   const js = (v) => JSON.stringify(v);
   const i = s.indexOf('\n  strings: {');
   let es = s.slice(0, i), rest = s.slice(i);
+  // Keys written by hand (before the web:es block) are updated in place; the others go in the block.
+  const cut = es.indexOf('\n    // web:es');
+  let fixed = es.slice(0, cut), block = es.slice(cut);
   for (const [k, v] of Object.entries(keys)) {
     const re = new RegExp("(\\n    '" + reKey(k) + "': )(?:'(?:[^'\\\\]|\\\\.)*'|\"(?:[^\"\\\\]|\\\\.)*\")");
     const val = k.indexOf('meta.') > -1 ? v.es : html(v.es);
-    if (re.test(es)) es = es.replace(re, (all, head) => head + js(val));
+    if (re.test(fixed)) fixed = fixed.replace(re, (all, head) => head + js(val));
     else extra[k] = v.es;
   }
+  es = fixed + block;
   const lines = Object.entries(extra).map(([k, v]) => "    '" + k + "': " + js(k.indexOf('meta.') > -1 ? v : html(v)) + ',');
   es = es.replace(/(\n    \/\/ web:es[^\n]*)[\s\S]*?(\n    \/\/ \/web:es)/, (all, a, b) => a + (lines.length ? '\n' + lines.join('\n') : '') + b);
   if (zones) {

@@ -1,0 +1,34 @@
+{
+  "title": "Penthouse con vista a la bahía y terraza privada",
+  "ref": "IC-2614",
+  "status": "new",
+  "type": "penthouse",
+  "area": "brickell",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1925,25.7598]}",
+  "price": 7900000,
+  "beds": 4,
+  "baths": 5.5,
+  "sqft": 5200,
+  "imgs": [
+    "/img/propiedades/listing-9.jpg",
+    "/img/propiedades/listing-9-2.jpg",
+    "/img/propiedades/listing-9-3.jpg"
+  ],
+  "desc": "El último piso de una torre de marca nueva en Brickell Bay Drive, con una terraza de 1,400 pies² hacia Key Biscayne y el Atlántico.",
+  "features": "Terraza de 1,400 pies² con piscina\nVestíbulo con ascensor privado\nServicios de hotel, spa y club de residentes\nTres plazas de estacionamiento y depósito",
+  "exclusive": true,
+  "featured": false,
+  "details": {
+    "place": "Brickell",
+    "water": "bay",
+    "frontage": 0,
+    "lot": 0,
+    "year": 2024,
+    "listed": "2026-09-24"
+  },
+  "en": {
+    "title": "Bay-view penthouse with a private terrace",
+    "desc": "The top floor of a new branded tower on Brickell Bay Drive, with a 1,400 sf terrace facing Key Biscayne and the Atlantic.",
+    "features": "1,400 sf terrace with plunge pool\nPrivate elevator foyer\nHotel services, spa and residents’ club\nThree parking spaces and storage"
+  }
+}

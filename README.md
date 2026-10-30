@@ -1,14 +1,15 @@
 # Sitios de lujo en Miami
 
-Tres sitios web estáticos e independientes, bilingües (inglés / español):
+Cuatro sitios web estáticos e independientes, bilingües (inglés / español):
 
 | Carpeta | Sitio | Contenido |
 | --- | --- | --- |
 | [`constructora/`](constructora/) | **American Restoration Services** | Constructora de lujo con estructura inspirada en casasflorida.cl: tres líneas de casas llave en mano (Mediterránea, Moderna y Costera, con 3 modelos cada una), restauración y reformas con comparador antes/después, portafolio filtrable, calendario de obra, especificaciones para huracanes (HVHZ), "Quiénes somos" y formulario de proyecto. |
 | [`realtor/`](realtor/) | **Ingrid Cabeza** | Portada con buscador y propiedades destacadas. Página de propiedades inspirada en unicainmobiliaria.com: venta y alquiler, filtros (referencia, tipo, vecindario, precio, habitaciones, baños, superficie, frente al agua, exclusivas, obra nueva), orden, vista en cuadrícula o lista y paginación. Ficha de cada propiedad con galería, datos, vecindario, formulario, WhatsApp y propiedades similares. También tiene guía de vecindarios, servicios, valoración privada y contacto. |
+| [`agencia/`](agencia/) | **Ingrid Realtor** | Otra versión de la web de Ingrid: la protagonista es la inmobiliaria y no ella. Portada pensada para buscar (buscador grande, accesos rápidos y tarjetas Comprar / Alquilar / Vender), mapa de propiedades (portada, vista "Mapa" en la página de propiedades y ubicación en cada ficha), calculadora de hipoteca en cada propiedad en venta, guías para comprar, alquilar y vender con preguntas frecuentes y glosario, y "Sobre nosotros" con Ingrid como fundadora y agente. Textos de tú a tú, en plural. Mismo panel y misma API que `realtor/`. |
 | [`inversionistas/`](inversionistas/) | **Arcova Capital** (nombre provisional; la empresa aún no tiene nombre) | Inversión en casas de lujo nuevas, construidas para vender en Florida (sin restauraciones ni alquileres): tesis, seis mercados con mapa de Florida, estrategia con calendario de un proyecto típico, hoja de términos de ejemplo con fuentes y usos, calculadora de la cascada de distribuciones, riesgos, preguntas frecuentes y solicitud de acceso para inversionistas acreditados. |
 
-`index.html` en la raíz es solo un índice que enlaza los tres sitios.
+`index.html` en la raíz es solo un índice que enlaza los cuatro sitios.
 
 No hay dependencias ni paso de compilación: HTML, CSS y JavaScript puros. Las fuentes se cargan desde Google Fonts.
 
@@ -106,6 +107,17 @@ Puesta en marcha (una sola vez):
 Para probar el panel en la computadora, sin GitHub: en la raíz del repositorio ejecute `npx decap-server`, y en otra terminal `cd realtor && npx http-server -p 8080`. Abra `http://localhost:8080/admin/`. Los cambios se guardan directamente en los archivos locales.
 
 La web lee `data/listings.json` al cargar, así que necesita servirse desde un servidor (Netlify, o `npx http-server` en local); abriendo `index.html` con doble clic las propiedades no cargan.
+
+## Inmobiliaria (Ingrid Realtor, `agencia/`)
+
+Es una copia de `realtor/` con su propio panel (`agencia/admin/`), su API (`agencia/netlify/functions/api/`) y sus datos (`agencia/data/`). La versión de Ingrid en `realtor/` no cambia. Para publicarla, cree en Netlify **otro sitio** desde el mismo repositorio con **Base directory** `agencia`. Los pasos del panel y de la API son los mismos que los de arriba, con `agencia/` en lugar de `realtor/`.
+
+Lo que añade:
+
+- **Nombre editable**: en el panel, *Datos de contacto → Nombre de la inmobiliaria*. Cada página guarda el nombre con el que se escribió (`<meta name="x-brand">`) y `scripts/build-site.js` lo cambia en todas partes al publicar.
+- **Mapa** (`js/map.js`): [Leaflet](https://leafletjs.com) 1.9.4 desde cdnjs, que solo se carga cuando el mapa va a verse, con mapas de [OpenStreetMap](https://www.openstreetmap.org). Cada propiedad tiene *Ubicación en el mapa*; sin ella sale cerca del centro de su vecindario, marcada como aproximada. Las privadas nunca salen en el mapa y su ubicación no se publica. OpenStreetMap pide no usar sus servidores de mapas para mucho tráfico: si la web crece, cambie `TILES` en `js/map.js` por un proveedor con plan gratuito (MapTiler, Stadia Maps…) y su atribución.
+- **Calculadora de hipoteca** en cada propiedad en venta: capital e intereses, impuestos, seguro y HOA. Sus valores de partida se cambian en *Web → Calculadora de hipoteca*.
+- **Guías** (`guias.html`): comprar, alquilar y vender paso a paso, preguntas frecuentes y glosario, todo en *Web → Guías*. Los textos son orientativos y conviene que los revise alguien con licencia antes de publicar.
 
 ## Privacidad
 

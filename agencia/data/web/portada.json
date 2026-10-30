@@ -1,0 +1,73 @@
+{
+  "eyebrow": "Bienes raíces en Florida",
+  "frase": "Encuentra tu casa en Florida",
+  "subtitulo": "Casas, condominios y propiedades frente al agua para comprar o alquilar. Te acompañamos en cada paso, en español y en inglés.",
+  "en": {
+    "eyebrow": "Florida real estate",
+    "frase": "Find your home in Florida",
+    "subtitulo": "Homes, condos and waterfront properties to buy or rent. We help you at every step, in English and Spanish."
+  },
+  "cifras": {
+    "mostrar": true,
+    "lista": [
+      {
+        "numero": "$1.2B",
+        "texto": "en ventas cerradas",
+        "texto_en": "in closed sales"
+      },
+      {
+        "numero": "214",
+        "texto": "familias en su casa nueva",
+        "texto_en": "families in their new home"
+      },
+      {
+        "numero": "7",
+        "texto": "días a la semana para visitas",
+        "texto_en": "days a week for showings"
+      },
+      {
+        "numero": "2",
+        "texto": "idiomas: español e inglés",
+        "texto_en": "languages, English and Spanish"
+      }
+    ]
+  },
+  "google": {
+    "titulo": "{marca} · Casas en venta y alquiler en Florida",
+    "descripcion": "Busca casas, condominios y propiedades frente al agua en venta y en alquiler en Florida. Mapa, calculadora de hipoteca y guías para comprar, alquilar o vender.",
+    "titulo_en": "{marca} · Homes for sale and rent in Florida",
+    "descripcion_en": "Search homes, condos and waterfront properties for sale and for rent in Florida. Map, mortgage calculator and guides to buying, renting and selling."
+  },
+  "caminos": {
+    "eyebrow": "¿Cómo te ayudamos?",
+    "titulo": "Dinos qué necesitas",
+    "comprar": {
+      "titulo": "Comprar casa",
+      "texto": "Mira todas las casas en venta, calcula la cuota mensual y visita las que te gusten con uno de nuestros agentes."
+    },
+    "alquilar": {
+      "titulo": "Alquilar casa",
+      "texto": "Casas amuebladas o sin amueblar, por año o por temporada, con las condiciones claras desde el principio."
+    },
+    "vender": {
+      "titulo": "Vender tu casa",
+      "texto": "Una valoración gratis en 48 horas y un plan para vender al precio justo, con fotos, vídeo y publicidad incluidos."
+    },
+    "en": {
+      "eyebrow": "How can we help?",
+      "titulo": "Tell us what you need",
+      "comprar": {
+        "titulo": "Buy a home",
+        "texto": "See every home for sale, check the monthly payment and visit the ones you like with one of our agents."
+      },
+      "alquilar": {
+        "titulo": "Rent a home",
+        "texto": "Furnished and unfurnished homes for the year or the season, with clear terms from the start."
+      },
+      "vender": {
+        "titulo": "Sell your home",
+        "texto": "A free valuation in 48 hours and a plan to sell at the right price, with photos, video and marketing included."
+      }
+    }
+  }
+}

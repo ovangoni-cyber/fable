@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administrar la web · Ingrid Realtor</title>
+  <meta name="x-brand" content="Ingrid Realtor">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Panel de administración (Decap CMS). La configuración está en config.mjs, en esta misma carpeta;
+       la API de la web (netlify/functions/api) usa ese mismo archivo para comprobar los datos. -->
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+  <script type="module">
+    import config from './config.mjs';
+    window.CMS.init({ config: Object.assign({ load_config_file: false }, config) });
+  </script>
+</body>
+</html>
