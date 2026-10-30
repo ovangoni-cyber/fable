@@ -57,7 +57,7 @@ Revisa siempre la web en español y en inglés, en escritorio y a 390 px de anch
 
 ## Estado y pendientes
 
-- `main` tiene `realtor/` y las otras webs (PR #1 fusionado). El trabajo de `agencia/` está en la rama `claude/upbeat-heisenberg-kdcxpz` hasta que se fusione.
+- `main` tiene las cuatro webs, con `realtor/` y `agencia/` completas (PR #1 y #2 fusionados).
 - Falta publicar en Netlify: crear el sitio desde GitHub, instalar el OAuth de GitHub para el panel, dar acceso a Ingrid y, si se usa, poner `API_KEY` y `GITHUB_TOKEN`. Los pasos están en el README.
 - La clienta compró un dominio en IONOS. Falta saber cuál y conectarlo a Netlify, y luego cambiar `site_url` y `display_url` en `admin/config.mjs`.
 - Los formularios no envían hasta que se configure un servicio (Formspree o Netlify Forms; campo *formularios* del panel).
