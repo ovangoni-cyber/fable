@@ -19,6 +19,7 @@ A la izquierda verá dos secciones:
    - **Título** y **Referencia** (por ejemplo `IC-2620`, una distinta para cada propiedad).
    - **Estado**: En venta, Recién listada, Bajo contrato, Vendida, Privada o En alquiler. En alquiler, el precio es por mes.
    - **Tipo**, **Vecindario**, **Precio en dólares** (solo números, por ejemplo `18950000`), **Habitaciones**, **Baños** y **Superficie**.
+   - **Ubicación en el mapa** (opcional): pulse en el mapa donde está la casa.
    - **Fotos**: pulse **Add foto**, después **Elige una imagen** y **Subir**, elija la foto en su computadora y pulse **Confirmar selección**. Repita para cada foto. La primera es la principal; arrástrelas para cambiar el orden.
    - **Vídeo** (opcional), de una de estas dos formas:
      - **Enlace de YouTube o Vimeo** (recomendado): suba el vídeo a YouTube o Vimeo, copie el enlace y péguelo. Sirve para vídeos de cualquier duración y se ve bien en el móvil.
@@ -46,6 +47,10 @@ Cuando se venda, cambie el **Estado** a **Vendida**.
 
 Active **Destacar arriba en la portada** en la propiedad que quiera mostrar y desactívelo en la anterior. Si no hay ninguna marcada, se muestra la más reciente en venta.
 
+## La ubicación en el mapa
+
+En cada propiedad, **Ubicación en el mapa** muestra un mapa: busque la zona, acérquese y pulse donde está la casa. Si lo deja vacío, la casa sale cerca del centro de su vecindario, marcada como "ubicación aproximada". Las propiedades **Privadas** nunca salen en el mapa.
+
 ## Consejos para las fotos
 
 - Fotos horizontales, en JPG, de unos 1600 píxeles de ancho.
@@ -64,7 +69,7 @@ Active **Destacar arriba en la portada** en la propiedad que quiera mostrar y de
 1. Pulse **Textos y datos de la web** y después la parte que quiera cambiar:
    - **Datos de contacto**: teléfono, WhatsApp, correo, oficina (calle, ciudad y código postal), número de licencia y nombre de la agencia. Se cambian en toda la web a la vez: cabecera, Contacto, botones de llamar y de WhatsApp, pie de página y política de privacidad.
    - **Portada**: la frase principal, el texto de debajo, las cifras (puede ocultarlas) y el título y la descripción que salen en Google y al compartir la web.
-   - **Vecindarios**: el texto de la sección y la lista de vecindarios, cada uno con nombre, descripción y foto. Puede añadir, quitar y ordenar vecindarios. Los mismos vecindarios salen en el buscador y en el formulario de cada propiedad.
+   - **Vecindarios**: el texto de la sección y la lista de vecindarios, cada uno con nombre, descripción, foto y su centro en el mapa. Puede añadir, quitar y ordenar vecindarios. Los mismos vecindarios salen en el buscador y en el formulario de cada propiedad.
    - **Cómo trabajo**: los puntos de las pestañas Comprar, Vender y Desde el exterior.
    - **Valor de su casa**: el título y el texto de la sección de valoración.
    - **Sobre mí**: su foto en la llave, el título, los párrafos, los idiomas y la especialidad.

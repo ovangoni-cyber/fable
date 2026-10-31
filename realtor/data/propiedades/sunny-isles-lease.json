@@ -4,6 +4,7 @@
   "status": "rent",
   "type": "condo",
   "area": "north-beaches",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1205,25.9405]}",
   "price": 24000,
   "beds": 3,
   "baths": 4,

@@ -4,6 +4,7 @@
   "status": "sale",
   "type": "house",
   "area": "coral-gables",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.277,25.74]}",
   "price": 6950000,
   "beds": 6,
   "baths": 6.5,

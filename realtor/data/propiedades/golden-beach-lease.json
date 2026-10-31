@@ -4,6 +4,7 @@
   "status": "rent",
   "type": "house",
   "area": "north-beaches",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1215,25.9638]}",
   "price": 68000,
   "beds": 6,
   "baths": 7,

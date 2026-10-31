@@ -4,6 +4,7 @@
   "status": "sold",
   "type": "house",
   "area": "miami-beach",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.164,25.7905]}",
   "price": 12850000,
   "beds": 6,
   "baths": 7,

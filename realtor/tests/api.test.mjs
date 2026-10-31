@@ -165,6 +165,12 @@ execSync('node scripts/build-site.js && node scripts/build-listings.js', { cwd: 
 const idx = fs.readFileSync(file('index.html'), 'utf8');
 ok('site rebuilt with API changes', idx.includes('1000 Cape Coral Pkwy E · Cape Coral, FL 33914') && idx.includes('data-area="cape-coral"') && !idx.includes('words-title') && idx.includes('Gulf Realty Group'));
 
+// map points
+r = await call('PATCH', '/api/propiedades/harbor-drive', { ubicacion: 'cerca del mar' });
+ok('bad map point rejected', r.status === 400 && r.data.detalles[0].campo === 'ubicacion');
+r = await call('PATCH', '/api/propiedades/harbor-drive', { ubicacion: { type: 'Point', coordinates: [-80.16, 25.69] } });
+ok('map point as object accepted', r.status === 200 && readJ('data/propiedades/harbor-drive.json').ubicacion === '{"type":"Point","coordinates":[-80.16,25.69]}');
+
 // media
 const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64');
 r = await call('POST', '/api/medios', { nombre: 'Casa Nueva 1.PNG', contenido: png.toString('base64') });

@@ -35,6 +35,7 @@
       // The panel saves photos as /img/propiedades/…; drop the leading slash so the site also works from a subfolder.
       imgs: (l.imgs || []).filter(Boolean).length ? l.imgs.filter(Boolean).map(function (src) { return String(src).replace(/^\//, ''); }) : ['img/sin-foto.svg'],
       video: video(l.video),
+      geo: l.geo && isFinite(l.geo.lat) && isFinite(l.geo.lng) ? { lat: +l.geo.lat, lng: +l.geo.lng, approx: !!l.geo.approx } : null,
       desc: text(l.desc),
       features: list(l.features)
     };
@@ -64,6 +65,16 @@
 
   // The one-file preview embeds the data; the real site reads the file.
   if (window.LISTINGS_DATA) { done(window.LISTINGS_DATA.listings); return; }
+  // Opened straight from a folder (file://), browsers don't let the page read the JSON file,
+  // so it loads the same data as a script (data/listings.js, written next to it by the build).
+  if (window.location.protocol === 'file:') {
+    var tag = document.createElement('script');
+    tag.src = 'data/listings.js';
+    tag.onload = function () { done(window.LISTINGS_DATA ? window.LISTINGS_DATA.listings : []); };
+    tag.onerror = function () { done([]); };
+    document.head.appendChild(tag);
+    return;
+  }
   fetch('data/listings.json', { cache: 'no-cache' })
     .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
     .then(function (json) { done(json.listings); })

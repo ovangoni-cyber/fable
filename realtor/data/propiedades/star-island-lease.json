@@ -4,6 +4,7 @@
   "status": "rent",
   "type": "house",
   "area": "miami-beach",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1528,25.7775]}",
   "price": 145000,
   "beds": 8,
   "baths": 9.5,

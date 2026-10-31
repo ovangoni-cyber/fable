@@ -140,6 +140,15 @@ window.Listings.ready(function () {
     this.innerHTML = '<iframe src="' + src + '" title="' + C.esc(C.L(l.title)) + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
   });
 
+  /* ---------------------------------------------------------------- map */
+  var mapOn = false;
+  function renderMap() {
+    if (mapOn || !window.SiteMap) return;
+    mapOn = window.SiteMap.single($('p-map'), l);
+    $('p-map-sec').hidden = !mapOn;
+    $('p-map-note').hidden = !(mapOn && l.geo.approx);
+  }
+
   function render() {
     var name = C.L(l.title);
     var areaHref = 'properties.html?' + (l.op === 'rent' ? 'op=rent&' : '') + 'area=' + l.area;
@@ -167,6 +176,7 @@ window.Listings.ready(function () {
     $('p-hood').textContent = t('hood.' + l.area);
     $('p-hood-link').textContent = t(l.op === 'rent' ? 'prop.moreInRent' : 'prop.moreIn', { area: C.areaName(l.area) });
     $('p-hood-link').href = areaHref;
+    renderMap();
 
     $('p-wa').href = waLink();
     $('p-wa-bar').href = waLink();

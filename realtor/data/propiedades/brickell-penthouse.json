@@ -4,6 +4,7 @@
   "status": "new",
   "type": "penthouse",
   "area": "brickell",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1925,25.7598]}",
   "price": 7900000,
   "beds": 4,
   "baths": 5.5,

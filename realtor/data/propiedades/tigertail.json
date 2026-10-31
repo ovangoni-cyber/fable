@@ -4,6 +4,7 @@
   "status": "sale",
   "type": "house",
   "area": "coconut-grove",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.233,25.729]}",
   "price": 8750000,
   "beds": 5,
   "baths": 6.5,

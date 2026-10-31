@@ -4,6 +4,7 @@
   "status": "contract",
   "type": "house",
   "area": "coral-gables",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.272,25.688]}",
   "price": 14200000,
   "beds": 6,
   "baths": 7.5,

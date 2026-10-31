@@ -4,6 +4,7 @@
   "status": "private",
   "type": "house",
   "area": "pinecrest",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.312,25.67]}",
   "price": 9400000,
   "beds": 7,
   "baths": 8,

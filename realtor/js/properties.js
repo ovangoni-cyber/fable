@@ -1,4 +1,4 @@
-/* Ingrid Cabeza: the properties page. Filters, sorting, grid or list view and pages.
+/* Ingrid Cabeza: the properties page. Filters, sorting, grid, list or map view and pages.
    The search lives in the address (properties.html?op=sale&area=brickell…) so a search can be shared. */
 window.Listings.ready(function () {
   'use strict';
@@ -30,6 +30,12 @@ window.Listings.ready(function () {
   var results = document.getElementById('results');
 
   var state = Object.assign({}, DEFAULTS, { types: [] });
+  // Grid, list or map. The map shows every result of the search, not one page.
+  var view = new URLSearchParams(window.location.search).get('view') === 'map' ? 'map' : 'grid';
+  var mapEl = document.getElementById('r-map');
+  var mapNote = document.getElementById('r-map-note');
+  var resultsMap = window.SiteMap ? window.SiteMap.results(mapEl) : null;
+  var lastList = [];
 
   /* ---------------------------------------------------------------- address <-> state */
   function readURL() {
@@ -63,7 +69,8 @@ window.Listings.ready(function () {
     if (state.vid) q.set('video', '1');
     if (state.sold) q.set('sold', '1');
     if (state.sort !== 'newest') q.set('sort', state.sort);
-    if (state.page > 1) q.set('page', String(state.page));
+    if (state.page > 1 && view !== 'map') q.set('page', String(state.page));
+    if (view === 'map') q.set('view', 'map');
     var lang = new URLSearchParams(window.location.search).get('lang');
     if (lang) q.set('lang', lang);
     var s = q.toString();
@@ -200,13 +207,15 @@ window.Listings.ready(function () {
     var from = (state.page - 1) * PER_PAGE;
     var shown = list.slice(from, from + PER_PAGE);
 
+    lastList = list;
     grid.innerHTML = shown.map(C.card).join('');
     emptyEl.hidden = list.length > 0;
-    pagerEl.innerHTML = pagerHTML(pages);
+    pagerEl.innerHTML = view === 'map' ? '' : pagerHTML(pages);
+    if (view === 'map') showMap();
 
     var count = countText(list.length);
     countEl.innerHTML = '<strong>' + C.esc(count) + '</strong>' +
-      (pages > 1 ? '<span>' + C.esc(t('r.range', { from: from + 1, to: from + shown.length })) + '</span>' : '');
+      (pages > 1 && view !== 'map' ? '<span>' + C.esc(t('r.range', { from: from + 1, to: from + shown.length })) + '</span>' : '');
 
     var chips = activeChips();
     chipsEl.innerHTML = chips.map(function (c) {
@@ -284,19 +293,34 @@ window.Listings.ready(function () {
     results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  /* grid or list, remembered on this device */
+  /* grid, list or map; grid or list is remembered on this device, the map is kept in the address */
   var views = document.querySelectorAll('[data-view]');
-  function setView(v) {
+  function showMap() {
+    if (!resultsMap) return;
+    var placed = lastList.filter(function (l) { return l.geo; }).length;
+    var missing = lastList.length - placed;
+    mapNote.hidden = !missing;
+    mapNote.textContent = missing ? t(missing === 1 ? 'map.missingOne' : 'map.missing', { n: missing }) : '';
+    resultsMap.show(lastList);
+  }
+  function setView(v, keep) {
+    view = v;
     grid.classList.toggle('pgrid--list', v === 'list');
+    grid.hidden = v === 'map';
+    mapEl.hidden = v !== 'map';
+    if (v !== 'map') mapNote.hidden = true;
     views.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-view') === v)); });
+    if (!keep) render();
   }
   views.forEach(function (b) {
     b.addEventListener('click', function () {
-      setView(b.getAttribute('data-view'));
-      try { window.localStorage.setItem('wr-view', b.getAttribute('data-view')); } catch (e) { /* storage unavailable */ }
+      var v = b.getAttribute('data-view');
+      setView(v);
+      if (v !== 'map') { try { window.localStorage.setItem('wr-view', v); } catch (e) { /* storage unavailable */ } }
     });
   });
-  try { if (window.localStorage.getItem('wr-view') === 'list') setView('list'); } catch (e) { /* storage unavailable */ }
+  if (view === 'map' || !resultsMap) setView(resultsMap ? 'map' : 'grid', true);
+  else { try { if (window.localStorage.getItem('wr-view') === 'list') setView('list', true); } catch (e) { /* storage unavailable */ } }
 
   /* filters as a panel on small screens */
   function openPanel() {

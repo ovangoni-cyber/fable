@@ -732,3 +732,53 @@ html[lang="es"] [data-lang="en"], html[lang="en"] [data-lang="es"] { display: no
 @media (max-width: 480px) { .legal-back { font-size: 0.8rem; } }
 .legal-back { white-space: nowrap; }
 @media (max-width: 420px) { .logo__name { font-size: 0.82rem; letter-spacing: 0.18em; } .logo__mark { height: 32px; } .logo { gap: 10px; } .logo__text { padding-left: 10px; } .header__row { gap: 12px; } .header__tools { gap: 6px; } .lang button { padding: 5px 8px; } }
+
+/* ---------------------------------------------------------------- maps */
+/* Warmer map tiles, closer to the ivory and gold of the site. */
+.homemap .leaflet-tile-pane, .rmap .leaflet-tile-pane, .pmap .leaflet-tile-pane { filter: grayscale(0.55) sepia(0.18) brightness(1.04) contrast(0.95); }
+.leaflet-container { font-family: var(--f-body); background: var(--deep); }
+.leaflet-container a { color: var(--sea-dark); }
+.mpin { background: none; border: 0; }
+.mpin__tag {
+  position: absolute; left: 0; top: 0; transform: translate(-50%, calc(-100% - 7px));
+  display: block; padding: 5px 10px; border-radius: 999px; white-space: nowrap;
+  font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2;
+  background: var(--ink); color: var(--paper); box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.55);
+  transition: background .15s, transform .15s;
+}
+.mpin__tag::after { content: ""; position: absolute; left: 50%; bottom: -6px; margin-left: -6px; border: 6px solid transparent; border-bottom: 0; border-top-color: var(--ink); }
+.mpin--rent .mpin__tag { background: var(--sea-dark); }
+.mpin--rent .mpin__tag::after { border-top-color: var(--sea-dark); }
+.mpin--sold .mpin__tag { background: #8a8378; }
+.mpin--sold .mpin__tag::after { border-top-color: #8a8378; }
+.leaflet-marker-icon:hover .mpin__tag, .leaflet-marker-icon:focus-visible .mpin__tag { transform: translate(-50%, calc(-100% - 10px)); }
+.mpop-wrap .leaflet-popup-content-wrapper { padding: 0; border-radius: 14px; overflow: hidden; }
+.mpop-wrap .leaflet-popup-content { margin: 0; width: 260px !important; }
+.mpop-wrap .leaflet-popup-close-button {
+  top: 8px; right: 8px; width: 28px; height: 28px; border-radius: 50%; z-index: 1;
+  background: rgba(20, 18, 16, 0.6); color: #fff; font: 20px/28px var(--f-body); text-align: center;
+}
+.mpop-wrap .leaflet-popup-close-button:hover { background: var(--ink); color: #fff; }
+.mpop { display: grid; text-decoration: none; color: var(--ink) !important; }
+.mpop__img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.mpop__body { display: grid; gap: 2px; padding: 12px 14px 14px; }
+.mpop__price { font-size: 1.05rem; }
+.mpop__title { font-family: var(--f-display); font-size: 1.1rem; line-height: 1.2; }
+.mpop__facts, .mpop__place { font-size: 0.8rem; color: var(--ink-soft); }
+
+/* properties page: map view */
+.rmap { position: relative; z-index: 0; height: clamp(420px, 70vh, 720px); border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--deep); }
+.rmap__note { margin-top: 12px; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* property page: location */
+.pmap { position: relative; z-index: 0; height: clamp(260px, 40vw, 380px); border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--deep); }
+.pmap__note { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* map on the home page */
+.homemap { position: relative; z-index: 0; height: clamp(320px, 50vw, 540px); border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: var(--deep); }
+.homemap__wait { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink-soft); }
+
+/* zoomed out: dots instead of prices */
+.is-far .mpin__tag { width: 16px; height: 16px; padding: 0; font-size: 0; border: 2px solid var(--paper); transform: translate(-50%, -50%); }
+.is-far .mpin__tag::after { display: none; }
+.is-far .leaflet-marker-icon:hover .mpin__tag, .is-far .leaflet-marker-icon:focus-visible .mpin__tag { transform: translate(-50%, -50%) scale(1.25); }

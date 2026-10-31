@@ -153,6 +153,16 @@ function check(value, field, at, errs, ctx) {
     case 'datetime':
       if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(value)) return say('Debe ser una fecha AAAA-MM-DD.');
       return value.slice(0, 10);
+    case 'map': {
+      // A point, as the panel stores it: '{"type":"Point","coordinates":[lng, lat]}' (an object is accepted too).
+      let g = value;
+      if (typeof g === 'string') { try { g = JSON.parse(g); } catch (e) { return say('Debe ser un punto GeoJSON: {"type":"Point","coordinates":[longitud, latitud]}.'); } }
+      const c = g && g.type === 'Point' && Array.isArray(g.coordinates) ? g.coordinates : null;
+      if (!c || c.length < 2 || !isFinite(c[0]) || !isFinite(c[1]) || Math.abs(c[0]) > 180 || Math.abs(c[1]) > 90) {
+        return say('Debe ser un punto GeoJSON: {"type":"Point","coordinates":[longitud, latitud]}.');
+      }
+      return typeof value === 'string' ? value : JSON.stringify({ type: 'Point', coordinates: [+c[0], +c[1]] });
+    }
     case 'relation': {
       const allowed = ctx.relation(field);
       if (!allowed.includes(value)) return say('Debe ser uno de: ' + allowed.join(', ') + '.');
@@ -243,6 +253,7 @@ function describe(fields) {
     if (f.max != null) d.maximo = f.max;
     if (f.value_type) d.numero = f.value_type === 'int' ? 'entero' : 'decimal';
     if (f.widget === 'relation') d.opciones_de = 'GET /api/web/' + f.file + ' → ' + f.value_field;
+    if (f.widget === 'map') d.formato = '{"type":"Point","coordinates":[longitud, latitud]}';
     if (f.widget === 'image' || f.widget === 'file') d.ruta = 'Ruta devuelta por POST /api/medios, por ejemplo ' + MEDIA_PUBLIC + '/foto.jpg';
     if (f.fields) d.campos = describe(f.fields);
     if (f.field) d.elemento = describe([f.field])[0];

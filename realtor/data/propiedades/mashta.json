@@ -4,6 +4,7 @@
   "status": "sale",
   "type": "house",
   "area": "key-biscayne",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1695,25.7015]}",
   "price": 8450000,
   "beds": 5,
   "baths": 6,

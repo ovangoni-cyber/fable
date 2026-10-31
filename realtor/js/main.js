@@ -106,6 +106,9 @@ window.Listings.ready(function () {
   });
 
   /* ---------------------------------------------------------------- language */
+  /* ---------------------------------------------------------------- map */
+  if (window.SiteMap) window.SiteMap.home(document.getElementById('home-map'), C.all.filter(available));
+
   Site.onLang(function () { renderHero(); renderFeatured(); renderHoods(); });
   renderHero();
   renderFeatured();

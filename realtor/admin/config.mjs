@@ -140,6 +140,15 @@ const config = {
           "hint": "Los vecindarios se cambian en Web → Vecindarios."
         },
         {
+          "name": "ubicacion",
+          "label": "Ubicación en el mapa",
+          "widget": "map",
+          "type": "Point",
+          "decimals": 5,
+          "required": false,
+          "hint": "Pulse en el mapa donde está la casa. Si lo deja vacío, sale cerca del centro del vecindario como \"ubicación aproximada\". Las propiedades privadas nunca salen en el mapa."
+        },
+        {
           "name": "price",
           "label": "Precio en dólares",
           "widget": "number",
@@ -662,6 +671,15 @@ const config = {
                   "required": false,
                   "choose_url": false,
                   "hint": "Vertical, de unos 1000 × 1250 píxeles."
+                },
+                {
+                  "name": "mapa",
+                  "label": "Centro en el mapa",
+                  "widget": "map",
+                  "type": "Point",
+                  "decimals": 5,
+                  "required": false,
+                  "hint": "Pulse en el centro del vecindario. Se usa para las propiedades sin ubicación propia."
                 },
                 {
                   "name": "portada",

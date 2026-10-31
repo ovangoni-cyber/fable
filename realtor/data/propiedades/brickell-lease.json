@@ -4,6 +4,7 @@
   "status": "rent",
   "type": "condo",
   "area": "brickell",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.1915,25.7652]}",
   "price": 32000,
   "beds": 3,
   "baths": 3.5,

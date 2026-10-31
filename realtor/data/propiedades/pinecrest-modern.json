@@ -4,6 +4,7 @@
   "status": "new",
   "type": "house",
   "area": "pinecrest",
+  "ubicacion": "{\"type\":\"Point\",\"coordinates\":[-80.305,25.665]}",
   "price": 7250000,
   "beds": 6,
   "baths": 7,

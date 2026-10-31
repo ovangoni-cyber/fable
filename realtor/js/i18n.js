@@ -211,6 +211,17 @@ window.I18N = {
 
     'footer.disclaimer': 'La información de las propiedades se considera fiable pero no está garantizada y debe verificarse de forma independiente. Las propiedades mostradas son ejemplos ilustrativos.',
 
+    // Map
+    'view.map': "Mapa",
+    'map.results': "Mapa de los resultados",
+    'map.eyebrow': "Explorar",
+    'map.title': "Todas las propiedades en el mapa",
+    'map.cta': "Abrir el mapa completo",
+    'map.label': "Mapa de propiedades",
+    'map.loading': "Cargando el mapa…",
+    'prop.map': "Ubicación",
+    'prop.mapApprox': "Ubicación aproximada. Le doy la dirección exacta cuando reserve una visita.",
+
     // web:es (written by scripts/build-site.js from data/web/*.json; do not edit by hand)
     'fig.1': "en ventas a lo largo de mi carrera",
     'fig.2': "casas vendidas",
@@ -277,6 +288,12 @@ window.I18N = {
       'op.sale': 'For sale', 'op.rent': 'For rent',
       'type.house': 'House', 'type.condo': 'Condo', 'type.penthouse': 'Penthouse',
       'types.house': 'Houses', 'types.condo': 'Condos', 'types.penthouse': 'Penthouses',
+      'map.error': "The map could not load. Check your connection and try again.",
+      'map.ask': "Ask",
+      'map.perMonth': "/mo",
+      'map.approx': "approximate location",
+      'map.missing': "{n} properties are not on the map because their location is private.",
+      'map.missingOne': "1 property is not on the map because its location is private.",
       // web:areas
       'area.miami-beach': "Miami Beach & the Islands",
       'hood.miami-beach': "Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.",
@@ -348,6 +365,12 @@ window.I18N = {
       'op.sale': 'En venta', 'op.rent': 'En alquiler',
       'type.house': 'Casa', 'type.condo': 'Condominio', 'type.penthouse': 'Penthouse',
       'types.house': 'Casas', 'types.condo': 'Condominios', 'types.penthouse': 'Penthouses',
+      'map.error': "No se pudo cargar el mapa. Revise su conexión e inténtelo de nuevo.",
+      'map.ask': "Consultar",
+      'map.perMonth': "/mes",
+      'map.approx': "ubicación aproximada",
+      'map.missing': "{n} propiedades no salen en el mapa porque su ubicación es privada.",
+      'map.missingOne': "1 propiedad no sale en el mapa porque su ubicación es privada.",
       // web:areas
       'area.miami-beach': "Miami Beach y las islas",
       'hood.miami-beach': "Star, Sunset y las Venetian Islands: accesos con control, muelles de aguas profundas y algunas de las fincas más privadas de la ciudad.",
