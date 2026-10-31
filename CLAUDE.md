@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Contexto del proyecto
 
 Repositorio con cuatro webs estáticas bilingües (inglés y español), sin framework: HTML, CSS y JavaScript puros, publicadas en Netlify. La persona que encarga el trabajo habla español: responde en español, con explicaciones claras y paso a paso, porque no es programadora. Antes de hacer cambios grandes, haz las preguntas necesarias.
@@ -24,6 +28,10 @@ Repositorio con cuatro webs estáticas bilingües (inglés y español), sin fram
 
 Las dos tienen la misma arquitectura. Cada carpeta se publica como un sitio de Netlify distinto con **Base directory** igual al nombre de la carpeta.
 
+Son **copias independientes**, no comparten archivos: un arreglo en una (panel, API, scripts, `core.js`, `catalog.js`…) casi siempre hay que repetirlo en la otra. Solo `agencia/` tiene mapa, calculadora, guías, marca editable y `data/listings.js`. `constructora/` e `inversionistas/` usan el mismo esquema de idiomas (`js/core.js` + `js/i18n.js`) pero sin datos, panel ni build. `index.html` de la raíz solo enlaza los cuatro sitios. `?lang=es` o `?lang=en` en la URL fuerza el idioma.
+
+`agencia/` tiene que funcionar también abierta con doble clic (`file://`): nada de `fetch` a archivos locales (por eso existe `data/listings.js`) y los mapas usan otro proveedor en ese caso (ver *Mapa*).
+
 - **Idiomas**: el inglés está escrito en el HTML; el español está en `js/i18n.js` (`I18N.es`, claves `data-i18n`) y las cadenas de los scripts en `I18N.strings.{en,es}` (`Site.t`). `js/core.js` aplica el idioma.
 - **Propiedades**: un JSON por propiedad en `data/propiedades/`. `scripts/build-listings.js` las junta en `data/listings.json` (en `agencia/` también escribe `data/listings.js`, para cuando la web se abre desde una carpeta con `file://`). `js/listings.js` las carga.
 - **Textos y datos de la web**: `data/web/*.json` (contacto, portada, vecindarios, servicios, valoración, sobre-mi, testimonios, página de propiedades y, en `agencia/`, guías y calculadora). `scripts/build-site.js` los escribe en las páginas: solo toca lo que está entre `<!-- web:nombre -->` y `<!-- /web:nombre -->`, los elementos con `data-web="…"`, las claves `data-i18n` que gestiona y los bloques `// web:es` y `// web:areas` de `js/i18n.js`. **No edites a mano esas partes de las páginas**: cambia el JSON y ejecuta el script. Ejecutarlo dos veces no debe cambiar nada; compruébalo tras cada cambio en el script.
@@ -36,7 +44,7 @@ Las dos tienen la misma arquitectura. Cada carpeta se publica como un sitio de N
 
 ## Comprobar los cambios
 
-Dentro de `realtor/` o `agencia/`:
+No hay `package.json`, dependencias, linter ni paso de compilación: solo Node 18 o superior para los scripts y las pruebas. Dentro de `realtor/` o `agencia/`:
 
 ```bash
 node scripts/build-site.js && node scripts/build-listings.js   # aplicar datos; repetir: no debe cambiar nada
@@ -45,6 +53,10 @@ npx http-server -p 8080 -c-1 .                                  # ver la web en 
 ```
 
 Para probar el panel en local: `npx decap-server` en la raíz del repositorio y abrir `/admin/` del sitio servido. En el contenedor en la nube, cdnjs, unpkg y los mapas de OpenStreetMap pueden estar bloqueados para el navegador de pruebas: sirve Leaflet desde el paquete de npm (`npm pack leaflet@1.9.4`) y Decap desde `npm pack decap-cms@3.16.3` (`dist/decap-cms.js`) interceptando las peticiones con Playwright, y usa una imagen de relleno para los mapas.
+
+`tests/api.test.mjs` es un único script secuencial (no hay runner ni forma de lanzar una sola prueba): copia el sitio a una carpeta temporal, levanta un GitHub falso y llama a `api.mjs` directamente; imprime `PASS`/`FAIL` por comprobación y sale con código 1 si alguna falla. Para depurar una, busca su nombre en la salida.
+
+En Windows el repositorio está con `core.autocrlf=true` y los scripts de build escriben LF: tras ejecutarlos, `git status` muestra como cambiados archivos cuyo contenido es idéntico. Compruébalo con `git diff --ignore-cr-at-eol --stat` y descarta esos cambios con `git checkout --`.
 
 Revisa siempre la web en español y en inglés, en escritorio y a 390 px de ancho, sin errores de JavaScript ni desbordamiento horizontal.
 

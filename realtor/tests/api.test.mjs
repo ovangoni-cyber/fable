@@ -2,7 +2,7 @@
 // temporary copy of the site. Run from the realtor folder: node tests/api.test.mjs
 import http from 'node:http';
 import os from 'node:os';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -52,7 +52,7 @@ await new Promise((r) => server.listen(0, r));
 process.env.GITHUB_API_URL = 'http://127.0.0.1:' + server.address().port;
 process.env.GITHUB_TOKEN = 'test-gh';
 process.env.API_KEY = 'clave-de-prueba-1234567890,otra-clave';
-const { default: api } = await import(path.join(SITE, 'netlify/functions/api/api.mjs'));
+const { default: api } = await import(pathToFileURL(path.join(SITE, 'netlify/functions/api/api.mjs')).href);
 
 const KEY = 'clave-de-prueba-1234567890';
 async function call(method, p, body, { key = KEY, raw, type } = {}) {
