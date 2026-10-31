@@ -19,9 +19,21 @@ window.SiteMap = (function () {
   }
   var FLORIDA = [25.9, -80.25];
 
+  // The coastline drawn under the street map (js/map-land.js): it is what shows when the street map
+  // cannot load, for example in a preview that blocks outside images. Missing, the map works without it.
+  function loadLand() {
+    if (window.MAP_LAND) return Promise.resolve();
+    return new Promise(function (done) {
+      var s = document.createElement('script');
+      s.src = 'js/map-land.js';
+      s.onload = s.onerror = function () { done(); };
+      document.head.appendChild(s);
+    });
+  }
+
   var loading = null;
   function load() {
-    if (window.L) return Promise.resolve(window.L);
+    if (window.L) return loadLand().then(function () { return window.L; });
     if (!loading) {
       loading = new Promise(function (resolve, reject) {
         var css = document.createElement('link');
@@ -30,7 +42,7 @@ window.SiteMap = (function () {
         document.head.appendChild(css);
         var js = document.createElement('script');
         js.src = LEAFLET + 'leaflet.js';
-        js.onload = function () { if (window.L) resolve(window.L); else reject(new Error('Leaflet')); };
+        js.onload = function () { if (window.L) loadLand().then(function () { resolve(window.L); }); else reject(new Error('Leaflet')); };
         js.onerror = function () { loading = null; reject(new Error('Leaflet')); };
         document.head.appendChild(js);
       });
@@ -78,7 +90,20 @@ window.SiteMap = (function () {
   function create(L, el, opts) {
     el.innerHTML = '';
     var map = L.map(el, Object.assign({ scrollWheelZoom: false, zoomControl: true, attributionControl: true }, opts || {}));
-    L.tileLayer(TILES, { attribution: ATTRIBUTION, maxZoom: 19 }).addTo(map);
+    if (window.MAP_LAND) {
+      el.classList.add('has-land');
+      map.createPane('land').style.zIndex = 150;
+      map.createPane('names').style.zIndex = 450;
+      // Added once the map has a view (Leaflet cannot draw shapes before).
+      map.whenReady(function () {
+        L.geoJSON(window.MAP_LAND, { pane: 'land', interactive: false, style: { color: '#c9b99a', weight: 1, fillColor: '#f3eee4', fillOpacity: 1 } }).addTo(map);
+      });
+      if (TILES.indexOf('openstreetmap') < 0) map.attributionControl.addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>');
+    }
+    var tiles = L.tileLayer(TILES, { attribution: ATTRIBUTION, maxZoom: 19 }).addTo(map);
+    // No street map (blocked or offline): only the coastline shows, with the neighborhood names.
+    var errors = 0;
+    tiles.on('tileerror', function () { if (++errors === 3) { el.classList.add('no-tiles'); declutter(el); } });
     // Zoom with the wheel only after the map has been clicked, so the page still scrolls.
     map.on('click focus', function () { map.scrollWheelZoom.enable(); });
     map.on('mouseout blur', function () { map.scrollWheelZoom.disable(); });
@@ -96,24 +121,54 @@ window.SiteMap = (function () {
     else map.fitBounds(L.latLngBounds(pts), { padding: [48, 48], maxZoom: 14 });
   }
 
+  // Neighborhood names, at the middle of their homes. Shown only when the street map is missing (CSS: .no-tiles).
+  function labels(L, map, layer, list) {
+    if (!map.getPane('names')) return;
+    var areas = {};
+    list.filter(function (l) { return l.geo && l.area; }).forEach(function (l) {
+      var a = areas[l.area] || (areas[l.area] = { lat: 0, lng: 0, n: 0 });
+      a.lat += l.geo.lat; a.lng += l.geo.lng; a.n++;
+    });
+    Object.keys(areas).sort(function (x, y) { return areas[y].n - areas[x].n; }).forEach(function (id) {
+      var a = areas[id];
+      L.marker([a.lat / a.n, a.lng / a.n], {
+        icon: L.divIcon({ className: 'mlabel', html: '<span>' + C.esc(t('area.' + id)) + '</span>', iconSize: null, iconAnchor: [0, 0] }),
+        interactive: false, keyboard: false, pane: 'names'
+      }).addTo(layer);
+    });
+  }
+  // Hide the names that would overlap one already shown (the busiest neighborhoods come first).
+  function declutter(el) {
+    var kept = [], box = el.getBoundingClientRect();
+    Array.prototype.forEach.call(el.querySelectorAll('.mlabel span'), function (s) {
+      s.style.visibility = '';
+      var r = s.getBoundingClientRect();
+      var hit = r.left < box.left + 4 || r.right > box.right - 4 || kept.some(function (k) { return r.left < k.right + 6 && r.right > k.left - 6 && r.top < k.bottom + 2 && r.bottom > k.top - 2; });
+      if (hit) s.style.visibility = 'hidden'; else kept.push(r);
+    });
+  }
+
   // A map with one marker per property; returns a function that draws a new list.
   function many(el, first) {
     var state = { map: null, layer: null, list: first || [], L: null };
     function draw(refit) {
       if (!state.map) return;
       state.layer.clearLayers();
+      labels(state.L, state.map, state.layer, state.list);
       state.list.filter(function (l) { return l.geo; }).forEach(function (l) {
         state.L.marker([l.geo.lat, l.geo.lng], { icon: pin(state.L, l), title: C.L(l.title), alt: C.L(l.title), riseOnHover: true })
           .bindPopup(popup(l), { maxWidth: 280, minWidth: 240, className: 'mpop-wrap' })
           .addTo(state.layer);
       });
       if (refit) fit(state.L, state.map, state.list);
+      declutter(el);
     }
     function start() {
       load().then(function (L) {
         state.L = L;
         state.map = create(L, el);
         state.layer = L.layerGroup().addTo(state.map);
+        state.map.on('zoomend', function () { declutter(el); });
         draw(true);
         Site.onLang(function () { draw(false); });
       }).catch(function () { failed(el); });
