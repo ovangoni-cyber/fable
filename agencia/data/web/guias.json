@@ -20,9 +20,9 @@
       "intro": "Con hipoteca, una compra suele tardar entre 30 y 45 días desde que aceptan tu oferta. Pagando en efectivo, puede cerrarse en dos o tres semanas.",
       "titulo_en": "Buying a home",
       "intro_en": "With a mortgage, a purchase usually takes 30 to 45 days from the accepted offer. Paying cash, it can close in two or three weeks.",
-      "boton": "Ver casas en venta",
-      "boton_en": "See homes for sale",
-      "enlace": "properties.html",
+      "boton": "Cuéntanos qué buscas",
+      "boton_en": "Tell us what you need",
+      "enlace": "index.html#contact",
       "pasos": [
         {
           "titulo": "Define tu presupuesto",
@@ -32,9 +32,9 @@
         },
         {
           "titulo": "Busca y visita",
-          "texto": "Usa los filtros y el mapa, guarda las que te gusten y visítalas con nosotros. Antes de visitar, firmamos contigo un acuerdo por escrito que explica nuestros servicios.",
+          "texto": "Cuéntanos qué buscas y te enviamos las casas que encajan, también las que aún no están anunciadas. Antes de visitarlas, firmamos contigo un acuerdo por escrito que explica nuestros servicios.",
           "titulo_en": "Search and visit",
-          "texto_en": "Use the filters and the map, save the ones you like and visit them with us. Before the showings we sign a short written agreement with you that explains our services."
+          "texto_en": "Tell us what you are looking for and we send you the homes that fit, including the ones not yet advertised. Before the showings we sign a short written agreement with you that explains our services."
         },
         {
           "titulo": "Haz una oferta",
@@ -68,9 +68,9 @@
       "intro": "Para un alquiler anual, cuenta con unas dos a cuatro semanas entre la solicitud y la entrada, más si el edificio pide aprobación de la comunidad (HOA).",
       "titulo_en": "Renting a home",
       "intro_en": "For a yearly lease, plan on two to four weeks from application to move-in, longer if the building needs association (HOA) approval.",
-      "boton": "Ver casas en alquiler",
-      "boton_en": "See homes for rent",
-      "enlace": "properties.html?op=rent",
+      "boton": "Cuéntanos qué buscas",
+      "boton_en": "Tell us what you need",
+      "enlace": "index.html#contact",
       "pasos": [
         {
           "titulo": "Decide qué necesitas",
@@ -162,9 +162,9 @@
     },
     {
       "pregunta": "¿Qué gastos tiene una casa además de la hipoteca?",
-      "respuesta": "Impuestos de la propiedad (aproximadamente entre un 1 % y un 2 % al año), seguro de hogar, seguro de inundación si la casa está en zona de riesgo, la cuota de la comunidad (HOA) si la hay y el mantenimiento. La calculadora de cada propiedad te da una estimación.",
+      "respuesta": "Impuestos de la propiedad (aproximadamente entre un 1 % y un 2 % al año), seguro de hogar, seguro de inundación si la casa está en zona de riesgo, la cuota de la comunidad (HOA) si la hay y el mantenimiento. Te preparamos una estimación para cada casa que te interese.",
       "pregunta_en": "What does a home cost on top of the mortgage?",
-      "respuesta_en": "Property taxes (roughly 1% to 2% a year), home insurance, flood insurance if the home is in a flood zone, association (HOA) fees if any, and upkeep. The calculator on each property gives you an estimate."
+      "respuesta_en": "Property taxes (roughly 1% to 2% a year), home insurance, flood insurance if the home is in a flood zone, association (HOA) fees if any, and upkeep. We prepare an estimate for each home you are interested in."
     },
     {
       "pregunta": "¿Qué es la exención Homestead?",

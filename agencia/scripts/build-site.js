@@ -226,7 +226,8 @@ if (testimonios) {
   ], pad));
 }
 
-/* properties page */
+/* properties page; "publicada": false publishes the site without it */
+const propsShown = !paginaProps || paginaProps.publicada !== false;
 if (paginaProps) {
   const en = paginaProps.en || {};
   set('props.title', paginaProps.titulo, en.titulo);
@@ -305,7 +306,8 @@ blocks.jsonld = (pad) => {
     email: email || undefined,
     knowsLanguage: ['en', 'es'],
     address: { '@type': 'PostalAddress', streetAddress: str(o.calle) || undefined, addressLocality: str(o.ciudad) || undefined, addressRegion: str(o.estado) || undefined, postalCode: str(o.cp) || undefined, addressCountry: 'US' },
-    areaServed: zones ? zones.map((z) => z.name.en) : undefined
+    // Without the properties (and their neighborhoods), the office's city.
+    areaServed: propsShown ? (zones ? zones.map((z) => z.name.en) : undefined) : [[str(o.ciudad), str(o.estado)].filter(Boolean).join(', ')].filter(Boolean)
   };
   const body = JSON.stringify(data, null, 2).replace(/</g, '\\u003c').split('\n');
   return ind(['<script type="application/ld+json">', ...body, '</script>'], pad);
@@ -413,8 +415,8 @@ if (phone) {
   const s = read('js/property.js');
   write('js/property.js', s.replace(/wa\.me\/\d+/g, 'wa.me/' + wa.wa));
 }
-/* robots.txt: the site is hidden from search engines while its properties and figures are samples.
-   To open it, also empty the noindex switch on the server (see CLAUDE.md). */
-write('robots.txt', 'User-agent: *\nDisallow: /\n');
+/* robots.txt: open to search engines, with the sitemap. While the properties are samples the site
+   goes out without them (Página de propiedades → "publicada": false), so nothing sample is published. */
+write('robots.txt', 'User-agent: *\nAllow: /\n' + (site ? 'Sitemap: ' + site + '/sitemap.xml\n' : ''));
 
 console.log('site texts: ' + Object.keys(keys).length + ' texts, ' + Object.keys(extra).length + ' generated strings' + (zones ? ', ' + zones.length + ' neighborhoods' : ''));

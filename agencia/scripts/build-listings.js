@@ -96,12 +96,14 @@ fs.writeFileSync(out, JSON.stringify({ listings }, null, 2) + '\n');
 fs.writeFileSync(path.join(root, 'data', 'listings.js'), '// Written by scripts/build-listings.js. Do not edit by hand.\nwindow.LISTINGS_DATA = ' + JSON.stringify({ listings }) + ';\n');
 // sitemap.xml for search engines, with the web address from data/web/contacto.json (dominio).
 {
-  let site = '';
+  let site = '', shown = true;
   try { site = String(JSON.parse(fs.readFileSync(path.join(root, 'data', 'web', 'contacto.json'), 'utf8')).dominio || '').trim().replace(/\/+$/, ''); } catch (e) { /* no address: no sitemap */ }
+  // Página de propiedades → "publicada": false leaves the properties out of the published site.
+  try { shown = JSON.parse(fs.readFileSync(path.join(root, 'data', 'web', 'pagina-propiedades.json'), 'utf8')).publicada !== false; } catch (e) { /* shown */ }
   if (site) {
     const xml = (v) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    const urls = ['', 'properties.html', 'guias.html', 'privacy.html']
-      .concat(listings.filter((l) => l.status !== 'private').map((l) => 'property.html?id=' + encodeURIComponent(l.id)));
+    const urls = shown ? ['', 'properties.html', 'guias.html', 'privacy.html']
+      .concat(listings.filter((l) => l.status !== 'private').map((l) => 'property.html?id=' + encodeURIComponent(l.id))) : ['', 'guias.html', 'privacy.html'];
     fs.writeFileSync(path.join(root, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
       urls.map((u) => '  <url><loc>' + xml(site + '/' + u) + '</loc></url>').join('\n') + '\n</urlset>\n');
   }

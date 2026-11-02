@@ -200,6 +200,21 @@ button { font: inherit; color: inherit; }
   .hero--search { padding-top: 40px; }
 }
 
+/* the short contact form in the hero: the search box's look, with inputs */
+.heroform__title { margin: 0; padding: 6px 12px 12px; font-weight: 600; font-size: 1.02rem; }
+.search--hero .field { gap: 2px; }
+.search--hero .field input, .search--hero .field select {
+  font: inherit; font-size: 1.02rem; color: var(--ink); border: 0; border-radius: 0; background-color: transparent; padding: 2px 0; width: 100%; min-width: 0;
+}
+.search--hero .field select { padding-right: 24px; background-position: calc(100% - 10px) 52%, calc(100% - 5px) 52%; cursor: pointer; text-overflow: ellipsis; }
+.search--hero .field:focus-within { box-shadow: inset 0 -2px 0 var(--sea); }
+.search--hero .field.is-invalid { box-shadow: inset 0 -2px 0 var(--error); }
+.search--hero .field__error { font-size: 0.75rem; }
+.heroform__status { margin: 0; padding: 8px 12px 0; min-height: 0; }
+.heroform__status:empty { display: none; }
+.heroform__legal { margin: 0; padding: 8px 12px 4px; font-size: 0.78rem; color: var(--ink-soft); }
+.heroform__legal a { color: inherit; }
+
 /* quick searches */
 .quick { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .quick a {

@@ -163,7 +163,7 @@ r = await call('PATCH', '/api/web/portada', { cifras: { lista: [{ numero: '1', t
 ok('max 4 figures enforced', r.status === 400);
 execSync('node scripts/build-site.js && node scripts/build-listings.js', { cwd: path.join(REPO, 'agencia') });
 const idx = fs.readFileSync(file('index.html'), 'utf8');
-ok('site rebuilt with API changes', idx.includes('1000 Cape Coral Pkwy E · Cape Coral, FL 33914') && idx.includes('data-area="cape-coral"') && !idx.includes('words-title') && idx.includes('Gulf Realty Group'));
+ok('site rebuilt with API changes', idx.includes('1000 Cape Coral Pkwy E · Cape Coral, FL 33914') && fs.readFileSync(file('properties.html'), 'utf8').includes('data-area-link="cape-coral"') && !idx.includes('words-title') && idx.includes('Gulf Realty Group'));
 
 // map points
 r = await call('PATCH', '/api/propiedades/harbor-drive', { ubicacion: 'cerca del mar' });

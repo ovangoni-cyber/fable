@@ -22,7 +22,7 @@ Repositorio con cuatro webs estáticas bilingües (inglés y español), sin fram
 - Su agencia (broker) es **BEST DEALS REALTY** (`data/web/contacto.json → agencia`). En Florida la publicidad debe llevarlo.
 - Su foto (`img/ingrid.jpg`) está recortada de su tarjeta de visita: tiene poca resolución.
 - Estética de su tarjeta: marfil, negro y dorado (fuentes Cinzel, Cormorant Garamond y Jost). Solo tema claro.
-- Las 18 propiedades, las cifras y los testimonios son de ejemplo (zonas de Miami). Ella trabaja en Cape Coral: probablemente haya que cambiar vecindarios y propiedades.
+- Las 18 propiedades, las cifras y los testimonios son de ejemplo (zonas de Miami) y no salen en la web publicada. Ella trabaja en Cape Coral: hay que cambiar vecindarios y propiedades.
 
 ## Cómo funcionan `realtor/` y `agencia/`
 
@@ -48,7 +48,8 @@ Son **copias independientes**, no comparten archivos: un arreglo en una (panel, 
 - **Nginx** sirve `/var/www/ingrid-realtor/current`, un enlace a la versión activa en `releases/`. La configuración está en `agencia/server/deploy/` y se instala con `provision.sh` (cómo ejecutarlo, en su cabecera; se puede repetir sin riesgo). Certificado de Let's Encrypt con `certbot --webroot` y renovación automática.
 - **Sin panel ni API en el VPS**: los cambios los pide el dueño en Claude Code. Flujo: editar los JSON → build → comprobar (español e inglés, escritorio y 390 px) → commit → push a `main` → `bash agencia/scripts/deploy.sh`. El script se niega a publicar si hay cambios sin commit o si `HEAD` no es `origin/main`, pasa las pruebas, sube solo lo público (nada de `admin/`, `netlify/`, `tests/`, `scripts/`, `*.md`), cambia de versión de forma atómica y guarda las 5 últimas. `--rollback` vuelve a la anterior. `bash tests/deploy.test.sh` lo prueba contra una carpeta temporal del VPS.
 - **Formularios**: `js/core.js` envía a `/api/form` (de `contacto.json → formularios`). Nginx lo pasa a `agencia/server/main.mjs` (servicio `ingrid-forms`, 127.0.0.1:3100, sin dependencias), que guarda cada mensaje en `/var/lib/ingrid-forms/submissions.jsonl` (12 meses, `logrotate`) y lo envía desde `info@ingrid-realtor.com` (correo de IONOS, `smtp.ionos.com`, puerto 465) al Gmail de Ingrid, con `Reply-To` del cliente. Lleva honeypot (`website`), límite de 5 envíos por IP cada 10 minutos y comprobación de `Origin`. Credenciales solo en `/etc/ingrid-forms.env` en el VPS (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`; el dueño lo escribe en el VPS), nunca en el repositorio ni en el chat. Pruebas: `node tests/forms.test.mjs`. Para probar en vivo con `curl`, usa `--form-string`: con `-F`, un valor que empieza por `(` se envía vacío.
-- **Oculta a los buscadores** mientras las propiedades y los testimonios sean de ejemplo: `robots.txt` con `Disallow: /` (lo escribe `build-site.js`) y la cabecera `X-Robots-Tag: noindex` de `/etc/nginx/ingrid/noindex.conf`. Para abrirla, vacía ese archivo en el VPS y recarga Nginx, y cambia `robots.txt` en `build-site.js` para que permita todo y anuncie `sitemap.xml`. `contacto.json → dominio` da la dirección para `og:image`, `og:url` y `sitemap.xml`.
+- **Sin propiedades por ahora** (2026-11-02): `data/web/pagina-propiedades.json → "publicada": false`. Con eso `deploy.sh` no sube `properties.html`, `property.html`, sus scripts ni sus datos, y `sitemap.xml` solo lleva portada, guías y privacidad. La portada lleva un formulario corto en lugar del buscador (`#hero-form`, asunto "Contacto rápido (portada)") y no tiene destacados, vecindarios, mapa, cifras ni testimonios (las cifras y testimonios están apagados con `mostrar: false`). Para volver a ponerlas: cambiar ese valor a `true`, recuperar de git la portada, el menú y `js/main.js` de antes del commit "Publish the agency site without properties", y comprobar.
+- **Abierta a los buscadores**: `robots.txt` (lo escribe `build-site.js`) permite todo y anuncia `sitemap.xml`; `/etc/nginx/ingrid/noindex.conf` en el VPS está vacío. `contacto.json → dominio` da la dirección para `og:image`, `og:url` y `sitemap.xml`.
 - `.gitattributes` mantiene LF en `*.sh` y `agencia/server/**`: con CRLF fallarían en Linux.
 
 ## Comprobar los cambios
@@ -82,7 +83,7 @@ Revisa siempre la web en español y en inglés, en escritorio y a 390 px de anch
 
 - `main` tiene las cuatro webs, con `realtor/` y `agencia/` completas (PR #1 y #2 fusionados).
 - `agencia/` se publica en el VPS (ver arriba). Diseño y plan en `docs/superpowers/`. `realtor/` sigue sin publicar (preparada para Netlify; pasos en el README).
-- Las propiedades, cifras y testimonios de `agencia/` siguen siendo de ejemplo (Miami): hay que cambiarlos por los de Cape Coral antes de abrir la web a los buscadores.
+- Las propiedades, cifras y testimonios de `agencia/` siguen siendo de ejemplo (Miami) y por eso no se publican. Cuando la clienta dé las reales (y vecindarios de Cape Coral), se vuelven a activar.
 - Las guías de `agencia/` son orientativas: deben revisarlas alguien con licencia.
 
 ## Reglas para los commits

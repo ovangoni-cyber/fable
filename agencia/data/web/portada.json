@@ -1,14 +1,14 @@
 {
-  "eyebrow": "Bienes raíces en Florida",
+  "eyebrow": "Bienes raíces en Cape Coral y el suroeste de Florida",
   "frase": "Encuentra tu casa en Florida",
-  "subtitulo": "Casas, condominios y propiedades frente al agua para comprar o alquilar. Te acompañamos en cada paso, en español y en inglés.",
+  "subtitulo": "Comprar, vender o alquilar: déjanos tus datos y te contactamos hoy mismo, en español o en inglés.",
   "en": {
-    "eyebrow": "Florida real estate",
+    "eyebrow": "Cape Coral & Southwest Florida real estate",
     "frase": "Find your home in Florida",
-    "subtitulo": "Homes, condos and waterfront properties to buy or rent. We help you at every step, in English and Spanish."
+    "subtitulo": "Buying, selling or renting? Leave your details and we will get back to you today, in English or Spanish."
   },
   "cifras": {
-    "mostrar": true,
+    "mostrar": false,
     "lista": [
       {
         "numero": "$1.2B",
@@ -33,17 +33,17 @@
     ]
   },
   "google": {
-    "titulo": "{marca} · Casas en venta y alquiler en Florida",
-    "descripcion": "Busca casas, condominios y propiedades frente al agua en venta y en alquiler en Florida. Mapa, calculadora de hipoteca y guías para comprar, alquilar o vender.",
-    "titulo_en": "{marca} · Homes for sale and rent in Florida",
-    "descripcion_en": "Search homes, condos and waterfront properties for sale and for rent in Florida. Map, mortgage calculator and guides to buying, renting and selling."
+    "titulo": "{marca} · Bienes raíces en Cape Coral, Florida",
+    "descripcion": "Compra, vende o alquila casa en Cape Coral y el suroeste de Florida con una agente con licencia, en español y en inglés. Valoración gratis y guías paso a paso.",
+    "titulo_en": "{marca} · Real estate in Cape Coral, Florida",
+    "descripcion_en": "Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides."
   },
   "caminos": {
     "eyebrow": "¿Cómo te ayudamos?",
     "titulo": "Dinos qué necesitas",
     "comprar": {
       "titulo": "Comprar casa",
-      "texto": "Mira todas las casas en venta, calcula la cuota mensual y visita las que te gusten con uno de nuestros agentes."
+      "texto": "Cuéntanos qué buscas: te enviamos las casas que encajan, también las que aún no están anunciadas, y las visitamos contigo."
     },
     "alquilar": {
       "titulo": "Alquilar casa",
@@ -58,7 +58,7 @@
       "titulo": "Tell us what you need",
       "comprar": {
         "titulo": "Buy a home",
-        "texto": "See every home for sale, check the monthly payment and visit the ones you like with one of our agents."
+        "texto": "Tell us what you are looking for: we send you the homes that fit, including the ones not yet advertised, and visit them with you."
       },
       "alquilar": {
         "titulo": "Rent a home",

@@ -56,6 +56,12 @@ r = await post({ ...contact, form: 'enquire', reference: 'IC-2584', page: '/prop
 check('enquiry → 200', r.status === 200, r);
 check('enquiry subject names the property', /^Interés en propiedad/.test(mails[1] && mails[1].subject) && mails[1].subject.includes('granada'), mails[1] && mails[1].subject);
 
+// The short form at the top of the home page.
+r = await post({ name: 'Luis', email: 'luis@example.com', phone: '239 555 0101', interest: 'sell', form: 'hero', page: '/', lang: 'es', website: '' }, { ip: '10.0.0.12' });
+check('hero form → 200', r.status === 200, r);
+check('hero form subject', /^Contacto rápido \(portada\) — Luis$/.test(mails[2] && mails[2].subject), mails[2] && mails[2].subject);
+check('hero form body says what they want, in Spanish', /Interés: Vender/.test(mails[2] && mails[2].text), mails[2] && mails[2].text);
+
 // Honeypot: answered as if sent, not mailed, logged as spam.
 const before = mails.length;
 r = await post({ ...contact, website: 'http://spam.example' }, { ip: '10.0.0.3' });

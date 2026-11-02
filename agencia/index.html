@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Ingrid Realtor · Homes for sale and rent in Florida</title>
-  <meta name="description" content="Search homes, condos and waterfront properties for sale and for rent in Florida. Map, mortgage calculator and guides to buying, renting and selling.">
+  <title>Ingrid Realtor · Real estate in Cape Coral, Florida</title>
+  <meta name="description" content="Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides.">
   <meta name="theme-color" content="#f6f1e8">
   <meta name="x-brand" content="Ingrid Realtor">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ingrid-realtor.com/">
-  <meta property="og:title" content="Ingrid Realtor · Homes for sale and rent in Florida">
-  <meta property="og:description" content="Search homes, condos and waterfront properties for sale and for rent in Florida. Map, mortgage calculator and guides to buying, renting and selling.">
+  <meta property="og:title" content="Ingrid Realtor · Real estate in Cape Coral, Florida">
+  <meta property="og:description" content="Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides.">
   <meta property="og:image" content="https://ingrid-realtor.com/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -43,13 +43,7 @@
       "addressCountry": "US"
     },
     "areaServed": [
-      "Miami Beach & the Islands",
-      "Key Biscayne",
-      "Coral Gables",
-      "Coconut Grove",
-      "Pinecrest",
-      "Golden Beach & Sunny Isles",
-      "Brickell"
+      "Cape Coral, FL"
     ]
   }
   </script>
@@ -65,10 +59,8 @@
         <span class="logo__sub" data-i18n="logo.sub">Florida Real Estate</span></span>
       </a>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="properties.html" data-i18n="nav.buy">Buy</a>
-        <a href="properties.html?op=rent" data-i18n="nav.rent">Rent</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#valuation" data-i18n="nav.sell">Sell</a>
-        <a href="properties.html?view=map" data-i18n="nav.map">Map</a>
         <a href="guias.html" data-i18n="nav.guides">Guides</a>
         <a href="#about" data-i18n="nav.about">About us</a>
         <a class="nav__cta" href="#contact" data-i18n="nav.cta">Contact us</a>
@@ -87,108 +79,54 @@
   </header>
 
   <main id="main">
-    <!-- ============================== HERO: search first -->
+    <!-- ============================== HERO: a short contact form (the property search comes back with the properties) -->
     <section class="hero hero--search" aria-labelledby="hero-title">
       <div class="hero__bg"><img src="img/hero.jpg" width="1600" height="1000" alt="" fetchpriority="high" decoding="async"></div>
       <div class="wrap hero__inner">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Florida real estate</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Cape Coral &amp; Southwest Florida real estate</p>
         <h1 id="hero-title" class="hero__title" data-i18n="hero.lede">Find your home in Florida</h1>
-        <p class="hero__sub" data-i18n="hero.sub">Homes, condos and waterfront properties to buy or rent. We help you at every step, in English and Spanish.</p>
-        <form class="search search--hero" id="hero-search" action="properties.html" method="get" aria-label="Search properties" data-i18n-attr="aria-label:search.label">
-          <div class="search__tabs" role="radiogroup" aria-label="Looking to" data-i18n-attr="aria-label:search.op">
-            <label><input type="radio" name="op" value="sale" checked><span data-i18n="search.opSale">Buy</span></label>
-            <label><input type="radio" name="op" value="rent"><span data-i18n="search.opRent">Rent</span></label>
-          </div>
+        <p class="hero__sub" data-i18n="hero.sub">Buying, selling or renting? Leave your details and we will get back to you today, in English or Spanish.</p>
+        <form class="search search--hero heroform" id="hero-form" novalidate data-endpoint="/api/form" aria-labelledby="hf-title">
+          <p class="heroform__title" id="hf-title" data-i18n="hf.title">Tell us what you need and we will call you</p>
           <div class="search__row">
-            <div class="search__field">
-              <label for="s-area" data-i18n="search.area">Neighborhood</label>
-              <select id="s-area" name="area">
-                <option value="" data-i18n="search.anyArea">All neighborhoods</option>
-                <!-- web:area-options -->
-                <option value="miami-beach" data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</option>
-                <option value="key-biscayne" data-i18n="zone.key-biscayne">Key Biscayne</option>
-                <option value="coral-gables" data-i18n="zone.coral-gables">Coral Gables</option>
-                <option value="coconut-grove" data-i18n="zone.coconut-grove">Coconut Grove</option>
-                <option value="pinecrest" data-i18n="zone.pinecrest">Pinecrest</option>
-                <option value="north-beaches" data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</option>
-                <option value="brickell" data-i18n="zone.brickell">Brickell</option>
-                <!-- /web:area-options -->
+            <div class="search__field field">
+              <label for="hf-name" data-i18n="form.name">Name</label>
+              <input id="hf-name" name="name" type="text" autocomplete="name" required>
+              <p class="field__error" data-i18n="form.errName">Please enter your name.</p>
+            </div>
+            <div class="search__field field">
+              <label for="hf-email" data-i18n="form.email">Email</label>
+              <input id="hf-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
+            </div>
+            <div class="search__field field">
+              <label for="hf-phone" data-i18n="form.phone">Phone or WhatsApp</label>
+              <input id="hf-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="search__field field">
+              <label for="hf-interest" data-i18n="form.interest">I’m interested in</label>
+              <select id="hf-interest" name="interest">
+                <option value="buy" data-i18n="form.i1">Buying</option>
+                <option value="sell" data-i18n="form.i2">Selling</option>
+                <option value="rent" data-i18n="form.i4">Renting</option>
+                <option value="both" data-i18n="form.i3">Buying and selling</option>
               </select>
             </div>
-            <div class="search__field">
-              <label for="s-type" data-i18n="search.type">Property type</label>
-              <select id="s-type" name="type">
-                <option value="" data-i18n="search.anyType">All types</option>
-                <option value="house" data-i18n="f.house">Houses</option>
-                <option value="condo" data-i18n="f.condo">Condos</option>
-                <option value="penthouse" data-i18n="f.penthouse">Penthouses</option>
-              </select>
-            </div>
-            <div class="search__field">
-              <label for="s-max" data-i18n="search.max">Max. price</label>
-              <select id="s-max" name="max">
-                <option value="">Any price</option>
-              </select>
-            </div>
-            <div class="search__field">
-              <label for="s-beds" data-i18n="search.beds">Bedrooms</label>
-              <select id="s-beds" name="beds">
-                <option value="0" data-i18n="search.anyBeds">Any</option>
-                <option value="2">2+</option>
-                <option value="3">3+</option>
-                <option value="4">4+</option>
-                <option value="5">5+</option>
-              </select>
-            </div>
-            <button class="btn btn--sea search__btn" type="submit" data-i18n="search.submit">Search</button>
+            <button class="btn btn--sea search__btn" type="submit" data-i18n="hf.submit">Send</button>
           </div>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form__status heroform__status" role="status" aria-live="polite"></p>
+          <p class="heroform__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
         </form>
-        <ul class="quick" aria-label="Quick searches" data-i18n-attr="aria-label:quick.label">
-          <li><a href="properties.html?water=any" data-i18n="quick.water">Waterfront</a></li>
-          <li><a href="properties.html?new=1" data-i18n="quick.new">New listings</a></li>
-          <li><a href="properties.html?op=rent" data-i18n="quick.rent">Homes for rent</a></li>
-          <li><a href="properties.html?video=1" data-i18n="quick.video">With video tour</a></li>
-          <li><a href="properties.html?view=map" data-i18n="quick.map">See them on the map</a></li>
-        </ul>
       </div>
     </section>
 
     <!-- ============================== FIGURES (edited in the admin panel: Web → Portada) -->
     <!-- web:figures -->
-    <section class="figures" aria-label="Track record" data-i18n-attr="aria-label:fig.label">
-      <div class="wrap figures__row">
-        <p><strong>$1.2B</strong><span data-i18n="fig.1">in closed sales</span></p>
-        <p><strong>214</strong><span data-i18n="fig.2">families in their new home</span></p>
-        <p><strong>7</strong><span data-i18n="fig.3">days a week for showings</span></p>
-        <p><strong>2</strong><span data-i18n="fig.4">languages, English and Spanish</span></p>
-      </div>
-    </section>
     <!-- /web:figures -->
 
-    <!-- ============================== FEATURED PROPERTIES (from js/listings.js) -->
-    <section class="section" id="listings" aria-labelledby="listings-title">
-      <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow" data-i18n="listings.eyebrow">Portfolio</p>
-            <h2 id="listings-title" class="h2" data-i18n="listings.title">Featured properties</h2>
-          </div>
-          <a class="btn btn--line" href="properties.html" id="all-props" data-i18n="listings.all">See all properties</a>
-        </div>
-        <div class="pgrid pgrid--four" id="featured-grid"></div>
-        <ul class="quicklinks" aria-label="Browse properties" data-i18n-attr="aria-label:quick.label">
-          <li><a href="properties.html"><span data-i18n="quick.sale">For sale</span><small data-quick="sale"></small></a></li>
-          <li><a href="properties.html?op=rent"><span data-i18n="quick.rent">For rent</span><small data-quick="rent"></small></a></li>
-          <li><a href="properties.html?new=1"><span data-i18n="quick.new">New construction</span><small data-quick="new"></small></a></li>
-          <li><a href="properties.html?water=any"><span data-i18n="quick.water">On the water</span><small data-quick="water"></small></a></li>
-          <li><a href="properties.html?excl=1"><span data-i18n="quick.excl">Exclusive listings</span><small data-quick="excl"></small></a></li>
-        </ul>
-        <noscript><p class="listings-empty" data-i18n="listings.noscript">Turn on JavaScript to browse listings, or call us at <span data-web="phone">(786) 626-4910</span>.</p></noscript>
-      </div>
-    </section>
-
     <!-- ============================== WHAT DO YOU NEED (edited in the admin panel: Web → Portada) -->
-    <section class="section section--tight" id="paths" aria-labelledby="paths-title">
+    <section class="section" id="paths" aria-labelledby="paths-title">
       <div class="wrap">
         <div class="section__head">
           <div>
@@ -200,14 +138,14 @@
           <article class="path">
             <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 22 24 9l16 13v17H29V28h-10v11H8z"/></svg>
             <h3 data-i18n="paths.buyT">Buy a home</h3>
-            <p data-i18n="paths.buy">See every home for sale, check the monthly payment and visit the ones you like with one of our agents.</p>
-            <p class="path__links"><a class="btn btn--sea" href="properties.html" data-i18n="paths.buyCta">Homes for sale</a><a class="link-btn" href="guias.html#comprar" data-i18n="paths.buyGuide">Buying guide</a></p>
+            <p data-i18n="paths.buy">Tell us what you are looking for: we send you the homes that fit, including the ones not yet advertised, and visit them with you.</p>
+            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="buy" data-i18n="paths.buyCta">Tell us what you want</a><a class="link-btn" href="guias.html#comprar" data-i18n="paths.buyGuide">Buying guide</a></p>
           </article>
           <article class="path">
             <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="24" r="7"/><path d="M24 24h17v6M35 24v5"/></svg>
             <h3 data-i18n="paths.rentT">Rent a home</h3>
             <p data-i18n="paths.rent">Furnished and unfurnished homes for the year or the season, with clear terms from the start.</p>
-            <p class="path__links"><a class="btn btn--sea" href="properties.html?op=rent" data-i18n="paths.rentCta">Homes for rent</a><a class="link-btn" href="guias.html#alquilar" data-i18n="paths.rentGuide">Renting guide</a></p>
+            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="rent" data-i18n="paths.rentCta">Tell us what you need</a><a class="link-btn" href="guias.html#alquilar" data-i18n="paths.rentGuide">Renting guide</a></p>
           </article>
           <article class="path">
             <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V18l14-9 14 9v20"/><path d="M18 30h12M24 24v12"/></svg>
@@ -215,75 +153,6 @@
             <p data-i18n="paths.sell">A free valuation in 48 hours and a plan to sell at the right price, with photos, video and marketing included.</p>
             <p class="path__links"><a class="btn btn--sea" href="#valuation" data-i18n="paths.sellCta">Free valuation</a><a class="link-btn" href="guias.html#vender" data-i18n="paths.sellGuide">Selling guide</a></p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== NEIGHBORHOODS -->
-    <section class="section section--mist" id="neighborhoods" aria-labelledby="hoods-title">
-      <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow" data-i18n="hoods.eyebrow">Neighborhoods</p>
-            <h2 id="hoods-title" class="h2" data-i18n="hoods.title">Get to know the neighborhoods</h2>
-          </div>
-          <p class="section__intro" data-i18n="hoods.intro">Each area has its own feel, schools and prices. Here is what to know about each one.</p>
-        </div>
-        <div class="hoods">
-          <!-- web:hoods -->
-          <article class="hood" data-area="miami-beach">
-            <div class="hood__media media"><img class="media__img" src="img/n-islands.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.miami-beach">Miami Beach &amp; the Islands</h3>
-            <p data-i18n="zone.miami-beach.d">Star, Sunset and the Venetian Islands: gated causeways, deep-water docks and some of the city’s most private estates.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=miami-beach">See properties</a>
-          </article>
-          <article class="hood" data-area="key-biscayne">
-            <div class="hood__media media"><img class="media__img" src="img/n-key-biscayne.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.key-biscayne">Key Biscayne</h3>
-            <p data-i18n="zone.key-biscayne.d">An island village with its own schools, two state and county parks and a slower pace, ten minutes from Brickell.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=key-biscayne">See properties</a>
-          </article>
-          <article class="hood" data-area="coral-gables">
-            <div class="hood__media media"><img class="media__img" src="img/n-coral-gables.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.coral-gables">Coral Gables</h3>
-            <p data-i18n="zone.coral-gables.d">Mediterranean Revival streets, strict design review and gated waterfront enclaves along Old Cutler Road.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=coral-gables">See properties</a>
-          </article>
-          <article class="hood" data-area="coconut-grove">
-            <div class="hood__media media"><img class="media__img" src="img/n-coconut-grove.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.coconut-grove">Coconut Grove</h3>
-            <p data-i18n="zone.coconut-grove.d">Miami’s oldest neighborhood: a canopy of banyans, sailing clubs on the bay and a walkable village center.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=coconut-grove">See properties</a>
-          </article>
-          <article class="hood" data-area="north-beaches">
-            <div class="hood__media media"><img class="media__img" src="img/n-miami-beach.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.north-beaches">Golden Beach &amp; Sunny Isles</h3>
-            <p data-i18n="zone.north-beaches.d">Oceanfront homes with private beach access in Golden Beach, and full-service towers just south in Sunny Isles.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=north-beaches">See properties</a>
-          </article>
-          <article class="hood" data-area="brickell">
-            <div class="hood__media media"><img class="media__img" src="img/n-brickell.jpg" width="1000" height="1250" alt="" loading="lazy" decoding="async"></div>
-            <h3 data-i18n="zone.brickell">Brickell</h3>
-            <p data-i18n="zone.brickell.d">The financial district: branded residences, bay views and a short walk to the office, for buyers who want a pied-à-terre.</p>
-            <a class="link-btn hood__btn" href="properties.html?area=brickell">See properties</a>
-          </article>
-          <!-- /web:hoods -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== MAP -->
-    <section class="section" id="map" aria-labelledby="map-title">
-      <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow" data-i18n="map.eyebrow">Explore</p>
-            <h2 id="map-title" class="h2" data-i18n="map.title">Every home on the map</h2>
-          </div>
-          <a class="link-btn" href="properties.html?view=map" data-i18n="map.cta">Open the full map</a>
-        </div>
-        <div class="homemap" id="home-map" data-map="home" aria-label="Map of properties" data-i18n-attr="aria-label:map.label">
-          <p class="homemap__wait" data-i18n="map.loading">Loading the map…</p>
         </div>
       </div>
     </section>
@@ -433,26 +302,6 @@
 
     <!-- ============================== TESTIMONIALS (edited in the admin panel: Web → Testimonios) -->
     <!-- web:words -->
-    <section class="section section--mist" aria-labelledby="words-title">
-      <div class="wrap">
-        <p class="eyebrow" data-i18n="words.eyebrow">Clients</p>
-        <h2 id="words-title" class="h2 words__title" data-i18n="words.title">What our clients say</h2>
-        <div class="words">
-          <figure class="word">
-            <blockquote data-i18n="words.1">Ingrid found our house before it was listed and negotiated it below the price the owners had in mind. She also told us which house not to buy, and why.</blockquote>
-            <figcaption><span class="word__initials">R&amp;L</span><span data-i18n="words.1by">Buyers, Key Biscayne</span></figcaption>
-          </figure>
-          <figure class="word">
-            <blockquote data-i18n="words.2">We were living in Madrid during the whole sale. Every week we had a written update, and the closing was signed at the consulate without a single surprise.</blockquote>
-            <figcaption><span class="word__initials">C.A.</span><span data-i18n="words.2by">Sellers, Coral Gables</span></figcaption>
-          </figure>
-          <figure class="word">
-            <blockquote data-i18n="words.3">She priced our home with a spreadsheet of every bayfront sale in five years. It sold in 23 days, above asking.</blockquote>
-            <figcaption><span class="word__initials">M.P.</span><span data-i18n="words.3by">Sellers, Sunset Islands</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
     <!-- /web:words -->
 
     <!-- ============================== CONTACT -->
@@ -539,15 +388,13 @@
         <p class="footer__small" data-i18n="footer.broker">Brokered by BEST DEALS REALTY, Licensed Real Estate Broker</p>
       </div>
       <nav class="footer__nav" aria-label="Footer">
-        <a href="properties.html" data-i18n="nav.buy">Buy</a>
-        <a href="properties.html?op=rent" data-i18n="nav.rent">Rent</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#valuation" data-i18n="nav.sell">Sell</a>
         <a href="guias.html" data-i18n="nav.guides">Guides</a>
         <a href="#contact" data-i18n="nav.cta">Contact us</a>
       </nav>
       <div class="footer__small">
         <p data-i18n="footer.eho">Equal Housing Opportunity.</p>
-        <p data-i18n="footer.disclaimer">Listing information is deemed reliable but not guaranteed and should be independently verified. Sample listings are shown for illustration.</p>
         <p>© <span data-year>2026</span> Ingrid Realtor</p>
       </div>
     </div>
@@ -565,9 +412,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/listings.js"></script>
-  <script src="js/catalog.js"></script>
-  <script src="js/map.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -26,8 +26,21 @@ deploy() { bash scripts/deploy.sh "$@" >"$TMP/out" 2>&1; }
 deploy; check 'deploy from a clean checkout' $?
 rel=$(remote "readlink $ROOT/current")
 check 'current points to a release' "$([[ $rel == releases/2* ]] && echo 0 || echo 1)"
-remote "test -f $ROOT/current/index.html && test -f $ROOT/current/server/main.mjs && test -f $ROOT/current/data/listings.json && test -f $ROOT/current/robots.txt"
+remote "test -f $ROOT/current/index.html && test -f $ROOT/current/server/main.mjs && test -f $ROOT/current/robots.txt"
 check 'release has the site and the form service' $?
+
+# Página de propiedades → "publicada": the property pages and their data go out only when it is not false.
+switch() {
+  node -e "const fs = require('fs'), f = 'data/web/pagina-propiedades.json', o = JSON.parse(fs.readFileSync(f, 'utf8')); o.publicada = $1; fs.writeFileSync(f, JSON.stringify(o, null, 2) + '\n')"
+  node scripts/build-site.js >/dev/null && node scripts/build-listings.js >/dev/null
+  git add -A && git -c user.name=test -c user.email=test@example.com commit -qm "test: properties $1"
+}
+switch false; deploy; check 'deploy without properties' $?
+remote "cd $ROOT/current && test -f index.html && test -f guias.html && ! ls properties.html property.html data/listings.json data/listings.js data/propiedades js/catalog.js js/properties.js 2>/dev/null"
+check 'without properties: no property pages or data' $?
+switch true; deploy; check 'deploy with properties' $?
+remote "cd $ROOT/current && test -f properties.html && test -f property.html && test -f data/listings.json && test -d data/propiedades"
+check 'with properties: pages and data' $?
 remote "cd $ROOT/current && ! ls -d admin netlify tests scripts server/deploy netlify.toml 2>/dev/null && ! ls *.md 2>/dev/null"
 check 'release has no panel, API, tests, scripts or docs' $?
 check 'VERSION is the commit' "$([ "$(remote "cat $ROOT/current/VERSION")" = "$(git rev-parse HEAD)" ] && echo 0 || echo 1)"

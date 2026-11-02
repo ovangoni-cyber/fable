@@ -46,6 +46,10 @@ node tests/api.test.mjs >/dev/null || fail 'Fallan las pruebas de la API (node t
 echo '== Subiendo'
 # Only what visitors need, plus the form service. Never the panel, the API, tests, scripts or docs.
 files=$(git ls-files -- . | grep -Ev '^(admin|netlify|tests|scripts|server/deploy)/|\.md$|^netlify\.toml$')
+# Página de propiedades → "publicada": false: the site goes out without the property pages and their data.
+if [ "$(node -p "require('./data/web/pagina-propiedades.json').publicada !== false")" != true ]; then
+  files=$(printf '%s\n' "$files" | grep -Ev '^(properties\.html|property\.html|data/listings\.js(on)?|js/(listings|catalog|map|properties|property)\.js)$|^data/propiedades/')
+fi
 rel=$(date -u +%Y%m%d-%H%M%S)
 printf '%s\n' "$files" | tar czf - -T - | remote "set -e; cd $ROOT/releases; rm -rf .tmp-*; mkdir .tmp-$rel; tar xzf - -C .tmp-$rel; echo $(git rev-parse HEAD) > .tmp-$rel/VERSION; mv .tmp-$rel $rel"
 

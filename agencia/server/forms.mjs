@@ -12,7 +12,15 @@ const LABELS = {
   name: 'Nombre', email: 'Correo', phone: 'Teléfono', reference: 'Referencia', address: 'Dirección', type: 'Tipo',
   timeline: 'Plazo', interest: 'Interés', budget: 'Presupuesto', language: 'Idioma preferido', message: 'Mensaje'
 };
-const SUBJECTS = { contact: 'Contacto web', valuation: 'Valoración', enquire: 'Interés en propiedad' };
+const SUBJECTS = { contact: 'Contacto web', valuation: 'Valoración', enquire: 'Interés en propiedad', hero: 'Contacto rápido (portada)' };
+// The options of the forms' lists, in Spanish for the email (the form sends the option's value).
+const VALUES = {
+  interest: { buy: 'Comprar', sell: 'Vender', both: 'Comprar y vender', rent: 'Alquilar' },
+  type: { house: 'Casa', condo: 'Condominio o penthouse', land: 'Terreno o casa para derribar' },
+  timeline: { now: 'En los próximos 3 meses', year: 'Dentro de un año', curious: 'Solo por curiosidad' },
+  budget: { '0-1': 'Hasta $1M', '1-3': '$1M – $3M', '3-10': '$3M – $10M', '10+': 'Más de $10M', na: 'Prefiere no decirlo' },
+  language: { en: 'Inglés', es: 'Español' }
+};
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function createHandler({ sendMail, logFile, to, from, allowedOrigin, now = Date.now }) {
@@ -75,7 +83,7 @@ export function createHandler({ sendMail, logFile, to, from, allowedOrigin, now 
     try { id = decodeURIComponent(id); } catch (e) { /* keep it as sent */ }
     const what = form === 'enquire' ? [fields.reference, id].filter(Boolean).join(', ').replace(/[\r\n]+/g, ' ') : '';
     const subject = (SUBJECTS[form] || 'Mensaje web') + (what ? ' (' + what + ')' : '') + ' — ' + (fields.name || fields.email);
-    const text = Object.keys(LABELS).filter((k) => fields[k]).map((k) => LABELS[k] + ': ' + fields[k]).join('\n') +
+    const text = Object.keys(LABELS).filter((k) => fields[k]).map((k) => LABELS[k] + ': ' + ((VALUES[k] || {})[fields[k]] || fields[k])).join('\n') +
       '\n\n—\nPágina: ' + (allowedOrigin + (page || '/')) + '\nIdioma de la web: ' + (lang || '?') + '\nEnviado: ' + ts +
       '\nPara contestar, responda a este correo: va directo a ' + fields.email + '.';
     try {

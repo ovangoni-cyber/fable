@@ -1278,6 +1278,13 @@ const config = {
           "file": "agencia/data/web/pagina-propiedades.json",
           "fields": [
             {
+              "name": "publicada",
+              "label": "Mostrar las propiedades en la web (si se apaga, la web sale sin la página de propiedades ni enlaces a ella)",
+              "widget": "boolean",
+              "default": true,
+              "required": false
+            },
+            {
               "name": "titulo",
               "label": "Título",
               "widget": "string"
