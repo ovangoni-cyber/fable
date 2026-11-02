@@ -107,7 +107,7 @@ window.I18N = {
     'form.i3': 'Comprar y vender',
     'form.i4': 'Alquilar',
     'form.budget': 'Presupuesto',
-    'form.b3': "Más de $10M",
+    'form.b3': "Más de $1M",
     'form.b4': "Prefiero no decirlo",
     'form.lang': 'Idioma preferido',
     'form.msg': 'Mensaje',
@@ -205,9 +205,9 @@ window.I18N = {
     'footer.disclaimer': 'La información de las propiedades se considera fiable pero no está garantizada y debe verificarse de forma independiente.',
 
     // Agency site
-    'form.bC': "$3M – $10M",
-    'form.bB': "$1M – $3M",
-    'form.bA': "Hasta $1M",
+    'form.bC': "$600k – $1M",
+    'form.bB': "$300k – $600k",
+    'form.bA': "Hasta $300k",
     'guides.jump': "En esta página",
     'guides.faqT': "Preguntas frecuentes",
     'guides.faqEyebrow': "Dudas",

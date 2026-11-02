@@ -18,7 +18,7 @@ const VALUES = {
   interest: { buy: 'Comprar', sell: 'Vender', both: 'Comprar y vender', rent: 'Alquilar' },
   type: { house: 'Casa', condo: 'Condominio o penthouse', land: 'Terreno o casa para derribar' },
   timeline: { now: 'En los próximos 3 meses', year: 'Dentro de un año', curious: 'Solo por curiosidad' },
-  budget: { '0-1': 'Hasta $1M', '1-3': '$1M – $3M', '3-10': '$3M – $10M', '10+': 'Más de $10M', na: 'Prefiere no decirlo' },
+  budget: { '0-300': 'Hasta $300k', '300-600': '$300k – $600k', '600-1000': '$600k – $1M', '1000+': 'Más de $1M', na: 'Prefiere no decirlo' },
   language: { en: 'Inglés', es: 'Español' }
 };
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

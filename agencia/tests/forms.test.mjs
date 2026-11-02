@@ -61,6 +61,8 @@ r = await post({ name: 'Luis', email: 'luis@example.com', phone: '239 555 0101',
 check('hero form → 200', r.status === 200, r);
 check('hero form subject', /^Contacto rápido \(portada\) — Luis$/.test(mails[2] && mails[2].subject), mails[2] && mails[2].subject);
 check('hero form body says what they want, in Spanish', /Interés: Vender/.test(mails[2] && mails[2].text), mails[2] && mails[2].text);
+r = await post({ ...contact, budget: '300-600', form: 'contact', page: '/', lang: 'es' }, { ip: '10.0.0.13' });
+check('budget shown as a Cape Coral range', /Presupuesto: \$300k – \$600k/.test(mails[3] && mails[3].text), mails[3] && mails[3].text);
 
 // Honeypot: answered as if sent, not mailed, logged as spam.
 const before = mails.length;
