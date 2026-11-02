@@ -214,6 +214,20 @@ button { font: inherit; color: inherit; }
 .heroform__status:empty { display: none; }
 .heroform__legal { margin: 0; padding: 8px 12px 4px; font-size: 0.78rem; color: var(--ink-soft); }
 .heroform__legal a { color: inherit; }
+.heroform__checks { display: grid; gap: 2px; padding: 10px 12px 0; }
+.search--hero .heroform__checks .field.is-invalid { box-shadow: none; }
+
+/* consent and news checkboxes in the forms */
+.field--check { min-width: 0; }
+.field--check .check { align-items: flex-start; font-size: 0.85rem; line-height: 1.45; padding: 2px 0; text-transform: none; letter-spacing: normal; font-weight: 400; color: inherit; }
+.field--check .check span { min-width: 0; flex: 1; }
+.field--check .check input { width: 18px; height: 18px; padding: 0; margin-top: 2px; }
+.field--check.is-invalid .check { color: var(--error); }
+.form--dark .field--check.is-invalid .check { color: var(--error-on-ink); }
+.about__trust { margin: 26px 0 6px; font-family: var(--f-display); font-size: 1.6rem; font-weight: 500; }
+.contact__wa { margin-top: 22px; justify-self: start; }
+.footer__social { margin: 12px 0 0; font-size: 0.875rem; }
+.footer__social a { color: inherit; }
 
 /* quick searches */
 .quick { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }

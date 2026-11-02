@@ -1,11 +1,11 @@
 {
-  "eyebrow": "Bienes raíces en Cape Coral y el suroeste de Florida",
-  "frase": "Encuentra tu casa en Florida",
-  "subtitulo": "Comprar, vender o alquilar: déjanos tus datos y te contactamos hoy mismo, en español o en inglés.",
+  "eyebrow": "Tu futuro comienza aquí",
+  "frase": "Tu sueño de un hogar también es el comienzo de una nueva historia.",
+  "subtitulo": "Cada hogar guarda un sueño: empezar de nuevo, ver crecer a tu familia o dar el siguiente paso. Si buscas comprar, vender o construir tu propiedad en Florida, estoy aquí para escucharte y acompañarte a escribir ese nuevo capítulo.",
   "en": {
-    "eyebrow": "Cape Coral & Southwest Florida real estate",
-    "frase": "Find your home in Florida",
-    "subtitulo": "Buying, selling or renting? Leave your details and we will get back to you today, in English or Spanish."
+    "eyebrow": "Your future starts here",
+    "frase": "Your dream of a home is also the start of a new story.",
+    "subtitulo": "Every home holds a dream: starting over, watching your family grow or taking the next step. If you want to buy, sell or build your property in Florida, I am here to listen and to help you write that new chapter."
   },
   "cifras": {
     "mostrar": false,
@@ -34,39 +34,39 @@
   },
   "google": {
     "titulo": "{marca} · Bienes raíces en Cape Coral, Florida",
-    "descripcion": "Compra, vende o alquila casa en Cape Coral y el suroeste de Florida con una agente con licencia, en español y en inglés. Valoración gratis y guías paso a paso.",
+    "descripcion": "Compra, vende o construye tu casa en Cape Coral y el suroeste de Florida con Ingrid Wendy Cabeza, agente con licencia de Best Deals Realty. En español y en inglés.",
     "titulo_en": "{marca} · Real estate in Cape Coral, Florida",
-    "descripcion_en": "Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides."
+    "descripcion_en": "Buy, sell or build your home in Cape Coral and Southwest Florida with Ingrid Wendy Cabeza, licensed agent with Best Deals Realty. In English and Spanish."
   },
   "caminos": {
-    "eyebrow": "¿Cómo te ayudamos?",
-    "titulo": "Dinos qué necesitas",
+    "eyebrow": "¿Cómo puedo ayudarte?",
+    "titulo": "Estoy aquí para acompañarte en tu próximo paso inmobiliario",
     "comprar": {
-      "titulo": "Comprar casa",
-      "texto": "Cuéntanos qué buscas: te enviamos las casas que encajan, también las que aún no están anunciadas, y las visitamos contigo."
+      "titulo": "Comprar una propiedad",
+      "texto": "Cuéntame qué buscas: te ayudo a explorar tus opciones y te acompaño en cada visita para que decidas con confianza."
     },
-    "alquilar": {
-      "titulo": "Alquilar casa",
-      "texto": "Casas amuebladas o sin amueblar, por año o por temporada, con las condiciones claras desde el principio."
+    "construir": {
+      "titulo": "Construir la casa de tus sueños",
+      "texto": "Junto a mi esposo desarrollamos nuevas construcciones en el suroeste de Florida. Pongo esa experiencia práctica a tu servicio para que construyas con confianza."
     },
     "vender": {
-      "titulo": "Vender tu casa",
-      "texto": "Una valoración gratis en 48 horas y un plan para vender al precio justo, con fotos, vídeo y publicidad incluidos."
+      "titulo": "Vender tu propiedad",
+      "texto": "Una valoración gratis con las ventas recientes de tu zona y un plan claro para vender al precio justo."
     },
     "en": {
-      "eyebrow": "How can we help?",
-      "titulo": "Tell us what you need",
+      "eyebrow": "How can I help you?",
+      "titulo": "I am here to walk with you through your next real estate step",
       "comprar": {
-        "titulo": "Buy a home",
-        "texto": "Tell us what you are looking for: we send you the homes that fit, including the ones not yet advertised, and visit them with you."
+        "titulo": "Buy a property",
+        "texto": "Tell me what you are looking for: I help you explore your options and come with you to every viewing, so you can decide with confidence."
       },
-      "alquilar": {
-        "titulo": "Rent a home",
-        "texto": "Furnished and unfurnished homes for the year or the season, with clear terms from the start."
+      "construir": {
+        "titulo": "Build your dream home",
+        "texto": "With my husband I develop new homes in Southwest Florida. I put that hands-on experience to work for you, so you can build with confidence."
       },
       "vender": {
-        "titulo": "Sell your home",
-        "texto": "A free valuation in 48 hours and a plan to sell at the right price, with photos, video and marketing included."
+        "titulo": "Sell your property",
+        "texto": "A free valuation from recent sales in your area and a clear plan to sell at the right price."
       }
     }
   }

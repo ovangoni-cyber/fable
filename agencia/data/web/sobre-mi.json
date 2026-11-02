@@ -1,29 +1,39 @@
 {
   "foto": "",
-  "eyebrow": "Sobre nosotros",
-  "titulo": "Una inmobiliaria cercana, en tu idioma",
+  "eyebrow": "Sobre mí",
+  "titulo": "Soy Ingrid Wendy Cabeza, aunque muchos me conocen como Wendy",
   "parrafos": [
     {
-      "texto": "Somos una inmobiliaria de Florida especializada en casas de calidad y propiedades frente al agua. Te ayudamos a comprar, alquilar o vender con información clara y sin prisas.",
-      "texto_en": "We are a Florida real estate agency focused on quality homes and waterfront properties. We help you buy, rent or sell with clear information and no pressure."
+      "texto": "Llegué a Estados Unidos como inmigrante, llena de sueños por cumplir y con la ilusión de construir un nuevo comienzo.",
+      "texto_en": "I came to the United States as an immigrant, full of dreams and hoping to build a new beginning."
     },
     {
-      "texto": "Te atendemos en español y en inglés, los siete días de la semana. Revisamos cada casa antes de enseñártela y te explicamos cada paso, desde la primera visita hasta la entrega de llaves.",
-      "texto_en": "We work in English and Spanish, seven days a week. We check every home before we show it to you and explain every step, from the first visit to the day you get the keys."
+      "texto": "Junto a mi esposo formamos una hermosa familia de tres hijos y emprendimos en el desarrollo de nuevas construcciones en el suroeste de Florida. Como madre y emprendedora, sé que una casa significa mucho más que paredes y un techo: es donde vemos crecer a nuestros hijos, compartimos momentos y construimos recuerdos.",
+      "texto_en": "Together with my husband we raised a beautiful family of three children and started developing new homes in Southwest Florida. As a mother and entrepreneur, I know a house means much more than walls and a roof: it is where we watch our children grow, share moments and build memories."
+    },
+    {
+      "texto": "Ese camino me inspiró a obtener mi licencia de real estate para ayudar a otras personas a cumplir sus propios sueños. Hoy quiero acompañarte con la cercanía, la dedicación y la claridad que me gustaría recibir al tomar una decisión tan importante para mi familia.",
+      "texto_en": "That path inspired me to get my real estate license to help other people reach their own dreams. Today I want to be at your side with the closeness, dedication and clarity I would want when making such an important decision for my family."
     }
   ],
+  "confianza": {
+    "titulo": "¿Por qué confiar en mí?",
+    "texto": "Mi experiencia en el desarrollo de nuevas construcciones junto a mi esposo me permite aportar una perspectiva práctica y valiosa al proceso de encontrar tu hogar. Mi compromiso es escucharte, ayudarte a explorar tus opciones y acompañarte para que tomes decisiones informadas y con confianza.",
+    "titulo_en": "Why trust me?",
+    "texto_en": "My experience developing new homes with my husband gives me a practical, valuable perspective on finding your home. My commitment is to listen to you, help you explore your options and stay with you so you can make informed decisions with confidence."
+  },
   "idiomas": "Español e inglés",
-  "especialidad": "Casas para comprar y alquilar en Florida",
+  "especialidad": "Comprar, vender y construir en el suroeste de Florida",
   "fundadora": {
-    "nombre": "Ingrid Cabeza",
-    "cargo": "Fundadora y agente",
-    "cargo_en": "Founder and agent",
+    "nombre": "Ingrid Wendy Cabeza",
+    "cargo": "Agente de bienes raíces · Best Deals Realty",
+    "cargo_en": "Real estate agent · Best Deals Realty",
     "foto": "/img/ingrid.jpg"
   },
   "en": {
-    "eyebrow": "About us",
-    "titulo": "A local agency that speaks your language",
+    "eyebrow": "About me",
+    "titulo": "I’m Ingrid Wendy Cabeza, though many people know me as Wendy",
     "idiomas": "English and Spanish",
-    "especialidad": "Homes to buy and rent in Florida"
+    "especialidad": "Buying, selling and building in Southwest Florida"
   }
 }

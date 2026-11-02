@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ingrid Realtor · Real estate in Cape Coral, Florida</title>
-  <meta name="description" content="Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides.">
+  <meta name="description" content="Buy, sell or build your home in Cape Coral and Southwest Florida with Ingrid Wendy Cabeza, licensed agent with Best Deals Realty. In English and Spanish.">
   <meta name="theme-color" content="#f6f1e8">
   <meta name="x-brand" content="Ingrid Realtor">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ingrid-realtor.com/">
   <meta property="og:title" content="Ingrid Realtor · Real estate in Cape Coral, Florida">
-  <meta property="og:description" content="Buy, sell or rent a home in Cape Coral and Southwest Florida with a licensed agent, in English and Spanish. Free home valuation and step-by-step guides.">
+  <meta property="og:description" content="Buy, sell or build your home in Cape Coral and Southwest Florida with Ingrid Wendy Cabeza, licensed agent with Best Deals Realty. In English and Spanish.">
   <meta property="og:image" content="https://ingrid-realtor.com/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
     "name": "Ingrid Realtor",
     "description": "Real estate agency in Florida.",
     "telephone": "+1-786-626-4910",
-    "email": "ingrid.realtor91@gmail.com",
+    "email": "info@ingrid-realtor.com",
     "knowsLanguage": [
       "en",
       "es"
@@ -62,8 +62,8 @@
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#valuation" data-i18n="nav.sell">Sell</a>
         <a href="guias.html" data-i18n="nav.guides">Guides</a>
-        <a href="#about" data-i18n="nav.about">About us</a>
-        <a class="nav__cta" href="#contact" data-i18n="nav.cta">Contact us</a>
+        <a href="#about" data-i18n="nav.about">About me</a>
+        <a class="nav__cta" href="#contact" data-i18n="nav.cta">Contact me</a>
       </nav>
       <div class="header__tools">
         <a class="header__phone" href="tel:+17866264910" data-web="phone">(786) 626-4910</a>
@@ -83,40 +83,49 @@
     <section class="hero hero--search" aria-labelledby="hero-title">
       <div class="hero__bg"><img src="img/hero.jpg" width="1600" height="1000" alt="" fetchpriority="high" decoding="async"></div>
       <div class="wrap hero__inner">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Cape Coral &amp; Southwest Florida real estate</p>
-        <h1 id="hero-title" class="hero__title" data-i18n="hero.lede">Find your home in Florida</h1>
-        <p class="hero__sub" data-i18n="hero.sub">Buying, selling or renting? Leave your details and we will get back to you today, in English or Spanish.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Your future starts here</p>
+        <h1 id="hero-title" class="hero__title" data-i18n="hero.lede">Your dream of a home is also the start of a new story.</h1>
+        <p class="hero__sub" data-i18n="hero.sub">Every home holds a dream: starting over, watching your family grow or taking the next step. If you want to buy, sell or build your property in Florida, I am here to listen and to help you write that new chapter.</p>
         <form class="search search--hero heroform" id="hero-form" novalidate data-endpoint="/api/form" aria-labelledby="hf-title">
-          <p class="heroform__title" id="hf-title" data-i18n="hf.title">Tell us what you need and we will call you</p>
+          <p class="heroform__title" id="hf-title" data-i18n="hf.title">How can I help you?</p>
           <div class="search__row">
             <div class="search__field field">
               <label for="hf-name" data-i18n="form.name">Name</label>
-              <input id="hf-name" name="name" type="text" autocomplete="name" required>
+              <input id="hf-name" name="name" type="text" autocomplete="name" required data-i18n-attr="placeholder:form.namePh" placeholder="Your full name">
               <p class="field__error" data-i18n="form.errName">Please enter your name.</p>
             </div>
             <div class="search__field field">
               <label for="hf-email" data-i18n="form.email">Email</label>
-              <input id="hf-email" name="email" type="email" autocomplete="email" required>
+              <input id="hf-email" name="email" type="email" autocomplete="email" required data-i18n-attr="placeholder:form.emailPh" placeholder="Your email">
               <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
             </div>
             <div class="search__field field">
               <label for="hf-phone" data-i18n="form.phone">Phone or WhatsApp</label>
-              <input id="hf-phone" name="phone" type="tel" autocomplete="tel">
+              <input id="hf-phone" name="phone" type="tel" autocomplete="tel" data-i18n-attr="placeholder:form.phonePh" placeholder="Your phone number">
             </div>
             <div class="search__field field">
               <label for="hf-interest" data-i18n="form.interest">I’m interested in</label>
               <select id="hf-interest" name="interest">
-                <option value="buy" data-i18n="form.i1">Buying</option>
-                <option value="sell" data-i18n="form.i2">Selling</option>
-                <option value="rent" data-i18n="form.i4">Renting</option>
-                <option value="both" data-i18n="form.i3">Buying and selling</option>
+                <option value="buy" data-i18n="form.i1">Buying a property</option>
+                <option value="sell" data-i18n="form.i2">Selling my property</option>
+                <option value="build" data-i18n="form.i5">Building my dream home</option>
+                <option value="guidance" data-i18n="form.i6">Getting advice</option>
               </select>
             </div>
             <button class="btn btn--sea search__btn" type="submit" data-i18n="hf.submit">Send</button>
           </div>
+          <div class="heroform__checks">
+            <div class="field field--check">
+              <label class="check"><input type="checkbox" name="consent" value="yes" required><span data-i18n="form.consent">I authorize Ingrid Wendy Cabeza, of Best Deals Realty, to contact me by phone, WhatsApp or email to answer my inquiry.</span></label>
+              <p class="field__error" data-i18n="form.errConsent">Tick this box so I can reply to you.</p>
+            </div>
+            <div class="field field--check">
+              <label class="check"><input type="checkbox" name="news" value="yes"><span data-i18n="form.news">I want to receive available properties, tips and news by email from Ingrid Wendy Cabeza, of Best Deals Realty.</span></label>
+            </div>
+          </div>
           <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="form__status heroform__status" role="status" aria-live="polite"></p>
-          <p class="heroform__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
+          <p class="heroform__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>.</p>
         </form>
       </div>
     </section>
@@ -130,27 +139,27 @@
       <div class="wrap">
         <div class="section__head">
           <div>
-            <p class="eyebrow" data-i18n="paths.eyebrow">How can we help?</p>
-            <h2 id="paths-title" class="h2" data-i18n="paths.title">Tell us what you need</h2>
+            <p class="eyebrow" data-i18n="paths.eyebrow">How can I help you?</p>
+            <h2 id="paths-title" class="h2" data-i18n="paths.title">I am here to walk with you through your next real estate step</h2>
           </div>
         </div>
         <div class="paths">
           <article class="path">
             <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 22 24 9l16 13v17H29V28h-10v11H8z"/></svg>
-            <h3 data-i18n="paths.buyT">Buy a home</h3>
-            <p data-i18n="paths.buy">Tell us what you are looking for: we send you the homes that fit, including the ones not yet advertised, and visit them with you.</p>
-            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="buy" data-i18n="paths.buyCta">Tell us what you want</a><a class="link-btn" href="guias.html#comprar" data-i18n="paths.buyGuide">Buying guide</a></p>
+            <h3 data-i18n="paths.buyT">Buy a property</h3>
+            <p data-i18n="paths.buy">Tell me what you are looking for: I help you explore your options and come with you to every viewing, so you can decide with confidence.</p>
+            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="buy" data-i18n="paths.buyCta">Tell me what you want</a><a class="link-btn" href="guias.html#comprar" data-i18n="paths.buyGuide">Buying guide</a></p>
           </article>
           <article class="path">
-            <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="24" r="7"/><path d="M24 24h17v6M35 24v5"/></svg>
-            <h3 data-i18n="paths.rentT">Rent a home</h3>
-            <p data-i18n="paths.rent">Furnished and unfurnished homes for the year or the season, with clear terms from the start.</p>
-            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="rent" data-i18n="paths.rentCta">Tell us what you need</a><a class="link-btn" href="guias.html#alquilar" data-i18n="paths.rentGuide">Renting guide</a></p>
+            <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40h32M12 40V24h24v16M20 40v-9h8v9M10 24l14-12 14 12"/><path d="M34 8v8"/></svg>
+            <h3 data-i18n="paths.buildT">Build your dream home</h3>
+            <p data-i18n="paths.build">With my husband I develop new homes in Southwest Florida. I put that hands-on experience to work for you, so you can build with confidence.</p>
+            <p class="path__links"><a class="btn btn--sea" href="#contact" data-interest="build" data-i18n="paths.buildCta">Tell me about your plans</a></p>
           </article>
           <article class="path">
             <svg class="path__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V18l14-9 14 9v20"/><path d="M18 30h12M24 24v12"/></svg>
-            <h3 data-i18n="paths.sellT">Sell your home</h3>
-            <p data-i18n="paths.sell">A free valuation in 48 hours and a plan to sell at the right price, with photos, video and marketing included.</p>
+            <h3 data-i18n="paths.sellT">Sell your property</h3>
+            <p data-i18n="paths.sell">A free valuation from recent sales in your area and a clear plan to sell at the right price.</p>
             <p class="path__links"><a class="btn btn--sea" href="#valuation" data-i18n="paths.sellCta">Free valuation</a><a class="link-btn" href="guias.html#vender" data-i18n="paths.sellGuide">Selling guide</a></p>
           </article>
         </div>
@@ -161,7 +170,7 @@
     <section class="section" id="services" aria-labelledby="services-title">
       <div class="wrap services">
         <div class="services__intro">
-          <p class="eyebrow" data-i18n="services.eyebrow">How we work</p>
+          <p class="eyebrow" data-i18n="services.eyebrow">How I work</p>
           <h2 id="services-title" class="h2" data-i18n="services.title">With you from the first visit to the day you get the keys</h2>
           <div class="tabs" role="tablist" aria-label="Services" data-i18n-attr="aria-label:services.tabs">
             <button role="tab" id="tab-buy" aria-controls="panel-buy" aria-selected="true" type="button" data-i18n="services.tBuy">Buying</button>
@@ -172,10 +181,10 @@
         <div class="services__panels">
           <div class="panel" role="tabpanel" id="panel-buy" aria-labelledby="tab-buy">
             <!-- web:buy -->
-            <div class="point"><h3 data-i18n="buy.1">Homes before they hit the market</h3><p data-i18n="buy.1d">Many homes sell without being advertised. We show you the private and upcoming ones first.</p></div>
-            <div class="point"><h3 data-i18n="buy.2">A thorough check, especially on the water</h3><p data-i18n="buy.2d">Seawall, flood zone, elevation certificate, insurance and permits: we check them with you before you make an offer.</p></div>
-            <div class="point"><h3 data-i18n="buy.3">We negotiate with data</h3><p data-i18n="buy.3d">Offers based on real sales nearby, not on the asking price.</p></div>
-            <div class="point"><h3 data-i18n="buy.4">A closing without the hassle</h3><p data-i18n="buy.4d">We coordinate the title company, lender, inspectors and your attorney until you get the keys.</p></div>
+            <div class="point"><h3 data-i18n="buy.1">Homes before they hit the market</h3><p data-i18n="buy.1d">Many homes sell without being advertised. I show you the private and upcoming ones first.</p></div>
+            <div class="point"><h3 data-i18n="buy.2">A thorough check, especially on the water</h3><p data-i18n="buy.2d">Seawall, flood zone, elevation certificate, insurance and permits: I check them with you before you make an offer.</p></div>
+            <div class="point"><h3 data-i18n="buy.3">I negotiate with data</h3><p data-i18n="buy.3d">Offers based on real sales nearby, not on the asking price.</p></div>
+            <div class="point"><h3 data-i18n="buy.4">A closing without the hassle</h3><p data-i18n="buy.4d">I coordinate the title company, lender, inspectors and your attorney until you get the keys.</p></div>
             <!-- /web:buy -->
           </div>
           <div class="panel" role="tabpanel" id="panel-sell" aria-labelledby="tab-sell" hidden>
@@ -188,9 +197,9 @@
           </div>
           <div class="panel" role="tabpanel" id="panel-intl" aria-labelledby="tab-intl" hidden>
             <!-- web:intl -->
-            <div class="point"><h3 data-i18n="intl.1">Buying through a company</h3><p data-i18n="intl.1d">Many foreign buyers purchase through an LLC. We work with your attorney and accountant from the first offer.</p></div>
-            <div class="point"><h3 data-i18n="intl.2">A mortgage without U.S. credit history</h3><p data-i18n="intl.2d">We introduce you to lenders with mortgages for foreign nationals.</p></div>
-            <div class="point"><h3 data-i18n="intl.3">FIRPTA, no surprises</h3><p data-i18n="intl.3d">When a foreign owner sells, part of the price is withheld (FIRPTA). We plan for it with your tax advisor from the day you buy.</p></div>
+            <div class="point"><h3 data-i18n="intl.1">Buying through a company</h3><p data-i18n="intl.1d">Many foreign buyers purchase through an LLC. I work with your attorney and accountant from the first offer.</p></div>
+            <div class="point"><h3 data-i18n="intl.2">A mortgage without U.S. credit history</h3><p data-i18n="intl.2d">I introduce you to lenders with mortgages for foreign nationals.</p></div>
+            <div class="point"><h3 data-i18n="intl.3">FIRPTA, no surprises</h3><p data-i18n="intl.3d">When a foreign owner sells, part of the price is withheld (FIRPTA). I plan for it with your tax advisor from the day you buy.</p></div>
             <div class="point"><h3 data-i18n="intl.4">Remote closing and home care</h3><p data-i18n="intl.4d">Sign by power of attorney or at a consulate, with trusted property managers for your home.</p></div>
             <!-- /web:intl -->
           </div>
@@ -204,7 +213,7 @@
         <div class="valuation__text">
           <p class="eyebrow eyebrow--sand" data-i18n="val.eyebrow">For owners</p>
           <h2 id="val-title" class="h2" data-i18n="val.title">What is your home worth?</h2>
-          <p data-i18n="val.lede">We prepare a free valuation from recent sales in your area. No automated estimates, no obligation. You get it within 48 hours.</p>
+          <p data-i18n="val.lede">I prepare a free valuation from recent sales in your area. No automated estimates, no obligation. You get it within 48 hours.</p>
         </div>
         <form class="form form--dark" id="valuation-form" novalidate data-endpoint="/api/form">
           <div class="field">
@@ -242,8 +251,15 @@
               <p class="field__error" data-i18n="form.errEmail">Enter an email like name@example.com.</p>
             </div>
           </div>
+          <div class="field field--check">
+            <label class="check"><input type="checkbox" name="consent" value="yes" required><span data-i18n="form.consent">I authorize Ingrid Wendy Cabeza, of Best Deals Realty, to contact me by phone, WhatsApp or email to answer my inquiry.</span></label>
+            <p class="field__error" data-i18n="form.errConsent">Tick this box so I can reply to you.</p>
+          </div>
+          <div class="field field--check">
+            <label class="check"><input type="checkbox" name="news" value="yes"><span data-i18n="form.news">I want to receive available properties, tips and news by email from Ingrid Wendy Cabeza, of Best Deals Realty.</span></label>
+          </div>
           <button class="btn btn--sand" type="submit" data-i18n="val.submit">Get my free valuation</button>
-          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
+          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>.</p>
           <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
@@ -253,7 +269,7 @@
     <!-- ============================== ABOUT -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="wrap about">
-        <!-- The key from the business card, the agency's mark. A photo can go in the frame (Web → Sobre nosotros → Foto en la llave). -->
+        <!-- The key from the business card, the agency's mark. A photo can go in the frame (Web → Sobre mí → Foto en la llave). -->
         <div class="about__key">
           <svg viewBox="0 -10 300 770" width="300" height="770" focusable="false" aria-hidden="true">
             <defs>
@@ -278,21 +294,24 @@
           </svg>
         </div>
         <div class="about__text">
-          <p class="eyebrow" data-i18n="about.eyebrow">About us</p>
-          <h2 id="about-title" class="h2" data-i18n="about.title">A local agency that speaks your language</h2>
+          <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
+          <h2 id="about-title" class="h2" data-i18n="about.title">I’m Ingrid Wendy Cabeza, though many people know me as Wendy</h2>
           <!-- web:about-text -->
-          <p data-i18n="about.p1">We are a Florida real estate agency focused on quality homes and waterfront properties. We help you buy, rent or sell with clear information and no pressure.</p>
-          <p data-i18n="about.p2">We work in English and Spanish, seven days a week. We check every home before we show it to you and explain every step, from the first visit to the day you get the keys.</p>
+          <p data-i18n="about.p1">I came to the United States as an immigrant, full of dreams and hoping to build a new beginning.</p>
+          <p data-i18n="about.p2">Together with my husband we raised a beautiful family of three children and started developing new homes in Southwest Florida. As a mother and entrepreneur, I know a house means much more than walls and a roof: it is where we watch our children grow, share moments and build memories.</p>
+          <p data-i18n="about.p3">That path inspired me to get my real estate license to help other people reach their own dreams. Today I want to be at your side with the closeness, dedication and clarity I would want when making such an important decision for my family.</p>
           <!-- /web:about-text -->
+          <h3 class="about__trust" data-i18n="about.trustT">Why trust me?</h3>
+          <p data-i18n="about.trust">My experience developing new homes with my husband gives me a practical, valuable perspective on finding your home. My commitment is to listen to you, help you explore your options and stay with you so you can make informed decisions with confidence.</p>
           <dl class="about__facts">
             <div><dt data-i18n="about.f1">Languages</dt><dd data-i18n="about.f1v">English and Spanish</dd></div>
-            <div><dt data-i18n="about.f3">Focus</dt><dd data-i18n="about.f3v">Homes to buy and rent in Florida</dd></div>
+            <div><dt data-i18n="about.f3">Focus</dt><dd data-i18n="about.f3v">Buying, selling and building in Southwest Florida</dd></div>
           </dl>
           <div class="founder">
             <img class="founder__photo" data-web-img="founder" src="img/ingrid.jpg" width="96" height="96" alt="" loading="lazy">
             <div>
-              <p class="founder__name" data-web="founder">Ingrid Cabeza</p>
-              <p class="founder__role" data-i18n="about.founderRole">Founder and agent · Lic. SL3644016</p>
+              <p class="founder__name" data-web="founder">Ingrid Wendy Cabeza</p>
+              <p class="founder__role" data-i18n="about.founderRole">Real estate agent · Best Deals Realty · Lic. SL3644016</p>
               <p class="founder__links"><a href="tel:+17866264910" data-web="phone">(786) 626-4910</a><a href="https://wa.me/17866264910" target="_blank" rel="noopener">WhatsApp</a></p>
             </div>
           </div>
@@ -309,16 +328,20 @@
       <div class="wrap contact">
         <div class="contact__intro">
           <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-          <h2 id="contact-title" class="h2" data-i18n="contact.title">Let’s talk</h2>
-          <p data-i18n="contact.lede">Tell us what you are looking for and we will reply the same day. Showings seven days a week, by appointment.</p>
+          <h2 id="contact-title" class="h2" data-i18n="contact.title">Prefer to talk directly?</h2>
+          <p data-i18n="contact.lede">Message me on WhatsApp, call me or leave me a message here. I will review your details and get in touch to talk about what you need.</p>
           <ul class="channels">
             <!-- web:channels -->
             <li><span data-i18n="contact.phone">Phone</span><a href="tel:+17866264910" data-web="phone">(786) 626-4910</a></li>
             <li><span>WhatsApp</span><a href="https://wa.me/17866264910" target="_blank" rel="noopener">+1 786 626 4910</a></li>
-            <li><span data-i18n="contact.email">Email</span><a href="mailto:ingrid.realtor91@gmail.com" data-web="email">ingrid.realtor91@gmail.com</a></li>
+            <li><span data-i18n="contact.email">Email</span><a href="mailto:info@ingrid-realtor.com" data-web="email">info@ingrid-realtor.com</a></li>
             <li><span data-i18n="contact.office">Office</span><span data-web="office">Cape Coral, FL 33904</span></li>
+            <li><span data-i18n="contact.broker">Brokerage</span><span>Best Deals Realty</span></li>
+            <li><span data-i18n="contact.license">Florida license</span><span>SL3644016</span></li>
+            <li><span data-i18n="contact.social">Follow me</span><span class="channels__social"><a href="https://www.instagram.com/ingridw_realtor" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/share/1LXLq276U1/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@wenduchy91" target="_blank" rel="noopener">TikTok</a></span></li>
             <!-- /web:channels -->
           </ul>
+          <a class="btn btn--sea contact__wa" href="https://wa.me/17866264910" target="_blank" rel="noopener" data-i18n="contact.wa">Message me on WhatsApp</a>
         </div>
         <form class="form" id="contact-form" novalidate data-endpoint="/api/form">
           <div class="field-row">
@@ -341,10 +364,10 @@
             <div class="field">
               <label for="c-interest" data-i18n="form.interest">I’m interested in</label>
               <select id="c-interest" name="interest">
-                <option value="buy" data-i18n="form.i1">Buying</option>
-                <option value="sell" data-i18n="form.i2">Selling</option>
-                <option value="both" data-i18n="form.i3">Buying and selling</option>
-                <option value="rent" data-i18n="form.i4">Renting</option>
+                <option value="buy" data-i18n="form.i1">Buying a property</option>
+                <option value="sell" data-i18n="form.i2">Selling my property</option>
+                <option value="build" data-i18n="form.i5">Building my dream home</option>
+                <option value="guidance" data-i18n="form.i6">Getting advice</option>
               </select>
             </div>
           </div>
@@ -371,8 +394,15 @@
             <label for="c-msg" data-i18n="form.msg">Message</label>
             <textarea id="c-msg" name="message" rows="4" data-i18n-attr="placeholder:form.msgPh" placeholder="Area, bedrooms, budget, dates…"></textarea>
           </div>
+          <div class="field field--check">
+            <label class="check"><input type="checkbox" name="consent" value="yes" required><span data-i18n="form.consent">I authorize Ingrid Wendy Cabeza, of Best Deals Realty, to contact me by phone, WhatsApp or email to answer my inquiry.</span></label>
+            <p class="field__error" data-i18n="form.errConsent">Tick this box so I can reply to you.</p>
+          </div>
+          <div class="field field--check">
+            <label class="check"><input type="checkbox" name="news" value="yes"><span data-i18n="form.news">I want to receive available properties, tips and news by email from Ingrid Wendy Cabeza, of Best Deals Realty.</span></label>
+          </div>
           <button class="btn btn--sea" type="submit" data-i18n="form.submit">Send message</button>
-          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
+          <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>.</p>
           <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
@@ -384,14 +414,17 @@
     <div class="wrap footer__grid">
       <div>
         <p class="footer__brand"><img src="img/clave-mark.svg" width="132" height="48" alt=""><span data-web="brand">Ingrid Realtor</span></p>
-        <p class="footer__small" data-i18n="footer.role">Florida real estate · Licensed agent: Ingrid Cabeza, SL3644016</p>
-        <p class="footer__small" data-i18n="footer.broker">Brokered by BEST DEALS REALTY, Licensed Real Estate Broker</p>
+        <p class="footer__small" data-i18n="footer.role">Florida real estate · Licensed agent: Ingrid Wendy Cabeza, SL3644016</p>
+        <!-- web:social -->
+        <p class="footer__social"><a href="https://www.instagram.com/ingridw_realtor" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/share/1LXLq276U1/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@wenduchy91" target="_blank" rel="noopener">TikTok</a></p>
+        <!-- /web:social -->
+        <p class="footer__small" data-i18n="footer.broker">Brokered by Best Deals Realty, Licensed Real Estate Broker</p>
       </div>
       <nav class="footer__nav" aria-label="Footer">
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#valuation" data-i18n="nav.sell">Sell</a>
         <a href="guias.html" data-i18n="nav.guides">Guides</a>
-        <a href="#contact" data-i18n="nav.cta">Contact us</a>
+        <a href="#contact" data-i18n="nav.cta">Contact me</a>
       </nav>
       <div class="footer__small">
         <p data-i18n="footer.eho">Equal Housing Opportunity.</p>
@@ -407,7 +440,7 @@
   <nav class="action-bar" aria-label="Quick contact" data-i18n-attr="aria-label:bar.label">
     <a href="tel:+17866264910" data-i18n="bar.call">Call</a>
     <a href="https://wa.me/17866264910" target="_blank" rel="noopener">WhatsApp</a>
-    <a class="action-bar__main" href="#contact" data-i18n="bar.cta">Contact us</a>
+    <a class="action-bar__main" href="#contact" data-i18n="bar.cta">Contact me</a>
   </nav>
 
   <script src="js/i18n.js"></script>

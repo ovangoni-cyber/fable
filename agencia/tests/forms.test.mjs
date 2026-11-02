@@ -63,6 +63,10 @@ check('hero form subject', /^Contacto rápido \(portada\) — Luis$/.test(mails[
 check('hero form body says what they want, in Spanish', /Interés: Vender/.test(mails[2] && mails[2].text), mails[2] && mails[2].text);
 r = await post({ ...contact, budget: '300-600', form: 'contact', page: '/', lang: 'es' }, { ip: '10.0.0.13' });
 check('budget shown as a Cape Coral range', /Presupuesto: \$300k – \$600k/.test(mails[3] && mails[3].text), mails[3] && mails[3].text);
+r = await post({ ...contact, interest: 'build', consent: 'yes', news: 'yes', form: 'hero' }, { ip: '10.0.0.14' });
+check('hero form: building, with consent and news', /Interés: Construir/.test(mails[4] && mails[4].text) && /Autoriza el contacto: Sí/.test(mails[4].text) && /Quiere recibir novedades: Sí/.test(mails[4].text), mails[4] && mails[4].text);
+r = await post({ ...contact, interest: 'guidance', form: 'hero' }, { ip: '10.0.0.15' });
+check('hero form: advice, no news', /Interés: Recibir orientación/.test(mails[5] && mails[5].text) && !/novedades/.test(mails[5].text), mails[5] && mails[5].text);
 
 // Honeypot: answered as if sent, not mailed, logged as spam.
 const before = mails.length;

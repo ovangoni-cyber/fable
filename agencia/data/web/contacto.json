@@ -6,7 +6,7 @@
   },
   "telefono": "(786) 626-4910",
   "whatsapp": "",
-  "email": "ingrid.realtor91@gmail.com",
+  "email": "info@ingrid-realtor.com",
   "oficina": {
     "calle": "",
     "ciudad": "Cape Coral",
@@ -14,13 +14,18 @@
     "cp": "33904"
   },
   "licencia": "SL3644016",
-  "agencia": "BEST DEALS REALTY",
+  "agencia": "Best Deals Realty",
   "formularios": "/api/form",
   "dominio": "https://ingrid-realtor.com",
-  "titulo": "Hablemos",
-  "texto": "Cuéntanos qué buscas y te respondemos el mismo día. Hacemos visitas los siete días de la semana, con cita.",
+  "titulo": "¿Prefieres conversar directamente?",
+  "texto": "Escríbeme por WhatsApp, llámame o déjame un mensaje aquí. Revisaré tu información y me pondré en contacto contigo para conversar sobre lo que necesitas.",
+  "redes": {
+    "instagram": "https://www.instagram.com/ingridw_realtor",
+    "facebook": "https://www.facebook.com/share/1LXLq276U1/",
+    "tiktok": "https://www.tiktok.com/@wenduchy91"
+  },
   "en": {
-    "titulo": "Let’s talk",
-    "texto": "Tell us what you are looking for and we will reply the same day. Showings seven days a week, by appointment."
+    "titulo": "Prefer to talk directly?",
+    "texto": "Message me on WhatsApp, call me or leave me a message here. I will review your details and get in touch to talk about what you need."
   }
 }

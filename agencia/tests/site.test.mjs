@@ -37,8 +37,8 @@ for (const page of ['index.html', 'property.html']) {
   forms.forEach((f, i) => check(page + ': form ' + (i + 1) + ' has the honeypot', /<input[^>]*name="website"[^>]*tabindex="-1"/.test(f)));
 }
 
-check('i18n: broker in Spanish', read('js/i18n.js').includes('Corretaje: BEST DEALS REALTY'));
-check('index: broker in English', read('index.html').includes('Brokered by BEST DEALS REALTY'));
+check('i18n: broker in Spanish', read('js/i18n.js').includes('Corretaje: Best Deals Realty'));
+check('index: broker in English', read('index.html').includes('Brokered by Best Deals Realty'));
 
 // With data/web/pagina-propiedades.json "publicada": false the site goes out without properties:
 // open to search engines, with no link, sitemap entry or search box that leads to them.

@@ -447,7 +447,35 @@ const config = {
               "label": "Nombre de la agencia (broker)",
               "widget": "string",
               "required": false,
-              "hint": "En Florida la publicidad debe llevar el nombre de la agencia. Sale en el pie de página."
+              "hint": "En Florida la publicidad debe llevar el nombre de la agencia. Sale en Contacto, en los formularios y en el pie de página."
+            },
+            {
+              "name": "redes",
+              "label": "Redes sociales",
+              "widget": "object",
+              "required": false,
+              "collapsed": true,
+              "hint": "Direcciones completas, empezando por https://. Déjelas vacías para no mostrarlas.",
+              "fields": [
+                {
+                  "name": "instagram",
+                  "label": "Instagram",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "facebook",
+                  "label": "Facebook",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "tiktok",
+                  "label": "TikTok",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
             },
             {
               "name": "titulo",
@@ -590,7 +618,7 @@ const config = {
             },
             {
               "name": "caminos",
-              "label": "¿Qué necesitas? (Comprar, Alquilar, Vender)",
+              "label": "¿Qué necesitas? (Comprar, Construir, Vender)",
               "widget": "object",
               "collapsed": true,
               "fields": [
@@ -622,8 +650,8 @@ const config = {
                   ]
                 },
                 {
-                  "name": "alquilar",
-                  "label": "Tarjeta Alquilar",
+                  "name": "construir",
+                  "label": "Tarjeta Construir",
                   "widget": "object",
                   "fields": [
                     {
@@ -695,8 +723,8 @@ const config = {
                       ]
                     },
                     {
-                      "name": "alquilar",
-                      "label": "Alquilar en inglés",
+                      "name": "construir",
+                      "label": "Construir en inglés",
                       "widget": "object",
                       "required": false,
                       "fields": [
@@ -1070,7 +1098,7 @@ const config = {
         },
         {
           "name": "sobre-mi",
-          "label": "Sobre nosotros",
+          "label": "Sobre mí",
           "file": "agencia/data/web/sobre-mi.json",
           "fields": [
             {
@@ -1113,6 +1141,36 @@ const config = {
               ]
             },
             {
+              "name": "confianza",
+              "label": "¿Por qué confiar en mí?",
+              "widget": "object",
+              "required": false,
+              "fields": [
+                {
+                  "name": "titulo",
+                  "label": "Título",
+                  "widget": "string"
+                },
+                {
+                  "name": "texto",
+                  "label": "Texto",
+                  "widget": "text"
+                },
+                {
+                  "name": "titulo_en",
+                  "label": "Título en inglés",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "texto_en",
+                  "label": "Texto en inglés",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
               "name": "idiomas",
               "label": "Idiomas",
               "widget": "string"
@@ -1131,7 +1189,7 @@ const config = {
                   "name": "nombre",
                   "label": "Nombre",
                   "widget": "string",
-                  "hint": "Sale en Sobre nosotros, en cada propiedad (\"Tu agente\") y en el pie con la licencia."
+                  "hint": "Sale en Sobre mí, en cada propiedad (\"Tu agente\") y en el pie con la licencia."
                 },
                 {
                   "name": "cargo",

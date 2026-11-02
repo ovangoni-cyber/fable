@@ -1,34 +1,34 @@
 {
-  "eyebrow": "Cómo trabajamos",
-  "titulo": "Te acompañamos de la primera visita a la entrega de llaves",
+  "eyebrow": "Cómo trabajo",
+  "titulo": "Te acompaño de la primera visita a la entrega de llaves",
   "en": {
-    "eyebrow": "How we work",
+    "eyebrow": "How I work",
     "titulo": "With you from the first visit to the day you get the keys"
   },
   "comprar": [
     {
       "titulo": "Casas antes de que se publiquen",
-      "texto": "Muchas casas se venden sin anunciarse. Te enseñamos primero las privadas y las que están por salir.",
+      "texto": "Muchas casas se venden sin anunciarse. Te enseño primero las privadas y las que están por salir.",
       "titulo_en": "Homes before they hit the market",
-      "texto_en": "Many homes sell without being advertised. We show you the private and upcoming ones first."
+      "texto_en": "Many homes sell without being advertised. I show you the private and upcoming ones first."
     },
     {
       "titulo": "Revisión a fondo, sobre todo frente al agua",
-      "texto": "Muro de contención, zona de inundación, certificado de elevación, seguros y permisos: lo revisamos contigo antes de hacer una oferta.",
+      "texto": "Muro de contención, zona de inundación, certificado de elevación, seguros y permisos: lo reviso contigo antes de hacer una oferta.",
       "titulo_en": "A thorough check, especially on the water",
-      "texto_en": "Seawall, flood zone, elevation certificate, insurance and permits: we check them with you before you make an offer."
+      "texto_en": "Seawall, flood zone, elevation certificate, insurance and permits: I check them with you before you make an offer."
     },
     {
-      "titulo": "Negociamos con datos",
+      "titulo": "Negocio con datos",
       "texto": "Ofertas basadas en ventas reales de la zona, no en el precio del anuncio.",
-      "titulo_en": "We negotiate with data",
+      "titulo_en": "I negotiate with data",
       "texto_en": "Offers based on real sales nearby, not on the asking price."
     },
     {
       "titulo": "Un cierre sin complicaciones",
-      "texto": "Coordinamos la compañía de títulos, el banco, los inspectores y tu abogado hasta la entrega de llaves.",
+      "texto": "Coordino la compañía de títulos, el banco, los inspectores y tu abogado hasta la entrega de llaves.",
       "titulo_en": "A closing without the hassle",
-      "texto_en": "We coordinate the title company, lender, inspectors and your attorney until you get the keys."
+      "texto_en": "I coordinate the title company, lender, inspectors and your attorney until you get the keys."
     }
   ],
   "vender": [
@@ -60,21 +60,21 @@
   "exterior": [
     {
       "titulo": "Comprar a través de una sociedad",
-      "texto": "Muchos compradores extranjeros compran con una LLC. Trabajamos junto a tu abogado y tu contador desde la primera oferta.",
+      "texto": "Muchos compradores extranjeros compran con una LLC. Trabajo junto a tu abogado y tu contador desde la primera oferta.",
       "titulo_en": "Buying through a company",
-      "texto_en": "Many foreign buyers purchase through an LLC. We work with your attorney and accountant from the first offer."
+      "texto_en": "Many foreign buyers purchase through an LLC. I work with your attorney and accountant from the first offer."
     },
     {
       "titulo": "Hipoteca sin historial en EE. UU.",
-      "texto": "Te ponemos en contacto con bancos que dan hipotecas a extranjeros.",
+      "texto": "Te pongo en contacto con bancos que dan hipotecas a extranjeros.",
       "titulo_en": "A mortgage without U.S. credit history",
-      "texto_en": "We introduce you to lenders with mortgages for foreign nationals."
+      "texto_en": "I introduce you to lenders with mortgages for foreign nationals."
     },
     {
       "titulo": "FIRPTA, sin sorpresas",
-      "texto": "Si vendes siendo extranjero, se retiene parte del precio (FIRPTA). Lo planificamos con tu asesor fiscal desde que compras.",
+      "texto": "Si vendes siendo extranjero, se retiene parte del precio (FIRPTA). Lo planifico con tu asesor fiscal desde que compras.",
       "titulo_en": "FIRPTA, no surprises",
-      "texto_en": "When a foreign owner sells, part of the price is withheld (FIRPTA). We plan for it with your tax advisor from the day you buy."
+      "texto_en": "When a foreign owner sells, part of the price is withheld (FIRPTA). I plan for it with your tax advisor from the day you buy."
     },
     {
       "titulo": "Firma a distancia y cuidado de la casa",

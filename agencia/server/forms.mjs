@@ -7,19 +7,22 @@ const MAX_BODY = 20 * 1024;
 const MAX_FIELD = 2000;
 const RATE = { max: 5, windowMs: 10 * 60 * 1000 };
 // The fields of the three forms (contact-form, valuation-form, enquire-form) plus what js/core.js adds.
-const FIELDS = ['name', 'email', 'phone', 'message', 'address', 'type', 'timeline', 'interest', 'budget', 'language', 'reference', 'form', 'page', 'lang', 'website'];
+const FIELDS = ['name', 'email', 'phone', 'message', 'address', 'type', 'timeline', 'interest', 'budget', 'language', 'reference', 'consent', 'news', 'form', 'page', 'lang', 'website'];
 const LABELS = {
   name: 'Nombre', email: 'Correo', phone: 'Teléfono', reference: 'Referencia', address: 'Dirección', type: 'Tipo',
-  timeline: 'Plazo', interest: 'Interés', budget: 'Presupuesto', language: 'Idioma preferido', message: 'Mensaje'
+  timeline: 'Plazo', interest: 'Interés', budget: 'Presupuesto', language: 'Idioma preferido', message: 'Mensaje',
+  consent: 'Autoriza el contacto', news: 'Quiere recibir novedades'
 };
 const SUBJECTS = { contact: 'Contacto web', valuation: 'Valoración', enquire: 'Interés en propiedad', hero: 'Contacto rápido (portada)' };
 // The options of the forms' lists, in Spanish for the email (the form sends the option's value).
 const VALUES = {
-  interest: { buy: 'Comprar', sell: 'Vender', both: 'Comprar y vender', rent: 'Alquilar' },
+  interest: { buy: 'Comprar', sell: 'Vender', build: 'Construir', guidance: 'Recibir orientación', both: 'Comprar y vender', rent: 'Alquilar' },
   type: { house: 'Casa', condo: 'Condominio o penthouse', land: 'Terreno o casa para derribar' },
   timeline: { now: 'En los próximos 3 meses', year: 'Dentro de un año', curious: 'Solo por curiosidad' },
   budget: { '0-300': 'Hasta $300k', '300-600': '$300k – $600k', '600-1000': '$600k – $1M', '1000+': 'Más de $1M', na: 'Prefiere no decirlo' },
-  language: { en: 'Inglés', es: 'Español' }
+  language: { en: 'Inglés', es: 'Español' },
+  consent: { yes: 'Sí' },
+  news: { yes: 'Sí' }
 };
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

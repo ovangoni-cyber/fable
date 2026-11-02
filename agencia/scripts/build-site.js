@@ -72,6 +72,9 @@ if (contacto) {
   lic = str(c.licencia);
   site = str(c.dominio).replace(/\/+$/, '');
   const agency = str(c.agencia);
+  const social = c.redes || {};
+  const networks = [['instagram', 'Instagram'], ['facebook', 'Facebook'], ['tiktok', 'TikTok']].filter(([k]) => /^https:\/\//.test(str(social[k])));
+  const socialLinks = networks.map(([k, label]) => '<a href="' + attr(social[k]) + '" target="_blank" rel="noopener">' + label + '</a>').join(' · ');
   const marca = c.marca || {};
   brand = str(marca.nombre);
   set('logo.sub', marca.lema, marca.lema_en);
@@ -83,8 +86,12 @@ if (contacto) {
     phone && '<li><span data-i18n="contact.phone">Phone</span><a href="tel:' + phone.href + '" data-web="phone">' + html(phone.text) + '</a></li>',
     wa && '<li><span>WhatsApp</span><a href="https://wa.me/' + wa.wa + '" target="_blank" rel="noopener">' + html(wa.intl) + '</a></li>',
     email && '<li><span data-i18n="contact.email">Email</span><a href="mailto:' + attr(email) + '" data-web="email">' + html(email) + '</a></li>',
-    office && '<li><span data-i18n="contact.office">Office</span><span data-web="office">' + html(office) + '</span></li>'
+    office && '<li><span data-i18n="contact.office">Office</span><span data-web="office">' + html(office) + '</span></li>',
+    agency && '<li><span data-i18n="contact.broker">Brokerage</span><span>' + html(agency) + '</span></li>',
+    lic && '<li><span data-i18n="contact.license">Florida license</span><span>' + html(lic) + '</span></li>',
+    socialLinks && '<li><span data-i18n="contact.social">Follow me</span><span class="channels__social">' + socialLinks + '</span></li>'
   ], pad);
+  blocks.social = (pad) => (socialLinks ? pad + '<p class="footer__social">' + socialLinks + '</p>' : '');
 }
 
 /* home page */
@@ -94,12 +101,12 @@ if (portada) {
   set('hero.eyebrow', portada.eyebrow, en.eyebrow);
   set('hero.lede', portada.frase, en.frase);
   set('hero.sub', portada.subtitulo, en.subtitulo);
-  // "What do you need": the three cards (buy, rent, sell).
+  // "What do you need": the three cards (buy, build, sell).
   const cam = portada.caminos || {};
   const camEn = cam.en || {};
   set('paths.eyebrow', cam.eyebrow, camEn.eyebrow);
   set('paths.title', cam.titulo, camEn.titulo);
-  [['comprar', 'buy'], ['alquilar', 'rent'], ['vender', 'sell']].forEach(([k, key]) => {
+  [['comprar', 'buy'], ['construir', 'build'], ['vender', 'sell']].forEach(([k, key]) => {
     const es = cam[k] || {}, e = camEn[k] || {};
     set('paths.' + key + 'T', es.titulo, e.titulo);
     set('paths.' + key, es.texto, e.texto);
@@ -178,6 +185,9 @@ if (sobreMi) {
   set('about.title', sobreMi.titulo, en.titulo);
   set('about.f1v', sobreMi.idiomas, en.idiomas);
   set('about.f3v', sobreMi.especialidad, en.especialidad);
+  const trust = sobreMi.confianza || {};
+  set('about.trustT', trust.titulo, trust.titulo_en);
+  set('about.trust', trust.texto, trust.texto_en);
   portrait = img(sobreMi.foto);
   // The key's frame: a photo when the panel has one, otherwise only the gold outline.
   blocks['key-photo'] = (pad) => (portrait ? ind([
