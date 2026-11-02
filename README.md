@@ -110,7 +110,9 @@ La web lee `data/listings.json` al cargar, así que necesita servirse desde un s
 
 ## Inmobiliaria (Ingrid Realtor, `agencia/`)
 
-Es una copia de `realtor/` con su propio panel (`agencia/admin/`), su API (`agencia/netlify/functions/api/`) y sus datos (`agencia/data/`). La versión de Ingrid en `realtor/` no cambia. Para publicarla, cree en Netlify **otro sitio** desde el mismo repositorio con **Base directory** `agencia`. Los pasos del panel y de la API son los mismos que los de arriba, con `agencia/` en lugar de `realtor/`.
+Es una copia de `realtor/` con su propio panel (`agencia/admin/`), su API (`agencia/netlify/functions/api/`) y sus datos (`agencia/data/`). La versión de Ingrid en `realtor/` no cambia.
+
+**Dónde está publicada**: en un VPS propio (Hostealo, Ubuntu, `79.110.63.60`) en `https://ingrid-realtor.com`, servida con Nginx. Allí no se usan el panel ni la API (siguen en el repositorio por si vuelven más adelante). Los formularios los recibe un servicio pequeño del propio VPS (`agencia/server/`), que los envía por correo a Ingrid con Gmail y guarda una copia. Para publicar un cambio: commit, push a `main` y `bash agencia/scripts/deploy.sh` (con `--rollback` vuelve a la versión anterior). La preparación del servidor está en `agencia/server/deploy/provision.sh`. Más detalle en `CLAUDE.md`.
 
 Lo que añade:
 

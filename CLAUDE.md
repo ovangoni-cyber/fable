@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Contexto del proyecto
 
-Repositorio con cuatro webs estáticas bilingües (inglés y español), sin framework: HTML, CSS y JavaScript puros, publicadas en Netlify. La persona que encarga el trabajo habla español: responde en español, con explicaciones claras y paso a paso, porque no es programadora. Antes de hacer cambios grandes, haz las preguntas necesarias.
+Repositorio con cuatro webs estáticas bilingües (inglés y español), sin framework: HTML, CSS y JavaScript puros. `agencia/` se publica en un VPS propio (ver *Publicación de `agencia/`*); las demás están preparadas para Netlify. La persona que encarga el trabajo habla español: responde en español, con explicaciones claras y paso a paso, porque no es programadora. Antes de hacer cambios grandes, haz las preguntas necesarias.
 
 | Carpeta | Web | Notas |
 | --- | --- | --- |
@@ -18,8 +18,8 @@ Repositorio con cuatro webs estáticas bilingües (inglés y español), sin fram
 ## La clienta (Ingrid Cabeza)
 
 - Teléfono y WhatsApp (786) 626-4910, correo ingrid.realtor91@gmail.com, licencia SL3644016.
-- Oficina en Cape Coral, FL. El código postal 33904 es una suposición: confírmalo.
-- Falta el nombre de su agencia (broker); en el pie sale "[Nombre de la agencia]". En Florida la publicidad debe llevarlo.
+- Oficina en Cape Coral, FL 33904 (confirmado).
+- Su agencia (broker) es **BEST DEALS REALTY** (`data/web/contacto.json → agencia`). En Florida la publicidad debe llevarlo.
 - Su foto (`img/ingrid.jpg`) está recortada de su tarjeta de visita: tiene poca resolución.
 - Estética de su tarjeta: marfil, negro y dorado (fuentes Cinzel, Cormorant Garamond y Jost). Solo tema claro.
 - Las 18 propiedades, las cifras y los testimonios son de ejemplo (zonas de Miami). Ella trabaja en Cape Coral: probablemente haya que cambiar vecindarios y propiedades.
@@ -42,6 +42,15 @@ Son **copias independientes**, no comparten archivos: un arreglo en una (panel, 
 - Netlify ejecuta `node scripts/build-site.js && node scripts/build-listings.js` (ver `netlify.toml`).
 - Guías para la clienta: `GUIA-PANEL.md` en cada carpeta. Más detalle en el `README.md` de la raíz.
 
+## Publicación de `agencia/` (VPS)
+
+- **Servidor**: VPS de Hostealo, Ubuntu 26.04, `79.110.63.60`. Dominio `ingrid-realtor.com` (comprado en IONOS; registros A de `@` y `www` al VPS). Entrar: `ssh root@79.110.63.60` o, para publicar, `deploy@79.110.63.60` (solo con llave).
+- **Nginx** sirve `/var/www/ingrid-realtor/current`, un enlace a la versión activa en `releases/`. La configuración está en `agencia/server/deploy/` y se instala con `provision.sh` (cómo ejecutarlo, en su cabecera; se puede repetir sin riesgo). Certificado de Let's Encrypt con `certbot --webroot` y renovación automática.
+- **Sin panel ni API en el VPS**: los cambios los pide el dueño en Claude Code. Flujo: editar los JSON → build → comprobar (español e inglés, escritorio y 390 px) → commit → push a `main` → `bash agencia/scripts/deploy.sh`. El script se niega a publicar si hay cambios sin commit o si `HEAD` no es `origin/main`, pasa las pruebas, sube solo lo público (nada de `admin/`, `netlify/`, `tests/`, `scripts/`, `*.md`), cambia de versión de forma atómica y guarda las 5 últimas. `--rollback` vuelve a la anterior. `bash tests/deploy.test.sh` lo prueba contra una carpeta temporal del VPS.
+- **Formularios**: `js/core.js` envía a `/api/form` (de `contacto.json → formularios`). Nginx lo pasa a `agencia/server/main.mjs` (servicio `ingrid-forms`, 127.0.0.1:3100, sin dependencias), que guarda cada mensaje en `/var/lib/ingrid-forms/submissions.jsonl` (12 meses, `logrotate`) y lo envía con Gmail (SMTP 465, contraseña de aplicación) al correo de Ingrid, con `Reply-To` del cliente. Lleva honeypot (`website`), límite de 5 envíos por IP cada 10 minutos y comprobación de `Origin`. Credenciales solo en `/etc/ingrid-forms.env` en el VPS (`SMTP_USER`, `SMTP_PASS`, `MAIL_TO`), nunca en el repositorio ni en el chat. Pruebas: `node tests/forms.test.mjs`.
+- **Oculta a los buscadores** mientras las propiedades y los testimonios sean de ejemplo: `robots.txt` con `Disallow: /` (lo escribe `build-site.js`) y la cabecera `X-Robots-Tag: noindex` de `/etc/nginx/ingrid/noindex.conf`. Para abrirla, vacía ese archivo en el VPS y recarga Nginx, y cambia `robots.txt` en `build-site.js` para que permita todo y anuncie `sitemap.xml`. `contacto.json → dominio` da la dirección para `og:image`, `og:url` y `sitemap.xml`.
+- `.gitattributes` mantiene LF en `*.sh` y `agencia/server/**`: con CRLF fallarían en Linux.
+
 ## Comprobar los cambios
 
 No hay `package.json`, dependencias, linter ni paso de compilación: solo Node 18 o superior para los scripts y las pruebas. Dentro de `realtor/` o `agencia/`:
@@ -49,6 +58,8 @@ No hay `package.json`, dependencias, linter ni paso de compilación: solo Node 1
 ```bash
 node scripts/build-site.js && node scripts/build-listings.js   # aplicar datos; repetir: no debe cambiar nada
 node tests/api.test.mjs                                         # pruebas de la API con un GitHub simulado
+node tests/site.test.mjs                                        # (agencia) enlaces para compartir, broker, formularios, robots y sitemap
+node tests/forms.test.mjs                                       # (agencia) servicio de formularios
 npx http-server -p 8080 -c-1 .                                  # ver la web en local
 ```
 
@@ -70,9 +81,8 @@ Revisa siempre la web en español y en inglés, en escritorio y a 390 px de anch
 ## Estado y pendientes
 
 - `main` tiene las cuatro webs, con `realtor/` y `agencia/` completas (PR #1 y #2 fusionados).
-- Falta publicar en Netlify: crear el sitio desde GitHub, instalar el OAuth de GitHub para el panel, dar acceso a Ingrid y, si se usa, poner `API_KEY` y `GITHUB_TOKEN`. Los pasos están en el README.
-- La clienta compró un dominio en IONOS. Falta saber cuál y conectarlo a Netlify, y luego cambiar `site_url` y `display_url` en `admin/config.mjs`.
-- Los formularios no envían hasta que se configure un servicio (Formspree o Netlify Forms; campo *formularios* del panel).
+- `agencia/` se publica en el VPS (ver arriba). Diseño y plan en `docs/superpowers/`. `realtor/` sigue sin publicar (preparada para Netlify; pasos en el README).
+- Las propiedades, cifras y testimonios de `agencia/` siguen siendo de ejemplo (Miami): hay que cambiarlos por los de Cape Coral antes de abrir la web a los buscadores.
 - Las guías de `agencia/` son orientativas: deben revisarlas alguien con licencia.
 
 ## Reglas para los commits
