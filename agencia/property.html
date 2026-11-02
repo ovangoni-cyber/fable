@@ -8,9 +8,10 @@
   <meta name="theme-color" content="#f6f1e8">
   <meta name="x-brand" content="Ingrid Realtor">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ingrid-realtor.com/property.html">
   <meta property="og:title" content="Ingrid Realtor · Homes for sale and rent in Florida">
   <meta property="og:description" content="Waterfront and estate homes in Florida, represented with discretion.">
-  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image" content="https://ingrid-realtor.com/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -166,7 +167,7 @@
                 <a class="btn btn--line" href="tel:+17866264910" data-web="phone">(786) 626-4910</a>
                 <a class="btn btn--line" id="p-wa" href="https://wa.me/17866264910" target="_blank" rel="noopener">WhatsApp</a>
               </div>
-              <form class="form" id="enquire-form" novalidate data-endpoint="">
+              <form class="form" id="enquire-form" novalidate data-endpoint="/api/form">
                 <input type="hidden" name="reference" id="e-ref">
                 <div class="field">
                   <label for="e-name" data-i18n="form.name">Name</label>
@@ -188,6 +189,7 @@
                 </div>
                 <button class="btn btn--sea" type="submit" id="e-submit"></button>
                 <p class="form__legal" data-i18n="form.legal">By sending this form you agree to the <a href="privacy.html">privacy policy</a>. We use your details only to reply to you.</p>
+                <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <p class="form__status" role="status" aria-live="polite"></p>
               </form>
             </div>
@@ -213,7 +215,7 @@
       <div>
         <p class="footer__brand"><img src="img/clave-mark.svg" width="132" height="48" alt=""><span data-web="brand">Ingrid Realtor</span></p>
         <p class="footer__small" data-i18n="footer.role">Florida real estate · Licensed agent: Ingrid Cabeza, SL3644016</p>
-        <p class="footer__small" data-i18n="footer.broker">Brokered by [Brokerage Name], Licensed Real Estate Broker</p>
+        <p class="footer__small" data-i18n="footer.broker">Brokered by BEST DEALS REALTY, Licensed Real Estate Broker</p>
       </div>
       <nav class="footer__nav" aria-label="Footer">
         <a href="properties.html" data-i18n="nav.buy">Buy</a>

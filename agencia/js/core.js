@@ -139,8 +139,9 @@
 
   /* ---------------------------------------------------------------- forms
      Set data-endpoint on a form (Formspree, Basin, your own API…) to deliver
-     submissions. Without one the form validates and confirms, and says it is
-     not connected yet. */
+     submissions. Without one, or when the site is opened from a folder
+     (file://), the form validates and confirms, and says it is not connected
+     yet. Each submission also says which form, page and language it came from. */
   function fieldOf(input) { return input.closest('.field'); }
   function validate(input) {
     var ok = input.checkValidity();
@@ -164,7 +165,7 @@
       });
       if (firstBad) { firstBad.focus(); return; }
 
-      var endpoint = form.getAttribute('data-endpoint');
+      var endpoint = location.protocol === 'file:' ? '' : form.getAttribute('data-endpoint');
       var submit = form.querySelector('[type="submit"]');
       var nameField = form.querySelector('[name="name"]');
       var first = nameField && nameField.value ? nameField.value.trim().split(/\s+/)[0] : '';
@@ -180,7 +181,11 @@
 
       if (submit) submit.disabled = true;
       status.textContent = t('form.sending');
-      fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      var data = new FormData(form);
+      data.append('form', (form.id || '').replace(/-form$/, ''));
+      data.append('page', location.pathname + location.search);
+      data.append('lang', document.documentElement.lang || '');
+      fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
         .then(function (res) {
           if (!res.ok) throw new Error(res.status);
           status.classList.add('is-ok');

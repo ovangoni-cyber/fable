@@ -519,6 +519,8 @@ select.finput {
 .field.is-invalid .field__error { display: block; }
 .form .btn { justify-self: start; }
 .form__status { min-height: 1.5em; font-size: 0.9375rem; }
+/* Honeypot: hidden from people, filled in by spam robots; the form service ignores those messages. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form__status.is-ok { color: var(--sea); font-weight: 500; }
 .form__status small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 4px; }
 

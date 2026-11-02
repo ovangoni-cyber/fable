@@ -94,4 +94,16 @@ for (const file of files) {
 fs.writeFileSync(out, JSON.stringify({ listings }, null, 2) + '\n');
 // The same data as a script, for when the site is opened straight from a folder (see js/listings.js).
 fs.writeFileSync(path.join(root, 'data', 'listings.js'), '// Written by scripts/build-listings.js. Do not edit by hand.\nwindow.LISTINGS_DATA = ' + JSON.stringify({ listings }) + ';\n');
+// sitemap.xml for search engines, with the web address from data/web/contacto.json (dominio).
+{
+  let site = '';
+  try { site = String(JSON.parse(fs.readFileSync(path.join(root, 'data', 'web', 'contacto.json'), 'utf8')).dominio || '').trim().replace(/\/+$/, ''); } catch (e) { /* no address: no sitemap */ }
+  if (site) {
+    const xml = (v) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const urls = ['', 'properties.html', 'guias.html', 'privacy.html']
+      .concat(listings.filter((l) => l.status !== 'private').map((l) => 'property.html?id=' + encodeURIComponent(l.id)));
+    fs.writeFileSync(path.join(root, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+      urls.map((u) => '  <url><loc>' + xml(site + '/' + u) + '</loc></url>').join('\n') + '\n</urlset>\n');
+  }
+}
 console.log('data/listings.json: ' + listings.length + ' properties');

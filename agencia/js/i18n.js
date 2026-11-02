@@ -122,7 +122,7 @@ window.I18N = {
     'bar.cta': "Contactar",
     'bar.info': 'Consultar',
     'footer.role': "Bienes raíces en Florida · Agente con licencia: Ingrid Cabeza, SL3644016",
-    'footer.broker': "Corretaje: [Nombre de la agencia], corredor de bienes raíces con licencia",
+    'footer.broker': "Corretaje: BEST DEALS REALTY, corredor de bienes raíces con licencia",
     'footer.eho': 'Igualdad de oportunidades en la vivienda.',
     'crumbs.label': 'Ruta de navegación',
     'crumbs.home': 'Inicio',

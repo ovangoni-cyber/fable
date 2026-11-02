@@ -8,7 +8,7 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
-const write = (f, s) => { if (read(f) !== s) { fs.writeFileSync(path.join(root, f), s); console.log('updated ' + f); } };
+const write = (f, s) => { if (!fs.existsSync(path.join(root, f)) || read(f) !== s) { fs.writeFileSync(path.join(root, f), s); console.log('updated ' + f); } };
 function web(name) {
   try { return JSON.parse(read('data/web/' + name + '.json')); } catch (e) {
     console.warn('data/web/' + name + '.json: ' + e.message + ' (using what the pages already say)');
@@ -48,7 +48,7 @@ const set = (k, es, en) => { const p = pair(es, en); if (p.es || p.en) keys[k] =
 const ind = (lines, pad) => lines.filter((l) => l != null).map((l) => pad + l).join('\n');
 
 /* contact */
-let phone = null, wa = null, email = '', office = '', endpoint = null, c = {}, brand = '', lic = '';
+let phone = null, wa = null, email = '', office = '', endpoint = null, c = {}, brand = '', lic = '', site = '';
 if (contacto) {
   c = contacto;
   const tel = (v) => {
@@ -70,6 +70,7 @@ if (contacto) {
   office = [str(o.calle), cityLine].filter(Boolean).join(' · ');
   endpoint = str(c.formularios);
   lic = str(c.licencia);
+  site = str(c.dominio).replace(/\/+$/, '');
   const agency = str(c.agencia);
   const marca = c.marca || {};
   brand = str(marca.nombre);
@@ -359,6 +360,13 @@ function applyHtml(file, metaSet) {
       .replace(/(<meta property="og:title" content=")[^"]*(")/, '$1' + attr(metaSet.es.en) + '$2')
       .replace(/(<meta property="og:description" content=")[^"]*(")/, '$1' + attr(metaSet.desc.en) + '$2');
   }
+  // Shared links need full addresses (https://domain/...) for the preview image to show.
+  if (site && /<meta property="og:type"/.test(s)) {
+    s = s.replace(/(<meta property="og:image" content=")(?:https?:\/\/[^/"]+)?\/?([^"]*)(")/, (all, a, rel, b) => a + attr(site + '/' + rel) + b);
+    const url = attr(site + '/' + (file === 'index.html' ? '' : file));
+    if (/<meta property="og:url"/.test(s)) s = s.replace(/(<meta property="og:url" content=")[^"]*(")/, '$1' + url + '$2');
+    else s = s.replace(/([ \t]*)(<meta property="og:type"[^>]*>)/, '$1$2\n$1<meta property="og:url" content="' + url + '">');
+  }
   write(file, s);
 }
 applyHtml('index.html', metaHome);
@@ -405,4 +413,8 @@ if (phone) {
   const s = read('js/property.js');
   write('js/property.js', s.replace(/wa\.me\/\d+/g, 'wa.me/' + wa.wa));
 }
+/* robots.txt: the site is hidden from search engines while its properties and figures are samples.
+   To open it, also empty the noindex switch on the server (see CLAUDE.md). */
+write('robots.txt', 'User-agent: *\nDisallow: /\n');
+
 console.log('site texts: ' + Object.keys(keys).length + ' texts, ' + Object.keys(extra).length + ' generated strings' + (zones ? ', ' + zones.length + ' neighborhoods' : ''));

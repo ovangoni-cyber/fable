@@ -14,8 +14,9 @@
     "cp": "33904"
   },
   "licencia": "SL3644016",
-  "agencia": "",
-  "formularios": "",
+  "agencia": "BEST DEALS REALTY",
+  "formularios": "/api/form",
+  "dominio": "https://ingrid-realtor.com",
   "titulo": "Hablemos",
   "texto": "Cuéntanos qué buscas y te respondemos el mismo día. Hacemos visitas los siete días de la semana, con cita.",
   "en": {

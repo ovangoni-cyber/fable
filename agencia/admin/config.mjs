@@ -27,8 +27,8 @@ const config = {
   },
   "local_backend": true,
   "locale": "es",
-  "site_url": "https://ingridcabeza.com",
-  "display_url": "https://ingridcabeza.com",
+  "site_url": "https://ingrid-realtor.com",
+  "display_url": "https://ingrid-realtor.com",
   "logo_url": "../img/clave-mark.svg",
   "media_folder": "agencia/img/propiedades",
   "public_folder": "/img/propiedades",
@@ -486,6 +486,13 @@ const config = {
               "widget": "string",
               "required": false,
               "hint": "La dirección que le da su servicio de formularios (por ejemplo Formspree) para recibir los mensajes de la web en su correo. Vacío: los formularios no envían."
+            },
+            {
+              "name": "dominio",
+              "label": "Dirección de la web (avanzado)",
+              "widget": "string",
+              "required": false,
+              "hint": "Ej.: https://ingrid-realtor.com. Se usa para la vista previa al compartir un enlace (WhatsApp, Facebook) y para el mapa del sitio que leen los buscadores."
             }
           ]
         },
