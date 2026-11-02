@@ -27,7 +27,13 @@ location ^~ /data/ {
     include /etc/nginx/ingrid/headers.inc;
     add_header Cache-Control "no-cache" always;
 }
-location ~* ^/(img|css|js)/ {
+# Scripts and styles change with every publish (build-site.js rewrites js/i18n.js): always check for a
+# newer copy (a quick 304 when unchanged). Photos rarely change: keep them a week.
+location ~* ^/(css|js)/ {
+    include /etc/nginx/ingrid/headers.inc;
+    add_header Cache-Control "no-cache" always;
+}
+location ^~ /img/ {
     include /etc/nginx/ingrid/headers.inc;
     add_header Cache-Control "public, max-age=604800" always;
 }

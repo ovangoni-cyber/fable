@@ -44,12 +44,14 @@ rm new-file.txt
 
 # Keeps the last 5 releases.
 for i in 1 2 3 4 5 6; do sleep 1; deploy || { echo "deploy $i failed"; cat "$TMP/out"; }; done
-n=$(remote "ls -1 $ROOT/releases | grep -c '^2'")
+n=$(remote "ls -1 $ROOT/releases/2*/VERSION | wc -l")
 check 'keeps 5 releases' "$([ "$n" = 5 ] && echo 0 || echo 1)"
 
 # Rollback goes to the previous release, and refuses when there is none older.
 cur=$(remote "readlink $ROOT/current")
 prev=$(remote "ls -1 $ROOT/releases | grep '^2' | sort | tail -2 | head -1")
+# A half-uploaded release (no VERSION) between the two is never chosen.
+remote "mkdir -p $ROOT/releases/$prev-partial"
 deploy --rollback; check 'rollback runs' $?
 check 'rollback → previous release' "$([ "$(remote "readlink $ROOT/current")" = "releases/$prev" ] && echo 0 || echo 1)"
 

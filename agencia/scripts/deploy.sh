@@ -12,10 +12,12 @@ URL=${DEPLOY_URL:-https://ingrid-realtor.com/}
 KEEP=5
 cd "$(dirname "$0")/.."
 remote() { ssh -o BatchMode=yes "$HOST" "$@"; }
+# Releases that finished uploading (they have VERSION), oldest first. Run on the server, in $ROOT.
+COMPLETE="for d in releases/2*/VERSION; do [ -f \"\$d\" ] && basename \"\$(dirname \"\$d\")\"; done | sort"
 fail() { echo "ERROR: $*" >&2; exit 1; }
 
 if [ "${1:-}" = --rollback ]; then
-  prev=$(remote "cd $ROOT && cur=\$(basename \"\$(readlink current)\") && ls -1 releases | grep '^2' | sort | awk -v c=\"\$cur\" '\$0 == c { print p; exit } { p = \$0 }'")
+  prev=$(remote "cd $ROOT && cur=\$(basename \"\$(readlink current)\") && $COMPLETE | awk -v c=\"\$cur\" '\$0 == c { print p; exit } { p = \$0 }'")
   [ -n "$prev" ] || fail 'No hay una versión anterior a la que volver.'
   remote "cd $ROOT && ln -sfn releases/$prev current.tmp && mv -Tf current.tmp current"
   echo "Listo: la web vuelve a la versión $prev."
@@ -45,13 +47,13 @@ echo '== Subiendo'
 # Only what visitors need, plus the form service. Never the panel, the API, tests, scripts or docs.
 files=$(git ls-files -- . | grep -Ev '^(admin|netlify|tests|scripts|server/deploy)/|\.md$|^netlify\.toml$')
 rel=$(date -u +%Y%m%d-%H%M%S)
-printf '%s\n' "$files" | tar czf - -T - | remote "set -e; mkdir $ROOT/releases/$rel; tar xzf - -C $ROOT/releases/$rel; echo $(git rev-parse HEAD) > $ROOT/releases/$rel/VERSION"
+printf '%s\n' "$files" | tar czf - -T - | remote "set -e; cd $ROOT/releases; rm -rf .tmp-*; mkdir .tmp-$rel; tar xzf - -C .tmp-$rel; echo $(git rev-parse HEAD) > .tmp-$rel/VERSION; mv .tmp-$rel $rel"
 
 echo '== Activando'
 changed=$(remote "set -e; cd $ROOT
   old=\$(readlink current || true)
   ln -sfn releases/$rel current.tmp && mv -Tf current.tmp current
-  ls -1 releases | grep '^2' | sort | head -n -$KEEP | sed 's|^|releases/|' | xargs -r rm -rf
+  $COMPLETE | head -n -$KEEP | sed 's|^|releases/|' | xargs -r rm -rf
   if [ -z \"\$old\" ] || ! diff -rq \"\$old/server\" releases/$rel/server >/dev/null 2>&1; then echo yes; fi")
 if [ "${DEPLOY_RESTART:-1}" = 1 ] && [ "$changed" = yes ]; then
   remote 'sudo -n /usr/bin/systemctl restart ingrid-forms'

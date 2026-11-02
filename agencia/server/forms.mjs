@@ -20,7 +20,17 @@ export function createHandler({ sendMail, logFile, to, from, allowedOrigin, now 
   fs.mkdirSync(path.dirname(logFile), { recursive: true });
   const log = (o) => fs.appendFileSync(logFile, JSON.stringify(o) + '\n');
 
-  return async function handle(req, res) {
+  // Any unexpected error answers 500 instead of stopping the service.
+  return async function (req, res) {
+    try {
+      await handle(req, res);
+    } catch (e) {
+      console.error('form service error: ' + (e && e.message || e));
+      if (!res.headersSent) { res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' }); res.end('{"ok":false}'); }
+    }
+  };
+
+  async function handle(req, res) {
     const reply = (status, o) => { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' }); res.end(JSON.stringify(o)); };
     if (new URL(req.url, 'http://x').pathname !== '/api/form') return reply(404, { ok: false });
     if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return reply(405, { ok: false }); }
@@ -61,8 +71,9 @@ export function createHandler({ sendMail, logFile, to, from, allowedOrigin, now 
     if (website) { log({ ts, ref, ip, form, page, lang, fields, spam: true }); return reply(200, { ok: true }); }
     log({ ts, ref, ip, form, page, lang, fields, spam: false });
 
-    const id = (/[?&]id=([^&#]+)/.exec(page || '') || [])[1];
-    const what = form === 'enquire' ? [fields.reference, id && decodeURIComponent(id)].filter(Boolean).join(', ') : '';
+    let id = (/[?&]id=([^&#]+)/.exec(page || '') || [])[1] || '';
+    try { id = decodeURIComponent(id); } catch (e) { /* keep it as sent */ }
+    const what = form === 'enquire' ? [fields.reference, id].filter(Boolean).join(', ').replace(/[\r\n]+/g, ' ') : '';
     const subject = (SUBJECTS[form] || 'Mensaje web') + (what ? ' (' + what + ')' : '') + ' — ' + (fields.name || fields.email);
     const text = Object.keys(LABELS).filter((k) => fields[k]).map((k) => LABELS[k] + ': ' + fields[k]).join('\n') +
       '\n\n—\nPágina: ' + (allowedOrigin + (page || '/')) + '\nIdioma de la web: ' + (lang || '?') + '\nEnviado: ' + ts +
@@ -76,5 +87,5 @@ export function createHandler({ sendMail, logFile, to, from, allowedOrigin, now 
       console.error('mail failed for ' + ref + ': ' + (e && e.message || e));
       return reply(502, { ok: false });
     }
-  };
+  }
 }

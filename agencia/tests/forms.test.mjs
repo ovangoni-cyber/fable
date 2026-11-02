@@ -99,6 +99,14 @@ lines = logLines();
 check('mail failure → logged as failed', lines[lines.length - 1].mail === 'failed' && /535/.test(lines[lines.length - 1].error || ''), lines[lines.length - 1]);
 check('mail failure → submission kept in the log', lines[lines.length - 2].fields && lines[lines.length - 2].fields.name === 'Ana López');
 
+// A malformed page address does not crash the service.
+r = await post({ ...contact, form: 'enquire', page: '/property.html?id=%E0%A4%A' }, { ip: '10.0.0.9' });
+check('malformed page id → still answered', r.status === 200 || r.status === 400, r);
+r = await post(contact, { ip: '10.0.0.10' }).catch((e) => ({ status: 'down: ' + e.message }));
+check('service still up after a malformed page id', r.status === 200, r);
+r = await post({ ...contact, form: 'enquire', page: '/property.html?id=a%0D%0ABcc:%20x@y.com' }, { ip: '10.0.0.11' });
+check('newline in page id stays out of the subject', !/[\r\n]/.test(mails[mails.length - 1].subject), mails[mails.length - 1].subject);
+
 // Other methods.
 const g = await fetch(base + '/api/form');
 check('GET → 405', g.status === 405, g.status);
@@ -107,6 +115,7 @@ server.close();
 
 // smtp.mjs against a fake SMTP server (plain TCP).
 const session = [];
+let rejectPass = false;
 const smtp = net.createServer((sock) => {
   let buf = '', inData = false, data = '';
   const say = (l) => sock.write(l + '\r\n');
@@ -124,7 +133,7 @@ const smtp = net.createServer((sock) => {
       if (/^EHLO/i.test(line)) { sock.write('250-fake\r\n250 AUTH LOGIN\r\n'); }
       else if (line === 'AUTH LOGIN') say('334 VXNlcm5hbWU6');
       else if (session.length && session[session.length - 2] === 'AUTH LOGIN') say('334 UGFzc3dvcmQ6');
-      else if (session.length > 2 && session[session.length - 3] === 'AUTH LOGIN') say('235 ok');
+      else if (session.length > 2 && session[session.length - 3] === 'AUTH LOGIN') say(rejectPass ? '535 5.7.8 Username and Password not accepted' : '235 ok');
       else if (/^MAIL FROM|^RCPT TO/i.test(line)) say('250 ok');
       else if (line === 'DATA') { inData = true; data = ''; say('354 go'); }
       else if (line === 'QUIT') { say('221 bye'); sock.end(); }
@@ -138,7 +147,14 @@ await sendMail({
   from: 'web@example.com', to: 'ingrid.realtor91@gmail.com', replyTo: 'jose@example.com',
   subject: 'Contacto web — José Peña 🙂', text: 'Hola\n.hidden line\nAdiós'
 });
+rejectPass = true;
+let err = '';
+try {
+  await sendMail({ host: '127.0.0.1', port: smtp.address().port, secure: false, user: 'web@example.com', pass: 's3cret', from: 'web@example.com', to: 'x@example.com', subject: 's', text: 't' });
+} catch (e) { err = e.message; }
 smtp.close();
+check('smtp: rejected password → error', /535/.test(err), err);
+check('smtp: error never contains the user or password', !err.includes(Buffer.from('s3cret').toString('base64')) && !err.includes(Buffer.from('web@example.com').toString('base64')) && !err.includes('s3cret'), err);
 check('smtp: AUTH LOGIN with base64 user and password', session.includes(Buffer.from('web@example.com').toString('base64')) && session.includes(Buffer.from('s3cret').toString('base64')), session);
 check('smtp: envelope', session.includes('MAIL FROM:<web@example.com>') && session.includes('RCPT TO:<ingrid.realtor91@gmail.com>'), session);
 const msg = (session.find((s) => s && s.data) || {}).data || '';
