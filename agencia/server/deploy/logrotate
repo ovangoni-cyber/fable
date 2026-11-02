@@ -1,0 +1,10 @@
+# Form messages are kept 12 months (see privacy.html), then deleted.
+/var/lib/ingrid-forms/submissions.jsonl {
+    monthly
+    rotate 12
+    compress
+    delaycompress
+    missingok
+    notifempty
+    copytruncate
+}

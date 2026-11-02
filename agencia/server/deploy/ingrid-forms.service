@@ -1,0 +1,22 @@
+[Unit]
+Description=Ingrid Realtor form service (POST /api/form)
+After=network-online.target
+Wants=network-online.target
+# Starts only once the mail settings exist (see CLAUDE.md).
+ConditionPathExists=/etc/ingrid-forms.env
+
+[Service]
+User=ingrid-forms
+Group=ingrid-forms
+EnvironmentFile=/etc/ingrid-forms.env
+ExecStart=/usr/bin/node /var/www/ingrid-realtor/current/server/main.mjs
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/ingrid-forms
+
+[Install]
+WantedBy=multi-user.target
