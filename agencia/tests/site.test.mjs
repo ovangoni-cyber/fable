@@ -40,31 +40,34 @@ for (const page of ['index.html', 'property.html']) {
 check('i18n: broker in Spanish', read('js/i18n.js').includes('Corretaje: BEST DEALS REALTY'));
 check('index: broker in English', read('index.html').includes('Brokered by BEST DEALS REALTY'));
 
-// While data/web/pagina-propiedades.json has "publicada": false the site goes out without properties:
+// With data/web/pagina-propiedades.json "publicada": false the site goes out without properties:
 // open to search engines, with no link, sitemap entry or search box that leads to them.
-check('properties switched off', JSON.parse(read('data/web/pagina-propiedades.json')).publicada === false);
+const shown = JSON.parse(read('data/web/pagina-propiedades.json')).publicada !== false;
 check('robots.txt open, with the sitemap', exists('robots.txt') && read('robots.txt') === 'User-agent: *\nAllow: /\nSitemap: ' + D + '/sitemap.xml\n', exists('robots.txt') && read('robots.txt'));
 
 const sitemap = exists('sitemap.xml') ? read('sitemap.xml') : '';
 check('sitemap: home', sitemap.includes('<loc>' + D + '/</loc>'));
 check('sitemap: guides and privacy', sitemap.includes('<loc>' + D + '/guias.html</loc>') && sitemap.includes('<loc>' + D + '/privacy.html</loc>'));
-check('sitemap: no properties', !/propert/.test(sitemap), sitemap);
+if (shown) check('sitemap: a property', sitemap.includes('<loc>' + D + '/property.html?id=granada</loc>'));
+else check('sitemap: no properties', !/propert/.test(sitemap), sitemap);
 check('sitemap: no admin', !sitemap.includes('admin'));
 
-for (const page of ['index.html', 'guias.html', 'privacy.html']) {
-  const s = read(page);
-  check(page + ': no link to the properties', !/href="properties?\.html/.test(s), (s.match(/href="propert[^"]*"/g) || []).join(' '));
-  check(page + ': no map link in the menu', !/data-i18n="nav\.map"/.test(s));
+if (!shown) {
+  for (const page of ['index.html', 'guias.html', 'privacy.html']) {
+    const s = read(page);
+    check(page + ': no link to the properties', !/href="properties?\.html/.test(s), (s.match(/href="propert[^"]*"/g) || []).join(' '));
+    check(page + ': no map link in the menu', !/data-i18n="nav\.map"/.test(s));
+  }
+  const home = read('index.html');
+  check('index: no search box, featured grid or map', !/id="(hero-search|featured-grid|home-map|neighborhoods)"/.test(home));
+  check('index: no sample figures or testimonials', !/class="figures"|words-title/.test(home));
+  check('index: does not load the property scripts', !/js\/(listings|catalog|map)\.js/.test(home));
+  const hero = (home.match(/<form[^>]*id="hero-form"[\s\S]*?<\/form>/) || [''])[0];
+  check('index: short form in the hero', /data-endpoint="\/api\/form"/.test(hero) && /name="name"[^>]*required/.test(hero) && /name="email"[^>]*required/.test(hero) && /name="phone"/.test(hero) && /name="interest"/.test(hero));
+  check('index: hero form has the honeypot', /<input[^>]*name="website"[^>]*tabindex="-1"/.test(hero));
+  check('index: no Miami areas for search engines', !/Miami|Brickell|Key Biscayne/.test((home.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/) || [''])[0]));
 }
-const home = read('index.html');
-check('index: no search box, featured grid or map', !/id="(hero-search|featured-grid|home-map|neighborhoods)"/.test(home));
-check('index: no sample figures or testimonials', !/class="figures"|words-title/.test(home));
-check('index: does not load the property scripts', !/js\/(listings|catalog|map)\.js/.test(home));
-const hero = (home.match(/<form[^>]*id="hero-form"[\s\S]*?<\/form>/) || [''])[0];
-check('index: short form in the hero', /data-endpoint="\/api\/form"/.test(hero) && /name="name"[^>]*required/.test(hero) && /name="email"[^>]*required/.test(hero) && /name="phone"/.test(hero) && /name="interest"/.test(hero));
-check('index: hero form has the honeypot', /<input[^>]*name="website"[^>]*tabindex="-1"/.test(hero));
-check('index: no Miami areas for search engines', !/Miami|Brickell|Key Biscayne/.test((home.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/) || [''])[0]));
-check('footer: no "sample listings" note', !/Sample listings/.test(home) && !/ejemplos ilustrativos/.test(read('js/i18n.js')));
+check('footer: no "sample listings" note', !/Sample listings/.test(read('index.html')) && !/ejemplos ilustrativos/.test(read('js/i18n.js')));
 
 const before = { robots: exists('robots.txt') && read('robots.txt'), sitemap };
 const again = build();
